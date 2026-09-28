@@ -60,9 +60,8 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
 
 /* HERO */
 .hero {
-  min-height: 100vh; min-height: 100svh;
-  display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 120px var(--gutter) 48px;
+  display: flex; flex-direction: column;
+  padding: 104px var(--gutter) 48px;
   position: relative;
 }
 .eyebrow { font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
