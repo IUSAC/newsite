@@ -311,3 +311,21 @@ body.hero-dark .nav:not(.scrolled) .burger span { background: var(--paper); }
 body.hero-dark .nav:not(.scrolled) .nav-links.open { color: var(--ink); }
 body.hero-dark .nav:not(.scrolled) .nav-links.open .nav-cta { border-color: var(--ink); }
 body.hero-dark .nav:not(.scrolled) .burger[aria-expanded="true"] span { background: var(--ink); }
+
+/* Mobile menu fix: the blurred nav bar traps the fixed menu, so size it explicitly and hide it fully when closed */
+@media (max-width: 760px) {
+  .nav-links {
+    inset: auto; top: 0; left: 0; width: 100vw; height: 100vh; height: 100dvh;
+    visibility: hidden; transition: transform .45s cubic-bezier(.7,0,.2,1), visibility 0s .45s;
+  }
+  .nav-links.open { visibility: visible; transition: transform .45s cubic-bezier(.7,0,.2,1), visibility 0s; }
+}
+
+/* Mobile menu fix: the blurred nav bar traps the fixed menu, so size it explicitly and hide it fully when closed */
+@media (max-width: 760px) {
+  .nav-links {
+    inset: auto; top: 0; left: 0; width: 100vw; height: 100vh; height: 100dvh;
+    visibility: hidden; transition: transform .45s cubic-bezier(.7,0,.2,1), visibility 0s .45s;
+  }
+  .nav-links.open { visibility: visible; transition: transform .45s cubic-bezier(.7,0,.2,1), visibility 0s; }
+}
