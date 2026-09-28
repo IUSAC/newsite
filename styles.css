@@ -288,3 +288,26 @@ body.entered .hero-title .line > span, body.entered .hero-fade { transform: none
 @media (prefers-reduced-motion: reduce) {
   .intro, .intro-mark, .intro-text, .hero-title .line > span, .hero-fade { transition: none; animation: none; transform: none; opacity: 1; }
 }
+
+/* ===== HERO VIDEO ===== */
+.hero-video { min-height: 100vh; min-height: 100svh; background: var(--ink); color: var(--paper); overflow: hidden; isolation: isolate; }
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transform: scale(1.08); transition: transform 2.4s cubic-bezier(.2,.7,.2,1); }
+body.entered .hero-bg { transform: scale(1); }
+.hero-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(14,14,16,.55) 0%, rgba(14,14,16,.25) 45%, rgba(14,14,16,.75) 100%); }
+.hero-video .eyebrow, .hero-video .hero-scroll { color: rgba(244,241,234,.75); }
+.hero-video .hero-bottom { border-top-color: var(--dark-line); }
+.hero-video .btn { background: var(--paper); color: var(--ink); }
+.hero-video .btn:hover { background: var(--accent); color: var(--paper); }
+.hero-video .hero-title em { color: #d9694d; }
+/* nav light while over the dark hero */
+body.hero-dark .nav:not(.scrolled) { color: var(--paper); }
+body.hero-dark .nav:not(.scrolled) .nav-cta { border-color: var(--paper); }
+body.hero-dark .nav:not(.scrolled) .nav-cta:hover { background: var(--paper); color: var(--ink); }
+body.hero-dark .nav:not(.scrolled) .burger span { background: var(--paper); }
+
+/* ===== PARTNER PHOTOS ===== */
+.person-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.04); transition: transform 1.2s cubic-bezier(.2,.7,.2,1), filter .6s; filter: grayscale(.25); }
+.person:hover .person-photo img { transform: scale(1); filter: none; }
+body.hero-dark .nav:not(.scrolled) .nav-links.open { color: var(--ink); }
+body.hero-dark .nav:not(.scrolled) .nav-links.open .nav-cta { border-color: var(--ink); }
+body.hero-dark .nav:not(.scrolled) .burger[aria-expanded="true"] span { background: var(--ink); }
