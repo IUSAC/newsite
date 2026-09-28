@@ -329,3 +329,11 @@ body.hero-dark .nav:not(.scrolled) .burger[aria-expanded="true"] span { backgrou
   }
   .nav-links.open { visibility: visible; transition: transform .45s cubic-bezier(.7,0,.2,1), visibility 0s; }
 }
+
+/* Mobile header v6: solid bar without blur (blur traps the fixed menu in some mobile browsers) */
+@media (max-width: 760px) {
+  .nav.scrolled { background: var(--paper); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .nav-links { position: fixed; opacity: 0; pointer-events: none; }
+  .nav-links.open { opacity: 1; pointer-events: auto; }
+  .logo { position: relative; z-index: 2; }
+}
