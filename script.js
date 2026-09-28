@@ -113,9 +113,7 @@ soundBtn.addEventListener('click', () => setSound(!Ambient.on));
     setTimeout(() => intro.classList.add('gone'), 1200);
   };
 
-  if (seen || reduce) { intro.classList.add('gone'); document.body.classList.remove('is-loading'); document.body.classList.add('entered'); return; }
-
-  const start = performance.now(), dur = 1800;
+  const start = performance.now(), dur = (seen || reduce) ? 400 : 1800;
   const tick = now => {
     const p = Math.min(1, (now - start) / dur), e = 1 - Math.pow(1 - p, 3);
     bar.style.width = (e * 100) + '%';
