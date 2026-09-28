@@ -10,7 +10,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="is-loading">
+
+<!-- INTRO -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-inner">
+    <div class="intro-logo"><span class="intro-mark">PK</span><span class="intro-text">Adwokaci</span></div>
+    <div class="intro-bar"><span id="introBar"></span></div>
+    <div class="intro-meta"><span>Opole · od 2014</span><span id="introCount">000</span></div>
+    <div class="intro-enter" id="introEnter">
+      <button type="button" class="intro-btn" data-sound="on">Wejdź z dźwiękiem</button>
+      <button type="button" class="intro-btn ghost" data-sound="off">Wejdź bez dźwięku</button>
+    </div>
+  </div>
+</div>
+
+<button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false" aria-label="Włącz lub wyłącz dźwięk">
+  <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  <span class="sound-label">Dźwięk</span>
+</button>
 
 <header class="nav" id="nav">
   <a href="#top" class="logo" aria-label="PK Adwokaci – strona główna">
@@ -32,13 +50,13 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <p class="eyebrow reveal">Kancelaria adwokacka · Opole</p>
-      <h1 class="hero-title reveal">
-        Prawo<br>
-        <em>w dobrych</em><br>
-        rękach.
+      <p class="eyebrow hero-fade">Kancelaria adwokacka · Opole</p>
+      <h1 class="hero-title">
+        <span class="line"><span>Prawo</span></span>
+        <span class="line"><span><em>w dobrych</em></span></span>
+        <span class="line"><span>rękach.</span></span>
       </h1>
-      <div class="hero-bottom reveal">
+      <div class="hero-bottom hero-fade">
         <p class="hero-lead">Polański Konofalski i Wspólnicy — kompleksowa pomoc prawna dla klientów indywidualnych oraz firm. W sądzie i poza nim.</p>
         <a href="#kontakt" class="btn">Umów konsultację <span aria-hidden="true">→</span></a>
       </div>
