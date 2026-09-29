@@ -20,4 +20,4 @@ Wymagane sekrety repozytorium (Settings → Secrets and variables → Actions): 
 
 ## Stara wersja
 
-Poprzednia strona jest oznaczona tagiem `stara-strona`.
+Poprzednia strona to zmiana `4e4ec81` (przywrócenie: `git checkout 4e4ec81 -- index.html styles.css script.js`).
