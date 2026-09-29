@@ -26,19 +26,24 @@ jobs:
         continue-on-error: true
         run: python3 scripts/fetch_assets.py
 
-      - name: Wyślij pliki na serwer (FTP)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_DIR }}
-          protocol: ftps
-          exclude: |
-            **/.git*
-            **/.git*/**
-            .github/**
-            scripts/**
-            assets.json
-            README.md
-            CLAUDE.md
+      - name: Zainstaluj lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Wyślij pliki na serwer (FTPS)
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_DIR: ${{ secrets.FTP_DIR }}
+        run: |
+          lftp --env-password -u "$FTP_USERNAME" "$FTP_SERVER" -e "
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ftp:passive-mode true;
+            set net:max-retries 2;
+            set net:timeout 30;
+            mirror --reverse --verbose --parallel=4 \
+              --exclude-glob .git* --exclude-glob .github/ --exclude-glob scripts/ \
+              --exclude-glob assets.json --exclude-glob README.md --exclude-glob CLAUDE.md \
+              ./ \"$FTP_DIR\";
+            bye"
