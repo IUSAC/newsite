@@ -1,0 +1,33 @@
+{
+  "_opis": "Lista materiałów strony. Nowa pozycja z adresem 'url' z Higgsfield = automat pobierze plik, zmniejszy go i zapisze w 'file'. Pliki, które już są w repozytorium, są pomijane (chyba że 'force': true).",
+  "assets": [
+    {
+      "file": "assets/hero.mp4",
+      "type": "video",
+      "poster": "assets/hero-poster.jpg",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260929_195102_2c515431-cb82-4492-9b35-49fd73b067c3.mp4",
+      "note": "Nagłówek: lot przez labirynt wieżowców, zielone wyjście"
+    },
+    {
+      "file": "assets/thumb-wyrok.jpg",
+      "type": "image",
+      "width": 900,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260929_201410_3b7db0b6-0ecb-47a5-8156-512fc2b34d9e.png",
+      "note": "Miniatura: wyrok nakazowy"
+    },
+    {
+      "file": "assets/thumb-kontrola.jpg",
+      "type": "image",
+      "width": 900,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260929_201410_c2aa77d9-9a3f-4e0d-a8b2-f00894fcb459.png",
+      "note": "Miniatura: kontrola skarbowa"
+    },
+    {
+      "file": "assets/thumb-alimenty.jpg",
+      "type": "image",
+      "width": 900,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260929_201410_05ad35ac-a1da-4456-a04b-ba34504d68af.png",
+      "note": "Miniatura: alimenty"
+    }
+  ]
+}

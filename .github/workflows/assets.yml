@@ -1,0 +1,42 @@
+# Pobiera materiały z assets.json (filmy i obrazy z Higgsfield) i zapisuje je w repozytorium.
+# Uruchamia się, gdy zmieni się assets.json na gałęzi main, albo ręcznie:
+# zakładka Actions -> "Materiały z Higgsfield" -> Run workflow.
+name: Materiały z Higgsfield
+
+on:
+  push:
+    branches: [main]
+    paths: [assets.json]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: assets
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pobierz kod strony
+        uses: actions/checkout@v4
+
+      - name: Zainstaluj ffmpeg
+        run: command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+
+      - name: Pobierz i przygotuj materiały
+        run: python3 scripts/fetch_assets.py
+
+      - name: Zapisz nowe pliki w repozytorium
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898+github-actions[bot]@users.noreply.github.com"
+          git add assets
+          if git diff --cached --quiet; then
+            echo "Brak nowych plików."
+          else
+            git commit -m "Dodaj materiały z Higgsfield"
+            git push
+          fi

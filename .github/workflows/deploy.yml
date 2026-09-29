@@ -19,6 +19,13 @@ jobs:
       - name: Pobierz kod strony
         uses: actions/checkout@v4
 
+      - name: Zainstaluj ffmpeg
+        run: command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+
+      - name: Pobierz brakujące materiały z Higgsfield
+        continue-on-error: true
+        run: python3 scripts/fetch_assets.py
+
       - name: Wyślij pliki na serwer (FTP)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -31,4 +38,7 @@ jobs:
             **/.git*
             **/.git*/**
             .github/**
+            scripts/**
+            assets.json
             README.md
+            CLAUDE.md
