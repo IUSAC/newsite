@@ -1,0 +1,34 @@
+# Automatyczna publikacja strony na Seohost (FTP).
+# Uruchamia się, gdy zmiany trafią na gałąź "produkcja"
+# albo ręcznie: zakładka Actions -> "Publikacja na Seohost" -> Run workflow.
+name: Publikacja na Seohost
+
+on:
+  push:
+    branches: [produkcja]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-seohost
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pobierz kod strony
+        uses: actions/checkout@v4
+
+      - name: Wyślij pliki na serwer (FTP)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_DIR }}
+          protocol: ftps
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            README.md
