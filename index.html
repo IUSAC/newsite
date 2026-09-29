@@ -87,8 +87,6 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .video-slot.has-video .scan,.video-slot.has-video .note{display:none}
 .video-slot .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,13,12,.82) 0%,rgba(11,13,12,.45) 55%,rgba(11,13,12,.15) 100%),linear-gradient(0deg,rgba(11,13,12,.85),transparent 45%)}
 .hero.exit h1 .ln:nth-child(3) span{text-shadow:0 0 38px rgba(0,184,107,.55)}
-.replay{position:absolute;right:var(--gutter);bottom:24px;z-index:2;background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff;font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:8px 12px;cursor:pointer}
-.replay:hover{border-color:var(--green);color:var(--green)}
 .video-slot .note{position:absolute;right:var(--gutter);top:24px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55);border:1px dashed rgba(255,255,255,.3);padding:8px 12px;max-width:340px;text-align:right}
 .hero-in{position:relative;padding-block:clamp(90px,14vw,190px) clamp(48px,6vw,80px);display:grid;gap:36px}
 .hero .label{color:rgba(255,255,255,.7)}
@@ -293,8 +291,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   .amt{font-size:36px}
   .channels div{flex-direction:column;gap:4px}
   .v-in{padding:24px 18px}
-  .replay{bottom:12px}
-  footer .wrap{padding-block:20px 24px}
+    footer .wrap{padding-block:20px 24px}
 }
 </style>
 </head>
@@ -320,7 +317,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   <!-- HERO: miejsce na wideo -->
   <section class="hero" aria-label="Wprowadzenie">
     <div class="video-slot" aria-hidden="true">
-      <video id="hero-video" muted playsinline autoplay preload="auto" poster="assets/hero-v2-poster.jpg" src="assets/hero-v2.mp4"></video>
+      <video id="hero-video" muted playsinline autoplay loop preload="auto" poster="assets/hero-v2-poster.jpg" src="assets/hero-v2.mp4"></video>
       <div class="shade"></div>
       <div class="scan"></div>
       <div class="note" id="hero-note">Wideo intro: assets/hero-v2.mp4</div>
@@ -340,7 +337,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
         </div>
       </div>
     </div>
-    <button class="replay" id="replay" type="button" hidden>↻ Odtwórz ponownie</button>
   </section>
 
   <!-- O kancelarii -->
@@ -615,10 +611,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   var bg=document.getElementById('burger'),mn=document.getElementById('menu');
   bg.addEventListener('click',function(){var o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o);bg.setAttribute('aria-label',o?'Zamknij menu':'Otwórz menu')});
   mn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('open');bg.setAttribute('aria-expanded','false')})});
-  var hv=document.getElementById('hero-video'),slot=hv.parentNode,hero=slot.parentNode,rp=document.getElementById('replay');
+  var hv=document.getElementById('hero-video'),slot=hv.parentNode,hero=slot.parentNode;
   hv.addEventListener('loadeddata',function(){slot.classList.add('has-video')});
-  hv.addEventListener('ended',function(){hero.classList.add('exit');rp.hidden=false});
-  rp.addEventListener('click',function(){hero.classList.remove('exit');rp.hidden=true;hv.currentTime=0;hv.play().catch(function(){})});
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){hv.removeAttribute('autoplay');hv.addEventListener('loadeddata',function(){try{hv.currentTime=hv.duration-.1}catch(e){}hero.classList.add('exit')})}
   document.querySelectorAll('.post[data-v]').forEach(function(b){
     b.addEventListener('click',function(){var d=document.getElementById('vid-'+b.dataset.v);if(d&&d.showModal)d.showModal()});
