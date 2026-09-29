@@ -59,6 +59,20 @@
       "crf": 28,
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260929_220946_b478ec4b-8c13-497d-becc-c0ae09d31906.mp4",
       "note": "Klip w kafelku: alimenty"
+    },
+    {
+      "file": "assets/team-1.jpg",
+      "type": "image",
+      "width": 900,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260929_222415_a0a76db3-e0b5-49a2-9a9b-7420d459eb1b.png",
+      "note": "Zespół: sylwetka adwokata przy oknie (bez twarzy, AI)"
+    },
+    {
+      "file": "assets/team-2.jpg",
+      "type": "image",
+      "width": 900,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260929_222415_f295fe0f-596e-457a-802f-471259d80849.png",
+      "note": "Zespół: adwokat w todze zza ramienia (bez twarzy, AI)"
     }
   ]
 }

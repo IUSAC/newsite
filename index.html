@@ -182,8 +182,9 @@ section.s{padding-block:clamp(72px,10vw,140px);border-bottom:1px solid var(--lin
 .portrait::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 47px,rgba(255,255,255,.04) 47px 48px),radial-gradient(120% 80% at 80% 110%,rgba(0,184,107,.22),transparent 60%)}
 .portrait .ini{position:relative;font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(88px,11vw,150px);line-height:.85;letter-spacing:-.04em}
 .portrait .pl{position:relative;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);border-top:1px solid rgba(255,255,255,.25);padding-top:12px}
-.portrait.has-photo{filter:grayscale(1) contrast(1.05)}
-.portrait.has-photo::before,.portrait.has-photo .ini{display:none}
+.portrait.has-photo{background-blend-mode:luminosity}
+.portrait.has-photo::before{background:linear-gradient(180deg,rgba(11,13,12,.55) 0%,rgba(11,13,12,0) 35%,rgba(11,13,12,0) 65%,rgba(11,13,12,.75) 100%)}
+.portrait.has-photo .ini{font-size:clamp(40px,5vw,64px)}
 .person .meta{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--ink);padding-top:12px}
 .person .meta span{font-family:var(--mono);font-size:11px;color:var(--ink-2)}
 
@@ -265,8 +266,10 @@ select{color-scheme:dark}
 footer{background:var(--night);color:rgba(255,255,255,.6);font-size:13px;border-top:1px solid rgba(255,255,255,.12)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-block:28px 96px}
 @media (min-width:901px){footer .wrap{padding-block:28px}}
-.big-mark{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(64px,17vw,260px);line-height:.85;letter-spacing:-.04em;color:#fff;padding-block:48px 0;overflow:hidden;white-space:nowrap}
-.big-mark i{color:var(--green);font-style:normal}
+.big-mark{padding-block:48px 0}
+.big-mark svg{display:block;width:100%;height:auto;max-width:100%}
+.big-mark text{font-family:var(--display);font-stretch:125%;font-weight:800;fill:#fff}
+.big-mark tspan{fill:var(--green)}
 
 /* Mobile action bar */
 .mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;grid-template-columns:repeat(3,1fr);background:var(--ink);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -450,8 +453,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
         <p>Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów. Kancelaria działa w Opolu od 2014 roku. Numer wpisu na listę adwokatów podajemy przy nazwisku.</p>
       </div>
       <div class="team">
-        <div class="person"><div class="portrait" data-photo=""><span class="ini">BP</span><span class="pl">adwokat · Opole</span></div><div class="meta"><div><h3>adw. Bartosz Polański</h3><span>Partner</span></div><span>Nr wpisu ___</span></div></div>
-        <div class="person"><div class="portrait" data-photo=""><span class="ini">MK</span><span class="pl">adwokat · Opole</span></div><div class="meta"><div><h3>adw. Marcin Konofalski</h3><span>Partner</span></div><span>Nr wpisu ___</span></div></div>
+        <div class="person"><div class="portrait" data-photo="assets/team-1.jpg"><span class="ini">BP</span><span class="pl">adwokat · Opole</span></div><div class="meta"><div><h3>adw. Bartosz Polański</h3><span>Partner</span></div><span>Nr wpisu ___</span></div></div>
+        <div class="person"><div class="portrait" data-photo="assets/team-2.jpg"><span class="ini">MK</span><span class="pl">adwokat · Opole</span></div><div class="meta"><div><h3>adw. Marcin Konofalski</h3><span>Partner</span></div><span>Nr wpisu ___</span></div></div>
       </div>
     </div>
   </section>
@@ -603,7 +606,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
 
 
 <footer>
-  <div class="wrap"><div class="big-mark">PK<i>.</i>ADWOKACI</div></div>
+  <div class="wrap"><div class="big-mark"><svg viewBox="0 0 1000 132" role="img" aria-label="PK Adwokaci"><text x="0" y="118" font-size="150" textLength="1000" lengthAdjust="spacingAndGlyphs">PK<tspan>.</tspan>ADWOKACI</text></svg></div></div>
   <div class="wrap">
     <span>© 2026 Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów · ul. Kołłątaja 11 lok. 27, 45-064 Opole</span>
     <span>Polityka prywatności · Informacje zgodne z § 23 Kodeksu Etyki Adwokackiej</span>
