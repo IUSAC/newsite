@@ -38,5 +38,9 @@ jobs:
             echo "Brak nowych plików."
           else
             git commit -m "Dodaj materiały z Higgsfield"
-            git push
+            for i in 1 2 3; do
+              git pull --rebase origin "${GITHUB_REF_NAME}" && git push && exit 0
+              sleep 5
+            done
+            exit 1
           fi

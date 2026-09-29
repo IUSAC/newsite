@@ -1,5 +1,5 @@
 {
-  "_opis": "Lista materiałów strony. Nowa pozycja z adresem 'url' z Higgsfield = automat pobierze plik, zmniejszy go i zapisze w 'file'. Pliki, które już są w repozytorium, są pomijane (chyba że 'force': true).",
+  "_opis": "Lista materiałów strony. Nowa pozycja z adresem 'url' z Higgsfield = automat pobierze plik, zmniejszy go i zapisze w 'file'. Pliki, które już są w repozytorium, są pomijane (chyba że 'force': true). Po zmianie tego pliku na main automat uruchamia się sam.",
   "assets": [
     {
       "file": "assets/hero.mp4",
