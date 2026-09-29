@@ -35,6 +35,30 @@
       "width": 900,
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260929_201410_05ad35ac-a1da-4456-a04b-ba34504d68af.png",
       "note": "Miniatura: alimenty"
+    },
+    {
+      "file": "assets/clip-wyrok.mp4",
+      "type": "video",
+      "width": 720,
+      "crf": 28,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260929_220946_eaab3dcb-9a96-46b7-9445-b9aa9eff2f04.mp4",
+      "note": "Klip w kafelku: wyrok nakazowy"
+    },
+    {
+      "file": "assets/clip-kontrola.mp4",
+      "type": "video",
+      "width": 720,
+      "crf": 28,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260929_220933_e5ff831a-7599-427d-9441-819b4928cf8d.mp4",
+      "note": "Klip w kafelku: kontrola skarbowa"
+    },
+    {
+      "file": "assets/clip-alimenty.mp4",
+      "type": "video",
+      "width": 720,
+      "crf": 28,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260929_220946_b478ec4b-8c13-497d-becc-c0ae09d31906.mp4",
+      "note": "Klip w kafelku: alimenty"
     }
   ]
 }

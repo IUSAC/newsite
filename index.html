@@ -173,11 +173,17 @@ section.s{padding-block:clamp(72px,10vw,140px);border-bottom:1px solid var(--lin
 .price ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:15px}
 
 /* Team */
-.team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;max-width:860px}
 @media (max-width:900px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.team{grid-template-columns:1fr}}
 .person{display:grid;gap:14px}
 .person .ph{aspect-ratio:4/5;filter:grayscale(1)}
+.portrait{position:relative;aspect-ratio:4/5;max-width:100%;background:var(--night);color:#fff;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:24px;background-size:cover;background-position:center top}
+.portrait::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 47px,rgba(255,255,255,.04) 47px 48px),radial-gradient(120% 80% at 80% 110%,rgba(0,184,107,.22),transparent 60%)}
+.portrait .ini{position:relative;font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(88px,11vw,150px);line-height:.85;letter-spacing:-.04em}
+.portrait .pl{position:relative;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);border-top:1px solid rgba(255,255,255,.25);padding-top:12px}
+.portrait.has-photo{filter:grayscale(1) contrast(1.05)}
+.portrait.has-photo::before,.portrait.has-photo .ini{display:none}
 .person .meta{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--ink);padding-top:12px}
 .person .meta span{font-family:var(--mono);font-size:11px;color:var(--ink-2)}
 
@@ -204,6 +210,8 @@ section.s{padding-block:clamp(72px,10vw,140px);border-bottom:1px solid var(--lin
 .t-tax{background-image:linear-gradient(200deg,#1e2321 0%,#0b0d0c 55%)}
 .t-family{background-image:linear-gradient(140deg,#202523 0%,#0b0d0c 65%)}
 .thumb.has-img{background-image:linear-gradient(180deg,rgba(11,13,12,.35) 0%,rgba(11,13,12,.15) 40%,rgba(11,13,12,.85) 100%),var(--img)}
+.t-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:0;transition:opacity .8s}
+.thumb.playing .t-vid{opacity:1}
 .t-num{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(84px,9vw,128px);line-height:.85;letter-spacing:-.04em;color:var(--green)}
 .t-unit{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(34px,3.4vw,48px);line-height:1;margin-top:6px}
 .t-small{margin-top:auto;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.75);border-top:1px solid rgba(255,255,255,.25);padding-top:12px}
@@ -439,12 +447,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
     <div class="wrap">
       <div class="s-head">
         <div><span class="label"><span class="dot"></span>Zespół</span><h2 style="margin-top:18px">Adwokaci</h2></div>
-        <p>Każdy adwokat jest wpisany na listę Okręgowej Rady Adwokackiej. Numer wpisu podajemy przy nazwisku.</p>
+        <p>Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów. Kancelaria działa w Opolu od 2014 roku. Numer wpisu na listę adwokatów podajemy przy nazwisku.</p>
       </div>
       <div class="team">
-        <div class="person"><div class="ph"><div><strong>Zdjęcie portretowe</strong>4:5, czarno-białe</div></div><div class="meta"><div><h3>adw. Bartosz Polański</h3><span>Partner · specjalizacja do uzupełnienia</span></div><span>Nr wpisu ___</span></div></div>
-        <div class="person"><div class="ph"><div><strong>Zdjęcie portretowe</strong>4:5, czarno-białe</div></div><div class="meta"><div><h3>adw. Marcin Konofalski</h3><span>Partner · specjalizacja do uzupełnienia</span></div><span>Nr wpisu ___</span></div></div>
-        <div class="person"><div class="ph"><div><strong>Zdjęcie portretowe</strong>4:5, czarno-białe</div></div><div class="meta"><div><h3>adw. Imię Nazwisko</h3><span>Prawo rodzinne</span></div><span>Nr wpisu ___</span></div></div>
+        <div class="person"><div class="portrait" data-photo=""><span class="ini">BP</span><span class="pl">adwokat · Opole</span></div><div class="meta"><div><h3>adw. Bartosz Polański</h3><span>Partner</span></div><span>Nr wpisu ___</span></div></div>
+        <div class="person"><div class="portrait" data-photo=""><span class="ini">MK</span><span class="pl">adwokat · Opole</span></div><div class="meta"><div><h3>adw. Marcin Konofalski</h3><span>Partner</span></div><span>Nr wpisu ___</span></div></div>
       </div>
     </div>
   </section>
@@ -459,6 +466,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
       <div class="know">
         <button class="post" type="button" data-v="0">
           <div class="thumb t-court" data-img="assets/thumb-wyrok.jpg">
+            <video class="t-vid" muted loop playsinline preload="none" data-src="assets/clip-wyrok.mp4" aria-hidden="true"></video>
             <span class="play" aria-hidden="true">▶</span>
             <span class="t-num">7</span><span class="t-unit">DNI</span>
             <span class="t-small">Wyrok bez rozprawy</span>
@@ -467,6 +475,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
         </button>
         <button class="post" type="button" data-v="1">
           <div class="thumb t-tax" data-img="assets/thumb-kontrola.jpg">
+            <video class="t-vid" muted loop playsinline preload="none" data-src="assets/clip-kontrola.mp4" aria-hidden="true"></video>
             <span class="play" aria-hidden="true">▶</span>
             <span class="t-num">7–30</span><span class="t-unit">DNI</span>
             <span class="t-small">Zawiadomienie o kontroli</span>
@@ -475,6 +484,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
         </button>
         <button class="post" type="button" data-v="2">
           <div class="thumb t-family" data-img="assets/thumb-alimenty.jpg">
+            <video class="t-vid" muted loop playsinline preload="none" data-src="assets/clip-alimenty.mp4" aria-hidden="true"></video>
             <span class="play" aria-hidden="true">▶</span>
             <span class="t-num">art.</span><span class="t-unit">135</span>
             <span class="t-small">Od czego zależą alimenty</span>
@@ -623,6 +633,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
     d.querySelector('.v-cta').addEventListener('click',function(){var sel=document.getElementById('f-area');if(sel)sel.selectedIndex=+this.dataset.area;d.close()});
   });
   document.querySelectorAll('.thumb[data-img]').forEach(function(t){var u=t.dataset.img;if(!u)return;var im=new Image();im.onload=function(){t.style.setProperty('--img','url('+u+')');t.classList.add('has-img')};im.src=u});
+  var vids=document.querySelectorAll('.t-vid');
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;
+      if(e.isIntersecting){if(!v.src){v.src=v.dataset.src;v.addEventListener('playing',function(){v.parentNode.classList.add('playing')});v.addEventListener('error',function(){v.remove()})}v.play().catch(function(){})}
+      else if(v.src){v.pause()}});},{threshold:.25});
+    vids.forEach(function(v){io.observe(v)});
+  }
+  document.querySelectorAll('.portrait[data-photo]').forEach(function(t){var u=t.dataset.photo;if(!u)return;var im=new Image();im.onload=function(){t.style.backgroundImage='url('+u+')';t.classList.add('has-photo')};im.src=u});
   var btns=document.querySelectorAll('.filters button');
   var cards=document.querySelectorAll('#sits .sit');
   btns.forEach(function(b){
