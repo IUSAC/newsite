@@ -51,11 +51,11 @@ jobs:
               --exclude-glob .git* --exclude-glob .github/ --exclude-glob scripts/ \
               --exclude-glob assets.json --exclude-glob README.md --exclude-glob CLAUDE.md \
               ./ \"$FTP_DIR\";
-            bye" > lftp.log 2>&1
+            bye" > "$RUNNER_TEMP/lftp.log" 2>&1
           code=$?
-          grep -v -i "PASS " lftp.log | tail -n 40
+          grep -v -i "PASS " "$RUNNER_TEMP/lftp.log" | tail -n 40
           if [ $code -ne 0 ]; then
-            msg=$(grep -v -i "PASS \|WARNING: Certificate" lftp.log | grep -E "^<--- [45]|rror|mirror:|Fatal|Access|denied|put:" | tail -n 15 | sed ':a;N;$!ba;s/%/%25/g;s/\r//g;s/\n/%0A/g')
+            msg=$(grep -v -i "PASS \|WARNING: Certificate" "$RUNNER_TEMP/lftp.log" | grep -E "^<--- [45]|rror|mirror:|Fatal|Access|denied|put:" | tail -n 15 | sed ':a;N;$!ba;s/%/%25/g;s/\r//g;s/\n/%0A/g')
             echo "::error title=lftp::$msg"
             exit $code
           fi
