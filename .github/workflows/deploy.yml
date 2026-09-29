@@ -35,10 +35,13 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           FTP_DIR: ${{ secrets.FTP_DIR }}
+        # Serwer FTP Seohost (h85) ma w łańcuchu przeterminowany certyfikat.
+        # Wyjątek dotyczy wyłącznie certyfikatu o tym odcisku; połączenie pozostaje szyfrowane.
         run: |
           set +e
           lftp --env-password -u "$FTP_USERNAME" "$FTP_SERVER" -e "
             debug 3;
+            set ssl:verify-certificate/50:64:E0:0A:1D:4D:F5:C5:0E:39:41:7A:75:32:0C:99:8C:CF:BF:66 no;
             set ftp:ssl-force true;
             set ftp:ssl-protect-data true;
             set ftp:passive-mode true;
