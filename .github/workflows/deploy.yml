@@ -40,7 +40,6 @@ jobs:
         run: |
           set +e
           lftp --env-password -u "$FTP_USERNAME" "$FTP_SERVER" -e "
-            debug 3;
             set ssl:verify-certificate/50:64:E0:0A:1D:4D:F5:C5:0E:39:41:7A:75:32:0C:99:8C:CF:BF:66 no;
             set ftp:ssl-force true;
             set ftp:ssl-protect-data true;
@@ -59,20 +58,4 @@ jobs:
             echo "::error title=lftp::$msg"
             exit $code
           fi
-
-      - name: Raport folderów na serwerze
-        if: always()
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          FTP_DIR: ${{ secrets.FTP_DIR }}
-        run: |
-          lftp --env-password -u "$FTP_USERNAME" "$FTP_SERVER" -e "
-            set ssl:verify-certificate/50:64:E0:0A:1D:4D:F5:C5:0E:39:41:7A:75:32:0C:99:8C:CF:BF:66 no;
-            set ftp:ssl-force true; set ftp:ssl-protect-data true;
-            echo START=; pwd; echo ROOT=; cls -1 /; echo DOMAINS=; cls -1 /domains/;
-            echo TARGET=; cls -1 $FTP_DIR; bye" 2>&1 | grep -v "WARNING: Certificate" > "$RUNNER_TEMP/ls.txt" || true
-          msg=$(head -c 3000 "$RUNNER_TEMP/ls.txt" | sed ':a;N;$!ba;s/%/%25/g;s/\r//g;s/\n/%0A/g')
-          echo "::notice title=serwer::$msg"
 
