@@ -13,7 +13,7 @@
       "type": "video",
       "poster": "assets/hero-v2-poster.jpg",
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260929_214714_33e23371-454e-4911-bb14-be2597ecc8f5.mp4",
-      "note": "Nagłówek v2: widok z góry na labirynt, zjazd w dół, lot między blokami, zielony rozbłysk (15 s)"
+      "note": "Nagłówek v2: widok z góry na labirynt, zjazd w dół, lot między blokami, zielony rozbłysk (15 s) Plik w repozytorium ma dodane wyciemnienie na początku i końcu (płynna pętla) – nie ustawiaj force, bo automat pobierze wersję bez niego."
     },
     {
       "file": "assets/thumb-wyrok.jpg",
