@@ -36,7 +36,9 @@ jobs:
           LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           FTP_DIR: ${{ secrets.FTP_DIR }}
         run: |
+          set +e
           lftp --env-password -u "$FTP_USERNAME" "$FTP_SERVER" -e "
+            debug 3;
             set ftp:ssl-force true;
             set ftp:ssl-protect-data true;
             set ftp:passive-mode true;
@@ -46,4 +48,11 @@ jobs:
               --exclude-glob .git* --exclude-glob .github/ --exclude-glob scripts/ \
               --exclude-glob assets.json --exclude-glob README.md --exclude-glob CLAUDE.md \
               ./ \"$FTP_DIR\";
-            bye"
+            bye" > lftp.log 2>&1
+          code=$?
+          grep -v -i "PASS " lftp.log | tail -n 40
+          if [ $code -ne 0 ]; then
+            msg=$(grep -v -i "PASS " lftp.log | grep -E "^<---|^\*\*\*|rror|ertificate|mirror|Fatal" | tail -n 15 | sed ':a;N;$!ba;s/%/%25/g;s/\r//g;s/\n/%0A/g')
+            echo "::error title=lftp::$msg"
+            exit $code
+          fi
