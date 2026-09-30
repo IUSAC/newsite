@@ -60,6 +60,7 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .btn:hover .arr{transform:translateX(4px)}
 .btn.green{background:var(--green);color:var(--ink)}
 .btn.green:hover{background:#fff}
+.btn.green.top-cta:hover{background:var(--ink);color:#fff}
 .burger{display:none;width:44px;height:44px;background:none;border:1px solid var(--line);cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:6px;padding:0}
 .burger span{display:block;width:18px;height:2px;background:var(--ink);transition:transform .25s}
 .burger[aria-expanded="true"] span:first-child{transform:translateY(4px) rotate(45deg)}
@@ -520,7 +521,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
       <a href="#zespol">Zespół</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
-    <a class="btn top-cta" href="#kontakt">Umów konsultację <span class="arr">→</span></a>
+    <a class="btn green top-cta" href="#kontakt">Umów konsultację <span class="arr">→</span></a>
     <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Otwórz menu"><span></span><span></span></button>
   </div>
 </header>
