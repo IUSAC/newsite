@@ -178,8 +178,13 @@ if(innerWidth<900){var d=document.querySelector('.b-toc details');if(d)d.open=fa
 
 # ---------- lista artykułów ----------
 pre = "../"
-chips = '<button type="button" data-f="all" aria-pressed="true">Wszystkie</button>' + "".join(
-    f'<button type="button" data-f="{c}" aria-pressed="false">{esc(n)}</button>' for c, n in CATS)
+# Filtr: krótkie, równoległe nazwy + liczba wpisów; kategorie bez wpisów są ukryte (UX: brak pustych wyników)
+SHORT = {"prawo-karne": "Karne", "karne-skarbowe-i-podatkowe": "Podatkowe", "prawo-administracyjne": "Administracyjne",
+         "prawo-rodzinne": "Rodzinne", "prawo-cywilne": "Cywilne"}
+cnt = {c: sum(1 for p in posts if p["category"] == c) for c, _ in CATS}
+chips = f'<button type="button" data-f="all" aria-pressed="true">Wszystkie<span class="n">{len(posts)}</span></button>' + "".join(
+    f'<button type="button" data-f="{c}" aria-pressed="false" title="{esc(n)}">{SHORT[c]}<span class="n">{cnt[c]}</span></button>'
+    for c, n in CATS if cnt[c])
 feat = card(posts[0], "", True) if posts else ""
 grid = "".join(card(p, "") for p in posts[1:])
 hero_img = "assets/blog/blog-hero.jpg"
@@ -197,7 +202,9 @@ body = f'''<section class="b-hero" style="--hero:url({pre}{hero_img})">
 js = '''<script>(function(){var bs=document.querySelectorAll('.b-filters button'),cs=document.querySelectorAll('.b-index .b-card'),em=document.querySelector('.b-empty');
 function set(f){bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.f===f?'true':'false')});var n=0;cs.forEach(function(c){var on=f==='all'||c.dataset.cat===f;c.hidden=!on;if(on)n++});em.hidden=n>0}
 bs.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.f);history.replaceState(null,'',b.dataset.f==='all'?location.pathname:'#'+b.dataset.f)})});
-var h=location.hash.slice(1);if(h&&document.querySelector('.b-filters button[data-f="'+h+'"]'))set(h)})();</script>'''
+var h=location.hash.slice(1);if(h&&document.querySelector('.b-filters button[data-f="'+h+'"]'))set(h);
+var fb=document.querySelector('.b-filters');function edge(){fb.classList.toggle('is-end',fb.scrollLeft+fb.clientWidth>=fb.scrollWidth-4)}fb.addEventListener('scroll',edge,{passive:true});addEventListener('resize',edge);edge();
+bs.forEach(function(b){b.addEventListener('click',function(){b.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'})})})})();</script>'''
 ld = [{"@context": "https://schema.org", "@type": "Blog", "name": f"Blog {BRAND}", "url": SITE + "/blog/", "inLanguage": "pl-PL",
        "publisher": {"@type": "LegalService", "name": FIRM, "url": SITE + "/"},
        "blogPost": [{"@type": "BlogPosting", "headline": p["title"], "url": f"{SITE}/blog/{p['slug']}/", "datePublished": p["date_published"]} for p in posts if p["status"] == "opublikowany"]}]
