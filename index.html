@@ -402,6 +402,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
 #scrub{position:absolute;inset:0;width:100%;height:100%;display:block;background:#0b0d0c url(assets/hero-seq-poster.jpg) center/cover no-repeat}
 .panel{will-change:transform,opacity}
 .sc-stage{transform:translateY(calc(var(--pp,0) * -30px))}
+#maze{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
 .sc-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,13,12,.85) 0%,rgba(11,13,12,.5) 50%,rgba(11,13,12,.1) 100%),linear-gradient(0deg,rgba(11,13,12,.7),transparent 40%)}
 .sc-stage{position:relative;height:100%;display:grid;align-items:end;padding-bottom:14vh}
 .panel{grid-area:1/1;max-width:640px;display:grid;gap:22px;opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.1,1);pointer-events:none}
@@ -529,6 +530,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
   <section class="scrolly" id="intro" aria-label="Wprowadzenie">
     <div class="sticky">
       <canvas id="scrub" aria-hidden="true"></canvas>
+      <canvas id="maze" aria-hidden="true"></canvas>
       <div class="sc-shade" aria-hidden="true"></div>
       <div class="wrap sc-stage">
         <div class="panel is-on" data-step="0">
@@ -730,12 +732,39 @@ a.person:hover .call .arr{transform:translateX(4px)}
     function load(i){if(imgs[i])return;var im=new Image();im.decoding='async';im.onload=function(){im.ok=1;if(Math.round(cur)===i||lastDrawn<0)draw(true)};im.src=src(i);imgs[i]=im}
     /* najpierw co 8. klatka (szybki podgląd całego lotu), potem reszta */
     for(var i=0;i<N;i+=8)load(i);setTimeout(function(){for(var i=0;i<N;i++)load(i)},300);
-    function size(){var r=Math.min(window.devicePixelRatio||1,2);cv.width=Math.round(cv.clientWidth*r);cv.height=Math.round(cv.clientHeight*r);lastDrawn=-1;draw(true)}
+    function size(){var r=Math.min(window.devicePixelRatio||1,2);cv.width=Math.round(cv.clientWidth*r);cv.height=Math.round(cv.clientHeight*r);mz.width=cv.width;mz.height=cv.height;lastDrawn=-1;draw(true)}
+    /* Zielony labirynt w ulicach między blokami: rośnie od środka na zewnątrz i wygasa przy krawędziach */
+    var mz=document.getElementById('maze'),mc=mz.getContext('2d'),T=null,M=null,t0=0,GROW=3600,mzRaf=0;
+    function buildMaze(){var PX=65.3,PY=57.5,OX=32.8,OY=37.5,C=Math.floor((1280-OX)/PX)+1,R=Math.floor((720-OY)/PY)+1;
+      var seed=7;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}
+      var ci=Math.round((640-OX)/PX),cj=Math.round((360-OY)/PY),seen={},edges=[],st=[[ci,cj,0]];seen[ci+','+cj]=1;
+      while(st.length){var top=st[st.length-1],i=top[0],j=top[1],nb=[[1,0],[-1,0],[0,1],[0,-1]].filter(function(d){var a=i+d[0],b=j+d[1];return a>=0&&b>=0&&a<C&&b<R&&!seen[a+','+b]});
+        if(!nb.length){st.pop();continue}var d=nb[Math.floor(rnd()*nb.length)],a=i+d[0],b=j+d[1];seen[a+','+b]=1;
+        edges.push({x1:OX+i*PX,y1:OY+j*PY,x2:OX+a*PX,y2:OY+b*PY,d:top[2]});st.push([a,b,top[2]+1])}
+      /* kolejność odsłaniania: odległość od środka (rozchodzi się na zewnątrz) */
+      edges.forEach(function(e){var mx=(e.x1+e.x2)/2-640,my=(e.y1+e.y2)/2-360;e.r=Math.sqrt(mx*mx+my*my)});
+      var maxR=0;edges.forEach(function(e){if(e.r>maxR)maxR=e.r});edges.forEach(function(e){e.k=e.r/maxR});return edges}
+    function mzDraw(){if(!T)return;if(!M)M=buildMaze();var W=mz.width,H=mz.height;mc.clearRect(0,0,W,H);
+      var fade=Math.max(0,1-T.p/0.14);if(fade<=0)return;
+      var g=reduce?1:Math.min(1,(performance.now()-t0)/GROW),front=g*0.5,s=T.sc,lw=Math.max(1.5,2*s*(W/cv.clientWidth)/ (W/cv.clientWidth));
+      mc.save();mc.globalAlpha=fade;mc.strokeStyle='#adff23';mc.lineCap='round';mc.lineWidth=Math.max(1.5,W/900);mc.shadowColor='rgba(173,255,35,.8)';mc.shadowBlur=W/160;mc.beginPath();
+      M.forEach(function(e){if(e.k>front)return;var part=Math.min(1,(front-e.k)/0.04);
+        var x1=T.dx+e.x1*s,y1=T.dy+e.y1*s,x2=T.dx+e.x2*s,y2=T.dy+e.y2*s;
+        /* rysuj od końca bliższego środka */
+        var c1=Math.hypot(e.x1-640,e.y1-360),c2=Math.hypot(e.x2-640,e.y2-360);if(c2<c1){var tx=x1,ty=y1;x1=x2;y1=y2;x2=tx;y2=ty}
+        mc.moveTo(x1,y1);mc.lineTo(x1+(x2-x1)*part,y1+(y2-y1)*part)});
+      mc.stroke();mc.restore();
+      /* wygaszanie od środka ku krawędziom */
+      var cx=T.dx+640*s,cy=T.dy+360*s,rad=Math.hypot(W,H)*0.36,gr=mc.createRadialGradient(cx,cy,0,cx,cy,rad);
+      gr.addColorStop(0,'rgba(0,0,0,1)');gr.addColorStop(.45,'rgba(0,0,0,.85)');gr.addColorStop(1,'rgba(0,0,0,0)');
+      mc.save();mc.globalCompositeOperation='destination-in';mc.fillStyle=gr;mc.fillRect(0,0,W,H);mc.restore();
+      if(g<1&&!mzRaf)mzRaf=requestAnimationFrame(function(){mzRaf=0;mzDraw()})}
+    t0=performance.now();
     function nearest(i){for(var d=0;d<N;d++){if(imgs[i-d]&&imgs[i-d].ok)return imgs[i-d];if(imgs[i+d]&&imgs[i+d].ok)return imgs[i+d]}return null}
     function draw(force){var i=Math.max(0,Math.min(N-1,Math.round(cur)));var p=cur/(N-1);var z=1+p*ZOOM;
       if(!force&&i===lastDrawn&&Math.abs(z-lastZ)<0.002)return;var im=nearest(i);if(!im)return;
       lastDrawn=i;lastZ=z;var W=cv.width,H=cv.height,iw=im.naturalWidth,ih=im.naturalHeight,sc=Math.max(W/iw,H/ih)*z;
-      var dw=iw*sc,dh=ih*sc,dx=(W-dw)/2,dy=(H-dh)/2+p*H*0.04;ctx.drawImage(im,dx,dy,dw,dh)}
+      var dw=iw*sc,dh=ih*sc,dx=(W-dw)/2,dy=(H-dh)/2+p*H*0.04;ctx.drawImage(im,dx,dy,dw,dh);T={sc:sc*iw/1280,dx:dx,dy:dy,p:p};mzDraw()}
     function progress(){var r=sec.getBoundingClientRect(),span=sec.offsetHeight-window.innerHeight;return Math.min(1,Math.max(0,-r.top/Math.max(1,span)))}
     function setStep(i){if(i===step)return;step=i;panels.forEach(function(p,k){p.classList.toggle('is-on',k===i)});rail.forEach(function(l,k){l.classList.toggle('is-on',k===i)})}
     function tick(){raf=0;var p=progress();sec.style.setProperty('--p',p.toFixed(3));sec.classList.toggle('started',p>0.02);
