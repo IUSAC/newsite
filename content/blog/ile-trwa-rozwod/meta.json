@@ -1,0 +1,49 @@
+{
+  "status": "zaplanowany",
+  "keyword": "ile trwa rozwód",
+  "title": "Ile trwa rozwód i od czego to zależy",
+  "seo_title": "Ile trwa rozwód? Etapy i od czego zależy czas | PKW Adwokaci",
+  "description": "Ile trwa rozwód: od czego zależy czas sprawy, rozwód bez orzekania o winie a z winą, dzieci, mediacja, opinie biegłych, uprawomocnienie wyroku. Etapy krok po kroku.",
+  "category": "prawo-rodzinne",
+  "date_published": "2026-11-05",
+  "date_modified": "2026-11-05",
+  "cover_alt": "Zegar ścienny i kalendarz w pustej poczekalni sądu z drewnianą ławką",
+  "excerpt": "Jedna rozprawa czy kilka lat? Czas rozwodu zależy od kilku czynników, na które masz wpływ. Opisujemy etapy i to, co je wydłuża.",
+  "lead": "Nie ma jednego czasu trwania rozwodu. Gdy małżonkowie są zgodni, nie żądają orzekania o winie i nie spierają się o dzieci, sprawa może zakończyć się <strong>na jednej rozprawie</strong>. Spór o winę, dzieci lub majątek, opinie biegłych i wielu świadków wydłużają postępowanie do wielu miesięcy, a czasem lat.",
+  "tldr": [
+    "Najkrócej trwa rozwód bez orzekania o winie, przy zgodzie co do dzieci; często kończy się na pierwszej rozprawie.",
+    "Na termin pierwszej rozprawy wpływa obciążenie konkretnego sądu okręgowego.",
+    "Wydłużają: spór o winę, świadkowie, opinia biegłych w sprawach dzieci, podział majątku w sprawie rozwodowej.",
+    "Po ogłoszeniu wyrok nie jest od razu prawomocny: najwcześniej po tygodniu, jeśli nikt nie zażąda uzasadnienia."
+  ],
+  "faq": [
+    [
+      "Czy można przyspieszyć rozwód?",
+      "Najbardziej pomaga porozumienie: zgodne żądanie rozwodu bez orzekania o winie i pisemne porozumienie o dzieciach. Kompletny pozew z dokumentami skraca też czas na wezwania do uzupełnienia braków."
+    ],
+    [
+      "Kiedy wyrok rozwodowy staje się prawomocny?",
+      "Gdy upłynie termin na apelację, a żadna ze stron jej nie wniosła. Jeśli w ciągu tygodnia od ogłoszenia nikt nie złożył wniosku o uzasadnienie, apelacja nie jest już możliwa i wyrok uprawomocnia się po upływie tego tygodnia. O prawomocności możesz zapytać w sekretariacie sądu."
+    ],
+    [
+      "Czy mediacja wydłuża sprawę?",
+      "Może dodać kilka tygodni, ale często skraca całość, bo porozumienie o dzieciach i majątku eliminuje długie spory dowodowe."
+    ],
+    [
+      "Co jeśli drugi małżonek nie przychodzi na rozprawy?",
+      "Nieobecność pozwanego może wydłużyć sprawę, bo sąd w sprawach rozwodowych co do zasady przesłuchuje strony. Przepisy przewidują jednak sposoby prowadzenia sprawy także w takiej sytuacji."
+    ]
+  ],
+  "related": [
+    "pozew-o-rozwod",
+    "alimenty-na-dziecko"
+  ],
+  "cta_label": "Myślisz o rozwodzie?",
+  "cta_title": "Opisz nam sytuację. Omówimy, co może przyspieszyć sprawę w Twoim przypadku.",
+  "cover": "assets/blog/ile-trwa-rozwod.jpg",
+  "author": {
+    "name": "Zespół PKW Adwokaci",
+    "person": false,
+    "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "status": "zaplanowany",
+  "keyword": "alimenty na dziecko ile",
+  "title": "Alimenty na dziecko: od czego zależy wysokość",
+  "seo_title": "Alimenty na dziecko – ile? Od czego zależy kwota | PKW Adwokaci",
+  "description": "Alimenty na dziecko: od czego zależy kwota, jak policzyć potrzeby dziecka, znaczenie możliwości zarobkowych rodzica, zabezpieczenie na czas procesu i koszty sprawy.",
+  "category": "prawo-rodzinne",
+  "date_published": "2026-10-22",
+  "date_modified": "2026-10-22",
+  "cover_alt": "Dziecięce buty i plecak szkolny na podłodze przy oknie",
+  "excerpt": "Nie ma tabeli alimentów. Sąd patrzy na potrzeby dziecka i możliwości rodzica. Wyjaśniamy, jak to policzyć i jak przygotować sprawę.",
+  "lead": "W Polsce nie ma tabeli ani stawki alimentów. Wysokość zależy od <strong>usprawiedliwionych potrzeb dziecka</strong> oraz <strong>możliwości zarobkowych i majątkowych rodzica</strong> (art. 135 § 1 k.r.o.). Liczy się nie tylko to, ile rodzic zarabia, ale ile mógłby zarabiać.",
+  "tldr": [
+    "Obowiązek alimentacyjny rodziców trwa, dopóki dziecko nie jest w stanie utrzymać się samodzielnie (art. 133 § 1 k.r.o.).",
+    "Kwota zależy od potrzeb dziecka i możliwości zarobkowych i majątkowych rodzica, a nie tylko od jego faktycznych dochodów.",
+    "Osobista opieka nad dzieckiem też jest wykonywaniem obowiązku alimentacyjnego (art. 135 § 2 k.r.o.).",
+    "Strona dochodząca alimentów nie płaci kosztów sądowych; na czas procesu można wnioskować o zabezpieczenie."
+  ],
+  "faq": [
+    [
+      "Do jakiego sądu składa się pozew o alimenty?",
+      "Do sądu rejonowego. Możesz wybrać sąd miejsca zamieszkania dziecka (uprawnionego) albo pozwanego rodzica."
+    ],
+    [
+      "Czy alimenty można dostać wstecz?",
+      "Sąd może zasądzić alimenty za okres przed wniesieniem pozwu w ograniczonym zakresie, na przykład na pokrycie niezaspokojonych potrzeb z tego okresu. Co do zasady alimenty zasądza się od dnia wniesienia pozwu."
+    ],
+    [
+      "Co jeśli rodzic nie płaci zasądzonych alimentów?",
+      "Wyrok z klauzulą wykonalności można skierować do komornika. Jeśli egzekucja okaże się bezskuteczna, można ubiegać się o świadczenie z funduszu alimentacyjnego, o ile spełnione są kryterium dochodowe i warunki dotyczące wieku dziecka."
+    ],
+    [
+      "Czy alimenty można zmienić?",
+      "Tak. W razie istotnej zmiany stosunków, np. wzrostu potrzeb dziecka lub zmiany dochodów rodzica, można żądać podwyższenia albo obniżenia alimentów (art. 138 k.r.o.)."
+    ]
+  ],
+  "related": [
+    "pozew-o-rozwod",
+    "ile-trwa-rozwod"
+  ],
+  "cta_label": "Sprawa o alimenty?",
+  "cta_title": "Opisz nam sytuację. Pomożemy policzyć koszty utrzymania dziecka i przygotować pozew.",
+  "cover": "assets/blog/alimenty-na-dziecko.jpg",
+  "author": {
+    "name": "Zespół PKW Adwokaci",
+    "person": false,
+    "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
+  }
+}

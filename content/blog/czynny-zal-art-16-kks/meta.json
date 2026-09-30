@@ -1,0 +1,48 @@
+{
+  "status": "zaplanowany",
+  "keyword": "czynny żal art. 16 k.k.s.",
+  "title": "Czynny żal (art. 16 k.k.s.): kiedy można go złożyć",
+  "seo_title": "Czynny żal art. 16 k.k.s. – kiedy i jak złożyć | PKW Adwokaci",
+  "description": "Czynny żal z art. 16 k.k.s.: co daje, kiedy jest skuteczny, kiedy jest za późno, co napisać i jak zapłacić zaległość. Różnica między czynnym żalem a korektą.",
+  "category": "karne-skarbowe-i-podatkowe",
+  "date_published": "2026-10-08",
+  "date_modified": "2026-10-08",
+  "cover_alt": "Pióro, kalkulator i złożony formularz na ciemnym biurku",
+  "excerpt": "Spóźniona deklaracja, zaniżony podatek, nieodprowadzona zaliczka. Czynny żal pozwala uniknąć kary, ale tylko wtedy, gdy złożysz go na czas.",
+  "lead": "Czynny żal to zawiadomienie organu o popełnionym przestępstwie lub wykroczeniu skarbowym. Jeśli jest skuteczny i zapłacisz zaległość w wyznaczonym terminie, <strong>nie podlegasz karze</strong> za ten czyn (art. 16 k.k.s.). Kluczowy jest moment: czynny żal złożony po wykryciu czynu przez organ nie działa.",
+  "tldr": [
+    "Czynny żal składasz do organu ścigania, najczęściej naczelnika urzędu skarbowego, pisemnie, ustnie do protokołu albo przez e-Urząd Skarbowy.",
+    "Trzeba ujawnić istotne okoliczności czynu, w tym osoby, które w nim uczestniczyły.",
+    "Warunkiem jest zapłata uszczuplonej należności w terminie wyznaczonym przez organ (art. 16 § 2 k.k.s.).",
+    "Czynny żal jest bezskuteczny, gdy organ ma już wyraźnie udokumentowaną wiadomość o czynie albo rozpoczął czynność służbową, np. kontrolę (art. 16 § 5 k.k.s.)."
+  ],
+  "faq": [
+    [
+      "Czy czynny żal to przyznanie się do winy?",
+      "Czynny żal jest zawiadomieniem o popełnieniu czynu zabronionego. W zamian za ujawnienie czynu i zapłatę należności ustawa zwalnia z kary. Dlatego przed złożeniem warto ocenić, czy w ogóle doszło do czynu zabronionego."
+    ],
+    [
+      "Czy za spóźnioną deklarację trzeba składać czynny żal?",
+      "Często tak. Niezłożenie deklaracji w terminie może być wykroczeniem skarbowym. Zwolnienie z kary po samej korekcie (art. 16a k.k.s.) dotyczy korekty złożonej już deklaracji, więc przy deklaracji złożonej po terminie zwykle potrzebny jest czynny żal."
+    ],
+    [
+      "Czy mogę złożyć czynny żal w trakcie kontroli?",
+      "Co do zasady nie w zakresie, którego dotyczy kontrola, bo organ rozpoczął już czynności służbowe. Czynny żal może dotyczyć czynów, których kontrola nie obejmuje."
+    ],
+    [
+      "Czy czynny żal można złożyć elektronicznie?",
+      "Czynny żal składa się w formie pisemnej albo ustnie do protokołu. Pismo możesz złożyć w urzędzie, wysłać pocztą albo przez konto w e-Urzędzie Skarbowym (art. 16 § 4a k.k.s.)."
+    ]
+  ],
+  "related": [
+    "kontrola-skarbowa-co-robic"
+  ],
+  "cta_label": "Rozważasz czynny żal?",
+  "cta_title": "Opisz nam sytuację. Sprawdzimy, czy czynny żal jest jeszcze możliwy i jak go przygotować.",
+  "cover": "assets/blog/czynny-zal-art-16-kks.jpg",
+  "author": {
+    "name": "Zespół PKW Adwokaci",
+    "person": false,
+    "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
+  }
+}

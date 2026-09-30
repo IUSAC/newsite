@@ -1,0 +1,49 @@
+{
+  "status": "zaplanowany",
+  "keyword": "rozwód jak złożyć pozew",
+  "title": "Pozew o rozwód: jak go przygotować i złożyć",
+  "seo_title": "Pozew o rozwód – jak napisać i złożyć | PKW Adwokaci",
+  "description": "Pozew o rozwód krok po kroku: który sąd, opłata 600 zł, co napisać, jakie dokumenty dołączyć, wina czy bez orzekania o winie, sprawy dzieci i mieszkania.",
+  "category": "prawo-rodzinne",
+  "date_published": "2026-10-19",
+  "date_modified": "2026-10-19",
+  "cover_alt": "Dwie obrączki leżące osobno na drewnianym stole obok zamkniętej teczki",
+  "excerpt": "Który sąd, ile kosztuje, co napisać i jakie dokumenty dołączyć. Pozew o rozwód krok po kroku, bez prawniczego żargonu.",
+  "lead": "Pozew o rozwód składasz do <strong>sądu okręgowego</strong>, zwykle właściwego dla ostatniego wspólnego miejsca zamieszkania małżonków. Opłata wynosi <strong>600 zł</strong>. W pozwie określasz, czego żądasz: rozwodu z orzekaniem o winie albo bez, oraz jak mają być uregulowane sprawy dzieci.",
+  "tldr": [
+    "Sąd okręgowy; miejscowo: ostatnie wspólne miejsce zamieszkania, jeśli choć jedno z małżonków nadal tam mieszka (art. 41 k.p.c.).",
+    "Opłata od pozwu: 600 zł. Gdy sąd orzeknie rozwód bez orzekania o winie na zgodny wniosek stron, po uprawomocnieniu wyroku zwraca z urzędu połowę opłaty (art. 79 u.k.s.c.).",
+    "Warunek rozwodu: zupełny i trwały rozkład pożycia (art. 56 k.r.o.).",
+    "Wyrok rozwodowy rozstrzyga też o władzy rodzicielskiej, kontaktach i alimentach na dzieci (art. 58 k.r.o.)."
+  ],
+  "faq": [
+    [
+      "Czy muszę mieć adwokata, żeby złożyć pozew o rozwód?",
+      "Nie. Pozew możesz złożyć sam. Pomoc adwokata przydaje się zwłaszcza przy sporze o winę, dzieci, alimenty lub mieszkanie."
+    ],
+    [
+      "Co jeśli nie wiem, gdzie mieszka współmałżonek?",
+      "Podaj ostatni znany adres. Jeśli nie da się ustalić miejsca pobytu, na wniosek powoda sąd ustanowi kuratora dla strony, której miejsce pobytu nie jest znane (art. 143–144 k.p.c.)."
+    ],
+    [
+      "Czy w pozwie o rozwód można żądać podziału majątku?",
+      "Sąd może dokonać podziału majątku wspólnego w wyroku rozwodowym, jeśli nie spowoduje to nadmiernej zwłoki. W praktyce często dzieje się to w osobnej sprawie po rozwodzie."
+    ],
+    [
+      "Ile trwa sprawa rozwodowa?",
+      "To zależy od sądu, sporów między stronami i tego, czy są małoletnie dzieci. Szczegóły opisujemy w osobnym tekście o czasie trwania rozwodu."
+    ]
+  ],
+  "related": [
+    "alimenty-na-dziecko",
+    "ile-trwa-rozwod"
+  ],
+  "cta_label": "Planujesz rozwód?",
+  "cta_title": "Opisz nam sytuację. Pomożemy przygotować pozew i omówimy sprawy dzieci, alimentów i mieszkania.",
+  "cover": "assets/blog/pozew-o-rozwod.jpg",
+  "author": {
+    "name": "Zespół PKW Adwokaci",
+    "person": false,
+    "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
+  }
+}

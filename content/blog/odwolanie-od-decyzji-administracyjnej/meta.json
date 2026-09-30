@@ -1,0 +1,48 @@
+{
+  "status": "zaplanowany",
+  "keyword": "odwołanie od decyzji administracyjnej termin",
+  "title": "Odwołanie od decyzji administracyjnej: termin i treść",
+  "seo_title": "Odwołanie od decyzji administracyjnej – termin 14 dni | PKW Adwokaci",
+  "description": "Odwołanie od decyzji administracyjnej: 14 dni od doręczenia, do kogo i za pośrednictwem kogo, co napisać, jak liczyć termin i co dzieje się dalej. Przepisy k.p.a.",
+  "category": "prawo-administracyjne",
+  "date_published": "2026-10-15",
+  "date_modified": "2026-10-15",
+  "cover_alt": "Pusty korytarz urzędu z wysokimi oknami i zamkniętymi drzwiami",
+  "excerpt": "Decyzja z urzędu jest niekorzystna? Masz 14 dni. Wyjaśniamy, gdzie złożyć odwołanie, co w nim napisać i co zrobi organ drugiej instancji.",
+  "lead": "Od decyzji wydanej w pierwszej instancji przysługuje odwołanie do organu wyższego stopnia. Masz na nie <strong>14 dni od doręczenia decyzji</strong> (art. 129 § 2 k.p.a.). Odwołanie składasz za pośrednictwem organu, który wydał decyzję, i nie musi ono zawierać szczegółowego uzasadnienia.",
+  "tldr": [
+    "Termin: 14 dni od doręczenia albo ogłoszenia decyzji (art. 129 § 2 k.p.a.).",
+    "Odwołanie wnosisz do organu wyższego stopnia za pośrednictwem organu, który wydał decyzję (art. 129 § 1 k.p.a.).",
+    "Wystarczy wykazać, że nie zgadzasz się z decyzją; szczegółowe uzasadnienie nie jest wymagane, chyba że przepis szczególny stanowi inaczej (art. 128 k.p.a.).",
+    "Decyzja nie podlega co do zasady wykonaniu przed upływem terminu do odwołania ani w czasie jego rozpatrywania (art. 130 k.p.a.)."
+  ],
+  "faq": [
+    [
+      "Kto jest organem drugiej instancji?",
+      "Zależy od organu, który wydał decyzję. Od decyzji wójta, burmistrza, prezydenta miasta lub starosty odwołanie rozpatruje zwykle samorządowe kolegium odwoławcze, chyba że ustawa szczególna wskazuje inny organ, np. wojewodę (art. 17 k.p.a.). Od decyzji organów administracji rządowej, np. wojewody, najczęściej właściwy minister. Informacja jest w pouczeniu decyzji."
+    ],
+    [
+      "Co jeśli spóźnię się z odwołaniem?",
+      "Organ stwierdzi uchybienie terminu. Jeśli spóźnienie nastąpiło bez Twojej winy, możesz w ciągu 7 dni od ustania przyczyny złożyć wniosek o przywrócenie terminu i jednocześnie wnieść odwołanie (art. 58 k.p.a.)."
+    ],
+    [
+      "Czy za odwołanie płaci się opłatę?",
+      "Co do zasady odwołanie w postępowaniu administracyjnym nie podlega opłacie. Opłaty mogą dotyczyć innych czynności, np. pełnomocnictwa."
+    ],
+    [
+      "Czy mogę od razu iść do sądu administracyjnego?",
+      "Co do zasady nie. Skargę do wojewódzkiego sądu administracyjnego można wnieść po wyczerpaniu środków zaskarżenia, czyli zwykle po rozpatrzeniu odwołania."
+    ]
+  ],
+  "related": [
+    "skarga-do-wsa"
+  ],
+  "cta_label": "Dostałeś niekorzystną decyzję?",
+  "cta_title": "Prześlij nam decyzję. Sprawdzimy termin na odwołanie i omówimy argumenty.",
+  "cover": "assets/blog/odwolanie-od-decyzji-administracyjnej.jpg",
+  "author": {
+    "name": "Zespół PKW Adwokaci",
+    "person": false,
+    "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
+  }
+}

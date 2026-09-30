@@ -75,8 +75,18 @@ for slug in sorted(os.listdir(src_dir)):
     words = len(re.sub(r"<[^>]+>", " ", m["body"]).split())
     m["minutes"] = max(1, math.ceil(words / 200))
     posts.append(m)
+TODAY = os.environ.get("BLOG_TODAY") or datetime.date.today().isoformat()
+# „zaplanowany” = ukazuje się sam w dniu date_published (automat publikacji uruchamia się codziennie)
+for p in posts:
+    if p["status"] == "zaplanowany":
+        p["status"] = "opublikowany" if p["date_published"] <= TODAY else "przyszly"
+future = {p["slug"] for p in posts if p["status"] == "przyszly"}
+posts = [p for p in posts if p["status"] != "przyszly"]
 posts.sort(key=lambda p: (p["date_published"], p.get("order", 0)), reverse=True)
 by_slug = {p["slug"]: p for p in posts}
+def unlink_future(html_):
+    # link do wpisu, który jeszcze się nie ukazał → sam tekst
+    return re.sub(r'<a href="\.\./([a-z0-9-]+)/">(.*?)</a>', lambda m: m.group(2) if m.group(1) in future else m.group(0), html_)
 catname = dict(CATS)
 
 def author_block(p):
@@ -94,7 +104,7 @@ def card(p, pre, big=False):
 
 for p in posts:
     pre = "../../"
-    body = p["body"]
+    body = unlink_future(p["body"])
     toc = []
     def add_id(mo):
         t = re.sub(r"<[^>]+>", "", mo.group(1)); i = slugify(t); toc.append((i, t))
@@ -103,8 +113,14 @@ for p in posts:
     a, ini = author_block(p)
     toc_html = "".join(f'<li><a href="#{i}">{esc(t)}</a></li>' for i, t in toc + ([("faq", "Najczęstsze pytania")] if p.get("faq") else []))
     tldr = "".join(f"<li>{x}</li>" for x in p.get("tldr", []))
-    faq = "".join(f'<details class="b-faq__i"><summary>{esc(q)}</summary><div>{ans}</div></details>' for q, ans in p.get("faq", []))
-    rel = [by_slug[s] for s in p.get("related", []) if s in by_slug]
+    faq = "".join(f'<details class="b-faq__i"><summary>{esc(q)}</summary><div>{unlink_future(ans)}</div></details>' for q, ans in p.get("faq", []))
+    rel = [by_slug[s] for s in p.get("related", []) if s in by_slug and s != p["slug"]]
+    for q in posts:  # dopełnij z tej samej kategorii, potem najnowszymi
+        if len(rel) >= 2: break
+        if q["slug"] != p["slug"] and q not in rel and q["category"] == p["category"]: rel.append(q)
+    for q in posts:
+        if len(rel) >= 2: break
+        if q["slug"] != p["slug"] and q not in rel: rel.append(q)
     rel_html = "".join(card(r, "../") for r in rel)
     draft_bar = ('<div class="b-draftbar">Szkic do akceptacji adwokata · niewidoczny dla Google</div>' if p["status"] != "opublikowany" else "")
     reviewer = p.get("reviewer")
@@ -201,4 +217,4 @@ sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps
     f"  <url><loc>{u}</loc><lastmod>{d}</lastmod></url>\n" for u, d in urls) + "</urlset>\n"
 open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write(sm)
 open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8").write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
-print(f"Zbudowano: {len(posts)} artykułów ({len(pub)} opublikowanych), sitemap: {len(urls)} adresów")
+print(f"Zbudowano ({TODAY}): {len(posts)} artykułów ({len(pub)} opublikowanych), zaplanowane na później: {len(future)}, sitemap: {len(urls)} adresów")

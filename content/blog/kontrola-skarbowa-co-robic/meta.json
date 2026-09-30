@@ -1,0 +1,48 @@
+{
+  "status": "zaplanowany",
+  "keyword": "kontrola skarbowa co robić",
+  "title": "Kontrola skarbowa w firmie: pierwsze kroki i prawa kontrolowanego",
+  "seo_title": "Kontrola skarbowa – co robić? Pierwsze kroki | PKW Adwokaci",
+  "description": "Kontrola skarbowa w firmie: czym różni się kontrola podatkowa od celno-skarbowej, co zrobić po zawiadomieniu, jakie masz prawa i terminy po protokole.",
+  "category": "karne-skarbowe-i-podatkowe",
+  "date_published": "2026-10-05",
+  "date_modified": "2026-10-05",
+  "cover_alt": "Segregatory i faktury na biurku w biurze o zmierzchu",
+  "excerpt": "Zawiadomienie z urzędu skarbowego albo kontrolerzy w drzwiach. Co zrobić od razu, jakie masz prawa i ile czasu na reakcję po protokole.",
+  "lead": "Kontrola skarbowa zwykle zaczyna się od zawiadomienia. Między zawiadomieniem a wszczęciem kontroli podatkowej musi minąć <strong>co najmniej 7 dni</strong>. To dobry moment, żeby uporządkować dokumenty i sprawdzić rozliczenia, bo w tym czasie wciąż możesz złożyć korektę deklaracji.",
+  "tldr": [
+    "Są dwa główne rodzaje: kontrola podatkowa (Ordynacja podatkowa) i kontrola celno-skarbowa (ustawa o KAS). Różnią się trybem i terminami.",
+    "Kontrolę podatkową wszczyna się co do zasady nie wcześniej niż 7 dni i nie później niż 30 dni od doręczenia zawiadomienia (art. 282b Ordynacji podatkowej).",
+    "Czas kontroli u przedsiębiorcy jest ograniczony i zależy od wielkości firmy (art. 55 Prawa przedsiębiorców).",
+    "Do protokołu kontroli podatkowej możesz złożyć zastrzeżenia w 14 dni (art. 291 Ordynacji podatkowej)."
+  ],
+  "faq": [
+    [
+      "Czy mogę złożyć korektę deklaracji po zawiadomieniu o kontroli?",
+      "Tak, do czasu wszczęcia kontroli. Na czas kontroli prawo do korekty w zakresie nią objętym jest zawieszone. Po jej zakończeniu możesz ponownie skorygować deklarację w granicach określonych w art. 81b Ordynacji podatkowej."
+    ],
+    [
+      "Czy muszę być obecny podczas kontroli?",
+      "Nie musisz osobiście. Możesz wskazać osobę, która będzie Cię reprezentować, na przykład pracownika, księgową lub pełnomocnika."
+    ],
+    [
+      "Czy po kontroli grozi odpowiedzialność karna skarbowa?",
+      "Może, jeśli kontrola wykaże zaniżenie podatku. Wtedy obok postępowania podatkowego może zostać wszczęte postępowanie z Kodeksu karnego skarbowego. Więcej piszemy w tekście o czynnym żalu."
+    ],
+    [
+      "Czy kontrolerzy mogą wejść do firmy bez zawiadomienia?",
+      "W niektórych sytuacjach tak. Przepisy przewidują wyjątki od obowiązku zawiadomienia, a kontrola celno-skarbowa co do zasady nie wymaga uprzedniego zawiadomienia."
+    ]
+  ],
+  "related": [
+    "czynny-zal-art-16-kks"
+  ],
+  "cta_label": "Zawiadomienie o kontroli?",
+  "cta_title": "Prześlij nam zawiadomienie. Sprawdzimy terminy i omówimy, jak przygotować firmę do kontroli.",
+  "cover": "assets/blog/kontrola-skarbowa-co-robic.jpg",
+  "author": {
+    "name": "Zespół PKW Adwokaci",
+    "person": false,
+    "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
+  }
+}

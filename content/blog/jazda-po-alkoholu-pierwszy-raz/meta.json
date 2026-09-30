@@ -1,0 +1,48 @@
+{
+  "status": "zaplanowany",
+  "keyword": "jazda po alkoholu pierwszy raz co grozi",
+  "title": "Jazda po alkoholu po raz pierwszy: przebieg sprawy i konsekwencje",
+  "seo_title": "Jazda po alkoholu pierwszy raz – co grozi? | PKW Adwokaci",
+  "description": "Jazda po alkoholu po raz pierwszy: stan nietrzeźwości a stan po użyciu, kary i środki z art. 178a k.k., zakaz prowadzenia, świadczenie pieniężne, przebieg sprawy.",
+  "category": "prawo-karne",
+  "date_published": "2026-10-12",
+  "date_modified": "2026-10-12",
+  "cover_alt": "Kluczyki samochodowe na desce rozdzielczej nocą, w tle światła miasta",
+  "excerpt": "Stan po użyciu czy nietrzeźwość, wykroczenie czy przestępstwo. Wyjaśniamy, od czego zależą konsekwencje i jak przebiega sprawa krok po kroku.",
+  "lead": "To, co grozi za jazdę po alkoholu, zależy przede wszystkim od stężenia. Powyżej <strong>0,5 promila</strong> we krwi (lub 0,25 mg/dm³ w wydychanym powietrzu) to stan nietrzeźwości i przestępstwo z art. 178a k.k. Między 0,2 a 0,5 promila to stan po użyciu alkoholu i wykroczenie (art. 87 k.w.).",
+  "tldr": [
+    "Stan nietrzeźwości (ponad 0,5‰) = przestępstwo z art. 178a § 1 k.k.; stan po użyciu (0,2–0,5‰) = wykroczenie z art. 87 k.w.",
+    "Za przestępstwo sąd orzeka zakaz prowadzenia pojazdów na co najmniej 3 lata i świadczenie pieniężne co najmniej 5000 zł.",
+    "Przy stężeniu co najmniej 1,5‰ sąd co do zasady orzeka przepadek pojazdu, a gdy to niemożliwe, nawiązkę od 5000 do 500 000 zł (art. 44b k.k.).",
+    "Prawo jazdy policja zatrzymuje na miejscu; o dalszym zatrzymaniu decyduje prokurator lub sąd."
+  ],
+  "faq": [
+    [
+      "Czy za pierwszy raz sprawa może zakończyć się bez skazania?",
+      "W niektórych sprawach sąd może warunkowo umorzyć postępowanie, jeśli spełnione są przesłanki art. 66 k.k. Obok tego może orzec zakaz prowadzenia pojazdów. Ocena zależy od okoliczności konkretnej sprawy."
+    ],
+    [
+      "Czy mogę odmówić badania alkomatem?",
+      "Policja może wtedy zarządzić badanie krwi. Odmowa nie kończy sprawy, a wynik badania krwi jest dowodem w postępowaniu."
+    ],
+    [
+      "Czy dotyczy to także roweru lub hulajnogi?",
+      "Kierowanie innym pojazdem niż mechaniczny, np. rowerem, w stanie nietrzeźwości lub po użyciu alkoholu jest wykroczeniem, nie przestępstwem (art. 87 § 1a i 2 k.w.). Przy hulajnodze elektrycznej kwalifikacja bywa sporna i trzeba ją ocenić w konkretnej sprawie."
+    ],
+    [
+      "Kiedy odzyskam prawo jazdy?",
+      "Po upływie orzeczonego zakazu. Przy zakazie dłuższym niż rok trzeba zwykle sprawdzić kwalifikacje, czyli zdać egzamin. Zakaz obowiązuje od uprawomocnienia wyroku, a na jego poczet zalicza się okres zatrzymania prawa jazdy (art. 63 § 4 k.k.)."
+    ]
+  ],
+  "related": [
+    "wyrok-nakazowy-co-to-jest"
+  ],
+  "cta_label": "Zatrzymano Ci prawo jazdy?",
+  "cta_title": "Opisz nam sytuację i prześlij dokumenty z policji. Sprawdzimy terminy i możliwe scenariusze.",
+  "cover": "assets/blog/jazda-po-alkoholu-pierwszy-raz.jpg",
+  "author": {
+    "name": "Zespół PKW Adwokaci",
+    "person": false,
+    "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
+  }
+}

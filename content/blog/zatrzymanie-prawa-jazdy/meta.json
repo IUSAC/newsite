@@ -1,0 +1,48 @@
+{
+  "status": "zaplanowany",
+  "keyword": "zatrzymanie prawa jazdy zażalenie",
+  "title": "Zatrzymanie prawa jazdy: zażalenie, odwołanie i terminy",
+  "seo_title": "Zatrzymanie prawa jazdy – zażalenie i terminy | PKW Adwokaci",
+  "description": "Zatrzymanie prawa jazdy: kiedy policja może je zatrzymać, różnica między sprawą karną a decyzją starosty za prędkość, terminy na zażalenie i odwołanie, zwrot dokumentu.",
+  "category": "prawo-karne",
+  "date_published": "2026-10-29",
+  "date_modified": "2026-10-29",
+  "cover_alt": "Wnętrze zaparkowanego samochodu nocą w deszczu, koperta na fotelu pasażera",
+  "excerpt": "Policja zabrała Ci prawo jazdy. Od powodu zależy, kto decyduje dalej i jaki środek odwoławczy przysługuje. Wyjaśniamy obie ścieżki.",
+  "lead": "Po zatrzymaniu prawa jazdy przez policję dalsza droga zależy od powodu. W sprawach o przestępstwo, np. jazdę w stanie nietrzeźwości, o dokumencie decyduje prokurator lub sąd, a na postanowienie przysługuje <strong>zażalenie w 7 dni</strong>. Przy przekroczeniu prędkości o ponad 50 km/h w terenie zabudowanym albo na jednojezdniowej drodze dwukierunkowej poza nim starosta wydaje decyzję o zatrzymaniu na 3 miesiące; od niej przysługuje <strong>odwołanie w 14 dni</strong>.",
+  "tldr": [
+    "Policja zatrzymuje prawo jazdy za pokwitowaniem, m.in. przy uzasadnionym podejrzeniu przestępstwa, za które grozi zakaz prowadzenia pojazdów.",
+    "Ścieżka karna: decyzję o dalszym zatrzymaniu podejmuje prokurator lub sąd; zażalenie składa się w 7 dni.",
+    "Ścieżka administracyjna: prędkość ponad 50 km/h w terenie zabudowanym albo na jednojezdniowej drodze dwukierunkowej poza nim oznacza decyzję starosty o zatrzymaniu na 3 miesiące; odwołanie do SKO w 14 dni.",
+    "Prowadzenie pojazdu w okresie zatrzymania prowadzi do cofnięcia uprawnień na 5 lat i może być osobnym czynem."
+  ],
+  "faq": [
+    [
+      "Czy mogę prowadzić samochód, zanim dostanę decyzję starosty?",
+      "Nie. Zatrzymanie przez policję na miejscu obowiązuje od razu. Prowadzenie pojazdu w tym czasie ma poważne konsekwencje, w tym cofnięcie uprawnień do kierowania na 5 lat."
+    ],
+    [
+      "Czy odwołanie od decyzji starosty wstrzymuje zatrzymanie?",
+      "Co do zasady nie. Decyzji o zatrzymaniu za prędkość nadaje się rygor natychmiastowej wykonalności, więc obowiązuje mimo odwołania."
+    ],
+    [
+      "Kiedy odzyskam prawo jazdy po 3 miesiącach?",
+      "Po upływie okresu zatrzymania dokument zwraca starosta. Jeśli w tym czasie prowadziłeś pojazd, starosta zamiast zwrotu cofa uprawnienia na 5 lat."
+    ],
+    [
+      "Czy zatrzymanie prawa jazdy to to samo co zakaz prowadzenia pojazdów?",
+      "Nie. Zatrzymanie to środek tymczasowy albo administracyjny. Zakaz prowadzenia pojazdów orzeka sąd w wyroku jako środek karny."
+    ]
+  ],
+  "related": [
+    "jazda-po-alkoholu-pierwszy-raz"
+  ],
+  "cta_label": "Zatrzymano Ci prawo jazdy?",
+  "cta_title": "Prześlij pokwitowanie i pisma, które dostałeś. Sprawdzimy, która ścieżka Cię dotyczy i ile masz czasu.",
+  "cover": "assets/blog/zatrzymanie-prawa-jazdy.jpg",
+  "author": {
+    "name": "Zespół PKW Adwokaci",
+    "person": false,
+    "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
+  }
+}

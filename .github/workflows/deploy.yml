@@ -7,6 +7,9 @@ on:
   push:
     branches: [produkcja]
   workflow_dispatch:
+  # Codziennie ok. 6:05 czasu polskiego: publikuje wpisy bloga zaplanowane na dziś (status „zaplanowany”).
+  schedule:
+    - cron: "5 4 * * *"
 
 concurrency:
   group: deploy-seohost
@@ -18,6 +21,11 @@ jobs:
     steps:
       - name: Pobierz kod strony
         uses: actions/checkout@v4
+        with:
+          ref: produkcja
+
+      - name: Zbuduj blog (wpisy zaplanowane na dziś i wcześniej)
+        run: TZ=Europe/Warsaw python3 scripts/build_blog.py
 
       - name: Zainstaluj ffmpeg
         run: command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)

@@ -1,0 +1,48 @@
+{
+  "status": "zaplanowany",
+  "keyword": "skarga do WSA",
+  "title": "Skarga do WSA: terminy, koszty, przebieg",
+  "seo_title": "Skarga do WSA – termin 30 dni, koszty, przebieg | PKW Adwokaci",
+  "description": "Skarga do wojewódzkiego sądu administracyjnego: 30 dni, za pośrednictwem organu, wpis sądowy i prawo pomocy, co musi zawierać, jak wygląda rozprawa i co dalej.",
+  "category": "prawo-administracyjne",
+  "date_published": "2026-10-26",
+  "date_modified": "2026-10-26",
+  "cover_alt": "Kamienne kolumny i szerokie schody gmachu sądu o zmierzchu",
+  "excerpt": "Organ drugiej instancji utrzymał decyzję? Masz 30 dni na skargę do WSA. Termin, koszty, treść skargi i to, co może zrobić sąd.",
+  "lead": "Skargę do wojewódzkiego sądu administracyjnego wnosisz w ciągu <strong>30 dni od doręczenia decyzji</strong> organu drugiej instancji (art. 53 § 1 p.p.s.a.). Składasz ją za pośrednictwem organu, który wydał zaskarżoną decyzję. Sąd bada legalność decyzji, czyli jej zgodność z prawem.",
+  "tldr": [
+    "Termin: 30 dni od doręczenia rozstrzygnięcia w sprawie (art. 53 § 1 p.p.s.a.).",
+    "Skargę wnosi się za pośrednictwem organu, którego działanie jest zaskarżane (art. 54 § 1 p.p.s.a.).",
+    "Warunek: wyczerpanie środków zaskarżenia, np. odwołania (art. 52 p.p.s.a.).",
+    "Od skargi pobiera się wpis sądowy; przy trudnej sytuacji można wnioskować o prawo pomocy."
+  ],
+  "faq": [
+    [
+      "Czy do skargi do WSA potrzebny jest adwokat?",
+      "Nie. Skargę możesz wnieść sam. Adwokat lub radca prawny jest obowiązkowy dopiero przy skardze kasacyjnej do Naczelnego Sądu Administracyjnego."
+    ],
+    [
+      "Ile kosztuje skarga do WSA?",
+      "Wpis sądowy zależy od rodzaju sprawy i określa go rozporządzenie Rady Ministrów. Może być stały albo stosunkowy. Sąd wzywa do jego uiszczenia po wpłynięciu skargi."
+    ],
+    [
+      "Czy skarga wstrzymuje wykonanie decyzji?",
+      "Co do zasady nie. Możesz jednak złożyć wniosek o wstrzymanie wykonania decyzji, jeśli grozi znaczna szkoda lub trudne do odwrócenia skutki (art. 61 p.p.s.a.)."
+    ],
+    [
+      "Co jeśli WSA oddali skargę?",
+      "Możesz wnieść skargę kasacyjną do NSA w terminie 30 dni od doręczenia wyroku z uzasadnieniem. Co do zasady musi ją sporządzić adwokat lub radca prawny (w niektórych sprawach także doradca podatkowy lub rzecznik patentowy). Jeśli skargę oddalono, najpierw w ciągu 7 dni złóż wniosek o uzasadnienie wyroku."
+    ]
+  ],
+  "related": [
+    "odwolanie-od-decyzji-administracyjnej"
+  ],
+  "cta_label": "Chcesz zaskarżyć decyzję?",
+  "cta_title": "Prześlij nam decyzję organu drugiej instancji. Sprawdzimy termin i ocenimy zarzuty.",
+  "cover": "assets/blog/skarga-do-wsa.jpg",
+  "author": {
+    "name": "Zespół PKW Adwokaci",
+    "person": false,
+    "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
+  }
+}
