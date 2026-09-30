@@ -16,7 +16,7 @@ FIRM = "Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów"
 BRAND = "PKW Adwokaci"
 PHONE = "+48774143669"
 PHONE_TXT = "77 414 36 69"
-ADDRESS = {"streetAddress": "ul. Kołłątaja 11 lok. 27", "postalCode": "45-064", "addressLocality": "Opole", "addressCountry": "PL"}
+ADDRESS = {"streetAddress": "ul. Ks. H. Kołłątaja 11 lok. 27", "postalCode": "45-064", "addressLocality": "Opole", "addressCountry": "PL"}
 CATS = [("prawo-karne", "Prawo karne"), ("karne-skarbowe-i-podatkowe", "Karne skarbowe i podatkowe"),
         ("prawo-administracyjne", "Administracyjne"), ("prawo-rodzinne", "Rodzinne"), ("prawo-cywilne", "Cywilne")]
 MONTHS = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia"]
