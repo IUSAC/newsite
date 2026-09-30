@@ -42,7 +42,8 @@ BLOG_CSS = open(os.path.join(ROOT, "scripts", "blog.css"), encoding="utf-8").rea
 
 def menu_with_blog(top, pre):
     top = top.replace('href="../', f'href="{pre}')
-    top = top.replace(f'<a href="{pre}#kontakt">Kontakt</a>', f'<a href="{pre}blog/">Blog</a>\n      <a href="{pre}#kontakt">Kontakt</a>', 1)
+    if f'href="{pre}blog/">Blog' not in top:
+        top = top.replace(f'<a href="{pre}#kontakt">Kontakt</a>', f'<a href="{pre}blog/">Blog</a>\n      <a href="{pre}#kontakt">Kontakt</a>', 1)
     return top
 
 def page(pre, title, desc, canonical, body, jsonld, og_img=None, noindex=False, extra_js=""):
@@ -107,7 +108,7 @@ for p in posts:
     rel_html = "".join(card(r, "../") for r in rel)
     draft_bar = ('<div class="b-draftbar">Szkic do akceptacji adwokata · niewidoczny dla Google</div>' if p["status"] != "opublikowany" else "")
     reviewer = p.get("reviewer")
-    rev_html = f'<span>Weryfikacja: {esc(reviewer)}</span>' if reviewer else '<span class="b-todo">Weryfikacja: adwokat (do uzupełnienia)</span>'
+    rev_html = f'<span>Weryfikacja: {esc(reviewer)}</span>' if reviewer else ('' if p["status"] == "opublikowany" else '<span class="b-todo">Weryfikacja: adwokat (do uzupełnienia)</span>')
     upd = f'<span>Aktualizacja: <time datetime="{p["date_modified"]}">{pl_date(p["date_modified"])}</time></span>' if p["date_modified"] != p["date_published"] else ""
     art = f'''{draft_bar}<div class="b-progress" aria-hidden="true"><i></i></div>
 <article class="b-art">
