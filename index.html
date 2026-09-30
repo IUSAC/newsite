@@ -424,6 +424,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
 .sc-cue i{width:1px;height:36px;background:linear-gradient(var(--green),transparent);animation:cue 1.6s ease-in-out infinite}
 @keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 .scrolly.started .sc-cue{opacity:0}
+.panel .hero-cta .btn{padding:8px 14px;font-size:13px;gap:8px}
 @media (max-width:560px){
   .scrolly{height:460vh}
   .sc-shade{background:linear-gradient(0deg,rgba(11,13,12,.92) 5%,rgba(11,13,12,.55) 55%,rgba(11,13,12,.35) 100%)}
@@ -437,6 +438,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   .sc-rail{right:10px;gap:8px}
   .sc-rail li{height:24px}.sc-rail li.is-on{height:38px}
   .panel .hero-cta .btn.ghost{display:none}
+  .panel .hero-cta .btn{flex:0 0 auto;padding:8px 14px;font-size:13px}
   .sc-cue{display:none}
 }
 @media (prefers-reduced-motion:reduce){
