@@ -311,6 +311,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
 
 /* ===== Wersja mobilna: czytelność (research: NN/g, digital.gov) ===== */
 .swipe-hint{display:none}
+.sample-note{display:none}
 @media (max-width:560px){
   body{font-size:16px;line-height:1.6}
   .wrap{padding-inline:20px}
@@ -333,8 +334,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   .areas .n,.areas span:not(.n){display:none}
   .areas strong{font-size:18px}
   /* co się stało: zwarta lista zamiast rozbudowanych kart */
-  .filters{flex-wrap:nowrap;overflow-x:auto;margin-inline:-20px;padding-inline:20px;scrollbar-width:none;margin-bottom:16px}
-  .filters::-webkit-scrollbar{display:none}
+  .filters{flex-wrap:wrap;gap:8px;margin-bottom:16px}
   .filters button{flex:0 0 auto;min-height:44px;background:var(--paper)}
   .grid-sit{border:0;gap:8px;display:grid}
   .sit{border:0;background:var(--paper);padding:16px 44px 16px 16px;gap:6px;grid-template-rows:auto auto}
@@ -361,19 +361,24 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   .price .amt{grid-column:2;grid-row:1 / span 2;font-size:28px;text-align:right}
   .price ul{grid-column:1;padding-left:0;list-style:none;font-size:14px}
   .price ul li+li{display:none}
-  /* zespół i wiedza: przewijane w bok zamiast wysokiej kolumny */
-  .swipe-hint{display:block;font-size:13px;color:var(--ink-2);margin:-8px 0 12px}
-  .team,.know{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-20px;padding:0 20px 6px;scrollbar-width:none;max-width:none}
-  .team::-webkit-scrollbar,.know::-webkit-scrollbar{display:none}
-  .team .person{flex:0 0 72%;scroll-snap-align:start}
-  .know .post{flex:0 0 72%;scroll-snap-align:start}
-  .portrait{padding:16px}
-  .portrait .pl{display:none}
-  .person .meta{flex-direction:column;gap:2px}
-  .person .meta h3{font-size:17px}
+  /* zespół: lista jak w stopce maila – zdjęcie w kółku, opis obok */
+  .team{display:grid;grid-template-columns:1fr;gap:0;max-width:none}
+  .team .person{display:grid;grid-template-columns:76px minmax(0,1fr);align-items:center;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+  .team .person:last-child{border-bottom:1px solid var(--line)}
+  .portrait{width:76px;height:76px;aspect-ratio:1;padding:0;border-radius:50%;background-position:center 20%;justify-content:center;align-items:center}
+  .portrait .pl,.portrait .sample{display:none!important}
+  .portrait .ini{font-size:26px;letter-spacing:0}
+  .portrait::before{border-radius:50%}
+  .person .meta{border-top:0;padding-top:0;flex-direction:column;gap:2px}
+  .person .meta h3{font-size:18px}
+  .person .meta span{font-size:13px}
+  .person .meta .sample-note{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-2);opacity:.8}
+  /* wiedza: ten sam wygląd kafelków, jeden pod drugim */
+  .know{display:grid;grid-template-columns:1fr;gap:28px}
+  .know .thumb{aspect-ratio:4/5}
   .thumb{padding:18px}
-  .t-num{font-size:72px}
-  .t-unit{font-size:28px}
+  .t-num{font-size:84px}
+  .t-unit{font-size:32px}
   .post h3{font-size:17px}
   .post .tag{display:none}
   /* pytania */
@@ -530,11 +535,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
         <div><span class="label"><span class="dot"></span>Zespół</span><h2 style="margin-top:18px">Adwokaci</h2></div>
         <p>Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów. Kancelaria działa w Opolu od 2014 roku. Numer wpisu na listę adwokatów podajemy przy nazwisku.</p>
       </div>
-      <p class="swipe-hint" aria-hidden="true">Przesuń w bok →</p>
       <div class="team">
-        <div class="person"><div class="portrait" data-photo="assets/team-portrait-1.jpg"><span class="ini">BP</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Bartosz Polański</h3><span>Partner</span></div><span>Nr wpisu ___</span></div></div>
-        <div class="person"><div class="portrait" data-photo="assets/team-portrait-2.jpg"><span class="ini">MK</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Marcin Konofalski</h3><span>Partner</span></div><span>Nr wpisu ___</span></div></div>
-        <div class="person"><div class="portrait" data-photo="assets/team-portrait-3.jpg"><span class="ini">JK</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Jolanta Konofalska</h3><span>Adwokat</span></div><span>Nr wpisu ___</span></div></div>
+        <div class="person"><div class="portrait" data-photo="assets/team-portrait-1.jpg"><span class="ini">BP</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Bartosz Polański</h3><span>Partner</span><span class="sample-note">Zdjęcie poglądowe</span></div><span>Nr wpisu ___</span></div></div>
+        <div class="person"><div class="portrait" data-photo="assets/team-portrait-2.jpg"><span class="ini">MK</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Marcin Konofalski</h3><span>Partner</span><span class="sample-note">Zdjęcie poglądowe</span></div><span>Nr wpisu ___</span></div></div>
+        <div class="person"><div class="portrait" data-photo="assets/team-portrait-3.jpg"><span class="ini">JK</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Jolanta Konofalska</h3><span>Adwokat</span><span class="sample-note">Zdjęcie poglądowe</span></div><span>Nr wpisu ___</span></div></div>
       </div>
     </div>
   </section>
@@ -546,7 +550,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
         <div><span class="label"><span class="dot"></span>Wiedza</span><h2 style="margin-top:18px">Krótko o prawie</h2></div>
         <p>Odpowiedzi na pytania, które ludzie wpisują w Google. Te same nagrania publikujemy na TikToku, Instagramie i YouTube.</p>
       </div>
-      <p class="swipe-hint" aria-hidden="true">Przesuń w bok →</p>
       <div class="know">
         <button class="post" type="button" data-v="0">
           <div class="thumb t-court" data-img="assets/thumb-wyrok.jpg">
