@@ -14,8 +14,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://lawyerai.pl"
 FIRM = "Polański Konofalski i Wspólnicy Sp.p. Adwokatów"
 BRAND = "PKW Adwokaci"
-PHONE = "+48774543166"
-PHONE_TXT = "77 454 31 66"
+PHONE = "+48774143669"
+PHONE_TXT = "77 414 36 69"
 ADDRESS = {"streetAddress": "ul. Kołłątaja 11 lok. 27", "postalCode": "45-064", "addressLocality": "Opole", "addressCountry": "PL"}
 CATS = [("prawo-karne", "Prawo karne"), ("karne-skarbowe-i-podatkowe", "Karne skarbowe i podatkowe"),
         ("prawo-administracyjne", "Administracyjne"), ("prawo-rodzinne", "Rodzinne"), ("prawo-cywilne", "Cywilne")]
