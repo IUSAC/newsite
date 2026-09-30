@@ -474,7 +474,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
 .ab-facts div{display:grid;grid-template-columns:minmax(110px,auto) minmax(0,1fr);gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
 .ab-facts dt{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:22px}
 .ab-facts dd{margin:0;color:var(--ink-2);font-size:15px}
-.ab-h{margin-top:clamp(48px,6vw,80px);font-size:20px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ab-h{margin-top:0;font-size:20px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
 .ab-h span{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
 .ab-grid{margin-top:18px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .ab-card{position:relative;display:grid;grid-template-rows:auto auto 1fr;gap:8px;padding:22px 20px 56px;background:var(--paper-2);color:var(--ink);text-decoration:none;min-height:190px;overflow:hidden;transition:background .3s,color .3s,transform .3s}
@@ -495,7 +495,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
   .ab-facts div{grid-template-columns:118px minmax(0,1fr);padding:12px 0}
   .ab-facts dt{font-size:18px;white-space:nowrap}
   .ab-facts dd{font-size:14px}
-  .ab-h{margin-top:40px;font-size:18px}
+  .ab-h{margin-top:0;font-size:18px}
   .ab-grid{grid-template-columns:1fr 1fr;gap:10px}
   .ab-card{padding:16px 14px 48px;min-height:0;gap:6px}
   .ab-card strong{font-size:18px;overflow-wrap:anywhere}
@@ -514,7 +514,6 @@ a.person:hover .call .arr{transform:translateX(4px)}
       <a href="#sytuacje">Moja sytuacja</a>
       <a href="#wspolpraca">Współpraca</a>
       <a href="#zespol">Zespół</a>
-      <a href="#wiedza">Wiedza</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
     <a class="btn top-cta" href="#kontakt">Umów konsultację <span class="arr">→</span></a>
@@ -643,15 +642,6 @@ a.person:hover .call .arr{transform:translateX(4px)}
   <!-- O kancelarii -->
   <section class="s" id="o-nas">
     <div class="wrap">
-      <span class="label"><span class="dot"></span>O kancelarii</span>
-      <div class="ab-top">
-        <p class="ab-lead">Każda sprawa zaczyna się od <mark>konkretnego pisma i&nbsp;terminu</mark>. Mówimy, co ono znaczy, ile masz czasu i&nbsp;co zrobimy krok po kroku.</p>
-        <dl class="ab-facts">
-          <div><dt>2014</dt><dd>rok założenia kancelarii</dd></div>
-          <div><dt>Opole</dt><dd>siedziba · sprawy w całej Polsce, także online</dd></div>
-          <div><dt>PL · EN · DE</dt><dd>języki doradztwa</dd></div>
-        </dl>
-      </div>
       <h3 class="ab-h">W czym pomagamy <span>wybierz dziedzinę</span></h3>
       <div class="ab-grid">
         <a class="ab-card" href="#sytuacje" data-go="karne"><span class="ab-n">01</span><span class="ab-law">k.k. · k.p.k.</span><strong>Karne</strong><span class="ab-d">Obrona, zarzuty, wyroki nakazowe, sprawy kierowców</span><svg class="ab-arr" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h13M13 6l6 6-6 6"/></svg></a>
@@ -730,95 +720,10 @@ a.person:hover .call .arr{transform:translateX(4px)}
 
 
 
-  <!-- Wiedza -->
-  <section class="s" id="wiedza">
-    <div class="wrap">
-      <div class="s-head">
-        <div><span class="label"><span class="dot"></span>Wiedza</span><h2 style="margin-top:18px">Krótko o prawie</h2></div>
-        <p>Odpowiedzi na pytania, które ludzie wpisują w Google. Te same nagrania publikujemy na TikToku, Instagramie i YouTube.</p>
-      </div>
-      <div class="know">
-        <button class="post" type="button" data-v="0">
-          <div class="thumb t-court" data-img="assets/thumb-wyrok.jpg">
-            <video class="t-vid" muted loop playsinline preload="none" data-src="assets/clip-wyrok.mp4" aria-hidden="true"></video>
-            <span class="play" aria-hidden="true">▶</span>
-            <span class="t-num">7</span><span class="t-unit">DNI</span>
-            <span class="t-small">Wyrok bez rozprawy</span>
-          </div>
-          <span class="tag">Karne · art. 506 k.p.k. · 0:50</span><h3>Wyrok bez rozprawy. Co zrobić w ciągu 7 dni?</h3><span class="more">Przeczytaj, co mówi adwokat <span class="arr">→</span></span>
-        </button>
-        <button class="post" type="button" data-v="1">
-          <div class="thumb t-tax" data-img="assets/thumb-kontrola.jpg">
-            <video class="t-vid" muted loop playsinline preload="none" data-src="assets/clip-kontrola.mp4" aria-hidden="true"></video>
-            <span class="play" aria-hidden="true">▶</span>
-            <span class="t-num">7–30</span><span class="t-unit">DNI</span>
-            <span class="t-small">Zawiadomienie o kontroli</span>
-          </div>
-          <span class="tag">Podatkowe · art. 282b O.p. · 0:55</span><h3>Kontrola z urzędu skarbowego. Co zrobić, zanim się zacznie?</h3><span class="more">Przeczytaj, co mówi adwokat <span class="arr">→</span></span>
-        </button>
-        <button class="post" type="button" data-v="2">
-          <div class="thumb t-family" data-img="assets/thumb-alimenty.jpg">
-            <video class="t-vid" muted loop playsinline preload="none" data-src="assets/clip-alimenty.mp4" aria-hidden="true"></video>
-            <span class="play" aria-hidden="true">▶</span>
-            <span class="t-num">art.</span><span class="t-unit">135</span>
-            <span class="t-small">Od czego zależą alimenty</span>
-          </div>
-          <span class="tag">Rodzinne · art. 135 k.r.o. · 0:55</span><h3>Od czego zależy wysokość alimentów?</h3><span class="more">Przeczytaj, co mówi adwokat <span class="arr">→</span></span>
-        </button>
-      </div>
-    </div>
-  </section>
 
 
 </main>
 
-<dialog class="vid" id="vid-0" aria-labelledby="vt-0">
-  <div class="v-in">
-    <button class="v-x" type="button" aria-label="Zamknij">×</button>
-    <span class="label"><span class="dot"></span>Karne · art. 506 k.p.k.</span>
-    <h3 id="vt-0" class="v-h">Dostałeś wyrok, a nie było żadnej rozprawy?</h3>
-    <div class="v-big"><b>7</b> dni na sprzeciw od doręczenia</div>
-    <ol class="steps">
-      <li><div><b>To wyrok nakazowy</b><span>Sąd wydał go na podstawie samych akt, bez Ciebie na sali.</span></div></li>
-      <li><div><b>Masz 7 dni na sprzeciw</b><span>Liczonych od doręczenia. Po tym czasie wyrok jest prawomocny.</span></div></li>
-      <li><div><b>Awizo to też doręczenie</b><span>Nieodebrany list po 14 dniach uznaje się za doręczony. Termin biegnie.</span></div></li>
-      <li><div><b>Sprzeciw nie wymaga uzasadnienia</b><span>Wyrok traci moc i sprawa idzie na zwykłą rozprawę.</span></div></li>
-      <li><div><b>Najpierw sprawdź ryzyko</b><span>Na rozprawie sąd może orzec inaczej, także surowiej. Przed sprzeciwem warto przejrzeć akta.</span></div></li>
-    </ol>
-    <a class="btn green v-cta" href="#kontakt" data-area="1">Wyślij zdjęcie wyroku <span class="arr">→</span></a>
-  </div>
-</dialog>
-<dialog class="vid" id="vid-1" aria-labelledby="vt-1">
-  <div class="v-in">
-    <button class="v-x" type="button" aria-label="Zamknij">×</button>
-    <span class="label"><span class="dot"></span>Podatkowe · art. 282b Ordynacji podatkowej</span>
-    <h3 id="vt-1" class="v-h">Dostałeś zawiadomienie o zamiarze wszczęcia kontroli?</h3>
-    <div class="v-big"><b>7–30</b> dni do rozpoczęcia kontroli</div>
-    <ol class="steps">
-      <li><div><b>To jeszcze nie kontrola</b><span>To uprzedzenie, że się zacznie.</span></div></li>
-      <li><div><b>Okno 7–30 dni</b><span>Kontrola rusza najwcześniej po 7, najpóźniej po 30 dniach od doręczenia.</span></div></li>
-      <li><div><b>Korekta tylko przed kontrolą</b><span>W tym czasie możesz złożyć korektę deklaracji. Po wszczęciu kontroli, w jej zakresie, ta możliwość jest wstrzymana.</span></div></li>
-      <li><div><b>Nie tłumacz się na gorąco</b><span>Wyjaśnienia bez dokumentów i różne wersje od różnych osób w firmie wracają potem w protokole.</span></div></li>
-      <li><div><b>14 dni na zastrzeżenia</b><span>Tyle masz na zastrzeżenia do protokołu kontroli.</span></div></li>
-    </ol>
-    <a class="btn green v-cta" href="#kontakt" data-area="2">Wyślij zawiadomienie <span class="arr">→</span></a>
-  </div>
-</dialog>
-<dialog class="vid" id="vid-2" aria-labelledby="vt-2">
-  <div class="v-in">
-    <button class="v-x" type="button" aria-label="Zamknij">×</button>
-    <span class="label"><span class="dot"></span>Rodzinne · art. 135 k.r.o.</span>
-    <h3 id="vt-2" class="v-h">Zarabia minimalną, więc alimenty będą niskie? Nie zawsze.</h3>
-    <div class="v-big"><b>2</b> kryteria, które bierze pod uwagę sąd</div>
-    <ol class="steps">
-      <li><div><b>Potrzeby i możliwości</b><span>Sąd patrzy na usprawiedliwione potrzeby dziecka i możliwości zarobkowe rodzica.</span></div></li>
-      <li><div><b>Możliwości, nie pasek wypłaty</b><span>Liczy się zawód, doświadczenie i styl życia, nie tylko kwota na umowie.</span></div></li>
-      <li><div><b>Zbieraj rachunki</b><span>Potrzeby dziecka trzeba udowodnić: jedzenie, szkoła, leczenie, zajęcia dodatkowe.</span></div></li>
-      <li><div><b>Zabezpieczenie na czas sprawy</b><span>Wniosek o zabezpieczenie pozwala, by pieniądze płynęły już w trakcie procesu.</span></div></li>
-    </ol>
-    <a class="btn green v-cta" href="#kontakt" data-area="6">Policzmy to razem <span class="arr">→</span></a>
-  </div>
-</dialog>
 
 
 <footer>
