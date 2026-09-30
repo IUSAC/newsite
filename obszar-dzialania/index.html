@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b0d0c">
-<title>PK Adwokaci</title>
-<meta name="description" content="Polański Konofalski i Wspólnicy – kancelaria adwokacka z Opola. Prawo karne, podatkowe, administracyjne i rodzinne. Konsultacje online w całej Polsce.">
+<title>Obszar działania – PK Adwokaci</title>
+<meta name="description" content="Obszar działania kancelarii Polański Konofalski i Wspólnicy: prawo cywilne, karne, administracyjne, rodzinne, rolne, egzekucyjne, obrót nieruchomościami, zamówienia publiczne, prawo gospodarcze i handlowe.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -460,330 +460,151 @@ a.person:hover .call .arr{transform:translateX(4px)}
   a.person .call::before{content:"";width:20px;height:20px;background:currentColor;-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z'/></svg>") center/contain no-repeat;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z'/></svg>") center/contain no-repeat}
   a.person .call .arr{display:none}
 }
+
+.od-hero{background:var(--night);color:var(--on-night);padding-block:clamp(110px,14vw,180px) clamp(56px,7vw,96px)}
+.od-hero .label{color:rgba(255,255,255,.7)}
+.od-hero h1{font-size:clamp(48px,8vw,120px);margin-top:18px;text-transform:lowercase}
+.od-hero h1 span{color:var(--green)}
+.od-hero p{margin-top:22px;font-size:clamp(17px,1.5vw,21px);color:rgba(255,255,255,.8);max-width:52ch}
+.oa-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);border-left:1px solid var(--line)}
+.oa{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 26px;display:grid;gap:12px;align-content:start;position:relative;scroll-margin-top:80px;transition:background .25s}
+.oa::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--green);transition:width .4s}
+.oa:hover{background:var(--paper-2)}.oa:hover::before,.oa:target::before{width:100%}
+.oa-n{font-family:var(--mono);font-size:12px;color:var(--green-ink)}
+.oa h3{font-size:24px;font-stretch:112%;line-height:1.1}
+.oa h3 span{display:block;font-weight:500;color:var(--ink-2)}
+.oa-short{color:var(--ink-2);font-size:15px}
+.oa details summary{list-style:none;cursor:pointer;font-weight:600;font-size:14px;display:inline-flex;gap:6px;padding:8px 0;min-height:44px;align-items:center}
+.oa details summary::-webkit-details-marker{display:none}
+.oa details[open] summary .arr{transform:rotate(90deg)}
+.oa details summary .arr{transition:transform .2s;color:var(--green-ink)}
+.oa-body{display:grid;gap:10px;font-size:15px;padding-top:4px;border-top:1px solid var(--line)}
+.oa-body p{margin:0;padding-top:10px}
+.oa-body ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--ink-2)}
+.oa-body b{color:var(--ink)}
+.why{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:clamp(28px,5vw,80px)}
+.why .lead{font-family:var(--display);font-size:clamp(22px,2.4vw,32px);line-height:1.25;font-weight:600;letter-spacing:-.01em}
+.why p+p{margin-top:16px}.why .txt p{color:var(--ink-2);font-size:17px}
+.od-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+@media (max-width:1000px){.oa-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.oa-grid{grid-template-columns:1fr;border-left:0}.oa{border-right:0;padding:22px 0}.why{grid-template-columns:1fr}.od-hero{padding-block:96px 48px}}
 </style>
 </head>
 <body>
-
 <header class="top">
   <div class="wrap nav">
-    <a class="logo" href="#start"><i></i>PK ADWOKACI</a>
+    <a class="logo" href="../"><i></i>PK ADWOKACI</a>
     <nav class="menu" id="menu" aria-label="Główne">
-      <a href="#sytuacje">Moja sytuacja</a>
-      <a href="#wspolpraca">Współpraca</a>
-      <a href="#cennik">Cennik</a>
-      <a href="#zespol">Zespół</a>
-      <a href="#wiedza">Wiedza</a>
-      <a href="#kontakt">Kontakt</a>
+      <a href="../#sytuacje">Moja sytuacja</a>
+      <a href="../#wspolpraca">Współpraca</a>
+      <a href="../#cennik">Cennik</a>
+      <a href="../#zespol">Zespół</a>
+      <a href="../#wiedza">Wiedza</a>
+      <a href="../#kontakt">Kontakt</a>
     </nav>
-    <a class="btn top-cta" href="#kontakt">Umów konsultację <span class="arr">→</span></a>
+    <a class="btn top-cta" href="../#kontakt">Umów konsultację <span class="arr">→</span></a>
     <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Otwórz menu"><span></span><span></span></button>
   </div>
 </header>
-
 <main id="start">
-  <!-- HERO: miejsce na wideo -->
-  <section class="scrolly" id="intro" aria-label="Wprowadzenie">
-    <div class="sticky">
-      <canvas id="scrub" aria-hidden="true"></canvas>
-      <div class="sc-shade" aria-hidden="true"></div>
-      <div class="wrap sc-stage">
-        <div class="panel is-on" data-step="0">
-          <span class="label"><span class="dot"></span>Kancelaria adwokacka · Opole · od 2014</span>
-          <h1>Obszar <span class="g">działalności</span></h1>
-          <p class="lead">Kancelaria prowadzi kompleksową obsługę podmiotów gospodarczych oraz osób fizycznych.</p>
-          <div class="hero-cta"><a class="btn green" href="obszar-dzialania/">Zobacz obszar działania <span class="arr">→</span></a></div>
-        </div>
-        <div class="panel" data-step="1">
-          <span class="label"><span class="dot"></span>01 · Klient indywidualny</span>
-          <h2>Sprawa, która dotyczy Ciebie i Twojej rodziny</h2>
-          <ul class="pl-list">
-            <li><b>Karne</b><span>zarzuty, wyrok nakazowy, jazda po alkoholu</span></li>
-            <li><b>Rodzinne</b><span>rozwód, alimenty, kontakty z dziećmi</span></li>
-            <li><b>Administracyjne</b><span>decyzje urzędów, skargi do WSA</span></li>
-          </ul>
-        </div>
-        <div class="panel" data-step="2">
-          <span class="label"><span class="dot"></span>02 · Firmy i przedsiębiorcy</span>
-          <h2>Spór z urzędem nie może zatrzymać firmy</h2>
-          <ul class="pl-list">
-            <li><b>Podatkowe</b><span>kontrole KAS i urzędu skarbowego, spory z fiskusem</span></li>
-            <li><b>Karne skarbowe</b><span>zarzuty z k.k.s., czynny żal</span></li>
-            <li><b>Administracyjne</b><span>koncesje, zezwolenia, kary administracyjne</span></li>
-          </ul>
-        </div>
-        <div class="panel" data-step="3">
-          <span class="label"><span class="dot"></span>03 · Wyjście</span>
-          <h2>Pokaż nam pismo.<br><span class="g">Wskażemy drogę.</span></h2>
-          <p class="lead">Sprawdzimy termin i powiemy, co możesz zrobić.</p>
-          <div class="hero-cta">
-            <a class="btn green" href="#kontakt">Wyślij pismo do analizy <span class="arr">→</span></a>
-            <a class="btn ghost" href="#sytuacje">Co się stało?</a>
-          </div>
-        </div>
-      </div>
-      <ol class="sc-rail" aria-hidden="true"><li class="is-on"></li><li></li><li></li><li></li></ol>
-      <div class="sc-cue" aria-hidden="true"><span>Przewiń</span><i></i></div>
-    </div>
-  </section>
-
-  <!-- Zespół -->
-  <section class="s tint" id="zespol">
+  <section class="od-hero">
     <div class="wrap">
-      <div class="s-head">
-        <div><span class="label"><span class="dot"></span>Zespół</span><h2 style="margin-top:18px">Adwokaci</h2></div>
-        <p>Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów, Opole, od 2014 roku. Kliknij adwokata, żeby zadzwonić do kancelarii.</p>
-      </div>
-      <div class="team">
-        <a class="person" href="tel:+48774543166" aria-label="Zadzwoń: adw. Bartosz Polański, tel. 77 454 31 66"><div class="portrait" data-photo="assets/team-portrait-1.jpg"><span class="ini">BP</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Bartosz Polański</h3><span>Partner</span><span class="sample-note">Zdjęcie poglądowe</span></div><span>Nr wpisu ___</span></div><span class="call" aria-hidden="true">Zadzwoń <span class="arr">→</span></span></a>
-        <a class="person" href="tel:+48774543166" aria-label="Zadzwoń: adw. Marcin Konofalski, tel. 77 454 31 66"><div class="portrait" data-photo="assets/team-portrait-2.jpg"><span class="ini">MK</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Marcin Konofalski</h3><span>Partner</span><span class="sample-note">Zdjęcie poglądowe</span></div><span>Nr wpisu ___</span></div><span class="call" aria-hidden="true">Zadzwoń <span class="arr">→</span></span></a>
-        <a class="person" href="tel:+48774543166" aria-label="Zadzwoń: adw. Jolanta Konofalska, tel. 77 454 31 66"><div class="portrait" data-photo="assets/team-portrait-3.jpg"><span class="ini">JK</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Jolanta Konofalska</h3><span>Adwokat</span><span class="sample-note">Zdjęcie poglądowe</span></div><span>Nr wpisu ___</span></div><span class="call" aria-hidden="true">Zadzwoń <span class="arr">→</span></span></a>
-      </div>
+      <span class="label"><span class="dot"></span>Polański Konofalski i Wspólnicy · Opole</span>
+      <h1>obszar <span>działania</span></h1>
+      <p>Kancelaria prowadzi kompleksową obsługę podmiotów gospodarczych oraz osób fizycznych.</p>
     </div>
   </section>
-
-  <!-- Kontakt -->
-  <section class="s dark" id="kontakt">
-    <div class="wrap contact">
-      <div>
-        <span class="label"><span class="dot"></span>Kontakt</span>
-        <h2 style="margin-top:18px">Pokaż nam pismo</h2>
-        <p style="margin-top:20px;color:rgba(255,255,255,.72);max-width:44ch">Trzy pola i zdjęcie dokumentu. Oddzwonimy w dni robocze w ciągu godziny.</p>
-        <div class="channels">
-          <div><span>Telefon</span><span>+48 77 454 31 66<br>+48 608 301 225</span></div>
-          <div><span>WhatsApp</span><span>+48 608 301 225</span></div>
-          <div><span>E-mail</span><span>biuro@pkwadwokaci.pl</span></div>
-          <div><span>Adres</span><span>ul. Kołłątaja 11 lok. 27<br>45-064 Opole</span></div>
-        </div>
-      </div>
-      <div id="formbox">
-        <form id="lead" novalidate>
-          <div class="row2">
-            <label class="f" for="f-name">Imię<input id="f-name" name="name" autocomplete="given-name" required></label>
-            <label class="f" for="f-phone">Telefon<input id="f-phone" name="phone" type="tel" autocomplete="tel" required></label>
-          </div>
-          <label class="f" for="f-area">Czego dotyczy sprawa?
-            <select id="f-area" name="area">
-              <option>Jazda po alkoholu / prawo jazdy</option>
-              <option>Wyrok nakazowy / zarzuty</option>
-              <option>Kontrola skarbowa</option>
-              <option>Sprawa karna skarbowa</option>
-              <option>Decyzja urzędu / skarga do WSA</option>
-              <option>Rozwód / podział majątku</option>
-              <option>Alimenty / kontakty z dziećmi</option>
-              <option>Inne</option>
-            </select>
-          </label>
-          <label class="file" for="f-file">
-            <input id="f-file" type="file" accept="image/*,.pdf">
-            <span id="f-file-txt">+ Dodaj zdjęcie lub PDF pisma (opcjonalnie)</span>
-          </label>
-          <label class="consent" for="f-ok"><input id="f-ok" type="checkbox" required> Wyrażam zgodę na kontakt w sprawie zapytania. Dane chroni tajemnica adwokacka.</label>
-          <button class="btn green" type="submit" style="justify-self:start">Wyślij do adwokata <span class="arr">→</span></button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- O kancelarii -->
-  <section class="s" id="o-nas">
+  <section class="s">
     <div class="wrap">
-      <span class="label"><span class="dot"></span>O kancelarii</span>
-      <p class="statement" style="margin-top:24px;max-width:28ch">Każda sprawa zaczyna się od <b>konkretnego pisma i terminu</b>. Mówimy, co ono znaczy, ile masz czasu i co zrobimy krok po kroku.</p>
-      <div class="areas">
-        <div><span class="n">K.K. · K.P.K.</span><strong>Karne</strong><span>Obrona, zarzuty, wyroki nakazowe, sprawy kierowców</span></div>
-        <div><span class="n">O.P. · K.K.S.</span><strong>Podatkowe</strong><span>Kontrole KAS, spory z urzędem, sprawy karne skarbowe</span></div>
-        <div><span class="n">K.P.A. · P.P.S.A.</span><strong>Administracyjne</strong><span>Odwołania, skargi do WSA i NSA</span></div>
-        <div><span class="n">K.R.O.</span><strong>Rodzinne</strong><span>Rozwody, alimenty, podział majątku, kontakty z dziećmi</span></div>
+      <div class="oa-grid">
+      <article class="oa" id="prawo-cywilne">
+        <span class="oa-n">01</span>
+        <h3>Prawo <span>cywilne</span></h3>
+        <p class="oa-short">Sprawy odszkodowawcze, spadkowe, o zachowek podział majątku, o zapłatę, prawo własności, prawo pracy.</p>
+        <details><summary>czytaj więcej <span class="arr">»</span></summary><div class="oa-body">
+          <p>Nasza kancelaria oferuje pomoc prawną na płaszczyźnie szeroko pojętego prawa cywilnego.</p><p>W ramach pomocy prawnej oferujemy profesjonalną obsługę klientów indywidualnych jak i podmiotów prawnych. W szczególności świadczymy pomoc prawną w zakresie spraw:</p><ul><li><b>o zapłatę z tytułu:</b> ugody, najmu, dzierżawy,, sprzedaży, dostawy, kontraktacji, ubezpieczenia, umowy o roboty budowlane, umowy o dzieło, umowy zlecenia, umowy pożyczki, rękojmi, gwarancji, darowizn, poręczenia, zabezpieczenia i innych, odszkodowawczych, o zadośćuczynienie, o ochronę dóbr osobowych, własność intelektualna,</li><li><b>prawa rzeczowego:</b> zasiedzenie, prawo własności, służebności, użytkowanie, zastaw,</li><li><b>spadkowych:</b> dziedziczenie, dział spadku, zachowek, ochrona spadkobiercy,</li><li><b>umowy:</b> opiniowanie, analiza, sporządzanie, negocjacje oraz zastępstwo w toku dochodzenia roszczeń powstałych na etapie realizacji umowy,</li><li><b>prawa pracy:</b> analiza i projekty dokumentacji pracowniczej, które sprzyjają unikaniu procesów sądowych, doradztwo w zakresie zbiorowych stosunków pracy, układów zbiorowych, porozumienia pomiędzy pracodawcą a pracownikami, procesy zwolnień grupowych, opiniowanie i analiza indywidualnych umów o pracę, kontraktów menadżerskich, rozwiązywanie stosunków pracy, zastępstwo procesowe przed sądami pracy wszystkich instancji,</li></ul>
+        </div></details>
+      </article>
+      <article class="oa" id="prawo-karne">
+        <span class="oa-n">02</span>
+        <h3>prawo <span>karne</span></h3>
+        <p class="oa-short">Obrona i reprezentacja na wszystkich etapach postępowania karnego, karno skarbowego oraz karnego gospodarczego.</p>
+        <details><summary>czytaj więcej <span class="arr">»</span></summary><div class="oa-body">
+          <p>Obrona podejrzanego, oskarżonego ( obwinionego ) na każdym etapie postępowania karnego zarówno podczas postępowania przygotowawczego, sądowego oraz wykonawczego ( odroczenie wykonania kary, przerwa w karze, warunkowe przedterminowe zwolnienie z odbywania reszty kary).</p><p>Świadczymy pomoc prawną oraz reprezentujemy osoby pokrzywdzone oraz oskarżycieli prywatnych. W sferze prowadzonych przez nas spraw znajdują się także te z dziedziny prawa karnoskarbowego.</p><p>W szczególności prowadzimy sprawy dotyczące postępowań o przestępstwa przeciwko:</p><ul><li>obrotowi gospodarczemu, obrotowi pieniędzmi i papierami wartościowymi ( oszustwo kapitałowe, fałszerstwo itp. łapownictwo, wyłudzenia, pranie brudnych pieniędzy, działanie na szkodę wierzyciela, wyzysk kontrahenta )</li><li>życiu i zdrowiu ( śmierć, uszczerbek na zdrowiu, udział w bójce i pobiciu, narażenie na niebezpieczeństwo, nieudzielenie pomocy )</li><li>mieniu ( kradzieże, rozboje, kradzież rozbójnicza, przywłaszczenie, oszustwo, przywłaszczenie mienia, zniszczenie mienia, paserstwo)</li><li>bezpieczeństwu w komunikacji ( katastrofa w komunikacji, wypadki komunikacyjne, naruszenie zasad bezpieczeństwa )</li><li>przestępstwa z Ustawy o przeciwdziałaniu narkomanii, ( wytwarzanie, przetwarzanie lub przerabianie środków odurzających bądź substancji psychotropowych, wprowadzanie do obrotu, udzielanie, przywóz, wywóz przemyt wewnątrzwspólnotowy, posiadanie środków odurzających i substancji psychotropowych )</li></ul>
+        </div></details>
+      </article>
+      <article class="oa" id="prawo-administracyjne">
+        <span class="oa-n">03</span>
+        <h3>prawo <span>administracyjne</span></h3>
+        <p class="oa-short">Wnioski, opinie, odwołania, zażalenia, skargi, skargi kasacyjne, reprezentacja w toku postępowania.</p>
+        <details><summary>czytaj więcej <span class="arr">»</span></summary><div class="oa-body">
+          <p>Zajmujemy się szeroko pojętym prawem administracyjnym. Oferujemy zastępstwo przed organami samorządowym oraz szeroko rozumianą pomoc publiczną.</p><p>Oferujemy reprezentacje przed organami administracji publicznej i sądami administracyjnymi (Wojewódzki Sąd Administracyjny, Naczelny Sąd Administracyjny czy Samorządowe Kolegia Odwoławcze).</p><p>Prowadzimy sprawy z zakresu prawa administracyjnego, a w szczególności dotyczące:</p><ul><li>prawa budowlanego, zagospodarowania przestrzennego,</li><li>sporządzania skarg oraz odwołania na decyzje organów administracyjnych</li><li>wnioski wszczynające postępowania administracyjne,</li></ul>
+        </div></details>
+      </article>
+      <article class="oa" id="prawo-rodzinne">
+        <span class="oa-n">04</span>
+        <h3>Prawo <span>rodzinne</span></h3>
+        <p class="oa-short">Alimenty, kontakty z nieletnimi, przysposobienie, władza rodzicielska, opieka, kuratela, rozwód, separacja.</p>
+        <details><summary>czytaj więcej <span class="arr">»</span></summary><div class="oa-body">
+          <p>Kancelaria świadczy profesjonalną obsługę prawną w zakresie prawa rodzinnego. W szczególności w sprawach:</p><ul><li><b>o alimenty:</b> ustalenie, zabezpieczenie, podwyższenie,</li><li>o kontakty z dziećmi,</li><li>o władzę rodzicielską- zawieszenie, ograniczenie, pozbawienie,</li><li>o ustalenie/ zaprzeczenie ojcostwa,</li><li>o przysposobienie,</li><li>o opiekę bądź kuratelę,</li><li>o rozwód i separację, unieważnienie małżeństwa,</li><li>o zniesienie współwłasności majątkowej.</li></ul>
+        </div></details>
+      </article>
+      <article class="oa" id="prawo-rolne-i-przetworstwa-rolnego">
+        <span class="oa-n">05</span>
+        <h3>Prawo rolne <span>i przetwórstwa rolnego</span></h3>
+        <p class="oa-short">Dofinansowania, dopłaty, dzierżawa, analiza umów, kontraktacje, grupy producenckie, rolnik indywidualny</p>
+        <details><summary>czytaj więcej <span class="arr">»</span></summary><div class="oa-body">
+          <p>Sprawy związane z rolnictwem, prowadzeniem przedsiębiorstwa gospodarczego zarówno przez rolnika indywidualnego, grupy producenckie jak i podmioty prawa handlowego znajdują się w zakresie świadczonych przez nas usług. Posiadamy bogate doświadczenie w obsłudze prawnej takich firm jak : ………………………………………..</p><p>W szczególności realizujemy projekty w zakresie:</p><ul><li>kontraktacji, fuzji,</li><li>produkcji i obrotu różnymi rodzajami produktów żywnościowych i rolnych,</li><li>pomocy prawnej przy obrocie nieruchomościami rolnymi (nabywanie, dzierżawa i najem nieruchomości rolnych),</li><li>zapewniamy kompleksowe doradztwo prawno-środowiskowe,</li><li>sporządzamy opinie prawne, projekty wniosków, umowy, analizy prawne,</li><li>dokonujemy analiz prawnych dotyczących przedsiębiorstw produkcji rolnej,</li><li>prowadzimy postępowania przed organami ochrony środowiska, Wojewódzkimi Sądami Administracyjnymi, Naczelnym Sądem Administracyjnym oraz przed Sądami Powszechnymi.</li></ul>
+        </div></details>
+      </article>
+      <article class="oa" id="prawo-egzekucyjne-i-windykacja-naleznosc">
+        <span class="oa-n">06</span>
+        <h3>Prawo egzekucyjne <span>i windykacja należności</span></h3>
+        <p class="oa-short">Egzekucje roszczeń i wierzytelności, windykacja.</p>
+        <details><summary>czytaj więcej <span class="arr">»</span></summary><div class="oa-body">
+          <p>Zapewniamy zastępstwo procesowe w trakcie postępowania egzekucyjnego skierowanego do nieruchomości, zarówno przed organem egzekucyjnym jak i w toku postępowania przed sądem.</p><p>Ponadto zajmujemy się:</p><ul><li>zastępstwem procesowym w toku postępowania zabezpieczającego,</li><li>reprezentacją w toku postępowania klauzulowego,</li><li>windykacja należności, także na etapie postępowania przedsądowego tj. monity, wezwania do zapłaty, mediacja,</li><li>stały monitoring działań komorniczych,</li><li>nadzór nad prawidłowością realizacji procesu egzekucji ze składników majątkowych osób zadłużonych</li><li>wspomaganie działań komorniczych zmierzających do pełnego zaspokojenia Wierzyciela,</li><li>sporządzamy wnioski egzekucyjne, min. o egzekucję z nieruchomości, o zajęcia Ksiąg Wieczystych , o opis i oszacowanie nieruchomości.</li></ul>
+        </div></details>
+      </article>
+      <article class="oa" id="prawo-obrotu-nieruchomosciami">
+        <span class="oa-n">07</span>
+        <h3>Prawo obrotu <span>nieruchomościami</span></h3>
+        <p class="oa-short">Analiza dokumentów, projekty umów, transakcje handlowe, obrót nieruchomościami</p>
+        <details><summary>czytaj więcej <span class="arr">»</span></summary><div class="oa-body">
+          <p>Zapewniamy doradztwo prawne we wszelkich sprawach związanych z nieruchomościami, w szczególności:</p><ul><li>doradztwo w zakresie nabywania, zbywania i obciążania nieruchomości</li><li>dokonujemy analiz stanu prawnego nieruchomości,</li><li>doradzamy w zakresie oddawania nieruchomości osobom trzecim do używania, w tym przygotowujemy, negocjujemy i opiniujemy umowy najmu i dzierżawy oraz doradzamy na etapie ich wykonywania oraz świadczymy pomoc prawną i zastępstwo w toku dochodzenia roszczeń powstałych na etapie realizacji umowy,</li><li>reprezentujemy oraz negocjujemy podczas transakcji nieruchomościami,</li><li>prowadzimy postępowania sądowe, administracyjne i sądowo administracyjne dotyczące nieruchomości.</li></ul>
+        </div></details>
+      </article>
+      <article class="oa" id="prawo-zamowien-publicznych-i-pomocy-publicznej">
+        <span class="oa-n">08</span>
+        <h3>Prawo zamówień publicznych <span>i pomocy publicznej</span></h3>
+        <p class="oa-short">Przetargi, konkursy, oferty, zamówienia publiczne.</p>
+        <details><summary>czytaj więcej <span class="arr">»</span></summary><div class="oa-body">
+          <p>Oferujemy pomoc prawną w zakresie procedur udzielania zamówień publicznych zarówno dla zamawiających jak i wykonawców. Między innymi:</p><ul><li>przygotowujemy niezbędne formularze, regulaminy, wzory pism, wnioski i zapytanie,</li><li>przygotowujemy dokumenty niezbędne do wszczęcia postępowania min. przetargi, zamówienia publiczne,</li><li>sporządzamy opinie prawne i analizy,</li><li>oferujemy pomoc w dochodzeniu roszczeń z tytułu poniesionych szkód w związku z uczestnictwem w postępowaniu o udzielenie zamówienia (np. zatrzymanie wadium) lub w związku z realizacją zamówienia,</li><li>analizujemy dokumentację przetargową pod kątem ryzyka prawnego,</li><li>doradztwo prawne na etapie ubiegania się o zamówienie oraz na etapie jego realizacji</li></ul>
+        </div></details>
+      </article>
+      <article class="oa" id="prawo-gospodarcze-i-handlowe">
+        <span class="oa-n">09</span>
+        <h3>Prawo gospodarcze <span>i handlowe</span></h3>
+        <p class="oa-short">Obsługa podmiotów gospodarczych, prawa handlowego, postępowanie upadłościowe i naprawcze</p>
+        <details><summary>czytaj więcej <span class="arr">»</span></summary><div class="oa-body">
+          <p>Prawo spółek jest jedną z wiodących specjalizacji kancelarii. Obsługujemy wiele podmiotów prawa handlowego.</p><p>Obsługujemy klientów w zakresie:</p><ul><li>tworzenia spółek, oddziałów oraz przedstawicielstw,</li><li>umów zawieranych między wspólnikami i akcjonariuszami,</li><li>sporów między wspólnikami i akcjonariuszami,</li><li>obsługi prawnej organów spółek kapitałowych,</li><li>likwidacji podmiotów prowadzących działalność gospodarczą,</li><li>reprezentowania wspólników i akcjonariuszy podczas zgromadzeń wspólników i walnych zgromadzeń,</li><li>reprezentowania spółek w postępowaniach rejestrowych,</li><li>w trakcie postępowania upadłościowego i naprawczego.</li></ul>
+        </div></details>
+      </article>
       </div>
     </div>
   </section>
-
-  <!-- Moja sytuacja -->
-  <section class="s tint" id="sytuacje">
-    <div class="wrap">
-      <div class="s-head">
-        <div><span class="label"><span class="dot"></span>Moja sytuacja</span><h2 style="margin-top:18px">Co się stało?</h2></div>
-        <p>Wybierz swoją sytuację. Zobaczysz, ile masz czasu, i od razu wyślesz pismo do analizy.</p>
-      </div>
-      <div class="filters" role="group" aria-label="Filtruj według dziedziny">
-        <button type="button" data-f="all" aria-pressed="true">Wszystkie</button>
-        <button type="button" data-f="karne" aria-pressed="false">Karne</button>
-        <button type="button" data-f="podatkowe" aria-pressed="false">Podatkowe</button>
-        <button type="button" data-f="admin" aria-pressed="false">Administracyjne</button>
-        <button type="button" data-f="rodzinne" aria-pressed="false">Rodzinne</button>
-      </div>
-      <div class="grid-sit" id="sits">
-        <a class="sit" href="#kontakt" data-a="karne" data-area="0"><div class="top"><span class="label">Karne</span><span class="law">art. 178a k.k.</span></div><h3>Jazda po alkoholu, zatrzymane prawo jazdy</h3><p>Zakaz prowadzenia, konfiskata auta, warunkowe umorzenie.</p><span class="deadline"><b>7</b> dni <em>na zażalenie na zatrzymanie prawa jazdy</em></span></a>
-        <a class="sit" href="#kontakt" data-a="karne" data-area="1"><div class="top"><span class="label">Karne</span><span class="law">art. 506 k.p.k.</span></div><h3>Dostałem wyrok nakazowy bez rozprawy</h3><p>Wyrok staje się prawomocny, jeśli nikt się nie sprzeciwi.</p><span class="deadline"><b>7</b> dni <em>na sprzeciw</em></span></a>
-        <a class="sit" href="#kontakt" data-a="podatkowe" data-area="2"><div class="top"><span class="label">Podatkowe</span><span class="law">Ordynacja podatkowa</span></div><h3>Urząd skarbowy wszczął kontrolę</h3><p>Kontrola podatkowa lub celno-skarbowa, wezwania, niezgodności w JPK.</p><span class="deadline"><b>1.</b> pismo <em>już wtedy warto mieć pełnomocnika</em></span></a>
-        <a class="sit" href="#kontakt" data-a="podatkowe" data-area="3"><div class="top"><span class="label">Podatkowe</span><span class="law">art. 16 k.k.s.</span></div><h3>Zarzuty karne skarbowe, czynny żal</h3><p>Faktury, VAT, nierzetelne księgi. Czynny żal działa przed wszczęciem sprawy.</p><span class="deadline"><b>—</b> <em>przed wszczęciem postępowania</em></span></a>
-        <a class="sit" href="#kontakt" data-a="admin" data-area="4"><div class="top"><span class="label">Administracyjne</span><span class="law">art. 129 k.p.a.</span></div><h3>Odmowa pozwolenia, nakaz rozbiórki</h3><p>Decyzje budowlane, warunki zabudowy, samowola budowlana.</p><span class="deadline"><b>14</b> dni <em>na odwołanie</em></span></a>
-        <a class="sit" href="#kontakt" data-a="admin" data-area="4"><div class="top"><span class="label">Administracyjne</span><span class="law">art. 53 p.p.s.a.</span></div><h3>Chcę zaskarżyć decyzję do WSA</h3><p>Pobyt cudzoziemców, prawo jazdy, koncesje, kary administracyjne.</p><span class="deadline"><b>30</b> dni <em>na skargę do WSA</em></span></a>
-        <a class="sit" href="#kontakt" data-a="rodzinne" data-area="5"><div class="top"><span class="label">Rodzinne</span><span class="law">art. 56 k.r.o.</span></div><h3>Rozwód i podział majątku</h3><p>Z orzekaniem o winie i bez, mieszkanie, kredyt, firma.</p><span class="deadline"><b>1</b> konsultacja <em>by poznać koszt i czas trwania</em></span></a>
-        <a class="sit" href="#kontakt" data-a="rodzinne" data-area="6"><div class="top"><span class="label">Rodzinne</span><span class="law">art. 133 k.r.o.</span></div><h3>Alimenty i kontakty z dziećmi</h3><p>Ustalenie, podwyższenie, obniżenie, zabezpieczenie na czas sprawy.</p><span class="deadline"><b>1</b> konsultacja <em>by ocenić realną kwotę</em></span></a>
+  <section class="s tint">
+    <div class="wrap why">
+      <div><span class="label"><span class="dot"></span>Kancelaria</span><h2 style="margin-top:18px">Dlaczego<br>Polański | Konofalski</h2></div>
+      <div class="txt">
+        <p class="lead">Usługi świadczone przez Kancelarię są dopasowane do indywidualnych potrzeb oraz oczekiwań Klienta.</p>
+        <p>Obsługa prawna wykonywana jest zarówno w Kancelarii jak i w siedzibie przedsiębiorstwa klienta. Kancelaria działa na terenie całej Polski, co oznacza że odległość nie stanowi dla nas żadnej przeszkody. W razie konieczności pilnego uzyskania porady prawnej możliwa jest współpraca on-line.</p>
+        <p>Może ona obejmować działania takie jak: wymiana dokumentów, analiza projektów umów, korekty przygotowywanych pism.</p>
+        <p>Doradztwo na rzecz Klientów świadczone jest w językach angielskim i niemieckim. Priorytetem Kancelarii jest utrzymanie najwyższego współczynnika jakości realizowanych usług oraz zadowolenie naszych Klientów.</p>
+        <div class="od-cta"><a class="btn green" href="../#kontakt">Pokaż nam pismo <span class="arr">→</span></a><a class="btn" href="tel:+48774543166">Zadzwoń: 77 454 31 66</a></div>
       </div>
     </div>
   </section>
-
-  <!-- Wzór podstrony problemu -->
-  <section class="s" id="podstrona">
-    <div class="wrap">
-      <span class="label"><span class="dot"></span>Wzór podstrony · Wyrok nakazowy</span>
-      <div class="split" style="margin-top:28px">
-        <div>
-          <p class="kicker">Dostałeś wyrok nakazowy? Masz <em>7 dni</em> na sprzeciw.</p>
-          <p style="margin-top:20px;color:var(--ink-2);max-width:58ch">Sąd wydał wyrok bez rozprawy, na podstawie samych akt. Jeśli w ciągu 7 dni od doręczenia nie wniesiesz sprzeciwu, wyrok stanie się prawomocny. Sprzeciw powoduje, że wyrok traci moc i sprawa trafia na rozprawę.</p>
-          <ol class="steps">
-            <li><div><b>Analiza pisma w 24 h</b><span>Przesyłasz zdjęcie wyroku. Sprawdzamy termin i zarzut.</span></div></li>
-            <li><div><b>Decyzja: sprzeciw czy nie</b><span>Mówimy wprost, co możesz zyskać i co ryzykujesz.</span></div></li>
-            <li><div><b>Sprzeciw i akta</b><span>Składamy sprzeciw i przeglądamy akta sprawy.</span></div></li>
-            <li><div><b>Obrona na rozprawie</b><span>Reprezentujemy Cię przed sądem w całej Polsce.</span></div></li>
-          </ol>
-        </div>
-        <div style="display:grid;gap:16px;align-content:start">
-          <div class="thumb t-court sub-visual" data-img="assets/wyrok-7dni.jpg"><span class="t-num">7</span><span class="t-unit">DNI</span><span class="t-small">na sprzeciw od wyroku nakazowego · art. 506 k.p.k.</span></div>
-          <a class="btn" href="#kontakt" style="justify-content:center">Wyślij zdjęcie wyroku <span class="arr">→</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Współpraca -->
-  <section class="s dark" id="wspolpraca">
-    <div class="wrap">
-      <div class="s-head">
-        <div><span class="label"><span class="dot"></span>Współpraca</span><h2 style="margin-top:18px">Jak pracujemy</h2></div>
-        <p>Cztery kroki. Zanim podpiszesz umowę, wiesz, ile to kosztuje i co będziemy robić.</p>
-      </div>
-      <div class="proc">
-        <div><span class="n">01</span><h3>Kontakt</h3><p>Formularz, telefon lub WhatsApp. Odpowiadamy w dni robocze w ciągu godziny.</p></div>
-        <div><span class="n">02</span><h3>Konsultacja</h3><p>Online lub w kancelarii. Omawiamy pismo, termin i możliwe kroki.</p></div>
-        <div><span class="n">03</span><h3>Wycena</h3><p>Stała kwota lub stawka godzinowa, spisana w umowie.</p></div>
-        <div><span class="n">04</span><h3>Prowadzenie sprawy</h3><p>Pisma, rozprawy, kontakt z urzędem. Informujemy o każdym etapie.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Cennik -->
-  <section class="s" id="cennik">
-    <div class="wrap">
-      <div class="s-head">
-        <div><span class="label"><span class="dot"></span>Cennik</span><h2 style="margin-top:18px">Koszt znasz z góry</h2></div>
-        <p>Większość kancelarii nie podaje cen. Podajemy wstępne kwoty, a pełną wycenę po konsultacji.</p>
-      </div>
-      <div class="prices">
-        <div class="price"><span class="label">Konsultacja online</span><div class="amt">599 zł<small>/ 45 min</small></div><ul><li>Analiza pisma przed rozmową</li><li>Wideo lub telefon</li></ul></div>
-        <div class="price"><span class="label">Pojedyncze pismo</span><div class="amt">399 zł</div><ul><li>Sprzeciw, odwołanie, zażalenie</li><li>Skarga do WSA</li></ul></div>
-        <div class="price"><span class="label">Prowadzenie sprawy</span><div class="amt">wycena</div><ul><li>Stała kwota za etap lub stawka godzinowa</li><li>Zapisana w umowie przed startem</li></ul></div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Wiedza -->
-  <section class="s" id="wiedza">
-    <div class="wrap">
-      <div class="s-head">
-        <div><span class="label"><span class="dot"></span>Wiedza</span><h2 style="margin-top:18px">Krótko o prawie</h2></div>
-        <p>Odpowiedzi na pytania, które ludzie wpisują w Google. Te same nagrania publikujemy na TikToku, Instagramie i YouTube.</p>
-      </div>
-      <div class="know">
-        <button class="post" type="button" data-v="0">
-          <div class="thumb t-court" data-img="assets/thumb-wyrok.jpg">
-            <video class="t-vid" muted loop playsinline preload="none" data-src="assets/clip-wyrok.mp4" aria-hidden="true"></video>
-            <span class="play" aria-hidden="true">▶</span>
-            <span class="t-num">7</span><span class="t-unit">DNI</span>
-            <span class="t-small">Wyrok bez rozprawy</span>
-          </div>
-          <span class="tag">Karne · art. 506 k.p.k. · 0:50</span><h3>Wyrok bez rozprawy. Co zrobić w ciągu 7 dni?</h3><span class="more">Przeczytaj, co mówi adwokat <span class="arr">→</span></span>
-        </button>
-        <button class="post" type="button" data-v="1">
-          <div class="thumb t-tax" data-img="assets/thumb-kontrola.jpg">
-            <video class="t-vid" muted loop playsinline preload="none" data-src="assets/clip-kontrola.mp4" aria-hidden="true"></video>
-            <span class="play" aria-hidden="true">▶</span>
-            <span class="t-num">7–30</span><span class="t-unit">DNI</span>
-            <span class="t-small">Zawiadomienie o kontroli</span>
-          </div>
-          <span class="tag">Podatkowe · art. 282b O.p. · 0:55</span><h3>Kontrola z urzędu skarbowego. Co zrobić, zanim się zacznie?</h3><span class="more">Przeczytaj, co mówi adwokat <span class="arr">→</span></span>
-        </button>
-        <button class="post" type="button" data-v="2">
-          <div class="thumb t-family" data-img="assets/thumb-alimenty.jpg">
-            <video class="t-vid" muted loop playsinline preload="none" data-src="assets/clip-alimenty.mp4" aria-hidden="true"></video>
-            <span class="play" aria-hidden="true">▶</span>
-            <span class="t-num">art.</span><span class="t-unit">135</span>
-            <span class="t-small">Od czego zależą alimenty</span>
-          </div>
-          <span class="tag">Rodzinne · art. 135 k.r.o. · 0:55</span><h3>Od czego zależy wysokość alimentów?</h3><span class="more">Przeczytaj, co mówi adwokat <span class="arr">→</span></span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="s tint" id="pytania">
-    <div class="wrap split">
-      <div><span class="label"><span class="dot"></span>Pytania</span><h2 style="margin-top:18px">Zanim napiszesz</h2></div>
-      <div class="faq">
-        <details><summary>Czy możemy działać zdalnie, jeśli mieszkam w innym mieście?</summary><p>Tak. Konsultacje odbywają się online, dokumenty podpisujesz elektronicznie lub kurierem. Na rozprawy jeździmy do sądów w całej Polsce.</p></details>
-        <details><summary>Ile kosztuje pierwsza rozmowa?</summary><p>Cena konsultacji jest podana w cenniku. Przed rozmową dostajesz ją na piśmie.</p></details>
-        <details><summary>Termin już prawie minął. Co teraz?</summary><p>Wyślij zdjęcie pisma przez formularz i zadzwoń. Sprawy z terminem do 3 dni rozpatrujemy w pierwszej kolejności.</p></details>
-        <details><summary>Czy rozmowa jest poufna?</summary><p>Tak. Wszystko, co przekażesz adwokatowi, objęte jest tajemnicą adwokacką, także zanim podpiszesz umowę.</p></details>
-        <details><summary>Czy możecie zagwarantować wynik sprawy?</summary><p>Nie. Żaden adwokat nie może obiecać wyniku. Możemy powiedzieć, jakie są realne scenariusze i co zrobimy, żeby osiągnąć najlepszy możliwy.</p></details>
-      </div>
-    </div>
-  </section>
-
 </main>
-
-<dialog class="vid" id="vid-0" aria-labelledby="vt-0">
-  <div class="v-in">
-    <button class="v-x" type="button" aria-label="Zamknij">×</button>
-    <span class="label"><span class="dot"></span>Karne · art. 506 k.p.k.</span>
-    <h3 id="vt-0" class="v-h">Dostałeś wyrok, a nie było żadnej rozprawy?</h3>
-    <div class="v-big"><b>7</b> dni na sprzeciw od doręczenia</div>
-    <ol class="steps">
-      <li><div><b>To wyrok nakazowy</b><span>Sąd wydał go na podstawie samych akt, bez Ciebie na sali.</span></div></li>
-      <li><div><b>Masz 7 dni na sprzeciw</b><span>Liczonych od doręczenia. Po tym czasie wyrok jest prawomocny.</span></div></li>
-      <li><div><b>Awizo to też doręczenie</b><span>Nieodebrany list po 14 dniach uznaje się za doręczony. Termin biegnie.</span></div></li>
-      <li><div><b>Sprzeciw nie wymaga uzasadnienia</b><span>Wyrok traci moc i sprawa idzie na zwykłą rozprawę.</span></div></li>
-      <li><div><b>Najpierw sprawdź ryzyko</b><span>Na rozprawie sąd może orzec inaczej, także surowiej. Przed sprzeciwem warto przejrzeć akta.</span></div></li>
-    </ol>
-    <a class="btn green v-cta" href="#kontakt" data-area="1">Wyślij zdjęcie wyroku <span class="arr">→</span></a>
-  </div>
-</dialog>
-<dialog class="vid" id="vid-1" aria-labelledby="vt-1">
-  <div class="v-in">
-    <button class="v-x" type="button" aria-label="Zamknij">×</button>
-    <span class="label"><span class="dot"></span>Podatkowe · art. 282b Ordynacji podatkowej</span>
-    <h3 id="vt-1" class="v-h">Dostałeś zawiadomienie o zamiarze wszczęcia kontroli?</h3>
-    <div class="v-big"><b>7–30</b> dni do rozpoczęcia kontroli</div>
-    <ol class="steps">
-      <li><div><b>To jeszcze nie kontrola</b><span>To uprzedzenie, że się zacznie.</span></div></li>
-      <li><div><b>Okno 7–30 dni</b><span>Kontrola rusza najwcześniej po 7, najpóźniej po 30 dniach od doręczenia.</span></div></li>
-      <li><div><b>Korekta tylko przed kontrolą</b><span>W tym czasie możesz złożyć korektę deklaracji. Po wszczęciu kontroli, w jej zakresie, ta możliwość jest wstrzymana.</span></div></li>
-      <li><div><b>Nie tłumacz się na gorąco</b><span>Wyjaśnienia bez dokumentów i różne wersje od różnych osób w firmie wracają potem w protokole.</span></div></li>
-      <li><div><b>14 dni na zastrzeżenia</b><span>Tyle masz na zastrzeżenia do protokołu kontroli.</span></div></li>
-    </ol>
-    <a class="btn green v-cta" href="#kontakt" data-area="2">Wyślij zawiadomienie <span class="arr">→</span></a>
-  </div>
-</dialog>
-<dialog class="vid" id="vid-2" aria-labelledby="vt-2">
-  <div class="v-in">
-    <button class="v-x" type="button" aria-label="Zamknij">×</button>
-    <span class="label"><span class="dot"></span>Rodzinne · art. 135 k.r.o.</span>
-    <h3 id="vt-2" class="v-h">Zarabia minimalną, więc alimenty będą niskie? Nie zawsze.</h3>
-    <div class="v-big"><b>2</b> kryteria, które bierze pod uwagę sąd</div>
-    <ol class="steps">
-      <li><div><b>Potrzeby i możliwości</b><span>Sąd patrzy na usprawiedliwione potrzeby dziecka i możliwości zarobkowe rodzica.</span></div></li>
-      <li><div><b>Możliwości, nie pasek wypłaty</b><span>Liczy się zawód, doświadczenie i styl życia, nie tylko kwota na umowie.</span></div></li>
-      <li><div><b>Zbieraj rachunki</b><span>Potrzeby dziecka trzeba udowodnić: jedzenie, szkoła, leczenie, zajęcia dodatkowe.</span></div></li>
-      <li><div><b>Zabezpieczenie na czas sprawy</b><span>Wniosek o zabezpieczenie pozwala, by pieniądze płynęły już w trakcie procesu.</span></div></li>
-    </ol>
-    <a class="btn green v-cta" href="#kontakt" data-area="6">Policzmy to razem <span class="arr">→</span></a>
-  </div>
-</dialog>
-
-
 <footer>
   <div class="wrap"><div class="big-mark"><svg viewBox="0 0 1000 132" role="img" aria-label="PK Adwokaci"><text x="0" y="118" font-size="150" textLength="1000" lengthAdjust="spacingAndGlyphs">PK<tspan>.</tspan>ADWOKACI</text></svg></div></div>
   <div class="wrap">
@@ -795,82 +616,13 @@ a.person:hover .call .arr{transform:translateX(4px)}
 <nav class="mbar" aria-label="Szybki kontakt">
   <a href="tel:+48774543166">Zadzwoń</a>
   <a href="https://wa.me/48608301225">WhatsApp</a>
-  <a href="#kontakt">Formularz</a>
+  <a href="../#kontakt">Formularz</a>
 </nav>
-
 <script>
-(function(){
-  (function(){
-    var sec=document.getElementById('intro');if(!sec)return;
-    var cv=document.getElementById('scrub'),ctx=cv.getContext('2d'),panels=sec.querySelectorAll('.panel'),rail=sec.querySelectorAll('.sc-rail li');
-    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var FIRST=7,LAST=113,N=LAST-FIRST+1,dir='d',ZOOM=(innerWidth<700?0.08:0.22);
-    var imgs=new Array(N),cuts=[0,.22,.5,.8],step=-1,cur=0,target=0,raf=0,lastDrawn=-1,lastZ=-1;
-    function src(i){var n=String(FIRST+i);while(n.length<3)n='0'+n;return 'assets/seq/'+dir+'/'+n+'.jpg'}
-    function load(i){if(imgs[i])return;var im=new Image();im.decoding='async';im.onload=function(){im.ok=1;if(Math.round(cur)===i||lastDrawn<0)draw(true)};im.src=src(i);imgs[i]=im}
-    /* najpierw co 8. klatka (szybki podgląd całego lotu), potem reszta */
-    for(var i=0;i<N;i+=8)load(i);setTimeout(function(){for(var i=0;i<N;i++)load(i)},300);
-    function size(){var r=Math.min(window.devicePixelRatio||1,2);cv.width=Math.round(cv.clientWidth*r);cv.height=Math.round(cv.clientHeight*r);lastDrawn=-1;draw(true)}
-    function nearest(i){for(var d=0;d<N;d++){if(imgs[i-d]&&imgs[i-d].ok)return imgs[i-d];if(imgs[i+d]&&imgs[i+d].ok)return imgs[i+d]}return null}
-    function draw(force){var i=Math.max(0,Math.min(N-1,Math.round(cur)));var p=cur/(N-1);var z=1+p*ZOOM;
-      if(!force&&i===lastDrawn&&Math.abs(z-lastZ)<0.002)return;var im=nearest(i);if(!im)return;
-      lastDrawn=i;lastZ=z;var W=cv.width,H=cv.height,iw=im.naturalWidth,ih=im.naturalHeight,sc=Math.max(W/iw,H/ih)*z;
-      var dw=iw*sc,dh=ih*sc,dx=(W-dw)/2,dy=(H-dh)/2+p*H*0.04;ctx.drawImage(im,dx,dy,dw,dh)}
-    function progress(){var r=sec.getBoundingClientRect(),span=sec.offsetHeight-window.innerHeight;return Math.min(1,Math.max(0,-r.top/Math.max(1,span)))}
-    function setStep(i){if(i===step)return;step=i;panels.forEach(function(p,k){p.classList.toggle('is-on',k===i)});rail.forEach(function(l,k){l.classList.toggle('is-on',k===i)})}
-    function tick(){raf=0;var p=progress();sec.style.setProperty('--p',p.toFixed(3));sec.classList.toggle('started',p>0.02);
-      var i=0;for(var k=0;k<cuts.length;k++)if(p>=cuts[k])i=k;setStep(i);
-      var seg=(p-cuts[i])/((cuts[i+1]||1)-cuts[i]);sec.style.setProperty('--pp',Math.min(1,Math.max(0,seg)).toFixed(3));
-      target=p*(N-1);cur+=(target-cur)*0.2;if(Math.abs(target-cur)<0.05)cur=target;draw(false);
-      if(cur!==target)raf=requestAnimationFrame(tick)}
-    function req(){if(!raf)raf=requestAnimationFrame(tick)}
-    if(reduce){panels.forEach(function(p){p.classList.add('is-on')});load(N-1);imgs[N-1].onload=function(){this.ok=1;cur=N-1;size()};return}
-    window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',size);size();req();
-  })();
-  var bg=document.getElementById('burger'),mn=document.getElementById('menu');
-  bg.addEventListener('click',function(){var o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o);bg.setAttribute('aria-label',o?'Zamknij menu':'Otwórz menu')});
-  mn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('open');bg.setAttribute('aria-expanded','false')})});
-  document.querySelectorAll('.post[data-v]').forEach(function(b){
-    b.addEventListener('click',function(){var d=document.getElementById('vid-'+b.dataset.v);if(d&&d.showModal)d.showModal()});
-  });
-  document.querySelectorAll('dialog.vid').forEach(function(d){
-    d.querySelector('.v-x').addEventListener('click',function(){d.close()});
-    d.addEventListener('click',function(e){if(e.target===d)d.close()});
-    d.querySelector('.v-cta').addEventListener('click',function(){var sel=document.getElementById('f-area');if(sel)sel.selectedIndex=+this.dataset.area;d.close()});
-  });
-  document.querySelectorAll('.thumb[data-img]').forEach(function(t){var u=t.dataset.img;if(!u)return;var im=new Image();im.onload=function(){t.style.setProperty('--img','url('+u+')');t.classList.add('has-img')};im.src=u});
-  var vids=document.querySelectorAll('.t-vid');
-  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;
-      if(e.isIntersecting){if(!v.src){v.src=v.dataset.src;v.addEventListener('playing',function(){v.parentNode.classList.add('playing')});v.addEventListener('error',function(){v.remove()})}v.play().catch(function(){})}
-      else if(v.src){v.pause()}});},{threshold:.25});
-    vids.forEach(function(v){io.observe(v)});
-  }
-  document.querySelectorAll('.portrait[data-photo]').forEach(function(t){var u=t.dataset.photo;if(!u)return;var im=new Image();im.onload=function(){t.style.backgroundImage='url('+u+')';t.classList.add('has-photo')};im.src=u});
-  document.querySelectorAll('.sit[data-area]').forEach(function(a){a.addEventListener('click',function(){var sel=document.getElementById('f-area');if(sel)sel.selectedIndex=+a.dataset.area})});
-  var btns=document.querySelectorAll('.filters button');
-  var cards=document.querySelectorAll('#sits .sit');
-  btns.forEach(function(b){
-    b.addEventListener('click',function(){
-      btns.forEach(function(x){x.setAttribute('aria-pressed','false')});
-      b.setAttribute('aria-pressed','true');
-      var f=b.dataset.f;
-      cards.forEach(function(c){c.hidden=!(f==='all'||c.dataset.a===f)});
-    });
-  });
-  var fi=document.getElementById('f-file');
-  fi.addEventListener('change',function(){
-    document.getElementById('f-file-txt').textContent=fi.files.length?('Dodano: '+fi.files[0].name):'+ Dodaj zdjęcie lub PDF pisma (opcjonalnie)';
-  });
-  document.getElementById('lead').addEventListener('submit',function(e){
-    e.preventDefault();
-    var f=e.target;
-    if(!f.name.value.trim()||!f.phone.value.trim()||!document.getElementById('f-ok').checked){
-      f.querySelector('button').textContent='Uzupełnij imię, telefon i zgodę';
-      return;
-    }
-    document.getElementById('formbox').innerHTML='<div class="sent"><b>Wzór formularza.</b> W wersji na lawyerai.pl zapytanie trafi do kancelarii, a klient dostanie automatyczne potwierdzenie SMS.</div>';
-  });
+(function(){var bg=document.getElementById('burger'),mn=document.getElementById('menu');if(!bg)return;
+bg.addEventListener('click',function(){var o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)});
+mn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('open');bg.setAttribute('aria-expanded','false')})});
+if(location.hash){var t=document.querySelector(location.hash+' details');if(t)t.open=true}
 })();
 </script>
 </body>
