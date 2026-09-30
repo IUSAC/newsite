@@ -12,7 +12,7 @@ import html, json, math, os, re, datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://lawyerai.pl"
-FIRM = "Polański Konofalski i Wspólnicy Sp.p. Adwokatów"
+FIRM = "Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów"
 BRAND = "PKW Adwokaci"
 PHONE = "+48774143669"
 PHONE_TXT = "77 414 36 69"
