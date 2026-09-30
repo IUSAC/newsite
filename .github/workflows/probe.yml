@@ -1,0 +1,21 @@
+name: Sprawdz kolory lark.de
+on:
+  push:
+    branches: [narzedzia-kolor]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -sSL -A "Mozilla/5.0" https://lark.de/ -o page.html
+          grep -oE 'href="[^"]+\.css[^"]*"' page.html | head -20 > css.txt || true
+          : > all.css
+          for u in $(sed -E 's/href="([^"]+)"/\1/' css.txt); do case "$u" in http*) U="$u";; //*) U="https:$u";; /*) U="https://lark.de$u";; *) U="https://lark.de/$u";; esac; curl -sSL -A "Mozilla/5.0" "$U" >> all.css; done
+          grep -oE '<style[^>]*>[^<]*' page.html >> all.css || true
+          vars=$(grep -oE -- '--[a-zA-Z0-9_-]+:\s*#[0-9a-fA-F]{3,8}' all.css | sort | uniq | head -40 | tr '\n' ' ')
+          top=$(grep -oiE '#[0-9a-f]{6}\b|#[0-9a-f]{3}\b' all.css | tr 'A-F' 'a-f' | sort | uniq -c | sort -rn | head -25 | tr '\n' ' ')
+          rgb=$(grep -oE 'rgba?\([0-9 ,.]+\)' all.css | sort | uniq -c | sort -rn | head -10 | tr '\n' ' ')
+          echo "::notice title=css::$(cat css.txt | tr '\n' ' ')"
+          echo "::notice title=vars::$vars"
+          echo "::notice title=hex::$top"
+          echo "::notice title=rgb::$rgb"
