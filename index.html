@@ -308,6 +308,80 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   .v-in{padding:24px 18px}
     footer .wrap{padding-block:20px 24px}
 }
+
+/* ===== Wersja mobilna: czytelność (research: NN/g, digital.gov) ===== */
+.swipe-hint{display:none}
+@media (max-width:560px){
+  body{font-size:16px;line-height:1.6}
+  .wrap{padding-inline:20px}
+  /* rytm sekcji: naprzemienne tła, żeby bloki się nie zlewały */
+  section.s{padding-block:52px;border-bottom:0}
+  section.s.tint{background:var(--paper-2)}
+  .s-head{margin-bottom:24px;gap:10px}
+  h2{font-size:34px;line-height:1.05}
+  .s-head p{font-size:16px;color:var(--ink-2)}
+  .label{font-size:12px}
+  /* hero: jedno przesłanie, jeden przycisk */
+  .hero .hero-in>.label{display:none}
+  .hero h1{font-size:42px}
+  .hero-in{padding-block:96px 40px}
+  .hero-cta .btn.ghost{display:none}
+  /* o kancelarii: bez drobnych opisów */
+  .statement{font-size:21px;line-height:1.35}
+  .areas{margin-top:28px;grid-template-columns:1fr 1fr;row-gap:0;border-top:0}
+  .areas div{padding:14px 0;border-top:1px solid var(--line)}
+  .areas .n,.areas span:not(.n){display:none}
+  .areas strong{font-size:18px}
+  /* co się stało: zwarta lista zamiast rozbudowanych kart */
+  .filters{flex-wrap:nowrap;overflow-x:auto;margin-inline:-20px;padding-inline:20px;scrollbar-width:none;margin-bottom:16px}
+  .filters::-webkit-scrollbar{display:none}
+  .filters button{flex:0 0 auto;min-height:44px;background:var(--paper)}
+  .grid-sit{border:0;gap:8px;display:grid}
+  .sit{border:0;background:var(--paper);padding:16px 44px 16px 16px;gap:6px;grid-template-rows:auto auto}
+  .sit::before{width:3px;height:100%;background:var(--line)}
+  .sit:hover::before{width:3px;background:var(--green)}
+  .sit .top,.sit p{display:none}
+  .sit h3{font-size:18px;line-height:1.25}
+  .sit::after{content:"→";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--green-ink);font-weight:600}
+  .deadline{display:block;border-top:0;padding-top:0;font-family:var(--body);font-size:14px;line-height:1.4;color:var(--ink-2)}
+  .deadline b{font-family:var(--body);font-stretch:100%;font-size:14px;font-weight:700;color:var(--green-ink)}
+  .deadline em{color:var(--ink-2)}
+  .person .meta>span{display:none}
+  /* przykład podstrony powtarza treść kart – na telefonie zbędny */
+  #podstrona{display:none}
+  /* jak pracujemy: kompaktowe kroki */
+  .proc{border-top:0}
+  .proc div{grid-template-columns:40px minmax(0,1fr);column-gap:12px;row-gap:2px;padding:16px 0;border-top:1px solid rgba(255,255,255,.14)}
+  .proc .n{grid-row:span 2;font-size:22px;-webkit-text-stroke:0;color:var(--green)}
+  .proc h3{font-size:18px}
+  /* cennik: nazwa i kwota w jednym wierszu */
+  .prices{border-top:0}
+  .price{padding:16px 0;border-top:1px solid var(--line);grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:4px 12px}
+  .price .label{grid-column:1}
+  .price .amt{grid-column:2;grid-row:1 / span 2;font-size:28px;text-align:right}
+  .price ul{grid-column:1;padding-left:0;list-style:none;font-size:14px}
+  .price ul li+li{display:none}
+  /* zespół i wiedza: przewijane w bok zamiast wysokiej kolumny */
+  .swipe-hint{display:block;font-size:13px;color:var(--ink-2);margin:-8px 0 12px}
+  .team,.know{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-20px;padding:0 20px 6px;scrollbar-width:none;max-width:none}
+  .team::-webkit-scrollbar,.know::-webkit-scrollbar{display:none}
+  .team .person{flex:0 0 72%;scroll-snap-align:start}
+  .know .post{flex:0 0 72%;scroll-snap-align:start}
+  .portrait{padding:16px}
+  .portrait .pl{display:none}
+  .person .meta{flex-direction:column;gap:2px}
+  .person .meta h3{font-size:17px}
+  .thumb{padding:18px}
+  .t-num{font-size:72px}
+  .t-unit{font-size:28px}
+  .post h3{font-size:17px}
+  .post .tag{display:none}
+  /* pytania */
+  .faq summary{font-size:16px;padding:18px 0;min-height:48px}
+  /* kontakt */
+  .channels{margin-top:24px}
+  input,select,textarea{min-height:48px}
+}
 </style>
 </head>
 <body>
@@ -335,7 +409,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
       <video id="hero-video" muted playsinline autoplay loop preload="auto" poster="assets/hero-v2-poster.jpg" src="assets/hero-v2.mp4"></video>
       <div class="shade"></div>
       <div class="scan"></div>
-      <div class="note" id="hero-note">Wideo intro: assets/hero-v2.mp4</div>
+      
     </div>
     <div class="wrap hero-in">
       <span class="label"><span class="dot"></span>Kancelaria adwokacka · Opole · od 2014 · konsultacje online w całej Polsce</span>
@@ -355,7 +429,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   </section>
 
   <!-- O kancelarii -->
-  <section class="s">
+  <section class="s" id="o-nas">
     <div class="wrap">
       <span class="label"><span class="dot"></span>O kancelarii</span>
       <p class="statement" style="margin-top:24px;max-width:28ch">Każda sprawa zaczyna się od <b>konkretnego pisma i terminu</b>. Mówimy, co ono znaczy, ile masz czasu i co zrobimy krok po kroku.</p>
@@ -369,11 +443,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   </section>
 
   <!-- Moja sytuacja -->
-  <section class="s" id="sytuacje">
+  <section class="s tint" id="sytuacje">
     <div class="wrap">
       <div class="s-head">
         <div><span class="label"><span class="dot"></span>Moja sytuacja</span><h2 style="margin-top:18px">Co się stało?</h2></div>
-        <p>Wybierz sytuację zamiast dziedziny prawa. Każda ma własną podstronę z opisem skutków, kosztem i formularzem.</p>
+        <p>Wybierz swoją sytuację. Zobaczysz, ile masz czasu, i od razu wyślesz pismo do analizy.</p>
       </div>
       <div class="filters" role="group" aria-label="Filtruj według dziedziny">
         <button type="button" data-f="all" aria-pressed="true">Wszystkie</button>
@@ -383,14 +457,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
         <button type="button" data-f="rodzinne" aria-pressed="false">Rodzinne</button>
       </div>
       <div class="grid-sit" id="sits">
-        <a class="sit" href="#podstrona" data-a="karne"><div class="top"><span class="label">Karne</span><span class="law">art. 178a k.k.</span></div><h3>Jazda po alkoholu, zatrzymane prawo jazdy</h3><p>Zakaz prowadzenia, konfiskata auta, warunkowe umorzenie.</p><span class="deadline"><b>7</b> dni <em>na zażalenie na zatrzymanie prawa jazdy</em></span></a>
-        <a class="sit" href="#podstrona" data-a="karne"><div class="top"><span class="label">Karne</span><span class="law">art. 506 k.p.k.</span></div><h3>Dostałem wyrok nakazowy bez rozprawy</h3><p>Wyrok staje się prawomocny, jeśli nikt się nie sprzeciwi.</p><span class="deadline"><b>7</b> dni <em>na sprzeciw</em></span></a>
-        <a class="sit" href="#podstrona" data-a="podatkowe"><div class="top"><span class="label">Podatkowe</span><span class="law">Ordynacja podatkowa</span></div><h3>Urząd skarbowy wszczął kontrolę</h3><p>Kontrola podatkowa lub celno-skarbowa, wezwania, niezgodności w JPK.</p><span class="deadline"><b>1.</b> pismo <em>już wtedy warto mieć pełnomocnika</em></span></a>
-        <a class="sit" href="#podstrona" data-a="podatkowe"><div class="top"><span class="label">Podatkowe</span><span class="law">art. 16 k.k.s.</span></div><h3>Zarzuty karne skarbowe, czynny żal</h3><p>Faktury, VAT, nierzetelne księgi. Czynny żal działa przed wszczęciem sprawy.</p><span class="deadline"><b>—</b> <em>przed wszczęciem postępowania</em></span></a>
-        <a class="sit" href="#podstrona" data-a="admin"><div class="top"><span class="label">Administracyjne</span><span class="law">art. 129 k.p.a.</span></div><h3>Odmowa pozwolenia, nakaz rozbiórki</h3><p>Decyzje budowlane, warunki zabudowy, samowola budowlana.</p><span class="deadline"><b>14</b> dni <em>na odwołanie</em></span></a>
-        <a class="sit" href="#podstrona" data-a="admin"><div class="top"><span class="label">Administracyjne</span><span class="law">art. 53 p.p.s.a.</span></div><h3>Chcę zaskarżyć decyzję do WSA</h3><p>Pobyt cudzoziemców, prawo jazdy, koncesje, kary administracyjne.</p><span class="deadline"><b>30</b> dni <em>na skargę do WSA</em></span></a>
-        <a class="sit" href="#podstrona" data-a="rodzinne"><div class="top"><span class="label">Rodzinne</span><span class="law">art. 56 k.r.o.</span></div><h3>Rozwód i podział majątku</h3><p>Z orzekaniem o winie i bez, mieszkanie, kredyt, firma.</p><span class="deadline"><b>1</b> konsultacja <em>by poznać koszt i czas trwania</em></span></a>
-        <a class="sit" href="#podstrona" data-a="rodzinne"><div class="top"><span class="label">Rodzinne</span><span class="law">art. 133 k.r.o.</span></div><h3>Alimenty i kontakty z dziećmi</h3><p>Ustalenie, podwyższenie, obniżenie, zabezpieczenie na czas sprawy.</p><span class="deadline"><b>1</b> konsultacja <em>by ocenić realną kwotę</em></span></a>
+        <a class="sit" href="#kontakt" data-a="karne" data-area="0"><div class="top"><span class="label">Karne</span><span class="law">art. 178a k.k.</span></div><h3>Jazda po alkoholu, zatrzymane prawo jazdy</h3><p>Zakaz prowadzenia, konfiskata auta, warunkowe umorzenie.</p><span class="deadline"><b>7</b> dni <em>na zażalenie na zatrzymanie prawa jazdy</em></span></a>
+        <a class="sit" href="#kontakt" data-a="karne" data-area="1"><div class="top"><span class="label">Karne</span><span class="law">art. 506 k.p.k.</span></div><h3>Dostałem wyrok nakazowy bez rozprawy</h3><p>Wyrok staje się prawomocny, jeśli nikt się nie sprzeciwi.</p><span class="deadline"><b>7</b> dni <em>na sprzeciw</em></span></a>
+        <a class="sit" href="#kontakt" data-a="podatkowe" data-area="2"><div class="top"><span class="label">Podatkowe</span><span class="law">Ordynacja podatkowa</span></div><h3>Urząd skarbowy wszczął kontrolę</h3><p>Kontrola podatkowa lub celno-skarbowa, wezwania, niezgodności w JPK.</p><span class="deadline"><b>1.</b> pismo <em>już wtedy warto mieć pełnomocnika</em></span></a>
+        <a class="sit" href="#kontakt" data-a="podatkowe" data-area="3"><div class="top"><span class="label">Podatkowe</span><span class="law">art. 16 k.k.s.</span></div><h3>Zarzuty karne skarbowe, czynny żal</h3><p>Faktury, VAT, nierzetelne księgi. Czynny żal działa przed wszczęciem sprawy.</p><span class="deadline"><b>—</b> <em>przed wszczęciem postępowania</em></span></a>
+        <a class="sit" href="#kontakt" data-a="admin" data-area="4"><div class="top"><span class="label">Administracyjne</span><span class="law">art. 129 k.p.a.</span></div><h3>Odmowa pozwolenia, nakaz rozbiórki</h3><p>Decyzje budowlane, warunki zabudowy, samowola budowlana.</p><span class="deadline"><b>14</b> dni <em>na odwołanie</em></span></a>
+        <a class="sit" href="#kontakt" data-a="admin" data-area="4"><div class="top"><span class="label">Administracyjne</span><span class="law">art. 53 p.p.s.a.</span></div><h3>Chcę zaskarżyć decyzję do WSA</h3><p>Pobyt cudzoziemców, prawo jazdy, koncesje, kary administracyjne.</p><span class="deadline"><b>30</b> dni <em>na skargę do WSA</em></span></a>
+        <a class="sit" href="#kontakt" data-a="rodzinne" data-area="5"><div class="top"><span class="label">Rodzinne</span><span class="law">art. 56 k.r.o.</span></div><h3>Rozwód i podział majątku</h3><p>Z orzekaniem o winie i bez, mieszkanie, kredyt, firma.</p><span class="deadline"><b>1</b> konsultacja <em>by poznać koszt i czas trwania</em></span></a>
+        <a class="sit" href="#kontakt" data-a="rodzinne" data-area="6"><div class="top"><span class="label">Rodzinne</span><span class="law">art. 133 k.r.o.</span></div><h3>Alimenty i kontakty z dziećmi</h3><p>Ustalenie, podwyższenie, obniżenie, zabezpieczenie na czas sprawy.</p><span class="deadline"><b>1</b> konsultacja <em>by ocenić realną kwotę</em></span></a>
       </div>
     </div>
   </section>
@@ -450,12 +524,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   </section>
 
   <!-- Zespół -->
-  <section class="s" id="zespol">
+  <section class="s tint" id="zespol">
     <div class="wrap">
       <div class="s-head">
         <div><span class="label"><span class="dot"></span>Zespół</span><h2 style="margin-top:18px">Adwokaci</h2></div>
         <p>Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów. Kancelaria działa w Opolu od 2014 roku. Numer wpisu na listę adwokatów podajemy przy nazwisku.</p>
       </div>
+      <p class="swipe-hint" aria-hidden="true">Przesuń w bok →</p>
       <div class="team">
         <div class="person"><div class="portrait" data-photo="assets/team-portrait-1.jpg"><span class="ini">BP</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Bartosz Polański</h3><span>Partner</span></div><span>Nr wpisu ___</span></div></div>
         <div class="person"><div class="portrait" data-photo="assets/team-portrait-2.jpg"><span class="ini">MK</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Marcin Konofalski</h3><span>Partner</span></div><span>Nr wpisu ___</span></div></div>
@@ -471,6 +546,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
         <div><span class="label"><span class="dot"></span>Wiedza</span><h2 style="margin-top:18px">Krótko o prawie</h2></div>
         <p>Odpowiedzi na pytania, które ludzie wpisują w Google. Te same nagrania publikujemy na TikToku, Instagramie i YouTube.</p>
       </div>
+      <p class="swipe-hint" aria-hidden="true">Przesuń w bok →</p>
       <div class="know">
         <button class="post" type="button" data-v="0">
           <div class="thumb t-court" data-img="assets/thumb-wyrok.jpg">
@@ -504,7 +580,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   </section>
 
   <!-- FAQ -->
-  <section class="s">
+  <section class="s tint" id="pytania">
     <div class="wrap split">
       <div><span class="label"><span class="dot"></span>Pytania</span><h2 style="margin-top:18px">Zanim napiszesz</h2></div>
       <div class="faq">
@@ -649,6 +725,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
     vids.forEach(function(v){io.observe(v)});
   }
   document.querySelectorAll('.portrait[data-photo]').forEach(function(t){var u=t.dataset.photo;if(!u)return;var im=new Image();im.onload=function(){t.style.backgroundImage='url('+u+')';t.classList.add('has-photo')};im.src=u});
+  document.querySelectorAll('.sit[data-area]').forEach(function(a){a.addEventListener('click',function(){var sel=document.getElementById('f-area');if(sel)sel.selectedIndex=+a.dataset.area})});
   var btns=document.querySelectorAll('.filters button');
   var cards=document.querySelectorAll('#sits .sit');
   btns.forEach(function(b){
