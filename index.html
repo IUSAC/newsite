@@ -511,7 +511,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
   <div class="wrap nav">
     <a class="logo" href="#start"><i></i>PKW ADWOKACI</a>
     <nav class="menu" id="menu" aria-label="Główne">
-      <a href="#sytuacje">Moja sytuacja</a>
+      <a href="co-sie-stalo/">Moja sytuacja</a>
       <a href="#wspolpraca">Współpraca</a>
       <a href="#zespol">Zespół</a>
       <a href="#kontakt">Kontakt</a>
@@ -554,11 +554,11 @@ a.person:hover .call .arr{transform:translateX(4px)}
         </div>
         <div class="panel" data-step="3">
           <span class="label"><span class="dot"></span>03 · Wyjście</span>
-          <h2>Pokaż nam pismo.<br><span class="g">Wskażemy drogę.</span></h2>
+          <h2>Pokaż nam problem.<br><span class="g">Wskażemy drogę.</span></h2>
           <p class="lead">Sprawdzimy termin i powiemy, co możesz zrobić.</p>
           <div class="hero-cta">
             <a class="btn green" href="#kontakt">Wyślij pismo do analizy <span class="arr">→</span></a>
-            <a class="btn ghost" href="#sytuacje">Co się stało?</a>
+            <a class="btn ghost" href="co-sie-stalo/">Co się stało?</a>
           </div>
         </div>
       </div>
@@ -644,40 +644,15 @@ a.person:hover .call .arr{transform:translateX(4px)}
     <div class="wrap">
       <h3 class="ab-h">W czym pomagamy <span>wybierz dziedzinę</span></h3>
       <div class="ab-grid">
-        <a class="ab-card" href="#sytuacje" data-go="karne"><span class="ab-n">01</span><span class="ab-law">k.k. · k.p.k.</span><strong>Karne</strong><span class="ab-d">Obrona, zarzuty, wyroki nakazowe, sprawy kierowców</span><svg class="ab-arr" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        <a class="ab-card" href="co-sie-stalo/#karne"><span class="ab-n">01</span><span class="ab-law">k.k. · k.p.k.</span><strong>Karne</strong><span class="ab-d">Obrona, zarzuty, wyroki nakazowe, sprawy kierowców</span><svg class="ab-arr" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h13M13 6l6 6-6 6"/></svg></a>
         <a class="ab-card" href="obszar-dzialania/#prawo-cywilne"><span class="ab-n">02</span><span class="ab-law">k.c. · k.p.c.</span><strong>Cywilne</strong><span class="ab-d">Odszkodowania, spadki i zachowek, sprawy o zapłatę, prawo pracy</span><svg class="ab-arr" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-        <a class="ab-card" href="#sytuacje" data-go="admin"><span class="ab-n">03</span><span class="ab-law">k.p.a. · p.p.s.a.</span><strong>Administracyjne</strong><span class="ab-d">Odwołania od decyzji, skargi do WSA i NSA</span><svg class="ab-arr" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-        <a class="ab-card" href="#sytuacje" data-go="rodzinne"><span class="ab-n">04</span><span class="ab-law">k.r.o.</span><strong>Rodzinne</strong><span class="ab-d">Rozwody, alimenty, podział majątku, kontakty z dziećmi</span><svg class="ab-arr" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        <a class="ab-card" href="co-sie-stalo/#admin"><span class="ab-n">03</span><span class="ab-law">k.p.a. · p.p.s.a.</span><strong>Administracyjne</strong><span class="ab-d">Odwołania od decyzji, skargi do WSA i NSA</span><svg class="ab-arr" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        <a class="ab-card" href="co-sie-stalo/#rodzinne"><span class="ab-n">04</span><span class="ab-law">k.r.o.</span><strong>Rodzinne</strong><span class="ab-d">Rozwody, alimenty, podział majątku, kontakty z dziećmi</span><svg class="ab-arr" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h13M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </section>
 
   <!-- Moja sytuacja -->
-  <section class="s tint" id="sytuacje">
-    <div class="wrap">
-      <div class="s-head">
-        <div><span class="label"><span class="dot"></span>Moja sytuacja</span><h2 style="margin-top:18px">Co się stało?</h2></div>
-        <p>Wybierz swoją sytuację. Zobaczysz, ile masz czasu, i od razu wyślesz pismo do analizy.</p>
-      </div>
-      <div class="filters" role="group" aria-label="Filtruj według dziedziny">
-        <button type="button" data-f="all" aria-pressed="true">Wszystkie</button>
-        <button type="button" data-f="karne" aria-pressed="false">Karne</button>
-        <button type="button" data-f="podatkowe" aria-pressed="false">Podatkowe</button>
-        <button type="button" data-f="admin" aria-pressed="false">Administracyjne</button>
-        <button type="button" data-f="rodzinne" aria-pressed="false">Rodzinne</button>
-      </div>
-      <div class="grid-sit" id="sits">
-        <a class="sit" href="#kontakt" data-a="karne" data-area="0"><div class="top"><span class="label">Karne</span><span class="law">art. 178a k.k.</span></div><h3>Jazda po alkoholu, zatrzymane prawo jazdy</h3><p>Zakaz prowadzenia, konfiskata auta, warunkowe umorzenie.</p><span class="deadline"><b>7</b> dni <em>na zażalenie na zatrzymanie prawa jazdy</em></span></a>
-        <a class="sit" href="#kontakt" data-a="karne" data-area="1"><div class="top"><span class="label">Karne</span><span class="law">art. 506 k.p.k.</span></div><h3>Dostałem wyrok nakazowy bez rozprawy</h3><p>Wyrok staje się prawomocny, jeśli nikt się nie sprzeciwi.</p><span class="deadline"><b>7</b> dni <em>na sprzeciw</em></span></a>
-        <a class="sit" href="#kontakt" data-a="podatkowe" data-area="2"><div class="top"><span class="label">Podatkowe</span><span class="law">Ordynacja podatkowa</span></div><h3>Urząd skarbowy wszczął kontrolę</h3><p>Kontrola podatkowa lub celno-skarbowa, wezwania, niezgodności w JPK.</p><span class="deadline"><b>1.</b> pismo <em>już wtedy warto mieć pełnomocnika</em></span></a>
-        <a class="sit" href="#kontakt" data-a="podatkowe" data-area="3"><div class="top"><span class="label">Podatkowe</span><span class="law">art. 16 k.k.s.</span></div><h3>Zarzuty karne skarbowe, czynny żal</h3><p>Faktury, VAT, nierzetelne księgi. Czynny żal działa przed wszczęciem sprawy.</p><span class="deadline"><b>—</b> <em>przed wszczęciem postępowania</em></span></a>
-        <a class="sit" href="#kontakt" data-a="admin" data-area="4"><div class="top"><span class="label">Administracyjne</span><span class="law">art. 129 k.p.a.</span></div><h3>Odmowa pozwolenia, nakaz rozbiórki</h3><p>Decyzje budowlane, warunki zabudowy, samowola budowlana.</p><span class="deadline"><b>14</b> dni <em>na odwołanie</em></span></a>
-        <a class="sit" href="#kontakt" data-a="admin" data-area="4"><div class="top"><span class="label">Administracyjne</span><span class="law">art. 53 p.p.s.a.</span></div><h3>Chcę zaskarżyć decyzję do WSA</h3><p>Pobyt cudzoziemców, prawo jazdy, koncesje, kary administracyjne.</p><span class="deadline"><b>30</b> dni <em>na skargę do WSA</em></span></a>
-        <a class="sit" href="#kontakt" data-a="rodzinne" data-area="5"><div class="top"><span class="label">Rodzinne</span><span class="law">art. 56 k.r.o.</span></div><h3>Rozwód i podział majątku</h3><p>Z orzekaniem o winie i bez, mieszkanie, kredyt, firma.</p><span class="deadline"><b>1</b> konsultacja <em>by poznać koszt i czas trwania</em></span></a>
-        <a class="sit" href="#kontakt" data-a="rodzinne" data-area="6"><div class="top"><span class="label">Rodzinne</span><span class="law">art. 133 k.r.o.</span></div><h3>Alimenty i kontakty z dziećmi</h3><p>Ustalenie, podwyższenie, obniżenie, zabezpieczenie na czas sprawy.</p><span class="deadline"><b>1</b> konsultacja <em>by ocenić realną kwotę</em></span></a>
-      </div>
-    </div>
-  </section>
 
   <!-- Wzór podstrony problemu -->
   <section class="s" id="podstrona">
@@ -801,7 +776,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
       cards.forEach(function(c){c.hidden=!(f==='all'||c.dataset.a===f)});
     });
   });
-  document.querySelectorAll('.ab-card[data-go]').forEach(function(c){c.addEventListener('click',function(){var b=document.querySelector('.filters button[data-f="'+c.dataset.go+'"]');if(b)b.click()})});
+  (function(){var o=new URLSearchParams(location.search).get('obszar'),sel=document.getElementById('f-area');if(o!==null&&sel&&sel.options[+o])sel.selectedIndex=+o})();
   var fi=document.getElementById('f-file');
   fi.addEventListener('change',function(){
     document.getElementById('f-file-txt').textContent=fi.files.length?('Dodano: '+fi.files[0].name):'+ Dodaj zdjęcie lub PDF pisma (opcjonalnie)';
