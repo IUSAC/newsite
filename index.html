@@ -746,7 +746,14 @@ a.person:hover .call .arr{transform:translateX(4px)}
       var maxR=0;edges.forEach(function(e){if(e.r>maxR)maxR=e.r});edges.forEach(function(e){e.k=e.r/maxR});return edges}
     function mzDraw(){if(!T)return;if(!M)M=buildMaze();var W=mz.width,H=mz.height;mc.clearRect(0,0,W,H);
       var fade=Math.max(0,1-T.p/0.14);if(fade<=0)return;
-      var g=reduce?1:Math.min(1,(performance.now()-t0)/GROW),front=g*0.5,s=T.sc,lw=Math.max(1.5,2*s*(W/cv.clientWidth)/ (W/cv.clientWidth));
+      var now=performance.now(),g=reduce?1:Math.min(1,(now-t0)/GROW),front,s=T.sc,anim=false;
+      if(g<1){front=g*0.5;cf=front;anim=true}
+      else{var idle=!reduce&&mzVis&&T.p<0.03&&now-lastIn>1500,tgt=0.5;
+        /* bezczynność: labirynt „oddycha” – cofa się do środka i znów rośnie (cykl 5 s) */
+        if(idle){if(!idleT)idleT=now;tgt=0.31+0.19*Math.cos(2*Math.PI*(now-idleT)/5000);cf=tgt;anim=true}
+        else{idleT=0;cf+=(tgt-cf)*0.08;if(Math.abs(tgt-cf)>0.002)anim=true;else cf=tgt;
+          if(!reduce&&mzVis&&T.p<0.03){clearTimeout(idleTo);idleTo=setTimeout(function(){if(!mzRaf)mzRaf=requestAnimationFrame(function(){mzRaf=0;mzDraw()})},Math.max(60,1520-(now-lastIn)))}}
+        front=cf}
       mc.save();mc.globalAlpha=fade;mc.strokeStyle='#adff23';mc.lineCap='round';mc.lineWidth=Math.max(1.5,W/900);mc.shadowColor='rgba(173,255,35,.8)';mc.shadowBlur=W/160;mc.beginPath();
       M.forEach(function(e){if(e.k>front)return;var part=Math.min(1,(front-e.k)/0.04);
         var x1=T.dx+e.x1*s,y1=T.dy+e.y1*s,x2=T.dx+e.x2*s,y2=T.dy+e.y2*s;
@@ -758,7 +765,10 @@ a.person:hover .call .arr{transform:translateX(4px)}
       var cx=T.dx+640*s,cy=T.dy+360*s,rad=Math.hypot(W,H)*0.36,gr=mc.createRadialGradient(cx,cy,0,cx,cy,rad);
       gr.addColorStop(0,'rgba(0,0,0,1)');gr.addColorStop(.45,'rgba(0,0,0,.85)');gr.addColorStop(1,'rgba(0,0,0,0)');
       mc.save();mc.globalCompositeOperation='destination-in';mc.fillStyle=gr;mc.fillRect(0,0,W,H);mc.restore();
-      if(g<1&&!mzRaf)mzRaf=requestAnimationFrame(function(){mzRaf=0;mzDraw()})}
+      if(anim&&!mzRaf)mzRaf=requestAnimationFrame(function(){mzRaf=0;mzDraw()})}
+    var cf=0,idleT=0,idleTo=0,lastIn=performance.now(),mzVis=true;
+    ['scroll','wheel','touchstart','touchmove','keydown'].forEach(function(ev){window.addEventListener(ev,function(){lastIn=performance.now()},{passive:true})});
+    if('IntersectionObserver' in window)new IntersectionObserver(function(en){mzVis=en[0].isIntersecting;if(mzVis)mzDraw()}).observe(sec);
     t0=performance.now();
     function nearest(i){for(var d=0;d<N;d++){if(imgs[i-d]&&imgs[i-d].ok)return imgs[i-d];if(imgs[i+d]&&imgs[i+d].ok)return imgs[i+d]}return null}
     function draw(force){var i=Math.max(0,Math.min(N-1,Math.round(cur)));var p=cur/(N-1);var z=1+p*ZOOM;
