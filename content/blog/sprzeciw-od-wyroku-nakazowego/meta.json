@@ -1,0 +1,30 @@
+{
+  "status": "szkic",
+  "order": 1,
+  "title": "Sprzeciw od wyroku nakazowego krok po kroku",
+  "seo_title": "Sprzeciw od wyroku nakazowego – termin, treść, jak złożyć | PKW Adwokaci",
+  "description": "Jak wnieść sprzeciw od wyroku nakazowego: kto może go złożyć, jak liczyć 7 dni, co napisać, gdzie wysłać i co dzieje się po sprzeciwie. Przepisy k.p.k. i przykład.",
+  "category": "prawo-karne",
+  "date_published": "2026-09-30",
+  "date_modified": "2026-09-30",
+  "cover": "assets/blog/sprzeciw-od-wyroku-nakazowego.jpg",
+  "cover_alt": "Podpisany list wkładany do koperty przy okienku pocztowym",
+  "excerpt": "Termin, treść pisma, sposób wysłania i to, co dzieje się po sprzeciwie. Praktyczny poradnik na podstawie art. 506 k.p.k.",
+  "lead": "Sprzeciw od wyroku nakazowego wnosisz do sądu, który wydał wyrok, w ciągu <strong>7 dni</strong> od jego doręczenia. Pismo nie wymaga uzasadnienia. Poniżej: jak policzyć termin, co napisać i jak złożyć sprzeciw, żeby sąd go przyjął.",
+  "tldr": [
+    "Sprzeciw może wnieść oskarżony i oskarżyciel, do sądu, który wydał wyrok nakazowy (art. 506 § 1 k.p.k.).",
+    "Termin: 7 dni od doręczenia. Dzień doręczenia się nie liczy, a termin kończący się w sobotę lub święto przechodzi na najbliższy dzień roboczy.",
+    "Liczy się data nadania w placówce pocztowej (Poczty Polskiej lub innego operatora doręczającego korespondencję w UE) albo data złożenia w biurze podawczym sądu (art. 124 k.p.k.).",
+    "Po sprzeciwie wyrok traci moc, a sprawa trafia na rozprawę. Sprzeciw można cofnąć do rozpoczęcia przewodu sądowego na pierwszej rozprawie."
+  ],
+  "faq": [
+    ["Czy mogę wysłać sprzeciw e-mailem albo kurierem?", "E-mail nie zachowuje terminu. Termin zachowuje nadanie w placówce podmiotu doręczającego korespondencję na terenie UE, np. Poczty Polskiej lub innego operatora (art. 124 k.p.k.). Najbezpieczniej złożyć sprzeciw w biurze podawczym sądu albo nadać go listem poleconym w placówce pocztowej i zachować dowód nadania. Przy odbiorze przez kuriera spod domu mogą powstać wątpliwości co do daty nadania."],
+    ["Co jeśli spóźnię się ze sprzeciwem?", "Prezes sądu odmówi przyjęcia spóźnionego sprzeciwu (art. 506 § 2 k.p.k.). Jeśli spóźnienie wynikło z przyczyn od Ciebie niezależnych, możesz w ciągu 7 dni od ustania przeszkody złożyć wniosek o przywrócenie terminu i jednocześnie wnieść sprzeciw (art. 126 k.p.k.)."],
+    ["Czy mogę cofnąć sprzeciw?", "Tak, do czasu rozpoczęcia przewodu sądowego na pierwszej rozprawie głównej (art. 506 § 5 k.p.k.). Po cofnięciu sprzeciwu wyrok nakazowy staje się prawomocny."],
+    ["Czy do sprzeciwu potrzebny jest adwokat?", "Nie. Sprzeciw możesz napisać sam. Pomoc adwokata przydaje się przy ocenie, czy sprzeciw ma sens w Twojej sprawie, oraz przy przygotowaniu obrony na rozprawę."]
+  ],
+  "related": ["wyrok-nakazowy-co-to-jest"],
+  "author": {"name": "Zespół PKW Adwokaci", "person": false, "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."},
+  "cta_label": "Masz 7 dni na sprzeciw",
+  "cta_title": "Prześlij zdjęcie wyroku nakazowego. Sprawdzimy termin i omówimy, czy sprzeciw ma sens w Twojej sprawie."
+}

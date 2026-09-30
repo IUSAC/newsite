@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0d0c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: lark.de-style monochrome editorial grid — white paper, black ink, one black "city" band for the intro video, green only where something moves or leads to contact. Single deliberate light look. */
+:root{
+  --paper:#ffffff;
+  --paper-2:#f3f5f4;
+  --ink:#0b0d0c;
+  --ink-2:#4a524e;
+  --line:#dfe3e1;
+  --green:#adff23;
+  --green-ink:#3f6b00;
+  --night:#0b0d0c;
+  --night-2:#161a18;
+  --on-night:#f4f6f5;
+  --display:"Archivo", "Arial Narrow", Arial, sans-serif;
+  --body:"Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+  --gutter:clamp(16px,4vw,56px);
+  --max:1320px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:0}
+a{color:inherit}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.label .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:10px;vertical-align:1px}
+h1,h2,h3{font-family:var(--display);font-stretch:112%;font-weight:700;letter-spacing:-.02em;line-height:1.02;text-wrap:balance;margin:0}
+h2{font-size:clamp(34px,5.4vw,76px)}
+h3{font-size:22px;font-stretch:100%;letter-spacing:-.01em;line-height:1.15}
+p{margin:0}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+
+/* Header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px}
+.logo{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:20px;letter-spacing:-.01em;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:12px;height:12px;background:var(--green);display:inline-block}
+.logo .bar{width:3px;height:1em;background:var(--green);display:inline-block}
+.menu{display:flex;gap:28px;font-size:14px;font-weight:500}
+.menu a{text-decoration:none;position:relative}
+.menu a::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:2px;background:var(--green);transition:right .3s}
+.menu a:hover::after{right:0}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;text-decoration:none;border:0;border-radius:0;padding:14px 20px;font:600 14px var(--body);cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--green-ink)}
+.btn .arr{transition:transform .2s}
+.btn:hover .arr{transform:translateX(4px)}
+.btn.green{background:var(--green);color:var(--ink)}
+.btn.green:hover{background:#fff}
+.btn.green.top-cta:hover{background:var(--ink);color:#fff}
+.burger{display:none;width:44px;height:44px;background:none;border:1px solid var(--line);cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:6px;padding:0}
+.burger span{display:block;width:18px;height:2px;background:var(--ink);transition:transform .25s}
+.burger[aria-expanded="true"] span:first-child{transform:translateY(4px) rotate(45deg)}
+.burger[aria-expanded="true"] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+@media (max-width:900px){
+  .top-cta{display:none}
+  .burger{display:flex}
+  .nav{height:60px}
+  .menu{display:none;position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--line);flex-direction:column;gap:0;padding:8px var(--gutter) 16px;font-size:18px}
+  .menu.open{display:flex}
+  .menu a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .menu a:last-child{border-bottom:0}
+  .menu a::after{display:none}
+  body{padding-bottom:calc(58px + env(safe-area-inset-bottom,0px))}
+}
+
+
+/* Hero — video placeholder */
+.hero{background:var(--night);color:var(--on-night);position:relative;overflow:hidden}
+.video-slot{position:absolute;inset:0;background:
+  repeating-linear-gradient(90deg,transparent 0 79px,rgba(255,255,255,.05) 79px 80px),
+  repeating-linear-gradient(0deg,transparent 0 79px,rgba(255,255,255,.05) 79px 80px),
+  linear-gradient(180deg,#0b0d0c,#131816)}
+.video-slot .scan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);top:0;animation:scan 6s linear infinite;opacity:.8}
+@keyframes scan{to{top:100%}}
+.video-slot video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s}
+.video-slot.has-video video{opacity:1}
+.video-slot.has-video .scan,.video-slot.has-video .note{display:none}
+.video-slot .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,13,12,.82) 0%,rgba(11,13,12,.45) 55%,rgba(11,13,12,.15) 100%),linear-gradient(0deg,rgba(11,13,12,.85),transparent 45%)}
+.hero.exit h1 .ln:nth-child(3) span{text-shadow:0 0 38px rgba(173,255,35,.55)}
+.video-slot .note{position:absolute;right:var(--gutter);top:24px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55);border:1px dashed rgba(255,255,255,.3);padding:8px 12px;max-width:340px;text-align:right}
+.hero-in{position:relative;padding-block:clamp(90px,14vw,190px) clamp(48px,6vw,80px);display:grid;gap:36px}
+.hero .label{color:rgba(255,255,255,.7)}
+.hero h1{font-size:clamp(44px,8.6vw,132px);font-stretch:118%}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln span{display:inline-block;animation:rise .9s cubic-bezier(.2,.7,.1,1) both}
+.hero h1 .ln:nth-child(2) span{animation-delay:.12s}
+.hero h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--green)}
+@keyframes rise{from{transform:translateY(105%)}}
+.hero-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:28px;border-top:1px solid rgba(255,255,255,.18);padding-top:28px}
+.hero-foot p{max-width:540px;color:rgba(255,255,255,.8);font-size:18px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1px var(--green);background:transparent;color:var(--green)}
+
+/* Sections */
+section.s{padding-block:clamp(72px,10vw,140px);border-bottom:1px solid var(--line);scroll-margin-top:60px}
+.s-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:32px;margin-bottom:56px;align-items:end}
+.s-head p{color:var(--ink-2);font-size:18px;max-width:60ch}
+@media (max-width:820px){.s-head{grid-template-columns:1fr}}
+
+/* Intro statement */
+.statement{font-family:var(--display);font-stretch:100%;font-weight:500;font-size:clamp(24px,3vw,40px);line-height:1.2;letter-spacing:-.015em}
+.statement b{font-weight:700;background:linear-gradient(transparent 62%,rgba(173,255,35,.35) 62%)}
+.areas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:56px;border-top:1px solid var(--ink)}
+.areas div{padding:22px 20px 0 0;display:grid;gap:6px}
+.areas .n{font-family:var(--mono);font-size:12px;color:var(--green-ink)}
+.areas strong{font-family:var(--display);font-stretch:112%;font-size:22px}
+.areas span{color:var(--ink-2);font-size:14px}
+@media (max-width:820px){.areas{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:24px}}
+
+/* Situations */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filters button{font:500 14px var(--body);background:transparent;border:1px solid var(--line);padding:9px 16px;cursor:pointer;color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid-sit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-left:1px solid var(--line);border-top:1px solid var(--line)}
+@media (max-width:1100px){.grid-sit{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grid-sit{grid-template-columns:1fr}}
+.sit{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 24px 24px;display:grid;grid-template-rows:auto auto 1fr auto;gap:14px;text-decoration:none;position:relative;background:var(--paper);transition:background .25s;min-width:0}
+.sit::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--green);transition:width .35s}
+.sit:hover{background:var(--paper-2)}
+.sit:hover::before{width:100%}
+.sit .top{display:flex;justify-content:space-between;gap:12px}
+.sit .law{font-family:var(--mono);font-size:11px;color:var(--ink-2);letter-spacing:.04em}
+.sit p{color:var(--ink-2);font-size:15px}
+.deadline{display:inline-flex;align-items:baseline;gap:8px;font-family:var(--mono);font-size:12px;border-top:1px solid var(--line);padding-top:12px}
+.deadline b{font-family:var(--display);font-stretch:112%;font-size:26px;color:var(--ink)}
+.deadline em{font-style:normal;color:var(--green-ink)}
+
+/* Detail example (subpage template) */
+.split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px)}
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+.ph{position:relative;background:repeating-linear-gradient(135deg,var(--paper-2) 0 12px,#e9edeb 12px 13px);border:1px dashed #b9c2be;display:grid;place-items:center;text-align:center;padding:24px;color:var(--ink-2);font-family:var(--mono);font-size:12px;letter-spacing:.04em;max-width:100%}
+.ph strong{display:block;font-family:var(--body);font-size:14px;color:var(--ink);letter-spacing:0;margin-bottom:6px}
+.steps{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:0;counter-reset:st}
+.steps li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;padding:18px 0;border-top:1px solid var(--line);counter-increment:st}
+.steps li::before{content:counter(st,decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--green-ink);padding-top:3px}
+.steps b{display:block;margin-bottom:2px}
+.steps span{color:var(--ink-2);font-size:15px}
+.kicker{font-family:var(--display);font-stretch:112%;font-size:clamp(28px,3.6vw,48px);font-weight:700;line-height:1.05;letter-spacing:-.02em}
+.kicker em{font-style:normal;color:var(--green-ink)}
+
+/* Process (dark band) */
+.dark{background:var(--night);color:var(--on-night);border-bottom:0}
+.dark .label{color:rgba(255,255,255,.6)}
+.dark .s-head p{color:rgba(255,255,255,.72)}
+.proc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid rgba(255,255,255,.2)}
+@media (max-width:900px){.proc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.proc{grid-template-columns:1fr}}
+.proc div{padding:28px 24px 28px 0;display:grid;gap:10px;position:relative}
+.proc .n{font-family:var(--display);font-stretch:125%;font-size:56px;font-weight:800;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.45);line-height:1}
+.proc div:hover .n{-webkit-text-stroke-color:var(--green)}
+.proc p{color:rgba(255,255,255,.72);font-size:15px}
+
+/* Pricing */
+.prices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink)}
+@media (max-width:900px){.prices{grid-template-columns:1fr}}
+.price{padding:28px 28px 28px 0;display:grid;gap:12px;align-content:start}
+.price + .price{padding-left:28px;border-left:1px solid var(--line)}
+@media (max-width:900px){.price + .price{padding-left:0;border-left:0;border-top:1px solid var(--line)}}
+.amt{font-family:var(--display);font-stretch:112%;font-size:44px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.amt small{font-size:16px;font-weight:500;color:var(--ink-2);margin-left:6px}
+.todo{font-family:var(--mono);font-size:11px;background:#fff6d6;color:#6b5400;padding:2px 6px;display:inline-block}
+.price ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:15px}
+
+/* Team */
+.team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:960px}
+@media (max-width:900px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.team{grid-template-columns:1fr}}
+.person{display:grid;gap:14px}
+.person .ph{aspect-ratio:4/5;filter:grayscale(1)}
+.portrait{position:relative;aspect-ratio:4/5;max-width:100%;background:var(--night);color:#fff;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:24px;background-size:cover;background-position:center top}
+.portrait::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 47px,rgba(255,255,255,.04) 47px 48px),radial-gradient(120% 80% at 80% 110%,rgba(173,255,35,.22),transparent 60%)}
+.portrait .ini{position:relative;font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(88px,11vw,150px);line-height:.85;letter-spacing:-.04em}
+.portrait .pl{position:relative;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);border-top:1px solid rgba(255,255,255,.25);padding-top:12px}
+.portrait.has-photo{background-blend-mode:luminosity;filter:grayscale(1)}
+.portrait.has-photo::before{background:linear-gradient(180deg,rgba(11,13,12,.55) 0%,rgba(11,13,12,0) 35%,rgba(11,13,12,0) 65%,rgba(11,13,12,.75) 100%)}
+.portrait.has-photo .ini{visibility:hidden}
+.portrait .sample{display:none}
+.portrait.has-photo .sample{display:block;position:absolute;right:12px;top:12px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.8);background:rgba(11,13,12,.55);padding:4px 8px}
+.person .meta{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--ink);padding-top:12px}
+.person .meta span{font-family:var(--mono);font-size:11px;color:var(--ink-2)}
+
+/* Knowledge */
+.know{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+@media (max-width:900px){.know{grid-template-columns:1fr}}
+.post{display:grid;gap:14px;text-decoration:none}
+.post .ph{aspect-ratio:9/12}
+.post .tag{font-family:var(--mono);font-size:11px;color:var(--green-ink);text-transform:uppercase;letter-spacing:.06em}
+.post h3{font-size:20px}
+
+
+/* Video thumbnails */
+.post{align-content:start;background:none;border:0;padding:0;text-align:left;cursor:pointer;font:inherit;color:inherit}
+.thumb{position:relative;aspect-ratio:3/4;overflow:hidden;background-color:var(--night);background-size:cover;background-position:center;color:#fff;display:flex;flex-direction:column;justify-content:flex-start;padding:24px;isolation:isolate}
+.thumb::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  repeating-linear-gradient(90deg,transparent 0 47px,rgba(255,255,255,.035) 47px 48px),
+  linear-gradient(180deg,rgba(11,13,12,.2),rgba(11,13,12,.9))}
+.thumb::after{content:"";position:absolute;z-index:-1;width:70%;aspect-ratio:1;border-radius:50%;filter:blur(40px);background:rgba(173,255,35,.28);transition:transform .5s,opacity .5s}
+.t-court::after{right:-20%;bottom:-10%}
+.t-tax::after{left:-15%;bottom:5%}
+.t-family::after{right:-10%;bottom:-20%}
+.t-court{background-image:linear-gradient(160deg,#1b201e 0%,#0b0d0c 60%)}
+.t-tax{background-image:linear-gradient(200deg,#1e2321 0%,#0b0d0c 55%)}
+.t-family{background-image:linear-gradient(140deg,#202523 0%,#0b0d0c 65%)}
+.thumb.has-img{background-image:linear-gradient(180deg,rgba(11,13,12,.35) 0%,rgba(11,13,12,.15) 40%,rgba(11,13,12,.85) 100%),var(--img)}
+.sub-visual{aspect-ratio:9/16;width:min(100%,340px);margin-inline:auto}
+.sub-visual .t-num{font-size:clamp(110px,12vw,170px)}
+.t-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:0;transition:opacity .8s}
+.thumb.playing .t-vid{opacity:1}
+.t-num{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(84px,9vw,128px);line-height:.85;letter-spacing:-.04em;color:var(--green)}
+.t-unit{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(34px,3.4vw,48px);line-height:1;margin-top:6px}
+.t-small{margin-top:auto;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.75);border-top:1px solid rgba(255,255,255,.25);padding-top:12px}
+.play{position:absolute;right:20px;top:20px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.45);display:grid;place-items:center;font-size:13px;transition:background .25s,border-color .25s,color .25s}
+.post:hover .play{background:var(--green);border-color:var(--green);color:var(--ink)}
+.post:hover .thumb::after{transform:scale(1.25);opacity:1}
+.post .more{font-size:14px;font-weight:600;display:inline-flex;gap:8px}
+.post:hover .more .arr{transform:translateX(4px)}
+.post .more .arr{transition:transform .2s}
+
+/* Video transcript dialog */
+dialog.vid{border:0;padding:0;max-width:640px;width:calc(100% - 32px);background:var(--paper);color:var(--ink)}
+dialog.vid::backdrop{background:rgba(11,13,12,.8);backdrop-filter:blur(4px)}
+.v-in{padding:32px;display:grid;gap:18px;position:relative;max-height:88vh;overflow:auto}
+.v-x{position:absolute;right:14px;top:10px;background:none;border:0;font-size:30px;line-height:1;cursor:pointer;color:var(--ink)}
+.v-h{font-size:clamp(24px,3vw,32px);font-stretch:112%;padding-right:28px}
+.v-big{display:flex;align-items:baseline;gap:12px;border-block:1px solid var(--line);padding-block:14px;font-family:var(--mono);font-size:13px;color:var(--ink-2)}
+.v-big b{font-family:var(--display);font-stretch:125%;font-size:52px;line-height:1;color:var(--green-ink)}
+.v-in .steps{margin:0}
+.v-cta{justify-self:start}
+
+/* FAQ */
+.faq{border-top:1px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;padding:22px 0;font-weight:600;font-size:18px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--green-ink);font-size:22px;line-height:1;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{padding:0 0 22px;color:var(--ink-2);max-width:70ch}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(28px,5vw,72px)}
+@media (max-width:900px){.contact{grid-template-columns:1fr}}
+.channels{display:grid;gap:0;margin-top:32px;border-top:1px solid rgba(255,255,255,.2)}
+.channels div{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.2);font-size:15px}
+.channels span:first-child{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.6)}
+form{display:grid;gap:18px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:560px){.row2{grid-template-columns:1fr}}
+label.f{display:grid;gap:8px;font-size:13px;color:rgba(255,255,255,.7)}
+input,select,textarea{font:16px var(--body);background:var(--night-2);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:0;padding:14px;width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--green)}
+select{color-scheme:dark}
+.file{border:1px dashed rgba(255,255,255,.35);padding:18px;text-align:center;font-size:14px;color:rgba(255,255,255,.75);cursor:pointer}
+.file input{display:none}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,.6)}
+.consent input{width:auto;margin-top:3px;accent-color:var(--green)}
+.sent{border:1px solid var(--green);padding:20px;color:#fff}
+.sent b{color:var(--green)}
+
+footer{background:var(--night);color:rgba(255,255,255,.6);font-size:13px;border-top:1px solid rgba(255,255,255,.12)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-block:28px 96px}
+@media (min-width:901px){footer .wrap{padding-block:28px}}
+.big-mark{padding-block:48px 0}
+.big-mark svg{display:block;width:100%;height:auto;max-width:100%}
+.big-mark text{font-family:var(--display);font-stretch:125%;font-weight:800;fill:#fff}
+.big-mark tspan{fill:var(--green)}
+
+/* Mobile action bar */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;grid-template-columns:repeat(3,1fr);background:var(--ink);padding-bottom:env(safe-area-inset-bottom,0px)}
+.mbar a{color:#fff;text-decoration:none;padding:9px 6px 8px;font-weight:600;font-size:12px;letter-spacing:.02em;border-right:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:56px}
+.mbar a svg{width:22px;height:22px;display:block}
+.mbar a.mb-call{background:var(--green);color:var(--ink);border:0}
+.mbar a.mb-mail svg{color:#fff}
+.mbar a.mb-map{border:0}
+.mbar a.mb-map svg{color:#fff}
+.mbar a:active{filter:brightness(.9)}
+@media (max-width:900px){.mbar{display:grid}}
+
+.ethics{font-family:var(--mono);font-size:11px;color:var(--ink-2);margin-top:28px;max-width:80ch}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+@media (max-width:560px){
+  body{font-size:15px}
+  .hero-in{padding-block:72px 36px;gap:24px}
+  .hero-foot p{font-size:16px}
+  .hero-cta{width:100%}
+  .hero-cta .btn{flex:1 1 100%;justify-content:center}
+  .video-slot .shade{background:linear-gradient(0deg,rgba(11,13,12,.92) 10%,rgba(11,13,12,.55) 60%,rgba(11,13,12,.35) 100%)}
+  section.s{padding-block:56px}
+  .s-head{margin-bottom:32px;gap:16px}
+  .s-head p{font-size:16px}
+  .statement{font-size:22px}
+  .areas strong{font-size:16px;font-stretch:100%}
+  .areas div{padding-right:12px;min-width:0;overflow-wrap:anywhere}
+  .sit{padding:22px 18px}
+  .steps li{grid-template-columns:36px minmax(0,1fr)}
+  .price{padding:22px 0}
+  .amt{font-size:36px}
+  .channels div{flex-direction:column;gap:4px}
+  .v-in{padding:24px 18px}
+    footer .wrap{padding-block:20px 24px}
+}
+
+/* ===== Wersja mobilna: czytelność (research: NN/g, digital.gov) ===== */
+.swipe-hint{display:none}
+.sample-note{display:none}
+@media (max-width:560px){
+  body{font-size:16px;line-height:1.6}
+  .wrap{padding-inline:20px}
+  /* rytm sekcji: naprzemienne tła, żeby bloki się nie zlewały */
+  section.s{padding-block:52px;border-bottom:0}
+  section.s.tint{background:var(--paper-2)}
+  .s-head{margin-bottom:24px;gap:10px}
+  h2{font-size:34px;line-height:1.05}
+  .s-head p{font-size:16px;color:var(--ink-2)}
+  .label{font-size:12px}
+  /* hero: jedno przesłanie, jeden przycisk */
+  .hero .hero-in>.label{display:none}
+  .hero h1{font-size:42px}
+  .hero-in{padding-block:96px 40px}
+  .hero-cta .btn.ghost{display:none}
+  /* o kancelarii: bez drobnych opisów */
+  .statement{font-size:21px;line-height:1.35}
+  .areas{margin-top:28px;grid-template-columns:1fr 1fr;row-gap:0;border-top:0}
+  .areas div{padding:14px 0;border-top:1px solid var(--line)}
+  .areas .n,.areas span:not(.n){display:none}
+  .areas strong{font-size:18px}
+  /* co się stało: zwarta lista zamiast rozbudowanych kart */
+  .filters{flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .filters button{flex:0 0 auto;min-height:44px;background:var(--paper)}
+  .grid-sit{border:0;gap:8px;display:grid}
+  .sit{border:0;background:var(--paper);padding:16px 44px 16px 16px;gap:6px;grid-template-rows:auto auto}
+  .sit::before{width:3px;height:100%;background:var(--line)}
+  .sit:hover::before{width:3px;background:var(--green)}
+  .sit .top,.sit p{display:none}
+  .sit h3{font-size:18px;line-height:1.25}
+  .sit::after{content:"→";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--green-ink);font-weight:600}
+  .deadline{display:block;border-top:0;padding-top:0;font-family:var(--body);font-size:14px;line-height:1.4;color:var(--ink-2)}
+  .deadline b{font-family:var(--body);font-stretch:100%;font-size:14px;font-weight:700;color:var(--green-ink)}
+  .deadline em{color:var(--ink-2)}
+  .person .meta>span{display:none}
+  /* przykład podstrony powtarza treść kart – na telefonie zbędny */
+  #podstrona{display:none}
+  /* jak pracujemy: kompaktowe kroki */
+  .proc{border-top:0}
+  .proc div{grid-template-columns:40px minmax(0,1fr);column-gap:12px;row-gap:2px;padding:16px 0;border-top:1px solid rgba(255,255,255,.14)}
+  .proc .n{grid-row:span 2;font-size:22px;-webkit-text-stroke:0;color:var(--green)}
+  .proc h3{font-size:18px}
+  /* cennik: nazwa i kwota w jednym wierszu */
+  .prices{border-top:0}
+  .price{padding:16px 0;border-top:1px solid var(--line);grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:4px 12px}
+  .price .label{grid-column:1}
+  .price .amt{grid-column:2;grid-row:1 / span 2;font-size:28px;text-align:right}
+  .price ul{grid-column:1;padding-left:0;list-style:none;font-size:14px}
+  .price ul li+li{display:none}
+  /* zespół: lista jak w stopce maila – zdjęcie w kółku, opis obok */
+  .team{display:grid;grid-template-columns:1fr;gap:0;max-width:none}
+  .team .person{display:grid;grid-template-columns:76px minmax(0,1fr);align-items:center;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+  .team .person:last-child{border-bottom:1px solid var(--line)}
+  .portrait{width:76px;height:76px;aspect-ratio:1;padding:0;border-radius:50%;background-position:center 20%;justify-content:center;align-items:center}
+  .portrait .pl,.portrait .sample{display:none!important}
+  .portrait .ini{font-size:26px;letter-spacing:0}
+  .portrait::before{border-radius:50%}
+  .person .meta{border-top:0;padding-top:0;flex-direction:column;gap:2px}
+  .person .meta h3{font-size:18px}
+  .person .meta span{font-size:13px}
+  .person .meta .sample-note{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-2);opacity:.8}
+  /* wiedza: ten sam wygląd kafelków, jeden pod drugim */
+  .know{display:grid;grid-template-columns:1fr;gap:28px}
+  .know .thumb{aspect-ratio:4/5}
+  .thumb{padding:18px}
+  .t-num{font-size:84px}
+  .t-unit{font-size:32px}
+  .post h3{font-size:17px}
+  .post .tag{display:none}
+  /* pytania */
+  .faq summary{font-size:16px;padding:18px 0;min-height:48px}
+  /* kontakt */
+  .channels{margin-top:24px}
+  input,select,textarea{min-height:48px}
+}
+
+/* ===== Baner sterowany przewijaniem (wzór lark.de) ===== */
+.scrolly{position:relative;height:420vh;background:var(--night);color:var(--on-night)}
+.scrolly .sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#scrub{position:absolute;inset:0;width:100%;height:100%;display:block;background:#0b0d0c url(assets/hero-seq-poster.jpg) center/cover no-repeat}
+.panel{will-change:transform,opacity}
+.sc-stage{transform:translateY(calc(var(--pp,0) * -30px))}
+.sc-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,13,12,.85) 0%,rgba(11,13,12,.5) 50%,rgba(11,13,12,.1) 100%),linear-gradient(0deg,rgba(11,13,12,.7),transparent 40%)}
+.sc-stage{position:relative;height:100%;display:grid;align-items:center}
+.panel{grid-area:1/1;max-width:640px;display:grid;gap:22px;opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.1,1);pointer-events:none}
+.panel.is-on{opacity:1;transform:none;pointer-events:auto}
+.panel .label{color:rgba(255,255,255,.75)}
+.panel h1{font-size:clamp(40px,6.6vw,104px);font-stretch:118%}
+.panel h2{font-size:clamp(34px,4.6vw,68px)}
+.panel .g{color:var(--green)}
+.panel .lead{font-size:clamp(16px,1.4vw,20px);color:rgba(255,255,255,.82);max-width:48ch}
+.pl-list{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid rgba(255,255,255,.2)}
+.pl-list li{display:grid;grid-template-columns:minmax(150px,auto) minmax(0,1fr);gap:4px 20px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.2);align-items:baseline}
+.pl-list b{font-family:var(--display);font-stretch:112%;font-size:20px}
+.pl-list span{color:rgba(255,255,255,.72);font-size:15px}
+.panel li{opacity:0;transform:translateX(-16px);transition:opacity .5s ease,transform .6s ease}
+.panel.is-on li{opacity:1;transform:none}
+.panel.is-on li:nth-child(2){transition-delay:.12s}.panel.is-on li:nth-child(3){transition-delay:.24s}
+.sc-rail{position:absolute;right:var(--gutter);top:50%;transform:translateY(-50%);list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.sc-rail li{width:3px;height:34px;background:rgba(255,255,255,.25);transition:background .3s,height .3s}
+.sc-rail li.is-on{background:var(--green);height:54px}
+.sc-cue{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);display:grid;justify-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);transition:opacity .4s}
+.sc-cue i{width:1px;height:36px;background:linear-gradient(var(--green),transparent);animation:cue 1.6s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.scrolly.started .sc-cue{opacity:0}
+@media (max-width:560px){
+  .scrolly{height:380vh}
+  .sc-shade{background:linear-gradient(0deg,rgba(11,13,12,.92) 5%,rgba(11,13,12,.55) 55%,rgba(11,13,12,.35) 100%)}
+  .sc-stage{align-items:end;padding-bottom:120px}
+  .panel{gap:16px}
+  .panel h1{font-size:40px}
+  .panel h2{font-size:30px}
+  .pl-list li{grid-template-columns:1fr;padding:10px 0}
+  .pl-list b{font-size:17px}
+  .pl-list span{font-size:14px}
+  .sc-rail{right:10px;gap:8px}
+  .sc-rail li{height:24px}.sc-rail li.is-on{height:38px}
+  .panel .hero-cta .btn.ghost{display:none}
+  .sc-cue{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .scrolly{height:auto}
+  .scrolly .sticky{position:relative;height:auto;min-height:100vh}
+  .sc-stage{display:grid;gap:64px;padding-block:120px 80px}
+  .panel{grid-area:auto;opacity:1;transform:none;pointer-events:auto}
+  .panel li{opacity:1;transform:none}
+  .sc-rail,.sc-cue{display:none}
+  #scrub{transform:none}
+}
+
+/* ===== Zespół: klikalne karty – połączenie telefoniczne ===== */
+a.person{text-decoration:none;color:inherit;position:relative;cursor:pointer;transition:transform .35s cubic-bezier(.2,.7,.1,1)}
+a.person .portrait{transition:filter .4s,background-size .6s;background-size:cover}
+a.person:hover{transform:translateY(-6px)}
+a.person:hover .portrait.has-photo{filter:grayscale(1) contrast(1.15) brightness(1.08)}
+a.person .call{display:inline-flex;align-items:center;gap:8px;align-self:start;margin-top:4px;padding:10px 14px;background:var(--ink);color:#fff;font-weight:600;font-size:14px;transition:background .25s,color .25s}
+a.person:hover .call,a.person:focus-visible .call{background:var(--green);color:var(--ink)}
+a.person .call .arr{transition:transform .25s}
+a.person:hover .call .arr{transform:translateX(4px)}
+@media (max-width:560px){
+  a.person{grid-template-columns:76px minmax(0,1fr) auto!important}
+  a.person:hover{transform:none}
+  a.person .call{margin:0;padding:0;width:48px;height:48px;border-radius:50%;justify-content:center;font-size:0;background:var(--green);color:var(--ink)}
+  a.person .call::before{content:"";width:20px;height:20px;background:currentColor;-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z'/></svg>") center/contain no-repeat;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z'/></svg>") center/contain no-repeat}
+  a.person .call .arr{display:none}
+}
+
+.od-hero{background:var(--night);color:var(--on-night);padding-block:clamp(110px,14vw,180px) clamp(56px,7vw,96px)}
+.od-hero .label{color:rgba(255,255,255,.7)}
+.od-hero h1{font-size:clamp(48px,8vw,120px);margin-top:18px;text-transform:lowercase}
+.od-hero h1 span{color:var(--green)}
+.od-hero p{margin-top:22px;font-size:clamp(17px,1.5vw,21px);color:rgba(255,255,255,.8);max-width:52ch}
+.oa-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);border-left:1px solid var(--line)}
+.oa{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 26px;display:grid;gap:12px;align-content:start;position:relative;scroll-margin-top:80px;transition:background .25s}
+.oa::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--green);transition:width .4s}
+.oa:hover{background:var(--paper-2)}.oa:hover::before,.oa:target::before{width:100%}
+.oa-n{font-family:var(--mono);font-size:12px;color:var(--green-ink)}
+.oa h3{font-size:24px;font-stretch:112%;line-height:1.1}
+.oa h3 span{display:block;font-weight:500;color:var(--ink-2)}
+.oa-short{color:var(--ink-2);font-size:15px}
+.oa details summary{list-style:none;cursor:pointer;font-weight:600;font-size:14px;display:inline-flex;gap:6px;padding:8px 0;min-height:44px;align-items:center}
+.oa details summary::-webkit-details-marker{display:none}
+.oa details[open] summary .arr{transform:rotate(90deg)}
+.oa details summary .arr{transition:transform .2s;color:var(--green-ink)}
+.oa-body{display:grid;gap:10px;font-size:15px;padding-top:4px;border-top:1px solid var(--line)}
+.oa-body p{margin:0;padding-top:10px}
+.oa-body ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--ink-2)}
+.oa-body b{color:var(--ink)}
+.why{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:clamp(28px,5vw,80px)}
+.why .lead{font-family:var(--display);font-size:clamp(22px,2.4vw,32px);line-height:1.25;font-weight:600;letter-spacing:-.01em}
+.why p+p{margin-top:16px}.why .txt p{color:var(--ink-2);font-size:17px}
+.od-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+@media (max-width:1000px){.oa-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.oa-grid{grid-template-columns:1fr;border-left:0}.oa{border-right:0;padding:22px 0}.why{grid-template-columns:1fr}.od-hero{padding-block:96px 48px}}
+</style>
+<title>Sprzeciw od wyroku nakazowego – termin, treść, jak złożyć | PKW Adwokaci</title>
+<meta name="description" content="Jak wnieść sprzeciw od wyroku nakazowego: kto może go złożyć, jak liczyć 7 dni, co napisać, gdzie wysłać i co dzieje się po sprzeciwie. Przepisy k.p.k. i przykład.">
+<link rel="canonical" href="https://lawyerai.pl/blog/sprzeciw-od-wyroku-nakazowego/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sprzeciw od wyroku nakazowego – termin, treść, jak złożyć | PKW Adwokaci">
+<meta property="og:description" content="Jak wnieść sprzeciw od wyroku nakazowego: kto może go złożyć, jak liczyć 7 dni, co napisać, gdzie wysłać i co dzieje się po sprzeciwie. Przepisy k.p.k. i przykład.">
+<meta property="og:url" content="https://lawyerai.pl/blog/sprzeciw-od-wyroku-nakazowego/">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:site_name" content="PKW Adwokaci">
+<meta property="og:image" content="https://lawyerai.pl/assets/blog/sprzeciw-od-wyroku-nakazowego.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex, follow">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Sprzeciw od wyroku nakazowego krok po kroku", "description": "Jak wnieść sprzeciw od wyroku nakazowego: kto może go złożyć, jak liczyć 7 dni, co napisać, gdzie wysłać i co dzieje się po sprzeciwie. Przepisy k.p.k. i przykład.", "image": ["https://lawyerai.pl/assets/blog/sprzeciw-od-wyroku-nakazowego.jpg"], "datePublished": "2026-09-30", "dateModified": "2026-09-30", "inLanguage": "pl-PL", "mainEntityOfPage": "https://lawyerai.pl/blog/sprzeciw-od-wyroku-nakazowego/", "author": {"@type": "Organization", "name": "Zespół PKW Adwokaci", "url": "https://lawyerai.pl/#zespol"}, "publisher": {"@type": "LegalService", "name": "Polański Konofalski i Wspólnicy Sp.p. Adwokatów", "url": "https://lawyerai.pl/", "telephone": "+48774543166", "address": {"@type": "PostalAddress", "streetAddress": "ul. Kołłątaja 11 lok. 27", "postalCode": "45-064", "addressLocality": "Opole", "addressCountry": "PL"}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://lawyerai.pl/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://lawyerai.pl/blog/"}, {"@type": "ListItem", "position": 3, "name": "Sprzeciw od wyroku nakazowego krok po kroku", "item": "https://lawyerai.pl/blog/sprzeciw-od-wyroku-nakazowego/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Czy mogę wysłać sprzeciw e-mailem albo kurierem?", "acceptedAnswer": {"@type": "Answer", "text": "E-mail nie zachowuje terminu. Termin zachowuje nadanie w placówce podmiotu doręczającego korespondencję na terenie UE, np. Poczty Polskiej lub innego operatora (art. 124 k.p.k.). Najbezpieczniej złożyć sprzeciw w biurze podawczym sądu albo nadać go listem poleconym w placówce pocztowej i zachować dowód nadania. Przy odbiorze przez kuriera spod domu mogą powstać wątpliwości co do daty nadania."}}, {"@type": "Question", "name": "Co jeśli spóźnię się ze sprzeciwem?", "acceptedAnswer": {"@type": "Answer", "text": "Prezes sądu odmówi przyjęcia spóźnionego sprzeciwu (art. 506 § 2 k.p.k.). Jeśli spóźnienie wynikło z przyczyn od Ciebie niezależnych, możesz w ciągu 7 dni od ustania przeszkody złożyć wniosek o przywrócenie terminu i jednocześnie wnieść sprzeciw (art. 126 k.p.k.)."}}, {"@type": "Question", "name": "Czy mogę cofnąć sprzeciw?", "acceptedAnswer": {"@type": "Answer", "text": "Tak, do czasu rozpoczęcia przewodu sądowego na pierwszej rozprawie głównej (art. 506 § 5 k.p.k.). Po cofnięciu sprzeciwu wyrok nakazowy staje się prawomocny."}}, {"@type": "Question", "name": "Czy do sprzeciwu potrzebny jest adwokat?", "acceptedAnswer": {"@type": "Answer", "text": "Nie. Sprzeciw możesz napisać sam. Pomoc adwokata przydaje się przy ocenie, czy sprzeciw ma sens w Twojej sprawie, oraz przy przygotowaniu obrony na rozprawę."}}]}</script>
+<style>
+/* ===== Blog: lista i artykuł (styl strony: biel, czerń, zielony akcent) ===== */
+.b-draftbar{background:var(--green);color:var(--ink);font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:8px 16px}
+.b-draft{background:var(--green);color:var(--ink);padding:2px 8px;font-weight:500}
+.b-todo{color:#8a5a00}
+.b-progress{position:fixed;left:0;right:0;top:0;height:3px;z-index:60;pointer-events:none}
+.b-progress i{display:block;height:100%;background:var(--green);transform-origin:left;transform:scaleX(0)}
+
+/* Lista */
+.b-hero{position:relative;background:var(--night) var(--hero) center/cover no-repeat;color:var(--on-night);padding-block:clamp(88px,12vw,160px) clamp(56px,7vw,96px);isolation:isolate}
+.b-hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(11,13,12,.94) 0%,rgba(11,13,12,.7) 55%,rgba(11,13,12,.3) 100%)}
+.b-hero .label{color:rgba(255,255,255,.7)}
+.b-hero__h{margin-top:22px;font-size:clamp(34px,4.6vw,64px);font-weight:500;letter-spacing:-.02em;max-width:14em}
+.b-hero__h span{color:var(--green)}
+.b-hero__p{margin-top:22px;max-width:40em;font-size:clamp(16px,1.4vw,19px);color:rgba(255,255,255,.82);line-height:1.6}
+.b-index{padding-block:clamp(48px,6vw,88px)}
+.b-filters{margin-bottom:36px}
+.b-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.4vw,32px)}
+.b-card{display:grid;grid-template-rows:auto 1fr;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);transition:border-color .25s,transform .25s,box-shadow .25s}
+.b-card:hover{border-color:var(--ink);transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(11,13,12,.45)}
+.b-card__img{display:block;aspect-ratio:16/9;overflow:hidden;background:var(--night)}
+.b-card__img img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.b-card:hover .b-card__img img{transform:scale(1.04)}
+.b-card__txt{display:grid;align-content:start;gap:12px;padding:22px 22px 24px}
+.b-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font:500 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.b-cat{color:var(--green-ink)}
+.b-card__t{font-family:var(--display);font-stretch:108%;font-weight:600;font-size:21px;line-height:1.18;letter-spacing:-.01em}
+.b-card__d{color:var(--ink-2);font-size:15px;line-height:1.6}
+.b-more{font-weight:600;font-size:14px;margin-top:4px}
+.b-more .arr{display:inline-block;transition:transform .2s}
+.b-card:hover .b-more .arr{transform:translateX(4px)}
+.b-card--big{grid-template-rows:none;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);margin-bottom:clamp(20px,2.4vw,32px)}
+.b-card--big .b-card__img{aspect-ratio:auto;min-height:100%}
+.b-card--big .b-card__txt{padding:clamp(24px,3vw,44px);align-content:center;gap:16px}
+.b-card--big .b-card__t{font-size:clamp(26px,2.6vw,38px);font-weight:500;letter-spacing:-.02em}
+.b-card--big .b-card__d{font-size:17px}
+.b-empty{color:var(--ink-2);padding:24px 0}
+
+/* Artykuł */
+.b-head{padding-block:clamp(36px,5vw,64px) clamp(24px,3vw,36px);max-width:calc(900px + 2*var(--gutter))}
+.b-crumbs{display:flex;flex-wrap:wrap;gap:8px;font:12px var(--mono);color:var(--ink-2);margin-bottom:28px}
+.b-crumbs a{text-decoration:none}.b-crumbs a:hover{text-decoration:underline}
+.b-h1{margin-top:18px;font-size:clamp(32px,4.2vw,56px);font-weight:600;letter-spacing:-.025em;line-height:1.06}
+.b-lead{margin-top:22px;font-size:clamp(18px,1.6vw,21px);line-height:1.6;color:var(--ink-2);max-width:40em}
+.b-byline{display:flex;align-items:center;gap:14px;margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}
+.b-ava{flex:0 0 auto;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--green);font:700 15px var(--display)}
+.b-ava--l{width:64px;height:64px;font-size:20px}
+.b-byline__t{display:grid;gap:4px}
+.b-byline__m{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13.5px;color:var(--ink-2)}
+.b-cover{margin:0 auto;max-width:calc(1200px + 2*var(--gutter))}
+.b-cover img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:var(--night)}
+.b-cover figcaption{font:11.5px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);margin-top:10px}
+.b-grid{display:grid;grid-template-columns:240px minmax(0,720px);gap:clamp(32px,5vw,80px);justify-content:center;padding-block:clamp(36px,5vw,64px) clamp(56px,7vw,96px);max-width:calc(1120px + 2*var(--gutter))}
+.b-toc{position:relative}
+.b-toc details{position:sticky;top:96px}
+.b-toc summary{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);cursor:pointer;list-style:none;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.b-toc summary::-webkit-details-marker{display:none}
+.b-toc ol{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:2px;counter-reset:t}
+.b-toc li{counter-increment:t}
+.b-toc a{display:grid;grid-template-columns:26px 1fr;padding:7px 0 7px 12px;margin-left:-12px;border-left:2px solid transparent;text-decoration:none;font-size:14px;line-height:1.4;color:var(--ink-2);transition:color .2s,border-color .2s}
+.b-toc a::before{content:counter(t,decimal-leading-zero);font:12px var(--mono);color:var(--green-ink);padding-top:1px}
+.b-toc a:hover,.b-toc a.is-on{color:var(--ink);border-left-color:var(--green)}
+.b-body{font-size:18px;line-height:1.78;color:#262b28}
+.b-body>*+*{margin-top:1.1em}
+.b-body h2{font-size:clamp(25px,2.4vw,31px);font-weight:600;letter-spacing:-.015em;line-height:1.15;margin-top:2.2em;scroll-margin-top:96px;color:var(--ink)}
+.b-body h3{font-size:20px;margin-top:1.6em;color:var(--ink)}
+.b-body ul,.b-body ol{padding-left:1.3em}
+.b-body li+li{margin-top:.45em}
+.b-body li::marker{color:var(--green-ink)}
+.b-body a{color:var(--green-ink);text-decoration:underline;text-underline-offset:3px}
+.b-body strong{color:var(--ink)}
+.b-body blockquote{margin:1.6em 0;padding:4px 0 4px 22px;border-left:3px solid var(--green);font-size:19px;color:var(--ink)}
+.b-tldr{background:var(--paper-2);border-left:3px solid var(--green);padding:22px 26px}
+.b-tldr__h{display:block;font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px}
+.b-tldr ul{margin:0;font-size:17px}
+.b-box{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 24px;align-items:center;background:var(--night);color:var(--on-night);padding:26px 28px;margin-block:1.8em}
+.b-box__n{grid-row:span 2;font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(56px,6vw,84px);line-height:.9;color:var(--green)}
+.b-box__h{font-family:var(--display);font-weight:600;font-size:20px;color:#fff}
+.b-box__p{font-size:15.5px;line-height:1.6;color:rgba(255,255,255,.78)}
+.b-steps{list-style:none;padding:0!important;counter-reset:s;display:grid;gap:0;border-top:1px solid var(--line)}
+.b-steps li{counter-increment:s;display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;padding:16px 0;border-bottom:1px solid var(--line);margin:0!important}
+.b-steps li::before{content:counter(s,decimal-leading-zero);font:13px var(--mono);color:var(--green-ink);padding-top:5px}
+.b-table{width:100%;border-collapse:collapse;font-size:15.5px;line-height:1.5}
+.b-table th,.b-table td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.b-table th{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);background:var(--paper-2)}
+.b-tablewrap{overflow-x:auto}
+.b-faq{margin-top:2.4em}
+.b-faq__i{border-bottom:1px solid var(--line)}
+.b-faq__i:first-of-type{border-top:1px solid var(--line);margin-top:18px}
+.b-faq__i summary{cursor:pointer;list-style:none;padding:18px 36px 18px 0;position:relative;font-weight:600;font-size:17px;line-height:1.45;color:var(--ink)}
+.b-faq__i summary::-webkit-details-marker{display:none}
+.b-faq__i summary::after{content:"+";position:absolute;right:4px;top:14px;font:400 24px var(--body);color:var(--green-ink);transition:transform .25s}
+.b-faq__i[open] summary::after{transform:rotate(45deg)}
+.b-faq__i div{padding:0 0 18px;font-size:16.5px;color:var(--ink-2)}
+.b-cta{background:var(--night);color:var(--on-night);padding:clamp(26px,3vw,40px);margin-top:2.4em!important}
+.b-cta .label{color:rgba(255,255,255,.65)}
+.b-cta__t{font-family:var(--display);font-weight:500;font-size:clamp(22px,2.2vw,28px);line-height:1.22;margin-top:14px;color:#fff}
+.b-cta__b{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.b-cta .btn.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
+.b-author{display:flex;gap:18px;align-items:flex-start;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:2.4em!important}
+.b-author strong{font-size:17px}
+.b-author p{font-size:15px;line-height:1.6;color:var(--ink-2);margin-top:4px}
+.b-body .btn{text-decoration:none}
+.b-body .btn.green{color:var(--ink)}
+.b-tpl{border:1px solid var(--line);background:#fff;padding:clamp(20px,3vw,32px);font-size:16px;line-height:1.7;box-shadow:0 12px 28px -22px rgba(11,13,12,.5)}
+.b-tpl p+p{margin-top:1em}
+.b-tpl__r{text-align:right}
+.b-tpl__c{text-align:center;letter-spacing:.04em}
+.b-note{font-size:13.5px;line-height:1.6;color:var(--ink-2)}
+.b-rel{padding-block:0 clamp(56px,7vw,96px)}
+.b-rel__h{font-size:clamp(26px,3vw,40px);font-weight:500;margin-bottom:28px}
+.b-rel .b-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+@media (max-width:1000px){
+  .b-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .b-card--big{grid-template-columns:1fr}
+  .b-card--big .b-card__img{aspect-ratio:16/9}
+  .b-grid{grid-template-columns:minmax(0,1fr)}
+  .b-toc details{position:static;background:var(--paper-2);padding:16px 18px}
+  .b-toc summary{border:0;padding:0}
+}
+@media (max-width:640px){
+  .b-list,.b-rel .b-list{grid-template-columns:1fr}
+  .b-body{font-size:17px;line-height:1.72}
+  .b-box{grid-template-columns:1fr;padding:22px}
+  .b-box__n{grid-row:auto}
+  .b-card__txt{padding:18px 18px 20px}
+  .b-cta__b .btn{flex:1 1 100%;justify-content:center}
+  .b-author{flex-direction:column}
+  .b-grid{padding-bottom:120px}
+}
+
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap nav">
+    <a class="logo" href="../../">PKW<b class="bar" aria-hidden="true"></b>ADWOKACI</a>
+    <nav class="menu" id="menu" aria-label="Główne">
+      <a href="../../co-sie-stalo/">Moja sytuacja</a>
+      <a href="../../#wspolpraca">Współpraca</a>
+      <a href="../../#zespol">Zespół</a>
+      <a href="../../blog/">Blog</a>
+      <a href="../../#kontakt">Kontakt</a>
+    </nav>
+    <a class="btn green top-cta" href="../../#kontakt">Umów konsultację <span class="arr">→</span></a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Otwórz menu"><span></span><span></span></button>
+  </div>
+</header>
+<main id="start">
+<div class="b-draftbar">Szkic do akceptacji adwokata · niewidoczny dla Google</div><div class="b-progress" aria-hidden="true"><i></i></div>
+<article class="b-art">
+  <header class="b-head wrap">
+    <nav class="b-crumbs" aria-label="Okruszki"><a href="../../">Strona główna</a><span>/</span><a href="../">Blog</a><span>/</span><a href="../#prawo-karne">Prawo karne</a></nav>
+    <span class="label"><span class="dot"></span>Prawo karne</span>
+    <h1 class="b-h1">Sprzeciw od wyroku nakazowego krok po kroku</h1>
+    <p class="b-lead">Sprzeciw od wyroku nakazowego wnosisz do sądu, który wydał wyrok, w ciągu <strong>7 dni</strong> od jego doręczenia. Pismo nie wymaga uzasadnienia. Poniżej: jak policzyć termin, co napisać i jak złożyć sprzeciw, żeby sąd go przyjął.</p>
+    <div class="b-byline"><span class="b-ava" aria-hidden="true">ZP</span><span class="b-byline__t"><strong>Zespół PKW Adwokaci</strong>
+      <span class="b-byline__m"><span>Publikacja: <time datetime="2026-09-30">30 września 2026</time></span><span>4 min czytania</span><span class="b-todo">Weryfikacja: adwokat (do uzupełnienia)</span></span></span></div>
+  </header>
+  <figure class="b-cover wrap"><img src="../../assets/blog/sprzeciw-od-wyroku-nakazowego.jpg" alt="Podpisany list wkładany do koperty przy okienku pocztowym" width="1600" height="900" fetchpriority="high" decoding="async"><figcaption>Ilustracja poglądowa</figcaption></figure>
+  <div class="b-grid wrap">
+    <aside class="b-toc"><details open><summary>Spis treści</summary><ol><li><a href="#kto-moze-wniesc-sprzeciw-i-do-jakiego-sadu">Kto może wnieść sprzeciw i do jakiego sądu</a></li><li><a href="#termin-jak-policzyc-7-dni">Termin: jak policzyć 7 dni</a></li><li><a href="#co-napisac-w-sprzeciwie">Co napisać w sprzeciwie</a></li><li><a href="#wzor-sprzeciwu-od-wyroku-nakazowego">Wzór sprzeciwu od wyroku nakazowego</a></li><li><a href="#jak-i-gdzie-zlozyc-sprzeciw">Jak i gdzie złożyć sprzeciw</a></li><li><a href="#co-dzieje-sie-po-wniesieniu-sprzeciwu">Co dzieje się po wniesieniu sprzeciwu</a></li><li><a href="#jak-przygotowac-sie-do-rozprawy-po-sprzeciwie">Jak przygotować się do rozprawy po sprzeciwie</a></li><li><a href="#spozniony-sprzeciw-i-przywrocenie-terminu">Spóźniony sprzeciw i przywrócenie terminu</a></li><li><a href="#faq">Najczęstsze pytania</a></li></ol></details></aside>
+    <div class="b-body">
+      <div class="b-tldr"><span class="b-tldr__h">W skrócie</span><ul><li>Sprzeciw może wnieść oskarżony i oskarżyciel, do sądu, który wydał wyrok nakazowy (art. 506 § 1 k.p.k.).</li><li>Termin: 7 dni od doręczenia. Dzień doręczenia się nie liczy, a termin kończący się w sobotę lub święto przechodzi na najbliższy dzień roboczy.</li><li>Liczy się data nadania w placówce pocztowej (Poczty Polskiej lub innego operatora doręczającego korespondencję w UE) albo data złożenia w biurze podawczym sądu (art. 124 k.p.k.).</li><li>Po sprzeciwie wyrok traci moc, a sprawa trafia na rozprawę. Sprzeciw można cofnąć do rozpoczęcia przewodu sądowego na pierwszej rozprawie.</li></ul></div>
+      <h2 id="kto-moze-wniesc-sprzeciw-i-do-jakiego-sadu">Kto może wnieść sprzeciw i do jakiego sądu</h2>
+<p>Prawo do sprzeciwu ma <strong>oskarżony</strong> i <strong>oskarżyciel</strong> (art. 506 § 1 k.p.k.). Sprzeciw kierujesz do tego samego sądu, który wydał wyrok nakazowy. Jego nazwę i adres znajdziesz w nagłówku wyroku.</p>
+
+<h2 id="termin-jak-policzyc-7-dni">Termin: jak policzyć 7 dni</h2>
+<p>Na sprzeciw masz <strong>7 dni od doręczenia wyroku</strong>. To termin zawity, więc sąd nie może go przedłużyć.</p>
+<ul>
+  <li>Dnia doręczenia nie wliczasz. Pierwszy dzień terminu to dzień następny.</li>
+  <li>Jeśli ostatni dzień wypada w sobotę lub dzień ustawowo wolny od pracy, termin mija w najbliższy dzień roboczy.</li>
+  <li>Jeśli nie odebrałeś listu, a był dwukrotnie awizowany, przepisy uznają go za doręczony z upływem ostatniego dnia przechowania, czyli 14 dni od pierwszego awizo (art. 133 § 2 k.p.k.). Termin liczysz od dnia następnego.</li>
+</ul>
+<div class="b-box"><span class="b-box__n">12.10</span><span class="b-box__h">Doręczenie: poniedziałek 5 października 2026 r.</span><span class="b-box__p">Liczysz od wtorku 6 października. Siódmy dzień to poniedziałek 12 października. Do końca tego dnia sprzeciw musi trafić do sądu albo zostać nadany w placówce pocztowej.</span></div>
+
+<h2 id="co-napisac-w-sprzeciwie">Co napisać w sprzeciwie</h2>
+<p>Sprzeciw nie wymaga uzasadnienia. Musi jednak jasno wskazywać, czego dotyczy. Pismo powinno zawierać:</p>
+<ol class="b-steps">
+  <li><div><strong>Miejscowość i datę.</strong></div></li>
+  <li><div><strong>Nazwę sądu i wydział</strong>, tak jak w nagłówku wyroku.</div></li>
+  <li><div><strong>Sygnaturę sprawy</strong>, np. II K 123/26.</div></li>
+  <li><div><strong>Twoje imię, nazwisko i adres.</strong></div></li>
+  <li><div><strong>Oświadczenie</strong>, np.: „Wnoszę sprzeciw od wyroku nakazowego Sądu Rejonowego w … z dnia … , sygn. akt …”.</div></li>
+  <li><div><strong>Własnoręczny podpis.</strong> Brak podpisu to brak formalny; sąd wezwie do jego uzupełnienia w 7 dni (art. 120 k.p.k.), ale lepiej od razu podpisać pismo.</div></li>
+</ol>
+<p>W sprzeciwie możesz też zgłosić wnioski dowodowe, na przykład o przesłuchanie świadka, i krótko przedstawić swoje stanowisko. Nie jest to obowiązkowe; szczegółowe wyjaśnienia możesz złożyć na rozprawie.</p>
+
+<h2 id="wzor-sprzeciwu-od-wyroku-nakazowego">Wzór sprzeciwu od wyroku nakazowego</h2>
+<p>Poniżej prosty wzór. Uzupełnij dane z nagłówka swojego wyroku, wydrukuj i podpisz.</p>
+<div class="b-tpl">
+<p class="b-tpl__r">Opole, dnia …………… 2026 r.</p>
+<p><strong>Sąd Rejonowy w ……………</strong><br>…… Wydział Karny<br>ul. ……………, ……………</p>
+<p>Sygn. akt: ……………</p>
+<p>Oskarżony: imię i nazwisko ……………<br>adres: ……………</p>
+<p class="b-tpl__c"><strong>SPRZECIW OD WYROKU NAKAZOWEGO</strong></p>
+<p>Działając we własnym imieniu, na podstawie art. 506 § 1 Kodeksu postępowania karnego, wnoszę sprzeciw od wyroku nakazowego Sądu Rejonowego w …………… z dnia …………… , sygn. akt …………… , doręczonego mi w dniu …………… .</p>
+<p class="b-tpl__r">……………………………<br>(własnoręczny podpis)</p>
+</div>
+<p>Jeśli chcesz, możesz dopisać krótkie stanowisko i wnioski dowodowe, np. o przesłuchanie konkretnego świadka. Miejscowość we wzorze zmień na swoją.</p>
+
+<h2 id="jak-i-gdzie-zlozyc-sprzeciw">Jak i gdzie złożyć sprzeciw</h2>
+<div class="b-tablewrap"><table class="b-table">
+  <thead><tr><th>Sposób</th><th>Co decyduje o terminie</th><th>Uwagi</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Biuro podawcze sądu</strong></td><td>Data złożenia</td><td>Weź kopię i poproś o pieczęć wpływu</td></tr>
+    <tr><td><strong>List polecony z placówki pocztowej</strong> (Poczta Polska lub inny operator w UE)</td><td>Data nadania (art. 124 k.p.k.)</td><td>Zachowaj potwierdzenie nadania</td></tr>
+    <tr><td><strong>Kurier, nadanie w punkcie lub placówce</strong></td><td>Data nadania (art. 124 k.p.k.)</td><td>Zachowaj potwierdzenie; unikaj odbioru spod domu w ostatnim dniu</td></tr>
+    <tr><td><strong>E-mail</strong></td><td>Nie zachowuje terminu</td><td>Nie stosuj</td></tr>
+  </tbody>
+</table></div>
+<p>Zachowaj kopię sprzeciwu i dowód nadania lub złożenia. To jedyny dowód, że termin został dotrzymany.</p>
+
+<h2 id="co-dzieje-sie-po-wniesieniu-sprzeciwu">Co dzieje się po wniesieniu sprzeciwu</h2>
+<p>Z chwilą wniesienia sprzeciwu wyrok nakazowy <strong>traci moc</strong>, a sprawa jest rozpoznawana na zasadach ogólnych (art. 506 § 3 k.p.k.). Sąd wyznacza rozprawę i zawiadamia Cię o jej terminie.</p>
+<ul>
+  <li><strong>Rozprawa:</strong> możesz składać wyjaśnienia, zadawać pytania świadkom i zgłaszać dowody. Możesz mieć obrońcę.</li>
+  <li><strong>Brak związania wyrokiem nakazowym:</strong> sąd może orzec łagodniej, tak samo albo surowiej (art. 506 § 6 k.p.k.).</li>
+  <li><strong>Cofnięcie sprzeciwu:</strong> możliwe do rozpoczęcia przewodu sądowego na pierwszej rozprawie głównej (art. 506 § 5 k.p.k.). Wtedy wyrok nakazowy staje się prawomocny.</li>
+</ul>
+
+<h2 id="jak-przygotowac-sie-do-rozprawy-po-sprzeciwie">Jak przygotować się do rozprawy po sprzeciwie</h2>
+<ol class="b-steps">
+  <li><div><strong>Przejrzyj akta sprawy.</strong> Masz prawo zapoznać się z nimi w sądzie i zrobić kopie (art. 156 k.p.k.).</div></li>
+  <li><div><strong>Zbierz dowody.</strong> Dokumenty, zdjęcia, nagrania, dane świadków, którzy mogą potwierdzić Twoją wersję.</div></li>
+  <li><div><strong>Zgłoś wnioski dowodowe.</strong> Najlepiej przed rozprawą, na piśmie, z oznaczeniem sygnatury.</div></li>
+  <li><div><strong>Przemyśl wyjaśnienia.</strong> Masz prawo składać wyjaśnienia albo odmówić ich złożenia.</div></li>
+  <li><div><strong>Rozważ obrońcę.</strong> Adwokat może przejrzeć akta, ocenić dowody i reprezentować Cię na rozprawie.</div></li>
+</ol>
+
+<h2 id="spozniony-sprzeciw-i-przywrocenie-terminu">Spóźniony sprzeciw i przywrócenie terminu</h2>
+<p>Sprzeciw wniesiony po terminie prezes sądu odmówi przyjąć (art. 506 § 2 k.p.k.). Jeśli nie dotrzymałeś terminu z przyczyn od Ciebie niezależnych, na przykład z powodu nagłego pobytu w szpitalu, możesz złożyć <strong>wniosek o przywrócenie terminu</strong>.</p>
+<p>Masz na to 7 dni od ustania przeszkody. We wniosku podajesz przyczynę spóźnienia i jednocześnie wnosisz sprzeciw (art. 126 k.p.k.). Warto dołączyć dokumenty potwierdzające przeszkodę.</p>
+<p>Jeśli dopiero zastanawiasz się, czym jest wyrok nakazowy i jakie masz możliwości, zacznij od artykułu <a href="../wyrok-nakazowy-co-to-jest/">Wyrok nakazowy: co to jest i co zrobić w ciągu 7 dni</a>.</p>
+
+      <section class="b-faq" id="faq"><h2>Najczęstsze pytania</h2><details class="b-faq__i"><summary>Czy mogę wysłać sprzeciw e-mailem albo kurierem?</summary><div>E-mail nie zachowuje terminu. Termin zachowuje nadanie w placówce podmiotu doręczającego korespondencję na terenie UE, np. Poczty Polskiej lub innego operatora (art. 124 k.p.k.). Najbezpieczniej złożyć sprzeciw w biurze podawczym sądu albo nadać go listem poleconym w placówce pocztowej i zachować dowód nadania. Przy odbiorze przez kuriera spod domu mogą powstać wątpliwości co do daty nadania.</div></details><details class="b-faq__i"><summary>Co jeśli spóźnię się ze sprzeciwem?</summary><div>Prezes sądu odmówi przyjęcia spóźnionego sprzeciwu (art. 506 § 2 k.p.k.). Jeśli spóźnienie wynikło z przyczyn od Ciebie niezależnych, możesz w ciągu 7 dni od ustania przeszkody złożyć wniosek o przywrócenie terminu i jednocześnie wnieść sprzeciw (art. 126 k.p.k.).</div></details><details class="b-faq__i"><summary>Czy mogę cofnąć sprzeciw?</summary><div>Tak, do czasu rozpoczęcia przewodu sądowego na pierwszej rozprawie głównej (art. 506 § 5 k.p.k.). Po cofnięciu sprzeciwu wyrok nakazowy staje się prawomocny.</div></details><details class="b-faq__i"><summary>Czy do sprzeciwu potrzebny jest adwokat?</summary><div>Nie. Sprzeciw możesz napisać sam. Pomoc adwokata przydaje się przy ocenie, czy sprzeciw ma sens w Twojej sprawie, oraz przy przygotowaniu obrony na rozprawę.</div></details></section>
+      <aside class="b-cta"><span class="label"><span class="dot"></span>Masz 7 dni na sprzeciw</span>
+        <p class="b-cta__t">Prześlij zdjęcie wyroku nakazowego. Sprawdzimy termin i omówimy, czy sprzeciw ma sens w Twojej sprawie.</p>
+        <div class="b-cta__b"><a class="btn green" href="../../#kontakt">Wyślij pismo do analizy <span class="arr">→</span></a><a class="btn ghost" href="tel:+48774543166">Zadzwoń: 77 454 31 66</a></div></aside>
+      <div class="b-author"><span class="b-ava b-ava--l" aria-hidden="true">ZP</span><div><strong>Zespół PKW Adwokaci</strong><p>Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce.</p></div></div>
+      <p class="b-note">Artykuł ma charakter informacyjny i opisuje stan prawny na dzień aktualizacji. Nie zastępuje porady prawnej w konkretnej sprawie. Tekst przygotowano z pomocą narzędzi AI i sprawdzono merytorycznie przed publikacją.</p>
+    </div>
+  </div>
+  <section class="b-rel wrap"><h2 class="b-rel__h">Przeczytaj też</h2><div class="b-list"><a class="b-card" href="../wyrok-nakazowy-co-to-jest/" data-cat="prawo-karne"><span class="b-card__img"><img src="../../assets/blog/wyrok-nakazowy.jpg" alt="Koperta z sądu i kalendarz z zaznaczonym dniem na stole przy oknie" width="1600" height="900" loading="lazy" decoding="async"></span><span class="b-card__txt"><span class="b-meta"><span class="b-cat">Prawo karne</span><span class="b-draft">Szkic</span><span>4 min czytania</span></span><strong class="b-card__t">Wyrok nakazowy: co to jest i co zrobić w ciągu 7 dni</strong><span class="b-card__d">Sąd wydał wyrok bez rozprawy i przysłał go pocztą. Wyjaśniamy, co to oznacza, ile masz czasu i jakie masz możliwości.</span><span class="b-more">Czytaj <span class="arr">→</span></span></span></a></div></section>
+</article>
+</main>
+<footer>
+  <div class="wrap"><div class="big-mark"><svg viewBox="0 0 1000 132" role="img" aria-label="PKW Adwokaci"><text x="0" y="118" font-size="150" textLength="1000" lengthAdjust="spacingAndGlyphs">PKW<tspan> | </tspan>ADWOKACI</text></svg></div></div>
+  <div class="wrap">
+    <span>© 2026 Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów · ul. Kołłątaja 11 lok. 27, 45-064 Opole</span>
+    <span>Polityka prywatności · Informacje zgodne z § 23 Kodeksu Etyki Adwokackiej</span>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Szybki kontakt">
+  <a class="mb-call" href="tel:+48774543166"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg><span>Zadzwoń</span></a>
+  <a class="mb-mail" href="mailto:biuro@pkwadwokaci.pl"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 5.5h18v13H3z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="m3.5 6 8.5 7 8.5-7"/></svg>E-mail</a>
+  <a class="mb-map" href="https://www.google.com/maps/search/?api=1&query=Pola%C5%84ski%20Konofalski%20i%20Wsp%C3%B3lnicy%2C%20ul.%20Ko%C5%82%C5%82%C4%85taja%2011%2C%2045-064%20Opole" target="_blank" rel="noopener" data-apple="https://maps.apple.com/?q=PKW%20Adwokaci&amp;address=ul.%20Ko%C5%82%C5%82%C4%85taja%2011%2C%2045-064%20Opole"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span>Mapa</span></a>
+</nav>
+<script>(function(){var m=document.querySelector('.mbar .mb-map');if(m&&/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)&&('ontouchend' in document)){m.href=m.dataset.apple}})();</script>
+<script>
+(function(){var bg=document.getElementById('burger'),mn=document.getElementById('menu');if(!bg)return;
+bg.addEventListener('click',function(){var o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)});
+mn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('open');bg.setAttribute('aria-expanded','false')})});
+if(location.hash){var t=document.querySelector(location.hash+' details');if(t)t.open=true}
+})();
+</script>
+<script>(function(){var b=document.querySelector('.b-progress i'),a=document.querySelector('.b-art');if(!b||!a)return;
+function u(){var r=a.getBoundingClientRect(),h=r.height-innerHeight;b.style.transform='scaleX('+Math.min(1,Math.max(0,-r.top/Math.max(1,h)))+')'}
+addEventListener('scroll',u,{passive:true});u();
+var links=[].slice.call(document.querySelectorAll('.b-toc a')),hs=links.map(function(l){return document.getElementById(l.getAttribute('href').slice(1))});
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var i=hs.indexOf(e.target);links.forEach(function(l,k){l.classList.toggle('is-on',k===i)})}})},{rootMargin:'0px 0px -70% 0px'});hs.forEach(function(h){h&&io.observe(h)})}
+if(innerWidth<900){var d=document.querySelector('.b-toc details');if(d)d.open=false}
+})();</script>
+</body>
+</html>

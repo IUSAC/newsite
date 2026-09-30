@@ -47,7 +47,7 @@ jobs:
             set net:max-retries 2;
             set net:timeout 30;
             mirror --reverse --verbose --parallel=4 \
-              --exclude-glob .git/ --exclude-glob .git* --exclude-glob .github/ --exclude-glob scripts/ \
+              --exclude-glob .git/ --exclude-glob .git* --exclude-glob .github/ --exclude-glob scripts/ --exclude-glob content/ \
               --exclude-glob assets.json --exclude-glob README.md --exclude-glob CLAUDE.md \
               ./ $FTP_DIR;
             bye" > "$RUNNER_TEMP/lftp.log" 2>&1

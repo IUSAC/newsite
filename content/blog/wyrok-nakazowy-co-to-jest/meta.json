@@ -1,0 +1,30 @@
+{
+  "status": "szkic",
+  "order": 2,
+  "title": "Wyrok nakazowy: co to jest i co zrobić w ciągu 7 dni",
+  "seo_title": "Wyrok nakazowy – co to jest i co zrobić w 7 dni | PKW Adwokaci",
+  "description": "Czym jest wyrok nakazowy, kiedy sąd wydaje go bez rozprawy i co możesz zrobić w ciągu 7 dni od doręczenia. Terminy, skutki i porównanie dwóch dróg.",
+  "category": "prawo-karne",
+  "date_published": "2026-09-30",
+  "date_modified": "2026-09-30",
+  "cover": "assets/blog/wyrok-nakazowy.jpg",
+  "cover_alt": "Koperta z sądu i kalendarz z zaznaczonym dniem na stole przy oknie",
+  "excerpt": "Sąd wydał wyrok bez rozprawy i przysłał go pocztą. Wyjaśniamy, co to oznacza, ile masz czasu i jakie masz możliwości.",
+  "lead": "Wyrok nakazowy to wyrok wydany przez sąd bez rozprawy, na podstawie samych akt. Od jego doręczenia masz <strong>7 dni</strong> na sprzeciw. Jeśli go nie wniesiesz, wyrok stanie się prawomocny.",
+  "tldr": [
+    "Sąd wydaje wyrok nakazowy na posiedzeniu bez udziału stron, gdy okoliczności czynu i wina nie budzą według niego wątpliwości (art. 500 k.p.k.).",
+    "Może w nim orzec tylko grzywnę albo karę ograniczenia wolności (art. 502 § 1 k.p.k.), a obok niej np. środek karny.",
+    "Na sprzeciw masz 7 dni od doręczenia; to termin zawity (art. 506 § 1 k.p.k.).",
+    "Sprzeciw nie wymaga uzasadnienia. Po jego wniesieniu wyrok traci moc, a sprawa trafia na rozprawę."
+  ],
+  "faq": [
+    ["Czy wyrok nakazowy to wyrok skazujący?", "Tak. Jeśli nie wniesiesz sprzeciwu w terminie, wyrok nakazowy staje się prawomocny i wywołuje takie same skutki jak inny prawomocny wyrok skazujący, w tym wpis do Krajowego Rejestru Karnego w sprawach o przestępstwa."],
+    ["Czy sprzeciw trzeba uzasadniać?", "Nie. Przepisy nie wymagają uzasadnienia sprzeciwu. Wystarczy jasno napisać, że wnosisz sprzeciw od konkretnego wyroku nakazowego, i podpisać pismo."],
+    ["Czy po sprzeciwie kara może być wyższa?", "Może. Sąd rozpoznający sprawę po sprzeciwie nie jest związany treścią wyroku nakazowego (art. 506 § 6 k.p.k.). Wynik rozprawy może być łagodniejszy, taki sam albo surowszy."],
+    ["Nie odebrałem listu z sądu. Co z terminem?", "Jeśli list był dwukrotnie awizowany, przepisy uznają go za doręczony z upływem ostatniego dnia przechowania, czyli 14 dni od pierwszego awizo (art. 133 § 2 k.p.k.). Termin 7 dni liczysz od następnego dnia. W razie wątpliwości warto od razu sprawdzić datę doręczenia w sądzie."]
+  ],
+  "related": ["sprzeciw-od-wyroku-nakazowego"],
+  "author": {"name": "Zespół PKW Adwokaci", "person": false, "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."},
+  "cta_label": "Dostałeś wyrok nakazowy?",
+  "cta_title": "Prześlij zdjęcie wyroku. Sprawdzimy termin na sprzeciw i powiemy, co możesz zrobić."
+}
