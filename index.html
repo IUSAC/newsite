@@ -396,7 +396,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
 }
 
 /* ===== Baner sterowany przewijaniem (wzór lark.de) ===== */
-.scrolly{position:relative;height:420vh;background:var(--night);color:var(--on-night)}
+.scrolly{position:relative;height:500vh;background:var(--night);color:var(--on-night)}
 .scrolly .sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 #scrub{position:absolute;inset:0;width:100%;height:100%;display:block;background:#0b0d0c url(assets/hero-seq-poster.jpg) center/cover no-repeat}
 .panel{will-change:transform,opacity}
@@ -425,7 +425,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
 @keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 .scrolly.started .sc-cue{opacity:0}
 @media (max-width:560px){
-  .scrolly{height:380vh}
+  .scrolly{height:460vh}
   .sc-shade{background:linear-gradient(0deg,rgba(11,13,12,.92) 5%,rgba(11,13,12,.55) 55%,rgba(11,13,12,.35) 100%)}
   .sc-stage{align-items:end;padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
   .panel{gap:16px}
@@ -547,7 +547,13 @@ a.person:hover .call .arr{transform:translateX(4px)}
           <div class="hero-cta"><a class="btn green" href="obszar-dzialania/">Zobacz obszar działania <span class="arr">→</span></a></div>
         </div>
         <div class="panel" data-step="3">
-          <span class="label"><span class="dot"></span>03 · Wyjście</span>
+          <span class="label"><span class="dot"></span>03 · Online</span>
+          <h2>Obsługa online.<br><span class="g">Z&nbsp;każdego miejsca w&nbsp;Polsce.</span></h2>
+          <p class="lead">Konsultacja przez telefon lub wideo. Dokumenty podpisujesz elektronicznie albo wysyłasz kurierem.</p>
+          <div class="hero-cta"><a class="btn green" href="#kontakt">Umów konsultację online <span class="arr">→</span></a></div>
+        </div>
+        <div class="panel" data-step="4">
+          <span class="label"><span class="dot"></span>04 · Wyjście</span>
           <h2>Pokaż nam problem.<br><span class="g">Wskażemy drogę.</span></h2>
           <p class="lead">Sprawdzimy termin i powiemy, co możesz zrobić.</p>
           <div class="hero-cta">
@@ -555,7 +561,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
           </div>
         </div>
       </div>
-      <ol class="sc-rail" aria-hidden="true"><li class="is-on"></li><li></li><li></li><li></li></ol>
+      <ol class="sc-rail" aria-hidden="true"><li class="is-on"></li><li></li><li></li><li></li><li></li></ol>
       <div class="sc-cue" aria-hidden="true"><span>Przewiń</span><i></i></div>
     </div>
   </section>
@@ -716,7 +722,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
     var cv=document.getElementById('scrub'),ctx=cv.getContext('2d'),panels=sec.querySelectorAll('.panel'),rail=sec.querySelectorAll('.sc-rail li');
     var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var FIRST=7,LAST=113,N=LAST-FIRST+1,dir='d',ZOOM=(innerWidth<700?0.08:0.22);
-    var imgs=new Array(N),cuts=[0,.22,.5,.8],step=-1,cur=0,target=0,raf=0,lastDrawn=-1,lastZ=-1;
+    var imgs=new Array(N),cuts=[0,.18,.38,.58,.8],step=-1,cur=0,target=0,raf=0,lastDrawn=-1,lastZ=-1;
     function src(i){var n=String(FIRST+i);while(n.length<3)n='0'+n;return 'assets/seq/'+dir+'/'+n+'.jpg'}
     function load(i){if(imgs[i])return;var im=new Image();im.decoding='async';im.onload=function(){im.ok=1;if(Math.round(cur)===i||lastDrawn<0)draw(true)};im.src=src(i);imgs[i]=im}
     /* najpierw co 8. klatka (szybki podgląd całego lotu), potem reszta */
