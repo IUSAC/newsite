@@ -1,0 +1,6 @@
+# Strona zawsze w najnowszej wersji: przeglądarka sprawdza HTML przy każdym wejściu.
+<IfModule mod_headers.c>
+  <FilesMatch "\.html?$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
