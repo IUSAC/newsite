@@ -132,6 +132,27 @@
       "width": 800,
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260930_150058_0a429ad0-ea47-45ea-afd5-93cb8601efd1.png",
       "note": "Wzór podstrony, krok 04: rozprawa (pusta sala sądowa) (9:16)"
+    },
+    {
+      "file": "assets/blog/blog-hero.jpg",
+      "type": "image",
+      "width": 1600,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260930_160202_254a4bc7-f498-4aa0-bc8f-d85213cf4575.png",
+      "note": "Blog: okładka listy (labirynt miasta, zielona ścieżka) 16:9"
+    },
+    {
+      "file": "assets/blog/wyrok-nakazowy.jpg",
+      "type": "image",
+      "width": 1600,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260930_160202_fbddce9b-e6f7-493f-81c7-8ea0c4855b80.png",
+      "note": "Blog: okładka „Wyrok nakazowy” (koperta z sądu, kalendarz) 16:9"
+    },
+    {
+      "file": "assets/blog/sprzeciw-od-wyroku-nakazowego.jpg",
+      "type": "image",
+      "width": 1600,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260930_160202_d6d6e218-0e13-418a-8d4d-b50a7be44787.png",
+      "note": "Blog: okładka „Sprzeciw od wyroku nakazowego” (list na poczcie) 16:9"
     }
   ],
   "_kolor": "Zielony akcent strony = #ADFF23 (jak lark.de). Grafiki i filmy mają zieleń przesuniętą ffmpeg hue=h=-73; ponowne pobranie z Higgsfield (force) przywróci starą zieleń."
