@@ -1,12 +1,12 @@
 {
-  "status": "zaplanowany",
+  "status": "opublikowany",
   "keyword": "rozwód jak złożyć pozew",
   "title": "Pozew o rozwód: jak go przygotować i złożyć",
   "seo_title": "Pozew o rozwód – jak napisać i złożyć | PKW Adwokaci",
   "description": "Pozew o rozwód krok po kroku: który sąd, opłata 600 zł, co napisać, jakie dokumenty dołączyć, wina czy bez orzekania o winie, sprawy dzieci i mieszkania.",
   "category": "prawo-rodzinne",
-  "date_published": "2026-10-19",
-  "date_modified": "2026-10-19",
+  "date_published": "2026-09-30",
+  "date_modified": "2026-09-30",
   "cover_alt": "Dwie obrączki leżące osobno na drewnianym stole obok zamkniętej teczki",
   "excerpt": "Który sąd, ile kosztuje, co napisać i jakie dokumenty dołączyć. Pozew o rozwód krok po kroku, bez prawniczego żargonu.",
   "lead": "Pozew o rozwód składasz do <strong>sądu okręgowego</strong>, zwykle właściwego dla ostatniego wspólnego miejsca zamieszkania małżonków. Opłata wynosi <strong>600 zł</strong>. W pozwie określasz, czego żądasz: rozwodu z orzekaniem o winie albo bez, oraz jak mają być uregulowane sprawy dzieci.",
@@ -45,5 +45,6 @@
     "name": "Zespół PKW Adwokaci",
     "person": false,
     "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
-  }
+  },
+  "order": 8
 }

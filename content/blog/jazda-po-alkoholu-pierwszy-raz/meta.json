@@ -1,12 +1,12 @@
 {
-  "status": "zaplanowany",
+  "status": "opublikowany",
   "keyword": "jazda po alkoholu pierwszy raz co grozi",
   "title": "Jazda po alkoholu po raz pierwszy: przebieg sprawy i konsekwencje",
   "seo_title": "Jazda po alkoholu pierwszy raz – co grozi? | PKW Adwokaci",
   "description": "Jazda po alkoholu po raz pierwszy: stan nietrzeźwości a stan po użyciu, kary i środki z art. 178a k.k., zakaz prowadzenia, świadczenie pieniężne, przebieg sprawy.",
   "category": "prawo-karne",
-  "date_published": "2026-10-12",
-  "date_modified": "2026-10-12",
+  "date_published": "2026-09-30",
+  "date_modified": "2026-09-30",
   "cover_alt": "Kluczyki samochodowe na desce rozdzielczej nocą, w tle światła miasta",
   "excerpt": "Stan po użyciu czy nietrzeźwość, wykroczenie czy przestępstwo. Wyjaśniamy, od czego zależą konsekwencje i jak przebiega sprawa krok po kroku.",
   "lead": "To, co grozi za jazdę po alkoholu, zależy przede wszystkim od stężenia. Powyżej <strong>0,5 promila</strong> we krwi (lub 0,25 mg/dm³ w wydychanym powietrzu) to stan nietrzeźwości i przestępstwo z art. 178a k.k. Między 0,2 a 0,5 promila to stan po użyciu alkoholu i wykroczenie (art. 87 k.w.).",
@@ -44,5 +44,6 @@
     "name": "Zespół PKW Adwokaci",
     "person": false,
     "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
-  }
+  },
+  "order": 10
 }

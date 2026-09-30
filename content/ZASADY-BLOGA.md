@@ -4,9 +4,10 @@ Stałe polecenie właściciela strony. Stosuj przy KAŻDYM nowym wpisie, bez pon
 Źródło planu tematów i fraz: dokument „PKW Adwokaci – słowa kluczowe, plan bloga i teksty strony”.
 
 ## 1. Tempo i kolejność
-- Publikacja: **2 wpisy tygodniowo** (poniedziałek i czwartek) przez pierwsze 3 miesiące, potem **1 tygodniowo + aktualizacja starszych tekstów**.
-- Regularność ważniejsza niż ilość. Nigdy kilku wpisów jednego dnia. Zapas tekstów planujemy datami (`"status": "zaplanowany"`, `date_published` w przyszłości); automat publikuje je sam w dniu daty.
-- Kolejność tematów według planu z raportu (najpierw priorytet A, krótkie terminy).
+- Publikacja: **2 wpisy tygodniowo, w poniedziałek i czwartek o 6:00** (decyzja właściciela z 30.09.2026; 12 pierwszych wpisów opublikowano jednorazowo 30.09.2026).
+- Automat pisania (zadanie zaplanowane w Claude) działa w niedzielę i środę wieczorem: pisze 1 wpis z `content/KOLEJKA.md`, ustawia `"status": "zaplanowany"` i `date_published` na następny dzień (pn/czw). Codzienny automat publikacji (`deploy.yml`, 6:05) wystawia go rano.
+- Regularność ważniejsza niż ilość. Nigdy kilku wpisów jednego dnia.
+- Kolejność tematów według `content/KOLEJKA.md` (plan z raportu).
 
 ## 2. Jeden temat = jedna fraza = jeden wpis (bez kanibalizacji)
 - Każdy wpis ma **jedną frazę główną** (`keyword` w meta.json). Przed napisaniem sprawdź listę fraz istniejących wpisów w `content/blog/*/meta.json`.

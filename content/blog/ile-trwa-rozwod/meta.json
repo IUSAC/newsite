@@ -1,12 +1,12 @@
 {
-  "status": "zaplanowany",
+  "status": "opublikowany",
   "keyword": "ile trwa rozwód",
   "title": "Ile trwa rozwód i od czego to zależy",
   "seo_title": "Ile trwa rozwód? Etapy i od czego zależy czas | PKW Adwokaci",
   "description": "Ile trwa rozwód: od czego zależy czas sprawy, rozwód bez orzekania o winie a z winą, dzieci, mediacja, opinie biegłych, uprawomocnienie wyroku. Etapy krok po kroku.",
   "category": "prawo-rodzinne",
-  "date_published": "2026-11-05",
-  "date_modified": "2026-11-05",
+  "date_published": "2026-09-30",
+  "date_modified": "2026-09-30",
   "cover_alt": "Zegar ścienny i kalendarz w pustej poczekalni sądu z drewnianą ławką",
   "excerpt": "Jedna rozprawa czy kilka lat? Czas rozwodu zależy od kilku czynników, na które masz wpływ. Opisujemy etapy i to, co je wydłuża.",
   "lead": "Nie ma jednego czasu trwania rozwodu. Gdy małżonkowie są zgodni, nie żądają orzekania o winie i nie spierają się o dzieci, sprawa może zakończyć się <strong>na jednej rozprawie</strong>. Spór o winę, dzieci lub majątek, opinie biegłych i wielu świadków wydłużają postępowanie do wielu miesięcy, a czasem lat.",
@@ -45,5 +45,6 @@
     "name": "Zespół PKW Adwokaci",
     "person": false,
     "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
-  }
+  },
+  "order": 3
 }

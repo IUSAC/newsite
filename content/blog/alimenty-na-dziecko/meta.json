@@ -1,12 +1,12 @@
 {
-  "status": "zaplanowany",
+  "status": "opublikowany",
   "keyword": "alimenty na dziecko ile",
   "title": "Alimenty na dziecko: od czego zależy wysokość",
   "seo_title": "Alimenty na dziecko – ile? Od czego zależy kwota | PKW Adwokaci",
   "description": "Alimenty na dziecko: od czego zależy kwota, jak policzyć potrzeby dziecka, znaczenie możliwości zarobkowych rodzica, zabezpieczenie na czas procesu i koszty sprawy.",
   "category": "prawo-rodzinne",
-  "date_published": "2026-10-22",
-  "date_modified": "2026-10-22",
+  "date_published": "2026-09-30",
+  "date_modified": "2026-09-30",
   "cover_alt": "Dziecięce buty i plecak szkolny na podłodze przy oknie",
   "excerpt": "Nie ma tabeli alimentów. Sąd patrzy na potrzeby dziecka i możliwości rodzica. Wyjaśniamy, jak to policzyć i jak przygotować sprawę.",
   "lead": "W Polsce nie ma tabeli ani stawki alimentów. Wysokość zależy od <strong>usprawiedliwionych potrzeb dziecka</strong> oraz <strong>możliwości zarobkowych i majątkowych rodzica</strong> (art. 135 § 1 k.r.o.). Liczy się nie tylko to, ile rodzic zarabia, ale ile mógłby zarabiać.",
@@ -45,5 +45,6 @@
     "name": "Zespół PKW Adwokaci",
     "person": false,
     "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
-  }
+  },
+  "order": 7
 }

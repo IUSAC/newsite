@@ -1,12 +1,12 @@
 {
-  "status": "zaplanowany",
+  "status": "opublikowany",
   "keyword": "skarga do WSA",
   "title": "Skarga do WSA: terminy, koszty, przebieg",
   "seo_title": "Skarga do WSA – termin 30 dni, koszty, przebieg | PKW Adwokaci",
   "description": "Skarga do wojewódzkiego sądu administracyjnego: 30 dni, za pośrednictwem organu, wpis sądowy i prawo pomocy, co musi zawierać, jak wygląda rozprawa i co dalej.",
   "category": "prawo-administracyjne",
-  "date_published": "2026-10-26",
-  "date_modified": "2026-10-26",
+  "date_published": "2026-09-30",
+  "date_modified": "2026-09-30",
   "cover_alt": "Kamienne kolumny i szerokie schody gmachu sądu o zmierzchu",
   "excerpt": "Organ drugiej instancji utrzymał decyzję? Masz 30 dni na skargę do WSA. Termin, koszty, treść skargi i to, co może zrobić sąd.",
   "lead": "Skargę do wojewódzkiego sądu administracyjnego wnosisz w ciągu <strong>30 dni od doręczenia decyzji</strong> organu drugiej instancji (art. 53 § 1 p.p.s.a.). Składasz ją za pośrednictwem organu, który wydał zaskarżoną decyzję. Sąd bada legalność decyzji, czyli jej zgodność z prawem.",
@@ -44,5 +44,6 @@
     "name": "Zespół PKW Adwokaci",
     "person": false,
     "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
-  }
+  },
+  "order": 6
 }

@@ -1,12 +1,12 @@
 {
-  "status": "zaplanowany",
+  "status": "opublikowany",
   "keyword": "kontrola skarbowa co robić",
   "title": "Kontrola skarbowa w firmie: pierwsze kroki i prawa kontrolowanego",
   "seo_title": "Kontrola skarbowa – co robić? Pierwsze kroki | PKW Adwokaci",
   "description": "Kontrola skarbowa w firmie: czym różni się kontrola podatkowa od celno-skarbowej, co zrobić po zawiadomieniu, jakie masz prawa i terminy po protokole.",
   "category": "karne-skarbowe-i-podatkowe",
-  "date_published": "2026-10-05",
-  "date_modified": "2026-10-05",
+  "date_published": "2026-09-30",
+  "date_modified": "2026-09-30",
   "cover_alt": "Segregatory i faktury na biurku w biurze o zmierzchu",
   "excerpt": "Zawiadomienie z urzędu skarbowego albo kontrolerzy w drzwiach. Co zrobić od razu, jakie masz prawa i ile czasu na reakcję po protokole.",
   "lead": "Kontrola skarbowa zwykle zaczyna się od zawiadomienia. Między zawiadomieniem a wszczęciem kontroli podatkowej musi minąć <strong>co najmniej 7 dni</strong>. To dobry moment, żeby uporządkować dokumenty i sprawdzić rozliczenia, bo w tym czasie wciąż możesz złożyć korektę deklaracji.",
@@ -44,5 +44,6 @@
     "name": "Zespół PKW Adwokaci",
     "person": false,
     "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
-  }
+  },
+  "order": 12
 }

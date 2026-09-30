@@ -1,12 +1,12 @@
 {
-  "status": "zaplanowany",
+  "status": "opublikowany",
   "keyword": "nakaz zapłaty sprzeciw",
   "title": "Nakaz zapłaty: jak wnieść sprzeciw",
   "seo_title": "Nakaz zapłaty – jak wnieść sprzeciw w 14 dni | PKW Adwokaci",
   "description": "Sprzeciw od nakazu zapłaty: 2 tygodnie od doręczenia, co musi zawierać, nakaz z e-sądu a zwykły nakaz, zarzuty od nakazu w postępowaniu nakazowym, przedawnienie.",
   "category": "prawo-cywilne",
-  "date_published": "2026-11-02",
-  "date_modified": "2026-11-02",
+  "date_published": "2026-09-30",
+  "date_modified": "2026-09-30",
   "cover_alt": "Otwarta koperta z sądu i plik rachunków na kuchennym stole nocą",
   "excerpt": "Sąd nakazał zapłatę, choć nikt Cię nie przesłuchał. Masz 2 tygodnie na sprzeciw. Wyjaśniamy, co w nim napisać i co jest najczęstszym błędem.",
   "lead": "Nakaz zapłaty sąd wydaje bez rozprawy, na podstawie samego pozwu. Na <strong>sprzeciw masz 2 tygodnie</strong> od doręczenia nakazu (art. 480² § 2 k.p.c.). Po wniesieniu sprzeciwu nakaz traci moc w zaskarżonej części, a sprawa toczy się dalej przed sądem. W sprzeciwie warto od razu podać zarzuty, fakty i dowody.",
@@ -44,5 +44,6 @@
     "name": "Zespół PKW Adwokaci",
     "person": false,
     "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
-  }
+  },
+  "order": 4
 }

@@ -1,12 +1,12 @@
 {
-  "status": "zaplanowany",
+  "status": "opublikowany",
   "keyword": "zatrzymanie prawa jazdy zażalenie",
   "title": "Zatrzymanie prawa jazdy: zażalenie, odwołanie i terminy",
   "seo_title": "Zatrzymanie prawa jazdy – zażalenie i terminy | PKW Adwokaci",
   "description": "Zatrzymanie prawa jazdy: kiedy policja może je zatrzymać, różnica między sprawą karną a decyzją starosty za prędkość, terminy na zażalenie i odwołanie, zwrot dokumentu.",
   "category": "prawo-karne",
-  "date_published": "2026-10-29",
-  "date_modified": "2026-10-29",
+  "date_published": "2026-09-30",
+  "date_modified": "2026-09-30",
   "cover_alt": "Wnętrze zaparkowanego samochodu nocą w deszczu, koperta na fotelu pasażera",
   "excerpt": "Policja zabrała Ci prawo jazdy. Od powodu zależy, kto decyduje dalej i jaki środek odwoławczy przysługuje. Wyjaśniamy obie ścieżki.",
   "lead": "Po zatrzymaniu prawa jazdy przez policję dalsza droga zależy od powodu. W sprawach o przestępstwo, np. jazdę w stanie nietrzeźwości, o dokumencie decyduje prokurator lub sąd, a na postanowienie przysługuje <strong>zażalenie w 7 dni</strong>. Przy przekroczeniu prędkości o ponad 50 km/h w terenie zabudowanym albo na jednojezdniowej drodze dwukierunkowej poza nim starosta wydaje decyzję o zatrzymaniu na 3 miesiące; od niej przysługuje <strong>odwołanie w 14 dni</strong>.",
@@ -44,5 +44,6 @@
     "name": "Zespół PKW Adwokaci",
     "person": false,
     "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
-  }
+  },
+  "order": 5
 }

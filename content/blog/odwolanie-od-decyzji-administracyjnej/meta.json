@@ -1,12 +1,12 @@
 {
-  "status": "zaplanowany",
+  "status": "opublikowany",
   "keyword": "odwołanie od decyzji administracyjnej termin",
   "title": "Odwołanie od decyzji administracyjnej: termin i treść",
   "seo_title": "Odwołanie od decyzji administracyjnej – termin 14 dni | PKW Adwokaci",
   "description": "Odwołanie od decyzji administracyjnej: 14 dni od doręczenia, do kogo i za pośrednictwem kogo, co napisać, jak liczyć termin i co dzieje się dalej. Przepisy k.p.a.",
   "category": "prawo-administracyjne",
-  "date_published": "2026-10-15",
-  "date_modified": "2026-10-15",
+  "date_published": "2026-09-30",
+  "date_modified": "2026-09-30",
   "cover_alt": "Pusty korytarz urzędu z wysokimi oknami i zamkniętymi drzwiami",
   "excerpt": "Decyzja z urzędu jest niekorzystna? Masz 14 dni. Wyjaśniamy, gdzie złożyć odwołanie, co w nim napisać i co zrobi organ drugiej instancji.",
   "lead": "Od decyzji wydanej w pierwszej instancji przysługuje odwołanie do organu wyższego stopnia. Masz na nie <strong>14 dni od doręczenia decyzji</strong> (art. 129 § 2 k.p.a.). Odwołanie składasz za pośrednictwem organu, który wydał decyzję, i nie musi ono zawierać szczegółowego uzasadnienia.",
@@ -44,5 +44,6 @@
     "name": "Zespół PKW Adwokaci",
     "person": false,
     "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
-  }
+  },
+  "order": 9
 }

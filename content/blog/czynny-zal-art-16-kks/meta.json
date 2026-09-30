@@ -1,12 +1,12 @@
 {
-  "status": "zaplanowany",
+  "status": "opublikowany",
   "keyword": "czynny żal art. 16 k.k.s.",
   "title": "Czynny żal (art. 16 k.k.s.): kiedy można go złożyć",
   "seo_title": "Czynny żal art. 16 k.k.s. – kiedy i jak złożyć | PKW Adwokaci",
   "description": "Czynny żal z art. 16 k.k.s.: co daje, kiedy jest skuteczny, kiedy jest za późno, co napisać i jak zapłacić zaległość. Różnica między czynnym żalem a korektą.",
   "category": "karne-skarbowe-i-podatkowe",
-  "date_published": "2026-10-08",
-  "date_modified": "2026-10-08",
+  "date_published": "2026-09-30",
+  "date_modified": "2026-09-30",
   "cover_alt": "Pióro, kalkulator i złożony formularz na ciemnym biurku",
   "excerpt": "Spóźniona deklaracja, zaniżony podatek, nieodprowadzona zaliczka. Czynny żal pozwala uniknąć kary, ale tylko wtedy, gdy złożysz go na czas.",
   "lead": "Czynny żal to zawiadomienie organu o popełnionym przestępstwie lub wykroczeniu skarbowym. Jeśli jest skuteczny i zapłacisz zaległość w wyznaczonym terminie, <strong>nie podlegasz karze</strong> za ten czyn (art. 16 k.k.s.). Kluczowy jest moment: czynny żal złożony po wykryciu czynu przez organ nie działa.",
@@ -44,5 +44,6 @@
     "name": "Zespół PKW Adwokaci",
     "person": false,
     "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
-  }
+  },
+  "order": 11
 }
