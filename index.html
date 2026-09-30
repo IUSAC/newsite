@@ -387,6 +387,58 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   .channels{margin-top:24px}
   input,select,textarea{min-height:48px}
 }
+
+/* ===== Baner sterowany przewijaniem (wzór lark.de) ===== */
+.scrolly{position:relative;height:420vh;background:var(--night);color:var(--on-night)}
+.scrolly .sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#scrub{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(calc(1 + var(--p,0) * .06));transform-origin:50% 50%}
+.sc-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,13,12,.85) 0%,rgba(11,13,12,.5) 50%,rgba(11,13,12,.1) 100%),linear-gradient(0deg,rgba(11,13,12,.7),transparent 40%)}
+.sc-stage{position:relative;height:100%;display:grid;align-items:center}
+.panel{grid-area:1/1;max-width:640px;display:grid;gap:22px;opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.1,1);pointer-events:none}
+.panel.is-on{opacity:1;transform:none;pointer-events:auto}
+.panel .label{color:rgba(255,255,255,.75)}
+.panel h1{font-size:clamp(40px,6.6vw,104px);font-stretch:118%}
+.panel h2{font-size:clamp(34px,4.6vw,68px)}
+.panel .g{color:var(--green)}
+.panel .lead{font-size:clamp(16px,1.4vw,20px);color:rgba(255,255,255,.82);max-width:48ch}
+.pl-list{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid rgba(255,255,255,.2)}
+.pl-list li{display:grid;grid-template-columns:minmax(150px,auto) minmax(0,1fr);gap:4px 20px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.2);align-items:baseline}
+.pl-list b{font-family:var(--display);font-stretch:112%;font-size:20px}
+.pl-list span{color:rgba(255,255,255,.72);font-size:15px}
+.panel li{opacity:0;transform:translateX(-16px);transition:opacity .5s ease,transform .6s ease}
+.panel.is-on li{opacity:1;transform:none}
+.panel.is-on li:nth-child(2){transition-delay:.12s}.panel.is-on li:nth-child(3){transition-delay:.24s}
+.sc-rail{position:absolute;right:var(--gutter);top:50%;transform:translateY(-50%);list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.sc-rail li{width:3px;height:34px;background:rgba(255,255,255,.25);transition:background .3s,height .3s}
+.sc-rail li.is-on{background:var(--green);height:54px}
+.sc-cue{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);display:grid;justify-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);transition:opacity .4s}
+.sc-cue i{width:1px;height:36px;background:linear-gradient(var(--green),transparent);animation:cue 1.6s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.scrolly.started .sc-cue{opacity:0}
+@media (max-width:560px){
+  .scrolly{height:380vh}
+  .sc-shade{background:linear-gradient(0deg,rgba(11,13,12,.92) 5%,rgba(11,13,12,.55) 55%,rgba(11,13,12,.35) 100%)}
+  .sc-stage{align-items:end;padding-bottom:120px}
+  .panel{gap:16px}
+  .panel h1{font-size:40px}
+  .panel h2{font-size:30px}
+  .pl-list li{grid-template-columns:1fr;padding:10px 0}
+  .pl-list b{font-size:17px}
+  .pl-list span{font-size:14px}
+  .sc-rail{right:10px;gap:8px}
+  .sc-rail li{height:24px}.sc-rail li.is-on{height:38px}
+  .panel .hero-cta .btn.ghost{display:none}
+  .sc-cue{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .scrolly{height:auto}
+  .scrolly .sticky{position:relative;height:auto;min-height:100vh}
+  .sc-stage{display:grid;gap:64px;padding-block:120px 80px}
+  .panel{grid-area:auto;opacity:1;transform:none;pointer-events:auto}
+  .panel li{opacity:1;transform:none}
+  .sc-rail,.sc-cue{display:none}
+  #scrub{transform:none}
+}
 </style>
 </head>
 <body>
@@ -409,27 +461,46 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
 
 <main id="start">
   <!-- HERO: miejsce na wideo -->
-  <section class="hero" aria-label="Wprowadzenie">
-    <div class="video-slot" aria-hidden="true">
-      <video id="hero-video" muted playsinline autoplay loop preload="auto" poster="assets/hero-v4-poster.jpg" src="assets/hero-v4.mp4"></video>
-      <div class="shade"></div>
-      <div class="scan"></div>
-      
-    </div>
-    <div class="wrap hero-in">
-      <span class="label"><span class="dot"></span>Kancelaria adwokacka · Opole · od 2014 · konsultacje online w całej Polsce</span>
-      <h1>
-        <span class="ln"><span>Przepisy to labirynt.</span></span>
-        <span class="ln"><span>Znamy w nim</span></span>
-        <span class="ln"><span>drogę wyjścia.</span></span>
-      </h1>
-      <div class="hero-foot">
-        <p>Prawo karne, podatkowe, administracyjne i rodzinne. Masz pismo z sądu lub urzędu? Pokaż je adwokatowi, zanim minie termin.</p>
-        <div class="hero-cta">
-          <a class="btn green" href="#kontakt">Wyślij pismo do analizy <span class="arr">→</span></a>
-          <a class="btn ghost" href="#sytuacje">Co się stało?</a>
+  <section class="scrolly" id="intro" aria-label="Wprowadzenie">
+    <div class="sticky">
+      <video id="scrub" muted playsinline preload="auto" poster="assets/hero-v4-poster.jpg" src="assets/hero-scrub.mp4" aria-hidden="true"></video>
+      <div class="sc-shade" aria-hidden="true"></div>
+      <div class="wrap sc-stage">
+        <div class="panel is-on" data-step="0">
+          <span class="label"><span class="dot"></span>Kancelaria adwokacka · Opole · od 2014</span>
+          <h1>Przepisy to labirynt.<br>Znamy w nim <span class="g">drogę wyjścia.</span></h1>
+          <p class="lead">Prawo karne, podatkowe, administracyjne i rodzinne. Konsultacje online w całej Polsce.</p>
+        </div>
+        <div class="panel" data-step="1">
+          <span class="label"><span class="dot"></span>01 · Klient indywidualny</span>
+          <h2>Sprawa, która dotyczy Ciebie i Twojej rodziny</h2>
+          <ul class="pl-list">
+            <li><b>Karne</b><span>zarzuty, wyrok nakazowy, jazda po alkoholu</span></li>
+            <li><b>Rodzinne</b><span>rozwód, alimenty, kontakty z dziećmi</span></li>
+            <li><b>Administracyjne</b><span>decyzje urzędów, skargi do WSA</span></li>
+          </ul>
+        </div>
+        <div class="panel" data-step="2">
+          <span class="label"><span class="dot"></span>02 · Firmy i przedsiębiorcy</span>
+          <h2>Spór z urzędem nie może zatrzymać firmy</h2>
+          <ul class="pl-list">
+            <li><b>Podatkowe</b><span>kontrole KAS i urzędu skarbowego, spory z fiskusem</span></li>
+            <li><b>Karne skarbowe</b><span>zarzuty z k.k.s., czynny żal</span></li>
+            <li><b>Administracyjne</b><span>koncesje, zezwolenia, kary administracyjne</span></li>
+          </ul>
+        </div>
+        <div class="panel" data-step="3">
+          <span class="label"><span class="dot"></span>03 · Wyjście</span>
+          <h2>Pokaż nam pismo.<br><span class="g">Wskażemy drogę.</span></h2>
+          <p class="lead">Sprawdzimy termin i powiemy, co możesz zrobić.</p>
+          <div class="hero-cta">
+            <a class="btn green" href="#kontakt">Wyślij pismo do analizy <span class="arr">→</span></a>
+            <a class="btn ghost" href="#sytuacje">Co się stało?</a>
+          </div>
         </div>
       </div>
+      <ol class="sc-rail" aria-hidden="true"><li class="is-on"></li><li></li><li></li><li></li></ol>
+      <div class="sc-cue" aria-hidden="true"><span>Przewiń</span><i></i></div>
     </div>
   </section>
 
@@ -705,12 +776,29 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
 
 <script>
 (function(){
+  (function(){
+    var sec=document.getElementById('intro');if(!sec)return;
+    var v=document.getElementById('scrub'),panels=sec.querySelectorAll('.panel'),rail=sec.querySelectorAll('.sc-rail li');
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var cuts=[0,.24,.52,.8],target=0,cur=0,step=-1,dur=0,ticking=false;
+    function progress(){var r=sec.getBoundingClientRect(),span=sec.offsetHeight-window.innerHeight;return Math.min(1,Math.max(0,-r.top/Math.max(1,span)))}
+    function setStep(i){if(i===step)return;step=i;panels.forEach(function(p,k){p.classList.toggle('is-on',k===i)});rail.forEach(function(l,k){l.classList.toggle('is-on',k===i)})}
+    function loop(){ticking=false;var p=progress();sec.style.setProperty('--p',p.toFixed(3));sec.classList.toggle('started',p>0.02);
+      var i=0;for(var k=0;k<cuts.length;k++)if(p>=cuts[k])i=k;setStep(i);
+      if(dur){target=p*(dur-0.05);cur+=(target-cur)*0.18;if(Math.abs(target-cur)<0.01)cur=target;
+        if(Math.abs(v.currentTime-cur)>0.015){try{v.currentTime=cur}catch(e){}}
+        if(Math.abs(target-cur)>0.01)req()}}
+    function req(){if(!ticking){ticking=true;requestAnimationFrame(loop)}}
+    if(reduce){panels.forEach(function(p){p.classList.add('is-on')});return}
+    v.addEventListener('loadedmetadata',function(){dur=v.duration||0;v.pause();req()});
+    if(v.readyState>=1){dur=v.duration||0}
+    /* iOS: odblokuj przewijanie wideo po pierwszym dotknięciu */
+    window.addEventListener('touchstart',function once(){v.play().then(function(){v.pause();req()}).catch(function(){});window.removeEventListener('touchstart',once)},{passive:true});
+    window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);req();
+  })();
   var bg=document.getElementById('burger'),mn=document.getElementById('menu');
   bg.addEventListener('click',function(){var o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o);bg.setAttribute('aria-label',o?'Zamknij menu':'Otwórz menu')});
   mn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('open');bg.setAttribute('aria-expanded','false')})});
-  var hv=document.getElementById('hero-video'),slot=hv.parentNode,hero=slot.parentNode;
-  hv.addEventListener('loadeddata',function(){slot.classList.add('has-video')});
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){hv.removeAttribute('autoplay');hv.addEventListener('loadeddata',function(){try{hv.currentTime=hv.duration-.1}catch(e){}hero.classList.add('exit')})}
   document.querySelectorAll('.post[data-v]').forEach(function(b){
     b.addEventListener('click',function(){var d=document.getElementById('vid-'+b.dataset.v);if(d&&d.showModal)d.showModal()});
   });
