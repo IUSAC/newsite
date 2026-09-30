@@ -16,6 +16,12 @@
       "note": "Nagłówek v2: widok z góry na labirynt, zjazd w dół, lot między blokami, zielony rozbłysk (15 s) Plik w repozytorium ma dodane wyciemnienie na początku i końcu (płynna pętla) – nie ustawiaj force, bo automat pobierze wersję bez niego."
     },
     {
+      "file": "assets/hero-v3.mp4",
+      "type": "video",
+      "poster": "assets/hero-v3-poster.jpg",
+      "note": "Nagłówek v3: hero-v2 rozjaśniony + techniczny schemat labiryntu na początku, przechodzący w budynki (obróbka ffmpeg w repozytorium, bez generowania). Brak url – plik tylko w repozytorium."
+    },
+    {
       "file": "assets/thumb-wyrok.jpg",
       "type": "image",
       "width": 900,
