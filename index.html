@@ -406,7 +406,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
 .panel{grid-area:1/1;max-width:640px;display:grid;gap:22px;opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.1,1);pointer-events:none}
 .panel.is-on{opacity:1;transform:none;pointer-events:auto}
 .panel .label{color:rgba(255,255,255,.75)}
-.panel h1{font-size:clamp(40px,6.6vw,104px);font-stretch:118%;font-weight:500;letter-spacing:-.025em}
+.panel h1{font-size:clamp(34px,4.6vw,68px);font-weight:500;letter-spacing:-.02em}
 .panel h2{font-size:clamp(34px,4.6vw,68px);font-weight:500;letter-spacing:-.02em}
 .panel .g{color:var(--green)}
 .panel .lead{font-size:clamp(16px,1.4vw,20px);color:rgba(255,255,255,.82);max-width:48ch}
@@ -429,7 +429,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   .sc-shade{background:linear-gradient(0deg,rgba(11,13,12,.92) 5%,rgba(11,13,12,.55) 55%,rgba(11,13,12,.35) 100%)}
   .sc-stage{align-items:end;padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
   .panel{gap:16px}
-  .panel h1{font-size:40px}
+  .panel h1{font-size:30px}
   .panel h2{font-size:30px}
   .pl-list li{grid-template-columns:1fr;padding:10px 0}
   .pl-list b{font-size:17px}
@@ -530,27 +530,21 @@ a.person:hover .call .arr{transform:translateX(4px)}
       <div class="wrap sc-stage">
         <div class="panel is-on" data-step="0">
           <span class="label"><span class="dot"></span>Kancelaria adwokacka · Opole · od 2014</span>
-          <h1>Obszar <span class="g">działalności</span></h1>
+          <h1>Obszar<br><span class="g">działalności.</span></h1>
           <p class="lead">Kancelaria prowadzi kompleksową obsługę podmiotów gospodarczych oraz osób fizycznych.</p>
           <div class="hero-cta"><a class="btn green" href="obszar-dzialania/">Zobacz obszar działania <span class="arr">→</span></a></div>
         </div>
         <div class="panel" data-step="1">
           <span class="label"><span class="dot"></span>01 · Klient indywidualny</span>
-          <h2>Sprawa, która dotyczy Ciebie i Twojej rodziny</h2>
-          <ul class="pl-list">
-            <li><b>Karne</b><span>zarzuty, wyrok nakazowy, jazda po alkoholu</span></li>
-            <li><b>Rodzinne</b><span>rozwód, alimenty, kontakty z dziećmi</span></li>
-            <li><b>Administracyjne</b><span>decyzje urzędów, skargi do WSA</span></li>
-          </ul>
+          <h2>Sprawa, która dotyczy ciebie<br><span class="g">i&nbsp;twojej rodziny.</span></h2>
+          <p class="lead">Karne, rodzinne i&nbsp;administracyjne: zarzuty, wyrok nakazowy, rozwód, alimenty, decyzje urzędów.</p>
+          <div class="hero-cta"><a class="btn green" href="co-sie-stalo/">Co się stało? <span class="arr">→</span></a></div>
         </div>
         <div class="panel" data-step="2">
           <span class="label"><span class="dot"></span>02 · Firmy i przedsiębiorcy</span>
-          <h2>Sprawa, która dotyczy ciebie i&nbsp;twojej firmy</h2>
-          <ul class="pl-list">
-            <li><b>Podatkowe</b><span>kontrole KAS i urzędu skarbowego, spory z fiskusem</span></li>
-            <li><b>Karne skarbowe</b><span>zarzuty z k.k.s., czynny żal</span></li>
-            <li><b>Administracyjne</b><span>koncesje, zezwolenia, kary administracyjne</span></li>
-          </ul>
+          <h2>Sprawa, która dotyczy ciebie<br><span class="g">i&nbsp;twojej firmy.</span></h2>
+          <p class="lead">Podatkowe, karne skarbowe i&nbsp;administracyjne: kontrole KAS, zarzuty z&nbsp;k.k.s., koncesje i&nbsp;zezwolenia.</p>
+          <div class="hero-cta"><a class="btn green" href="obszar-dzialania/">Zobacz obszar działania <span class="arr">→</span></a></div>
         </div>
         <div class="panel" data-step="3">
           <span class="label"><span class="dot"></span>03 · Wyjście</span>
