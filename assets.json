@@ -104,6 +104,34 @@
       "width": 800,
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260929_223904_5d17389d-504c-414d-9d83-3ecaa5cb72fb.png",
       "note": "Moduł wyrok nakazowy: list z sądu i kalendarz (9:16)"
+    },
+    {
+      "file": "assets/krok-1.jpg",
+      "type": "image",
+      "width": 800,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260930_150057_ca946ec2-abce-4efc-badf-a5fd5b2971fd.png",
+      "note": "Wzór podstrony, krok 01: analiza pisma (telefon fotografuje pismo z sądu) (9:16)"
+    },
+    {
+      "file": "assets/krok-2.jpg",
+      "type": "image",
+      "width": 800,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260930_150056_0c383921-28f0-4f4e-9704-a3cfa361b82c.png",
+      "note": "Wzór podstrony, krok 02: decyzja (pióro, dwie kartki) (9:16)"
+    },
+    {
+      "file": "assets/krok-3.jpg",
+      "type": "image",
+      "width": 800,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260930_150057_74b05257-df35-4d53-b994-490296c8d92a.png",
+      "note": "Wzór podstrony, krok 03: sprzeciw i akta (archiwum akt) (9:16)"
+    },
+    {
+      "file": "assets/krok-4.jpg",
+      "type": "image",
+      "width": 800,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260930_150058_0a429ad0-ea47-45ea-afd5-93cb8601efd1.png",
+      "note": "Wzór podstrony, krok 04: rozprawa (pusta sala sądowa) (9:16)"
     }
   ],
   "_kolor": "Zielony akcent strony = #ADFF23 (jak lark.de). Grafiki i filmy mają zieleń przesuniętą ffmpeg hue=h=-73; ponowne pobranie z Higgsfield (force) przywróci starą zieleń."

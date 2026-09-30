@@ -149,6 +149,18 @@ section.s{padding-block:clamp(72px,10vw,140px);border-bottom:1px solid var(--lin
 .steps li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;padding:18px 0;border-top:1px solid var(--line);counter-increment:st}
 .steps li::before{content:counter(st,decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--green-ink);padding-top:3px}
 .steps b{display:block;margin-bottom:2px}
+/* Wzór podstrony: kroki podświetlane, zmieniają baner obok */
+.steps-x li{cursor:pointer;position:relative;padding-inline:14px;margin-inline:-14px;transition:background .25s}
+.steps-x li::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--green);transform:scaleY(0);transform-origin:top;transition:transform .3s}
+.steps-x li:hover,.steps-x li:focus-visible,.steps-x li.is-on{background:var(--paper-2);outline:0}
+.steps-x li:hover::after,.steps-x li:focus-visible::after,.steps-x li.is-on::after{transform:scaleY(1)}
+.steps-x li.is-on::before,.steps-x li:hover::before{color:var(--ink);font-weight:500}
+.sv-stack{display:grid;width:min(100%,340px);margin-inline:auto}
+.sv-stack .sv{grid-area:1/1;opacity:0;transform:scale(.98);transition:opacity .45s ease,transform .6s ease;pointer-events:none}
+.sv-stack .sv.is-on{opacity:1;transform:none;pointer-events:auto}
+.sv .t-unit{overflow-wrap:anywhere}
+.sv[data-sv="4"] .t-unit{font-size:clamp(28px,2.8vw,38px)}
+
 .steps span{color:var(--ink-2);font-size:15px}
 .kicker{font-family:var(--display);font-stretch:112%;font-size:clamp(28px,3.6vw,48px);font-weight:700;line-height:1.05;letter-spacing:-.02em}
 .kicker em{font-style:normal;color:var(--green-ink)}
@@ -683,15 +695,21 @@ a.person:hover .call .arr{transform:translateX(4px)}
         <div>
           <p class="kicker">Dostałeś wyrok nakazowy? Masz <em>7 dni</em> na sprzeciw.</p>
           <p style="margin-top:20px;color:var(--ink-2);max-width:58ch">Sąd wydał wyrok bez rozprawy, na podstawie samych akt. Jeśli w ciągu 7 dni od doręczenia nie wniesiesz sprzeciwu, wyrok stanie się prawomocny. Sprzeciw powoduje, że wyrok traci moc i sprawa trafia na rozprawę.</p>
-          <ol class="steps">
-            <li><div><b>Analiza pisma w 24 h</b><span>Przesyłasz zdjęcie wyroku. Sprawdzamy termin i zarzut.</span></div></li>
-            <li><div><b>Decyzja: sprzeciw czy nie</b><span>Mówimy wprost, co możesz zyskać i co ryzykujesz.</span></div></li>
-            <li><div><b>Sprzeciw i akta</b><span>Składamy sprzeciw i przeglądamy akta sprawy.</span></div></li>
-            <li><div><b>Obrona na rozprawie</b><span>Reprezentujemy Cię przed sądem w całej Polsce.</span></div></li>
+          <ol class="steps steps-x" id="kroki">
+            <li data-s="1" tabindex="0"><div><b>Analiza pisma w 24 h</b><span>Przesyłasz zdjęcie wyroku. Sprawdzamy termin i zarzut.</span></div></li>
+            <li data-s="2" tabindex="0"><div><b>Decyzja: sprzeciw czy nie</b><span>Mówimy wprost, co możesz zyskać i co ryzykujesz.</span></div></li>
+            <li data-s="3" tabindex="0"><div><b>Sprzeciw i akta</b><span>Składamy sprzeciw i przeglądamy akta sprawy.</span></div></li>
+            <li data-s="4" tabindex="0"><div><b>Obrona na rozprawie</b><span>Reprezentujemy Cię przed sądem w całej Polsce.</span></div></li>
           </ol>
         </div>
         <div style="display:grid;gap:16px;align-content:start">
-          <div class="thumb t-court sub-visual" data-img="assets/wyrok-7dni.jpg"><span class="t-num">7</span><span class="t-unit">DNI</span><span class="t-small">na sprzeciw od wyroku nakazowego · art. 506 k.p.k.</span></div>
+          <div class="sv-stack" aria-live="polite">
+            <div class="thumb t-court sub-visual sv is-on" data-sv="0" data-img="assets/wyrok-7dni.jpg"><span class="t-num">7</span><span class="t-unit">DNI</span><span class="t-small">na sprzeciw od wyroku nakazowego · art. 506 k.p.k.</span></div>
+            <div class="thumb t-court sub-visual sv" data-sv="1" data-img="assets/krok-1.jpg"><span class="t-num">24</span><span class="t-unit">H</span><span class="t-small">01 · analiza pisma · przesyłasz zdjęcie wyroku</span></div>
+            <div class="thumb t-court sub-visual sv" data-sv="2" data-img="assets/krok-2.jpg"><span class="t-num">2</span><span class="t-unit">DROGI</span><span class="t-small">02 · decyzja: sprzeciw czy nie</span></div>
+            <div class="thumb t-court sub-visual sv" data-sv="3" data-img="assets/krok-3.jpg"><span class="t-num">§</span><span class="t-unit">AKTA</span><span class="t-small">03 · sprzeciw i przegląd akt sprawy</span></div>
+            <div class="thumb t-court sub-visual sv" data-sv="4" data-img="assets/krok-4.jpg"><span class="t-num">PL</span><span class="t-unit">ROZPRAWA</span><span class="t-small">04 · obrona przed sądem w całej Polsce</span></div>
+          </div>
           <a class="btn" href="#kontakt" style="justify-content:center">Wyślij zdjęcie wyroku <span class="arr">→</span></a>
         </div>
       </div>
@@ -799,6 +817,11 @@ a.person:hover .call .arr{transform:translateX(4px)}
     d.addEventListener('click',function(e){if(e.target===d)d.close()});
     d.querySelector('.v-cta').addEventListener('click',function(){var sel=document.getElementById('f-area');if(sel)sel.selectedIndex=+this.dataset.area;d.close()});
   });
+  (function(){var ol=document.getElementById('kroki');if(!ol)return;var lis=ol.querySelectorAll('li[data-s]'),svs=document.querySelectorAll('.sv-stack .sv');
+    function go(k){lis.forEach(function(l){l.classList.toggle('is-on',l.dataset.s===k)});svs.forEach(function(v){v.classList.toggle('is-on',v.dataset.sv===k)})}
+    lis.forEach(function(l){['mouseenter','focus','click'].forEach(function(ev){l.addEventListener(ev,function(){go(l.dataset.s)})});
+      l.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go(l.dataset.s)}})});
+  })();
   document.querySelectorAll('.thumb[data-img]').forEach(function(t){var u=t.dataset.img;if(!u)return;var im=new Image();im.onload=function(){t.style.setProperty('--img','url('+u+')');t.classList.add('has-img')};im.src=u});
   var vids=document.querySelectorAll('.t-vid');
   if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
