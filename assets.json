@@ -22,6 +22,12 @@
       "note": "Nagłówek v3: hero-v2 rozjaśniony + techniczny schemat labiryntu na początku, przechodzący w budynki (obróbka ffmpeg w repozytorium, bez generowania). Brak url – plik tylko w repozytorium."
     },
     {
+      "file": "assets/hero-v4.mp4",
+      "type": "video",
+      "poster": "assets/hero-v4-poster.jpg",
+      "note": "Nagłówek v4: jak v3 + redukcja mgły w locie między budynkami (krzywe, kontrast, wyostrzenie). Obróbka ffmpeg z hero-v2, brak url – plik tylko w repozytorium."
+    },
+    {
       "file": "assets/thumb-wyrok.jpg",
       "type": "image",
       "width": 900,
