@@ -1,0 +1,50 @@
+{
+  "status": "zaplanowany",
+  "order": 0,
+  "keyword": "wezwanie na policję jako podejrzany",
+  "title": "Wezwanie na policję jako podejrzany: jak się przygotować",
+  "seo_title": "Wezwanie na policję jako podejrzany – jak się przygotować",
+  "description": "Wezwanie na policję jako podejrzany: czy trzeba iść, co się dzieje na przesłuchaniu, jakie masz prawa, jak przygotować się krok po kroku. Przepisy k.p.k.",
+  "category": "prawo-karne",
+  "date_published": "2026-10-01",
+  "date_modified": "2026-10-01",
+  "cover": "assets/blog/wezwanie-na-policje-jako-podejrzany.jpg",
+  "cover_alt": "Złożone pismo na ciemnym stole w smugach światła padającego przez żaluzje",
+  "excerpt": "Czy musisz stawić się na wezwanie, co zdarzy się na komendzie i jakie masz prawa jako podejrzany. Lista kroków przed przesłuchaniem.",
+  "lead": "Wezwanie w charakterze podejrzanego oznacza zwykle, że policja chce <strong>ogłosić Ci zarzut i Cię przesłuchać</strong>. Na wezwanie trzeba się stawić, ale nie musisz składać wyjaśnień. Poniżej: co jest w wezwaniu, jak przebiega wizyta na komendzie i jak się do niej przygotować.",
+  "tldr": [
+    "Podejrzany ma obowiązek stawić się na każde wezwanie (art. 75 § 1 k.p.k.). Nieusprawiedliwiona nieobecność może skończyć się zatrzymaniem i przymusowym doprowadzeniem (art. 75 § 2 k.p.k.).",
+    "Status podejrzanego uzyskujesz, gdy wydano postanowienie o przedstawieniu Ci zarzutów albo gdy bez takiego postanowienia postawiono Ci zarzut w związku z przystąpieniem do przesłuchania w charakterze podejrzanego (art. 71 § 1 k.p.k.).",
+    "Możesz odmówić składania wyjaśnień lub odpowiedzi na poszczególne pytania bez podawania powodów (art. 175 § 1 k.p.k.).",
+    "Możesz mieć obrońcę. Na Twoje żądanie przesłuchanie odbywa się z jego udziałem, ale jego niestawiennictwo nie wstrzymuje przesłuchania (art. 301 k.p.k.)."
+  ],
+  "faq": [
+    [
+      "Czy mogę przełożyć termin przesłuchania?",
+      "Możesz poprosić o zmianę terminu, najlepiej od razu po otrzymaniu wezwania, telefonicznie i na piśmie, z podaniem ważnego powodu. Policja nie ma obowiązku się zgodzić. Jeśli nie możesz przyjść z powodu choroby, usprawiedliwieniem jest zaświadczenie lekarza sądowego (art. 117 § 2a k.p.k.)."
+    ],
+    [
+      "Czy muszę mówić prawdę jako podejrzany?",
+      "Przepis o fałszywych zeznaniach (art. 233 k.k.) dotyczy świadków, nie wyjaśnień podejrzanego. Nie musisz też dowodzić swojej niewinności ani dostarczać dowodów na swoją niekorzyść (art. 74 § 1 k.p.k.). Fałszywe oskarżenie innej osoby o przestępstwo jest jednak przestępstwem (art. 234 k.k.). Rozważ, czy w ogóle chcesz składać wyjaśnienia na tym etapie."
+    ],
+    [
+      "Czy po przesłuchaniu mogą mnie zatrzymać?",
+      "Zatrzymanie jest możliwe, jeśli jest uzasadnione przypuszczenie, że popełniłeś przestępstwo, i zachodzi np. obawa ucieczki lub zatarcia śladów (art. 244 § 1 k.p.k.). Zatrzymanie trwa najwyżej 48 godzin, chyba że w tym czasie osoba zostanie przekazana do dyspozycji sądu z wnioskiem o tymczasowe aresztowanie (art. 248 § 1 k.p.k.)."
+    ],
+    [
+      "Czy dostanę kopię protokołu?",
+      "Protokół odczytuje się przed podpisaniem i możesz zgłosić zarzuty co do jego treści (art. 150 § 1 i 2 k.p.k.). Nie można Ci odmówić zgody na sporządzenie odpisu protokołu czynności, w której brałeś udział (art. 157 § 3 k.p.k.). Poproś o to po przesłuchaniu."
+    ]
+  ],
+  "related": [
+    "jazda-po-alkoholu-pierwszy-raz",
+    "wyrok-nakazowy-co-to-jest"
+  ],
+  "author": {
+    "name": "Zespół PKW Adwokaci",
+    "person": false,
+    "bio": "Kancelaria adwokacka Polański Konofalski i Wspólnicy z Opola. Prowadzimy sprawy karne, karne skarbowe, administracyjne, rodzinne i cywilne w całej Polsce."
+  },
+  "cta_label": "Masz wezwanie na policję?",
+  "cta_title": "Prześlij zdjęcie wezwania. Omówimy, jak przygotować się do przesłuchania i czy warto iść z obrońcą."
+}

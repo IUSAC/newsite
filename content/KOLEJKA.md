@@ -2,7 +2,7 @@
 
 Źródło: plan z raportu „PKW Adwokaci – słowa kluczowe, plan bloga i teksty strony”. Przed napisaniem sprawdź, czy fraza nie pokrywa się z istniejącym wpisem (ZASADY-BLOGA.md, pkt 2). Po publikacji odhacz `[x]` i dopisz slug.
 
-- [ ] Wezwanie na policję jako podejrzany: jak się przygotować — fraza: „wezwanie na policję jako podejrzany” — prawo-karne
+- [x] Wezwanie na policję jako podejrzany: jak się przygotować — fraza: „wezwanie na policję jako podejrzany” — prawo-karne — slug: wezwanie-na-policje-jako-podejrzany, publikacja 2026-10-01
 - [ ] Zarzuty z k.k.s. dla przedsiębiorcy: przebieg postępowania — fraza: „zarzuty z kodeksu karnego skarbowego” — karne-skarbowe-i-podatkowe
 - [ ] Podział majątku po rozwodzie: sąd czy umowa — fraza: „podział majątku po rozwodzie” — prawo-rodzinne
 - [ ] Nakaz rozbiórki: co można zrobić po decyzji — fraza: „nakaz rozbiórki co robić” — prawo-administracyjne
