@@ -465,6 +465,44 @@ a.person:hover .call .arr{transform:translateX(4px)}
   a.person .call::before{content:"";width:20px;height:20px;background:currentColor;-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z'/></svg>") center/contain no-repeat;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z'/></svg>") center/contain no-repeat}
   a.person .call .arr{display:none}
 }
+
+/* ===== O kancelarii ===== */
+.ab-top{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);margin-top:24px;align-items:end}
+.ab-lead{font-family:var(--display);font-weight:600;font-size:clamp(24px,3vw,40px);line-height:1.22;letter-spacing:-.015em;max-width:26ch}
+.ab-lead mark{background:none;color:inherit;box-shadow:inset 0 -.38em 0 var(--green);padding:0 .06em}
+.ab-facts{margin:0;display:grid;border-top:1px solid var(--ink)}
+.ab-facts div{display:grid;grid-template-columns:minmax(110px,auto) minmax(0,1fr);gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+.ab-facts dt{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:22px}
+.ab-facts dd{margin:0;color:var(--ink-2);font-size:15px}
+.ab-h{margin-top:clamp(48px,6vw,80px);font-size:20px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ab-h span{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.ab-grid{margin-top:18px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ab-card{position:relative;display:grid;grid-template-rows:auto auto 1fr;gap:8px;padding:22px 20px 56px;background:var(--paper-2);color:var(--ink);text-decoration:none;min-height:190px;overflow:hidden;transition:background .3s,color .3s,transform .3s}
+.ab-card::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:0;background:var(--green);transition:width .35s}
+.ab-n{font-family:var(--mono);font-size:12px;color:var(--green-ink)}
+.ab-law{position:absolute;right:20px;top:22px;font-family:var(--mono);font-size:11px;color:var(--ink-2)}
+.ab-card strong{font-family:var(--display);font-stretch:112%;font-size:24px;line-height:1.1;letter-spacing:-.01em}
+.ab-d{color:var(--ink-2);font-size:15px;line-height:1.45}
+.ab-arr{position:absolute;left:20px;bottom:18px;width:24px;height:24px;color:var(--ink);transition:transform .3s}
+.ab-card:hover,.ab-card:focus-visible{background:var(--night);color:#fff;transform:translateY(-4px)}
+.ab-card:hover .ab-d,.ab-card:focus-visible .ab-d,.ab-card:hover .ab-law{color:rgba(255,255,255,.7)}
+.ab-card:hover .ab-n{color:var(--green)}
+.ab-card:hover .ab-arr{color:var(--green);transform:translateX(6px)}
+.ab-card:hover::after{width:100%}
+@media (max-width:1000px){.ab-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ab-top{grid-template-columns:1fr}}
+@media (max-width:560px){
+  .ab-lead{font-size:24px}
+  .ab-facts div{grid-template-columns:118px minmax(0,1fr);padding:12px 0}
+  .ab-facts dt{font-size:18px;white-space:nowrap}
+  .ab-facts dd{font-size:14px}
+  .ab-h{margin-top:40px;font-size:18px}
+  .ab-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .ab-card{padding:16px 14px 48px;min-height:0;gap:6px}
+  .ab-card strong{font-size:18px;overflow-wrap:anywhere}
+  .ab-law{display:none}
+  .ab-d{font-size:13px}
+  .ab-arr{left:14px;bottom:14px;width:20px;height:20px}
+}
 </style>
 </head>
 <body>
@@ -475,7 +513,6 @@ a.person:hover .call .arr{transform:translateX(4px)}
     <nav class="menu" id="menu" aria-label="Główne">
       <a href="#sytuacje">Moja sytuacja</a>
       <a href="#wspolpraca">Współpraca</a>
-      <a href="#cennik">Cennik</a>
       <a href="#zespol">Zespół</a>
       <a href="#wiedza">Wiedza</a>
       <a href="#kontakt">Kontakt</a>
@@ -552,7 +589,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
       <div><span class="label"><span class="dot"></span>Pytania</span><h2 style="margin-top:18px">Zanim napiszesz</h2></div>
       <div class="faq">
         <details><summary>Czy możemy działać zdalnie, jeśli mieszkam w innym mieście?</summary><p>Tak. Konsultacje odbywają się online, dokumenty podpisujesz elektronicznie lub kurierem. Na rozprawy jeździmy do sądów w całej Polsce.</p></details>
-        <details><summary>Ile kosztuje pierwsza rozmowa?</summary><p>Cena konsultacji jest podana w cenniku. Przed rozmową dostajesz ją na piśmie.</p></details>
+        <details><summary>Ile kosztuje pierwsza rozmowa?</summary><p>Koszt konsultacji podajemy przed rozmową, na piśmie. Zadzwoń albo napisz, a otrzymasz wycenę dla swojej sprawy.</p></details>
         <details><summary>Termin już prawie minął. Co teraz?</summary><p>Wyślij zdjęcie pisma przez formularz i zadzwoń. Sprawy z terminem do 3 dni rozpatrujemy w pierwszej kolejności.</p></details>
         <details><summary>Czy rozmowa jest poufna?</summary><p>Tak. Wszystko, co przekażesz adwokatowi, objęte jest tajemnicą adwokacką, także zanim podpiszesz umowę.</p></details>
         <details><summary>Czy możecie zagwarantować wynik sprawy?</summary><p>Nie. Żaden adwokat nie może obiecać wyniku. Możemy powiedzieć, jakie są realne scenariusze i co zrobimy, żeby osiągnąć najlepszy możliwy.</p></details>
@@ -607,12 +644,20 @@ a.person:hover .call .arr{transform:translateX(4px)}
   <section class="s" id="o-nas">
     <div class="wrap">
       <span class="label"><span class="dot"></span>O kancelarii</span>
-      <p class="statement" style="margin-top:24px;max-width:28ch">Każda sprawa zaczyna się od <b>konkretnego pisma i terminu</b>. Mówimy, co ono znaczy, ile masz czasu i co zrobimy krok po kroku.</p>
-      <div class="areas">
-        <div><span class="n">K.K. · K.P.K.</span><strong>Karne</strong><span>Obrona, zarzuty, wyroki nakazowe, sprawy kierowców</span></div>
-        <div><span class="n">O.P. · K.K.S.</span><strong>Podatkowe</strong><span>Kontrole KAS, spory z urzędem, sprawy karne skarbowe</span></div>
-        <div><span class="n">K.P.A. · P.P.S.A.</span><strong>Administracyjne</strong><span>Odwołania, skargi do WSA i NSA</span></div>
-        <div><span class="n">K.R.O.</span><strong>Rodzinne</strong><span>Rozwody, alimenty, podział majątku, kontakty z dziećmi</span></div>
+      <div class="ab-top">
+        <p class="ab-lead">Każda sprawa zaczyna się od <mark>konkretnego pisma i&nbsp;terminu</mark>. Mówimy, co ono znaczy, ile masz czasu i&nbsp;co zrobimy krok po kroku.</p>
+        <dl class="ab-facts">
+          <div><dt>2014</dt><dd>rok założenia kancelarii</dd></div>
+          <div><dt>Opole</dt><dd>siedziba · sprawy w całej Polsce, także online</dd></div>
+          <div><dt>PL · EN · DE</dt><dd>języki doradztwa</dd></div>
+        </dl>
+      </div>
+      <h3 class="ab-h">W czym pomagamy <span>wybierz dziedzinę</span></h3>
+      <div class="ab-grid">
+        <a class="ab-card" href="#sytuacje" data-go="karne"><span class="ab-n">01</span><span class="ab-law">k.k. · k.p.k.</span><strong>Karne</strong><span class="ab-d">Obrona, zarzuty, wyroki nakazowe, sprawy kierowców</span><svg class="ab-arr" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        <a class="ab-card" href="#sytuacje" data-go="podatkowe"><span class="ab-n">02</span><span class="ab-law">o.p. · k.k.s.</span><strong>Podatkowe</strong><span class="ab-d">Kontrole KAS, spory z urzędem, sprawy karne skarbowe</span><svg class="ab-arr" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        <a class="ab-card" href="#sytuacje" data-go="admin"><span class="ab-n">03</span><span class="ab-law">k.p.a. · p.p.s.a.</span><strong>Administracyjne</strong><span class="ab-d">Odwołania od decyzji, skargi do WSA i NSA</span><svg class="ab-arr" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        <a class="ab-card" href="#sytuacje" data-go="rodzinne"><span class="ab-n">04</span><span class="ab-law">k.r.o.</span><strong>Rodzinne</strong><span class="ab-d">Rozwody, alimenty, podział majątku, kontakty z dziećmi</span><svg class="ab-arr" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h13M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </section>
@@ -683,20 +728,6 @@ a.person:hover .call .arr{transform:translateX(4px)}
     </div>
   </section>
 
-  <!-- Cennik -->
-  <section class="s" id="cennik">
-    <div class="wrap">
-      <div class="s-head">
-        <div><span class="label"><span class="dot"></span>Cennik</span><h2 style="margin-top:18px">Koszt znasz z góry</h2></div>
-        <p>Większość kancelarii nie podaje cen. Podajemy wstępne kwoty, a pełną wycenę po konsultacji.</p>
-      </div>
-      <div class="prices">
-        <div class="price"><span class="label">Konsultacja online</span><div class="amt">599 zł<small>/ 45 min</small></div><ul><li>Analiza pisma przed rozmową</li><li>Wideo lub telefon</li></ul></div>
-        <div class="price"><span class="label">Pojedyncze pismo</span><div class="amt">399 zł</div><ul><li>Sprzeciw, odwołanie, zażalenie</li><li>Skarga do WSA</li></ul></div>
-        <div class="price"><span class="label">Prowadzenie sprawy</span><div class="amt">wycena</div><ul><li>Stała kwota za etap lub stawka godzinowa</li><li>Zapisana w umowie przed startem</li></ul></div>
-      </div>
-    </div>
-  </section>
 
 
   <!-- Wiedza -->
@@ -865,6 +896,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
       cards.forEach(function(c){c.hidden=!(f==='all'||c.dataset.a===f)});
     });
   });
+  document.querySelectorAll('.ab-card[data-go]').forEach(function(c){c.addEventListener('click',function(){var b=document.querySelector('.filters button[data-f="'+c.dataset.go+'"]');if(b)b.click()})});
   var fi=document.getElementById('f-file');
   fi.addEventListener('change',function(){
     document.getElementById('f-file-txt').textContent=fi.files.length?('Dodano: '+fi.files[0].name):'+ Dodaj zdjęcie lub PDF pisma (opcjonalnie)';
