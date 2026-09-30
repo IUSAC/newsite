@@ -49,6 +49,7 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px}
 .logo{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:20px;letter-spacing:-.01em;text-decoration:none;display:flex;align-items:center;gap:10px}
 .logo i{width:12px;height:12px;background:var(--green);display:inline-block}
+.logo .bar{width:3px;height:1em;background:var(--green);display:inline-block}
 .menu{display:flex;gap:28px;font-size:14px;font-weight:500}
 .menu a{text-decoration:none;position:relative}
 .menu a::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:2px;background:var(--green);transition:right .3s}
@@ -499,7 +500,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
 <body>
 <header class="top">
   <div class="wrap nav">
-    <a class="logo" href="../"><i></i>PKW ADWOKACI</a>
+    <a class="logo" href="../"><i></i>PKW<b class="bar" aria-hidden="true"></b>ADWOKACI</a>
     <nav class="menu" id="menu" aria-label="Główne">
       <a href="./" aria-current="page">Moja sytuacja</a>
       <a href="../#wspolpraca">Współpraca</a>
@@ -542,7 +543,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
   </section>
 </main>
 <footer>
-  <div class="wrap"><div class="big-mark"><svg viewBox="0 0 1000 132" role="img" aria-label="PKW Adwokaci"><text x="0" y="118" font-size="150" textLength="1000" lengthAdjust="spacingAndGlyphs">PKW<tspan>.</tspan>ADWOKACI</text></svg></div></div>
+  <div class="wrap"><div class="big-mark"><svg viewBox="0 0 1000 132" role="img" aria-label="PKW Adwokaci"><text x="0" y="118" font-size="150" textLength="1000" lengthAdjust="spacingAndGlyphs">PKW<tspan> | </tspan>ADWOKACI</text></svg></div></div>
   <div class="wrap">
     <span>© 2026 Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów · ul. Kołłątaja 11 lok. 27, 45-064 Opole</span>
     <span>Polityka prywatności · Informacje zgodne z § 23 Kodeksu Etyki Adwokackiej</span>
