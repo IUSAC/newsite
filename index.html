@@ -443,6 +443,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   .sc-rail,.sc-cue{display:none}
   #scrub{transform:none}
 }
+
+/* ===== Zespół: klikalne karty – połączenie telefoniczne ===== */
+a.person{text-decoration:none;color:inherit;position:relative;cursor:pointer;transition:transform .35s cubic-bezier(.2,.7,.1,1)}
+a.person .portrait{transition:filter .4s,background-size .6s;background-size:cover}
+a.person:hover{transform:translateY(-6px)}
+a.person:hover .portrait.has-photo{filter:grayscale(1) contrast(1.15) brightness(1.08)}
+a.person .call{display:inline-flex;align-items:center;gap:8px;align-self:start;margin-top:4px;padding:10px 14px;background:var(--ink);color:#fff;font-weight:600;font-size:14px;transition:background .25s,color .25s}
+a.person:hover .call,a.person:focus-visible .call{background:var(--green);color:var(--ink)}
+a.person .call .arr{transition:transform .25s}
+a.person:hover .call .arr{transform:translateX(4px)}
+@media (max-width:560px){
+  a.person{grid-template-columns:76px minmax(0,1fr) auto!important}
+  a.person:hover{transform:none}
+  a.person .call{margin:0;padding:0;width:48px;height:48px;border-radius:50%;justify-content:center;font-size:0;background:var(--green);color:var(--ink)}
+  a.person .call::before{content:"";width:20px;height:20px;background:currentColor;-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z'/></svg>") center/contain no-repeat;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z'/></svg>") center/contain no-repeat}
+  a.person .call .arr{display:none}
+}
 </style>
 </head>
 <body>
@@ -505,6 +522,64 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
       </div>
       <ol class="sc-rail" aria-hidden="true"><li class="is-on"></li><li></li><li></li><li></li></ol>
       <div class="sc-cue" aria-hidden="true"><span>Przewiń</span><i></i></div>
+    </div>
+  </section>
+
+  <!-- Zespół -->
+  <section class="s tint" id="zespol">
+    <div class="wrap">
+      <div class="s-head">
+        <div><span class="label"><span class="dot"></span>Zespół</span><h2 style="margin-top:18px">Adwokaci</h2></div>
+        <p>Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów, Opole, od 2014 roku. Kliknij adwokata, żeby zadzwonić do kancelarii.</p>
+      </div>
+      <div class="team">
+        <a class="person" href="tel:+48774543166" aria-label="Zadzwoń: adw. Bartosz Polański, tel. 77 454 31 66"><div class="portrait" data-photo="assets/team-portrait-1.jpg"><span class="ini">BP</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Bartosz Polański</h3><span>Partner</span><span class="sample-note">Zdjęcie poglądowe</span></div><span>Nr wpisu ___</span></div><span class="call" aria-hidden="true">Zadzwoń <span class="arr">→</span></span></a>
+        <a class="person" href="tel:+48774543166" aria-label="Zadzwoń: adw. Marcin Konofalski, tel. 77 454 31 66"><div class="portrait" data-photo="assets/team-portrait-2.jpg"><span class="ini">MK</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Marcin Konofalski</h3><span>Partner</span><span class="sample-note">Zdjęcie poglądowe</span></div><span>Nr wpisu ___</span></div><span class="call" aria-hidden="true">Zadzwoń <span class="arr">→</span></span></a>
+        <a class="person" href="tel:+48774543166" aria-label="Zadzwoń: adw. Jolanta Konofalska, tel. 77 454 31 66"><div class="portrait" data-photo="assets/team-portrait-3.jpg"><span class="ini">JK</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Jolanta Konofalska</h3><span>Adwokat</span><span class="sample-note">Zdjęcie poglądowe</span></div><span>Nr wpisu ___</span></div><span class="call" aria-hidden="true">Zadzwoń <span class="arr">→</span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section class="s dark" id="kontakt">
+    <div class="wrap contact">
+      <div>
+        <span class="label"><span class="dot"></span>Kontakt</span>
+        <h2 style="margin-top:18px">Pokaż nam pismo</h2>
+        <p style="margin-top:20px;color:rgba(255,255,255,.72);max-width:44ch">Trzy pola i zdjęcie dokumentu. Oddzwonimy w dni robocze w ciągu godziny.</p>
+        <div class="channels">
+          <div><span>Telefon</span><span>+48 77 454 31 66<br>+48 608 301 225</span></div>
+          <div><span>WhatsApp</span><span>+48 608 301 225</span></div>
+          <div><span>E-mail</span><span>biuro@pkwadwokaci.pl</span></div>
+          <div><span>Adres</span><span>ul. Kołłątaja 11 lok. 27<br>45-064 Opole</span></div>
+        </div>
+      </div>
+      <div id="formbox">
+        <form id="lead" novalidate>
+          <div class="row2">
+            <label class="f" for="f-name">Imię<input id="f-name" name="name" autocomplete="given-name" required></label>
+            <label class="f" for="f-phone">Telefon<input id="f-phone" name="phone" type="tel" autocomplete="tel" required></label>
+          </div>
+          <label class="f" for="f-area">Czego dotyczy sprawa?
+            <select id="f-area" name="area">
+              <option>Jazda po alkoholu / prawo jazdy</option>
+              <option>Wyrok nakazowy / zarzuty</option>
+              <option>Kontrola skarbowa</option>
+              <option>Sprawa karna skarbowa</option>
+              <option>Decyzja urzędu / skarga do WSA</option>
+              <option>Rozwód / podział majątku</option>
+              <option>Alimenty / kontakty z dziećmi</option>
+              <option>Inne</option>
+            </select>
+          </label>
+          <label class="file" for="f-file">
+            <input id="f-file" type="file" accept="image/*,.pdf">
+            <span id="f-file-txt">+ Dodaj zdjęcie lub PDF pisma (opcjonalnie)</span>
+          </label>
+          <label class="consent" for="f-ok"><input id="f-ok" type="checkbox" required> Wyrażam zgodę na kontakt w sprawie zapytania. Dane chroni tajemnica adwokacka.</label>
+          <button class="btn green" type="submit" style="justify-self:start">Wyślij do adwokata <span class="arr">→</span></button>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -603,20 +678,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
     </div>
   </section>
 
-  <!-- Zespół -->
-  <section class="s tint" id="zespol">
-    <div class="wrap">
-      <div class="s-head">
-        <div><span class="label"><span class="dot"></span>Zespół</span><h2 style="margin-top:18px">Adwokaci</h2></div>
-        <p>Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów. Kancelaria działa w Opolu od 2014 roku. Numer wpisu na listę adwokatów podajemy przy nazwisku.</p>
-      </div>
-      <div class="team">
-        <div class="person"><div class="portrait" data-photo="assets/team-portrait-1.jpg"><span class="ini">BP</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Bartosz Polański</h3><span>Partner</span><span class="sample-note">Zdjęcie poglądowe</span></div><span>Nr wpisu ___</span></div></div>
-        <div class="person"><div class="portrait" data-photo="assets/team-portrait-2.jpg"><span class="ini">MK</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Marcin Konofalski</h3><span>Partner</span><span class="sample-note">Zdjęcie poglądowe</span></div><span>Nr wpisu ___</span></div></div>
-        <div class="person"><div class="portrait" data-photo="assets/team-portrait-3.jpg"><span class="ini">JK</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Jolanta Konofalska</h3><span>Adwokat</span><span class="sample-note">Zdjęcie poglądowe</span></div><span>Nr wpisu ___</span></div></div>
-      </div>
-    </div>
-  </section>
 
   <!-- Wiedza -->
   <section class="s" id="wiedza">
@@ -671,48 +732,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
     </div>
   </section>
 
-  <!-- Kontakt -->
-  <section class="s dark" id="kontakt">
-    <div class="wrap contact">
-      <div>
-        <span class="label"><span class="dot"></span>Kontakt</span>
-        <h2 style="margin-top:18px">Pokaż nam pismo</h2>
-        <p style="margin-top:20px;color:rgba(255,255,255,.72);max-width:44ch">Trzy pola i zdjęcie dokumentu. Oddzwonimy w dni robocze w ciągu godziny.</p>
-        <div class="channels">
-          <div><span>Telefon</span><span>+48 77 454 31 66<br>+48 608 301 225</span></div>
-          <div><span>WhatsApp</span><span>+48 608 301 225</span></div>
-          <div><span>E-mail</span><span>biuro@pkwadwokaci.pl</span></div>
-          <div><span>Adres</span><span>ul. Kołłątaja 11 lok. 27<br>45-064 Opole</span></div>
-        </div>
-      </div>
-      <div id="formbox">
-        <form id="lead" novalidate>
-          <div class="row2">
-            <label class="f" for="f-name">Imię<input id="f-name" name="name" autocomplete="given-name" required></label>
-            <label class="f" for="f-phone">Telefon<input id="f-phone" name="phone" type="tel" autocomplete="tel" required></label>
-          </div>
-          <label class="f" for="f-area">Czego dotyczy sprawa?
-            <select id="f-area" name="area">
-              <option>Jazda po alkoholu / prawo jazdy</option>
-              <option>Wyrok nakazowy / zarzuty</option>
-              <option>Kontrola skarbowa</option>
-              <option>Sprawa karna skarbowa</option>
-              <option>Decyzja urzędu / skarga do WSA</option>
-              <option>Rozwód / podział majątku</option>
-              <option>Alimenty / kontakty z dziećmi</option>
-              <option>Inne</option>
-            </select>
-          </label>
-          <label class="file" for="f-file">
-            <input id="f-file" type="file" accept="image/*,.pdf">
-            <span id="f-file-txt">+ Dodaj zdjęcie lub PDF pisma (opcjonalnie)</span>
-          </label>
-          <label class="consent" for="f-ok"><input id="f-ok" type="checkbox" required> Wyrażam zgodę na kontakt w sprawie zapytania. Dane chroni tajemnica adwokacka.</label>
-          <button class="btn green" type="submit" style="justify-self:start">Wyślij do adwokata <span class="arr">→</span></button>
-        </form>
-      </div>
-    </div>
-  </section>
 </main>
 
 <dialog class="vid" id="vid-0" aria-labelledby="vt-0">
