@@ -266,6 +266,8 @@ dialog.vid::backdrop{background:rgba(11,13,12,.8);backdrop-filter:blur(4px)}
 /* Contact */
 .contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(28px,5vw,72px)}
 @media (max-width:900px){.contact{grid-template-columns:1fr}}
+.c-left{display:contents}
+@media (min-width:901px){.contact{row-gap:0}.c-intro{grid-column:1;grid-row:1}.c-data{grid-column:1;grid-row:2}#formbox{grid-column:2;grid-row:2;margin-top:32px}}
 .channels{display:grid;gap:0;margin-top:32px;border-top:1px solid rgba(255,255,255,.2)}
 .channels div{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.2);font-size:15px}
 .channels span:first-child{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.6)}
@@ -633,10 +635,13 @@ a.person:hover .call .arr{transform:translateX(4px)}
   <!-- Kontakt -->
   <section class="s dark" id="kontakt">
     <div class="wrap contact">
-      <div>
+      <div class="c-left">
+       <div class="c-intro">
         <span class="label"><span class="dot"></span>Kontakt</span>
         <h2 style="margin-top:18px">Kontakt z kancelarią</h2>
         <p style="margin-top:20px;color:rgba(255,255,255,.72);max-width:44ch">Trzy pola i zdjęcie dokumentu. Oddzwonimy w dni robocze w ciągu godziny.</p>
+       </div>
+       <div class="c-data">
         <div class="channels">
           <div><span>Telefon</span><span>+48 77 414 36 69<br>+48 608 301 225</span></div>
           <div><span>WhatsApp</span><span>+48 608 301 225</span></div>
@@ -651,6 +656,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
           <div><span>Numer konta</span><span>IBAN PL 03 1140 2017 0000 4102 1306 6060</span></div>
           <div><span>BIC</span><span>BREXPLPWMUL</span></div>
         </div>
+       </div>
       </div>
       <div id="formbox">
         <form id="lead" novalidate>
