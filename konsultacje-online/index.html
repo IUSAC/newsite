@@ -318,6 +318,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   .price{padding:22px 0}
   .amt{font-size:36px}
   .channels div{flex-direction:column;gap:4px}
+  .channels span:last-child{text-align:left}
   .v-in{padding:24px 18px}
     footer .wrap{padding-block:20px 24px}
 }
@@ -499,6 +500,10 @@ a.person:hover .call .arr{transform:translateX(4px)}
 .od-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 @media (max-width:1000px){.oa-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.oa-grid{grid-template-columns:1fr;border-left:0}.oa{border-right:0;padding:22px 0}.why{grid-template-columns:1fr}.od-hero{padding-block:96px 48px}}
+
+/* wyróżnione słowo: jeden zielony #adff23 – na jasnym tle podkreślenie, na ciemnym zielony tekst */
+.hl{color:inherit;background:linear-gradient(transparent 62%,var(--green) 62%);padding:0 .04em}
+.dark .hl,.ko-hero .hl,.ko-cta .hl,.od-hero .hl{background:none;color:var(--green);padding:0}
 </style>
 
 <style>
@@ -520,24 +525,29 @@ main .s-head h2{font-size:clamp(34px,4.6vw,68px)}
 .ko-chips li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}
 
 /* makieta rozmowy */
-.call{position:relative;background:#121614;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.8);max-width:460px;justify-self:end;width:100%}
+.call{position:relative;background:#121614;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.8);max-width:480px;width:100%;justify-self:end;align-self:center}
 .call-top{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.1);font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.65)}
 .call-top .live{display:inline-flex;align-items:center;gap:8px;color:#fff}
 .call-top .live i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(173,255,35,.6);animation:ping 2s infinite}
 @keyframes ping{70%{box-shadow:0 0 0 10px rgba(173,255,35,0)}100%{box-shadow:0 0 0 0 rgba(173,255,35,0)}}
-.call-screen{position:relative;aspect-ratio:4/3;background:radial-gradient(90% 80% at 50% 110%,transparent,transparent 60%),linear-gradient(180deg,#1a1f1d,#0e1110);display:grid;place-items:center}
-.call-mark{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(40px,4.4vw,60px);letter-spacing:-.02em;display:flex;align-items:center;gap:12px;color:#fff}
-.call-mark b{width:4px;height:.9em;background:var(--green);display:inline-block}
-.wave{position:absolute;left:50%;bottom:22%;transform:translateX(-50%);display:flex;gap:4px;align-items:center;height:28px}
+.call-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px 14px 10px}
+.tile{position:relative;aspect-ratio:4/5;background:linear-gradient(180deg,#1b201e,#0e1110);border:1px solid rgba(255,255,255,.12);display:grid;place-items:center}
+.tile-a{border:2px solid var(--green)}
+.av{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:#0b0d0c;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.75)}
+.av svg{width:38px;height:38px}
+.tile-a .av{background:var(--green);border-color:var(--green);color:var(--ink);font-family:var(--display);font-stretch:125%;font-weight:800;font-size:20px;letter-spacing:-.01em}
+.tile-l{position:absolute;left:10px;bottom:10px;display:grid;gap:2px;text-align:left}
+.tile-l b{font-size:13px;color:#fff}
+.tile-l span{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.wave{position:absolute;right:12px;bottom:14px;display:flex;gap:3px;align-items:center;height:18px}
 .wave i{width:3px;height:30%;background:var(--green);animation:wv 1.1s ease-in-out infinite}
-.wave i:nth-child(2){animation-delay:.1s}.wave i:nth-child(3){animation-delay:.25s}.wave i:nth-child(4){animation-delay:.4s}.wave i:nth-child(5){animation-delay:.15s}.wave i:nth-child(6){animation-delay:.3s}.wave i:nth-child(7){animation-delay:.05s}
+.wave i:nth-child(2){animation-delay:.15s}.wave i:nth-child(3){animation-delay:.3s}.wave i:nth-child(4){animation-delay:.1s}.wave i:nth-child(5){animation-delay:.25s}
 @keyframes wv{50%{height:100%}}
-.call-me{position:absolute;right:12px;bottom:12px;width:28%;aspect-ratio:4/3;border:1px solid rgba(255,255,255,.2);background:#0b0d0c;display:grid;place-items:center;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.call-doc{position:absolute;left:-28px;bottom:58px;background:var(--paper);color:var(--ink);padding:12px 14px;display:grid;grid-template-columns:28px minmax(0,1fr);gap:4px 12px;align-items:center;box-shadow:0 18px 40px -12px rgba(0,0,0,.7);min-width:210px;animation:float 5s ease-in-out infinite}
-.call-doc svg{grid-row:span 2;width:28px;height:28px;color:var(--green-ink)}
-.call-doc b{font-size:13px}
-.call-doc span{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--green-ink)}
-@keyframes float{50%{transform:translateY(-8px)}}
+.call-doc{margin:0 14px;display:grid;grid-template-columns:28px minmax(0,1fr) 28px;gap:12px;align-items:center;background:var(--paper);color:var(--ink);padding:12px 14px}
+.call-doc svg{width:28px;height:28px}
+.call-doc b{display:block;font-size:14px}
+.call-doc span span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin-top:2px}
+.call-doc em{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--green);color:var(--ink);display:grid;place-items:center;font-weight:700;font-size:14px}
 .call-bar{display:flex;justify-content:center;gap:12px;padding:14px}
 .call-bar i{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.22);display:grid;place-items:center;color:rgba(255,255,255,.85)}
 .call-bar i svg{width:18px;height:18px}
@@ -656,7 +666,6 @@ main .s-head h2{font-size:clamp(34px,4.6vw,68px)}
 @media (max-width:900px){
   .ko-hero .wrap{grid-template-columns:1fr}
   .call{justify-self:start;max-width:420px}
-  .call-doc{left:auto;right:12px;bottom:auto;top:62px}
   .ko-facts{grid-template-columns:1fr}
   .ko-facts>div,.ko-facts>div+div{padding:20px 0;border-left:0}
   .ko-facts>div+div{border-top:1px solid var(--line)}
@@ -812,15 +821,22 @@ main .s-head h2{font-size:clamp(34px,4.6vw,68px)}
         </ul>
       </div>
       <div class="call" aria-hidden="true">
-        <div class="call-top"><span class="live"><i></i>Konsultacja online</span><span id="ko-timer">00:00</span></div>
-        <div class="call-screen">
-          <div class="call-mark">PKW<b></b></div>
-          <div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          <div class="call-me">Ty</div>
-          <div class="call-doc">
-            <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M6 2.8h8l4 4v14.4H6z"/><path fill="none" stroke="currentColor" stroke-width="1.6" d="M14 2.8v4h4M9 12h6M9 15.5h6"/></svg>
-            <b>Pismo z sądu.pdf</b><span>✓ Przesłane do analizy</span>
+        <div class="call-top"><span class="live"><i></i>Wideorozmowa z&nbsp;adwokatem</span><span id="ko-timer">00:00</span></div>
+        <div class="call-grid">
+          <div class="tile tile-a">
+            <span class="av">PKW</span>
+            <span class="tile-l"><b>Adwokat</b><span>PKW Adwokaci</span></span>
+            <span class="wave"><i></i><i></i><i></i><i></i><i></i></span>
           </div>
+          <div class="tile">
+            <span class="av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path fill="none" stroke="currentColor" stroke-width="1.6" d="M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6"/></svg></span>
+            <span class="tile-l"><b>Ty</b><span>Z&nbsp;domu lub biura</span></span>
+          </div>
+        </div>
+        <div class="call-doc">
+          <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M6 2.8h8l4 4v14.4H6z"/><path fill="none" stroke="currentColor" stroke-width="1.6" d="M14 2.8v4h4M9 12h6M9 15.5h6"/></svg>
+          <span><b>Pismo z&nbsp;sądu.pdf</b><span>Udostępnione w&nbsp;rozmowie</span></span>
+          <em>✓</em>
         </div>
         <div class="call-bar">
           <i><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></i>
@@ -854,7 +870,7 @@ main .s-head h2{font-size:clamp(34px,4.6vw,68px)}
   <section class="s" id="formy">
     <div class="wrap">
       <div class="s-head">
-        <div><span class="label"><span class="dot"></span>01 · Forma rozmowy</span><h2 style="margin-top:18px">Jak chcesz porozmawiać?</h2></div>
+        <div><span class="label"><span class="dot"></span>01 · Forma rozmowy</span><h2 style="margin-top:18px">Jak chcesz <span class="hl">porozmawiać</span>?</h2></div>
         <p>Wybierz kanał, który jest dla Ciebie najwygodniejszy. Każdy prowadzi do tej samej konsultacji z&nbsp;adwokatem.</p>
       </div>
       <div class="modes">
@@ -938,7 +954,7 @@ main .s-head h2{font-size:clamp(34px,4.6vw,68px)}
   <section class="s" id="dokumenty">
     <div class="wrap">
       <div class="s-head">
-        <div><span class="label"><span class="dot"></span>03 · Dokumenty</span><h2 style="margin-top:18px">Podpis bez wizyty w&nbsp;kancelarii</h2></div>
+        <div><span class="label"><span class="dot"></span>03 · Dokumenty</span><h2 style="margin-top:18px">Podpis bez wizyty w&nbsp;<span class="hl">kancelarii</span></h2></div>
         <p>Umowę i&nbsp;pełnomocnictwo podpiszesz na odległość. Wybierz sposób, który Ci odpowiada.</p>
       </div>
       <div class="docs">
@@ -984,7 +1000,7 @@ main .s-head h2{font-size:clamp(34px,4.6vw,68px)}
     <div class="wrap prep" id="prep">
       <div>
         <span class="label"><span class="dot"></span>04 · Przed rozmową</span>
-        <h2 style="margin-top:18px">Co przygotować</h2>
+        <h2 style="margin-top:18px">Co <span class="hl">przygotować</span></h2>
         <p style="margin-top:20px;color:var(--ink-2);font-size:18px;max-width:40ch">Zaznacz, co już masz. Dzięki temu rozmowa będzie krótsza i&nbsp;konkretna.</p>
         <div class="prep-meter" aria-live="polite">
           <div class="m-top"><span>Gotowe</span><b><span id="prep-n">0</span> / 6</b></div>
@@ -1006,7 +1022,7 @@ main .s-head h2{font-size:clamp(34px,4.6vw,68px)}
   <!-- FAQ -->
   <section class="s" id="pytania">
     <div class="wrap split">
-      <div><span class="label"><span class="dot"></span>Pytania</span><h2 style="margin-top:18px">Częste pytania</h2></div>
+      <div><span class="label"><span class="dot"></span>Pytania</span><h2 style="margin-top:18px">Częste <span class="hl">pytania</span></h2></div>
       <div class="faq">
         <details><summary>Czy muszę mieć kamerę lub specjalny program?</summary><p>Nie. Do konsultacji wystarczy telefon. Jeśli wybierzesz wideorozmowę, szczegóły połączenia wyślemy przed rozmową.</p></details>
         <details><summary>Czy rozmowa online jest poufna?</summary><p>Tak. Tajemnica adwokacka obejmuje rozmowę online tak samo jak spotkanie w&nbsp;kancelarii, także zanim podpiszesz umowę. Zadbaj tylko, żeby po Twojej stronie nikt postronny nie słuchał rozmowy.</p></details>

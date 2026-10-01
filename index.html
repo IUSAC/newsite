@@ -172,7 +172,7 @@ section.s{padding-block:clamp(72px,10vw,140px);border-bottom:1px solid var(--lin
 .proc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid rgba(255,255,255,.2)}
 @media (max-width:900px){.proc{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.proc{grid-template-columns:1fr}}
-.proc div{padding:28px 24px 28px 0;display:grid;gap:10px;position:relative}
+.proc div{padding:28px 24px 28px 0;display:grid;gap:10px;position:relative;align-content:start}
 .proc .n{font-family:var(--display);font-stretch:125%;font-size:56px;font-weight:800;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.45);line-height:1}
 .proc div:hover .n{-webkit-text-stroke-color:var(--green)}
 .proc p{color:rgba(255,255,255,.72);font-size:15px}
@@ -270,7 +270,8 @@ dialog.vid::backdrop{background:rgba(11,13,12,.8);backdrop-filter:blur(4px)}
 @media (min-width:901px){.contact{row-gap:0}.c-intro{grid-column:1;grid-row:1}.c-data{grid-column:1;grid-row:2}#formbox{grid-column:2;grid-row:2;margin-top:32px}}
 .channels{display:grid;gap:0;margin-top:32px;border-top:1px solid rgba(255,255,255,.2)}
 .channels div{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.2);font-size:15px}
-.channels span:first-child{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.6)}
+.channels span:last-child{text-align:right}
+.channels span:first-child{flex:0 0 auto;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.6)}
 form{display:grid;gap:18px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media (max-width:560px){.row2{grid-template-columns:1fr}}
@@ -328,6 +329,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   .price{padding:22px 0}
   .amt{font-size:36px}
   .channels div{flex-direction:column;gap:4px}
+  .channels span:last-child{text-align:left}
   .v-in{padding:24px 18px}
     footer .wrap{padding-block:20px 24px}
 }
@@ -585,6 +587,10 @@ a.person:hover .call .arr{transform:translateX(4px)}
 .bs-mob .btn{width:100%;justify-content:center;min-height:48px}
 @media (min-width:561px) and (max-width:860px){.bs-mob .btn{width:auto}}
 @media (prefers-reduced-motion:reduce){.bs-track{scroll-behavior:auto}}
+
+/* wyróżnione słowo: jeden zielony #adff23 – na jasnym tle podkreślenie, na ciemnym zielony tekst */
+.hl{color:inherit;background:linear-gradient(transparent 62%,var(--green) 62%);padding:0 .04em}
+.dark .hl,.ko-hero .hl,.ko-cta .hl,.od-hero .hl{background:none;color:var(--green);padding:0}
 </style>
 </head>
 <body>
@@ -654,13 +660,13 @@ a.person:hover .call .arr{transform:translateX(4px)}
   <section class="s tint" id="zespol">
     <div class="wrap">
       <div class="s-head">
-        <div><span class="label"><span class="dot"></span>Zespół</span><h2 style="margin-top:18px">Adwokaci</h2></div>
+        <div><span class="label"><span class="dot"></span>Kancelaria</span><h2 style="margin-top:18px"><span class="hl">Zespół</span></h2></div>
         <p>Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów, Opole, od 2014 roku. Kliknij adwokata, żeby zadzwonić do kancelarii.</p>
       </div>
       <div class="team">
-        <a class="person" href="tel:+48774143669" aria-label="Zadzwoń: adw. Bartosz Polański, tel. 77 414 36 69"><div class="portrait" data-photo="assets/team-portrait-1.jpg"><span class="ini">BP</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Bartosz Polański</h3><span>Partner</span><span class="sample-note">Zdjęcie poglądowe</span></div><span>Nr wpisu ___</span></div><span class="call" aria-hidden="true">Zadzwoń <span class="arr">→</span></span></a>
-        <a class="person" href="tel:+48774143669" aria-label="Zadzwoń: adw. Marcin Konofalski, tel. 77 414 36 69"><div class="portrait" data-photo="assets/team-portrait-2.jpg"><span class="ini">MK</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Marcin Konofalski</h3><span>Partner</span><span class="sample-note">Zdjęcie poglądowe</span></div><span>Nr wpisu ___</span></div><span class="call" aria-hidden="true">Zadzwoń <span class="arr">→</span></span></a>
-        <a class="person" href="tel:+48774143669" aria-label="Zadzwoń: adw. Jolanta Konofalska, tel. 77 414 36 69"><div class="portrait" data-photo="assets/team-portrait-3.jpg"><span class="ini">JK</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Jolanta Konofalska</h3><span>Adwokat</span><span class="sample-note">Zdjęcie poglądowe</span></div><span>Nr wpisu ___</span></div><span class="call" aria-hidden="true">Zadzwoń <span class="arr">→</span></span></a>
+        <a class="person" href="tel:+48774143669" aria-label="Zadzwoń: adw. Bartosz Polański, tel. 77 414 36 69"><div class="portrait" data-photo="assets/team-portrait-1.jpg"><span class="ini">BP</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Bartosz Polański</h3><span>Partner</span><span class="sample-note">Zdjęcie poglądowe</span></div></div><span class="call" aria-hidden="true">Zadzwoń <span class="arr">→</span></span></a>
+        <a class="person" href="tel:+48774143669" aria-label="Zadzwoń: adw. Marcin Konofalski, tel. 77 414 36 69"><div class="portrait" data-photo="assets/team-portrait-2.jpg"><span class="ini">MK</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Marcin Konofalski</h3><span>Partner</span><span class="sample-note">Zdjęcie poglądowe</span></div></div><span class="call" aria-hidden="true">Zadzwoń <span class="arr">→</span></span></a>
+        <a class="person" href="tel:+48774143669" aria-label="Zadzwoń: adw. Jolanta Konofalska, tel. 77 414 36 69"><div class="portrait" data-photo="assets/team-portrait-3.jpg"><span class="ini">JK</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>adw. Jolanta Konofalska</h3><span>Adwokat</span><span class="sample-note">Zdjęcie poglądowe</span></div></div><span class="call" aria-hidden="true">Zadzwoń <span class="arr">→</span></span></a>
       </div>
     </div>
   </section>
@@ -669,7 +675,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
   <section class="s dark" id="wspolpraca">
     <div class="wrap">
       <div class="s-head">
-        <div><span class="label"><span class="dot"></span>Współpraca</span><h2 style="margin-top:18px">Jak pracujemy</h2></div>
+        <div><span class="label"><span class="dot"></span>Współpraca</span><h2 style="margin-top:18px">Jak <span class="hl">pracujemy</span></h2></div>
         <p>Cztery kroki. Zanim podpiszesz umowę, wiesz, ile to kosztuje i co będziemy robić.</p>
       </div>
       <div class="proc">
@@ -684,7 +690,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
   <!-- FAQ -->
   <section class="s" id="pytania">
     <div class="wrap split">
-      <div><span class="label"><span class="dot"></span>Pytania</span><h2 style="margin-top:18px">Zanim napiszesz</h2></div>
+      <div><span class="label"><span class="dot"></span>Pytania</span><h2 style="margin-top:18px">Zanim <span class="hl">napiszesz</span></h2></div>
       <div class="faq">
         <details><summary>Czy możemy działać zdalnie, jeśli mieszkam w innym mieście?</summary><p>Tak. Konsultacje odbywają się online, dokumenty podpisujesz elektronicznie lub kurierem. Na rozprawy jeździmy do sądów w całej Polsce. <a href="konsultacje-online/">Zobacz, jak przebiega konsultacja online →</a></p></details>
         <details><summary>Ile kosztuje pierwsza rozmowa?</summary><p>Koszt konsultacji podajemy przed rozmową, na piśmie. Zadzwoń albo napisz, a otrzymasz wycenę dla swojej sprawy.</p></details>
@@ -701,7 +707,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
       <div class="c-left">
        <div class="c-intro">
         <span class="label"><span class="dot"></span>Kontakt</span>
-        <h2 style="margin-top:18px">Kontakt z kancelarią</h2>
+        <h2 style="margin-top:18px">Kontakt z <span class="hl">kancelarią</span></h2>
         <p style="margin-top:20px;color:rgba(255,255,255,.72);max-width:44ch">Trzy pola i zdjęcie dokumentu. Oddzwonimy w dni robocze w ciągu godziny.</p>
        </div>
        <div class="c-data">

@@ -165,7 +165,7 @@ section.s{padding-block:clamp(72px,10vw,140px);border-bottom:1px solid var(--lin
 .proc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid rgba(255,255,255,.2)}
 @media (max-width:900px){.proc{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.proc{grid-template-columns:1fr}}
-.proc div{padding:28px 24px 28px 0;display:grid;gap:10px;position:relative}
+.proc div{padding:28px 24px 28px 0;display:grid;gap:10px;position:relative;align-content:start}
 .proc .n{font-family:var(--display);font-stretch:125%;font-size:56px;font-weight:800;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.45);line-height:1}
 .proc div:hover .n{-webkit-text-stroke-color:var(--green)}
 .proc p{color:rgba(255,255,255,.72);font-size:15px}
@@ -261,7 +261,8 @@ dialog.vid::backdrop{background:rgba(11,13,12,.8);backdrop-filter:blur(4px)}
 @media (max-width:900px){.contact{grid-template-columns:1fr}}
 .channels{display:grid;gap:0;margin-top:32px;border-top:1px solid rgba(255,255,255,.2)}
 .channels div{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.2);font-size:15px}
-.channels span:first-child{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.6)}
+.channels span:last-child{text-align:right}
+.channels span:first-child{flex:0 0 auto;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.6)}
 form{display:grid;gap:18px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media (max-width:560px){.row2{grid-template-columns:1fr}}
@@ -319,6 +320,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   .price{padding:22px 0}
   .amt{font-size:36px}
   .channels div{flex-direction:column;gap:4px}
+  .channels span:last-child{text-align:left}
   .v-in{padding:24px 18px}
     footer .wrap{padding-block:20px 24px}
 }
@@ -500,6 +502,10 @@ a.person:hover .call .arr{transform:translateX(4px)}
 .od-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 @media (max-width:1000px){.oa-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.oa-grid{grid-template-columns:1fr;border-left:0}.oa{border-right:0;padding:22px 0}.why{grid-template-columns:1fr}.od-hero{padding-block:96px 48px}}
+
+/* wyróżnione słowo: jeden zielony #adff23 – na jasnym tle podkreślenie, na ciemnym zielony tekst */
+.hl{color:inherit;background:linear-gradient(transparent 62%,var(--green) 62%);padding:0 .04em}
+.dark .hl,.ko-hero .hl,.ko-cta .hl,.od-hero .hl{background:none;color:var(--green);padding:0}
 /* ===== Konsultacje online ===== */
 .ko-hero{background:var(--night);color:var(--on-night);position:relative;overflow:hidden;padding-block:clamp(96px,11vw,150px) clamp(56px,7vw,96px)}
 .ko-hero::before{content:"";position:absolute;inset:0;background:url(../../assets/hero-v4-poster.jpg) right center/cover no-repeat;opacity:.28;filter:grayscale(1)}
@@ -1090,7 +1096,7 @@ a.term:hover .go{color:var(--green)}
   </section>
   <section class="s" id="pytania">
     <div class="wrap split">
-      <div><span class="label"><span class="dot"></span>Pytania</span><h2 style="margin-top:18px">Częste pytania</h2></div>
+      <div><span class="label"><span class="dot"></span>Pytania</span><h2 style="margin-top:18px">Częste <span class="hl">pytania</span></h2></div>
       <div class="faq"><details><summary>Dostałem wezwanie na policję jako podejrzany. Co robić?</summary><p>Już na tym etapie możesz mieć obrońcę i możesz odmówić składania wyjaśnień. Skontaktuj się z adwokatem przed przesłuchaniem.</p></details><details><summary>Jestem pokrzywdzonym. Czy mogę mieć pełnomocnika?</summary><p>Tak. Pełnomocnik pomoże złożyć zawiadomienie i wnioski dowodowe oraz dochodzić roszczeń w procesie.</p></details><details><summary>Czy bronicie w sądach poza Opolem?</summary><p>Tak. Na rozprawy jeździmy do sądów w całej Polsce, a konsultacja może odbyć się online.</p></details></div>
     </div>
   </section>

@@ -292,7 +292,7 @@ def facts():
     </div>
   </div>"""
 
-def faq_html(items, title="Częste pytania"):
+def faq_html(items, title='Częste <span class="hl">pytania</span>'):
     d = "".join(f"<details><summary>{E(q)}</summary><p>{E(a)}</p></details>" for q, a in items)
     return f"""  <section class="s" id="pytania">
     <div class="wrap split">
@@ -467,7 +467,7 @@ def build_about():
   <section class="s tint" id="zespol" style="background:var(--paper-2)">
     <div class="wrap">
       <div class="s-head">
-        <div><span class="label"><span class="dot"></span>02 · Zespół</span><h2 style="margin-top:18px">Adwokaci</h2></div>
+        <div><span class="label"><span class="dot"></span>02 · Adwokaci</span><h2 style="margin-top:18px"><span class="hl">Zespół</span></h2></div>
         <p>Kliknij kartę, żeby zadzwonić do kancelarii.</p>
       </div>
       <div class="team">{team}</div>
