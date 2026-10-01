@@ -522,6 +522,69 @@ a.person:hover .call .arr{transform:translateX(4px)}
   .ab-d{font-size:13px}
   .ab-arr{left:14px;bottom:14px;width:20px;height:20px}
 }
+
+/* ===== Slider z bloga (nad stopką) – treść generuje scripts/build_blog.py ===== */
+.bs{background:var(--paper-2);border-bottom:0!important;overflow:hidden}
+.bs-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:clamp(24px,3vw,40px)}
+.bs-head h2{font-size:clamp(30px,4vw,56px);margin-top:14px}
+.bs-head h2 span{color:var(--green-ink)}
+.bs-ctrl{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.bs-nav{width:48px;height:48px;display:grid;place-items:center;background:var(--paper);color:var(--ink);border:1px solid var(--ink);cursor:pointer;transition:background .2s,color .2s,opacity .2s}
+.bs-nav svg{width:20px;height:20px}
+.bs-nav:hover:not(:disabled){background:var(--ink);color:var(--green)}
+.bs-nav:disabled{opacity:.28;cursor:default}
+.bs-all{margin-left:12px}
+.bs-track{list-style:none;margin:0;padding:4px 0 6px;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 3 * 20px) / 4);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none;cursor:grab}
+.bs-track::-webkit-scrollbar{display:none}
+.bs-track.is-drag{scroll-snap-type:none;scroll-behavior:auto;cursor:grabbing}
+.bs-track.is-drag a{pointer-events:none}
+.bs-track>li{scroll-snap-align:start;display:flex;min-width:0}
+.bs-card{position:relative;display:grid;grid-template-rows:auto 1fr;width:100%;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);transition:border-color .25s,transform .3s cubic-bezier(.2,.7,.1,1),box-shadow .3s;-webkit-user-drag:none}
+.bs-card::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:3px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .35s;z-index:1}
+.bs-card:hover,.bs-card:focus-visible{border-color:var(--ink);transform:translateY(-4px);box-shadow:0 18px 34px -22px rgba(11,13,12,.5)}
+.bs-card:hover::before,.bs-card:focus-visible::before{transform:scaleX(1)}
+.bs-img{display:block;aspect-ratio:16/10;overflow:hidden;background:var(--night)}
+.bs-img img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s ease;-webkit-user-drag:none;user-select:none}
+.bs-card:hover .bs-img img{transform:scale(1.05)}
+.bs-txt{display:grid;grid-template-rows:auto auto 1fr auto;gap:10px;padding:18px 20px 20px}
+.bs-meta{display:flex;flex-wrap:wrap;gap:4px 12px;font:500 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.bs-meta b{font-weight:500;color:var(--green-ink)}
+.bs-t{align-self:start;font-family:var(--display);font-stretch:108%;font-weight:600;font-size:19px;line-height:1.2;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.bs-d{align-self:start;color:var(--ink-2);font-size:14.5px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.bs-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:12px;border-top:1px solid var(--line);font:500 12px var(--mono);color:var(--ink-2)}
+.bs-foot .arr{font-family:var(--body);font-size:18px;color:var(--ink);transition:transform .25s,color .25s}
+.bs-card:hover .bs-foot .arr{transform:translateX(5px);color:var(--green-ink)}
+.bs-card--all{background:var(--night);color:var(--on-night);border-color:var(--night);grid-template-rows:1fr;align-content:stretch;overflow:hidden;isolation:isolate}
+.bs-card--all::after{content:"";position:absolute;z-index:-1;width:80%;aspect-ratio:1;right:-30%;bottom:-30%;border-radius:50%;background:rgba(173,255,35,.22);filter:blur(50px);transition:transform .6s}
+.bs-card--all:hover{border-color:var(--night)}
+.bs-card--all:hover::after{transform:scale(1.3)}
+.bs-all-in{display:flex;flex-direction:column;justify-content:space-between;gap:24px;padding:24px 22px;min-height:100%}
+.bs-all-n{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(72px,7vw,104px);line-height:.85;letter-spacing:-.04em;color:var(--green)}
+.bs-all-t{font-family:var(--display);font-stretch:108%;font-weight:600;font-size:22px;line-height:1.15}
+.bs-all-t small{display:block;margin-top:8px;font:400 14px/1.5 var(--body);color:rgba(255,255,255,.7)}
+.bs-all-go{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;background:var(--green);color:var(--ink);padding:12px 16px;font-weight:600;font-size:14px}
+.bs-all-go .arr{transition:transform .25s}
+.bs-card--all:hover .bs-all-go .arr{transform:translateX(4px)}
+.bs-bar{position:relative;height:2px;background:var(--line);margin-top:clamp(20px,2.4vw,32px)}
+.bs-bar i{position:absolute;left:0;top:-1px;height:4px;width:25%;background:var(--ink);transition:transform .15s linear,width .2s}
+.bs-mob{display:none}
+@media (max-width:1100px){.bs-track{grid-auto-columns:calc((100% - 2 * 20px) / 3)}}
+@media (max-width:860px){.bs-track{grid-auto-columns:calc((100% - 20px) / 2.25)}.bs-all{display:none}.bs-mob{display:flex}}
+@media (max-width:560px){
+  .bs-head{margin-bottom:20px}
+  .bs-head h2{font-size:30px}
+  .bs-ctrl{display:none}
+  .bs-track{grid-auto-columns:82%;gap:12px;margin-inline:-20px;padding-inline:20px;scroll-padding-inline:20px;cursor:auto}
+  .bs-txt{padding:16px 16px 18px;gap:8px}
+  .bs-t{font-size:18px}
+  .bs-all-in{padding:20px 18px}
+  .bs-bar{margin-top:18px}
+  .bs-mob{display:flex}
+}
+.bs-mob{margin-top:20px}
+.bs-mob .btn{width:100%;justify-content:center;min-height:48px}
+@media (min-width:561px) and (max-width:860px){.bs-mob .btn{width:auto}}
+@media (prefers-reduced-motion:reduce){.bs-track{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -736,6 +799,38 @@ a.person:hover .call .arr{transform:translateX(4px)}
 
 
 
+  <!-- Slider z bloga: karty wstawia automatycznie scripts/build_blog.py (nie edytuj ręcznie między znacznikami) -->
+  <section class="s bs" id="z-bloga" aria-labelledby="bs-h">
+    <div class="wrap">
+      <div class="bs-head">
+        <div>
+          <span class="label"><span class="dot"></span>Blog · prawo w praktyce</span>
+          <h2 id="bs-h">Najnowsze <span>poradniki</span></h2>
+        </div>
+        <div class="bs-ctrl">
+          <button class="bs-nav" type="button" data-dir="-1" aria-controls="bs-track" aria-label="Poprzednie artykuły"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="bs-nav" type="button" data-dir="1" aria-controls="bs-track" aria-label="Następne artykuły"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M9 5l7 7-7 7"/></svg></button>
+          <a class="btn bs-all" href="blog/">Wszystkie artykuły <span class="arr">→</span></a>
+        </div>
+      </div>
+      <ul class="bs-track" id="bs-track" aria-label="Artykuły z bloga">
+<!-- BLOG-SLIDER:START -->
+        <li><a class="bs-card" href="blog/wezwanie-na-policje-jako-podejrzany/"><span class="bs-img"><img src="assets/blog/wezwanie-na-policje-jako-podejrzany.jpg" alt="Złożone pismo na ciemnym stole w smugach światła padającego przez żaluzje" width="1600" height="900" loading="lazy" decoding="async"></span><span class="bs-txt"><span class="bs-meta"><b>Karne</b><span>5 min czytania</span></span><strong class="bs-t">Wezwanie na policję jako podejrzany: jak się przygotować</strong><span class="bs-d">Czy musisz stawić się na wezwanie, co zdarzy się na komendzie i jakie masz prawa jako podejrzany. Lista kroków przed przesłuchaniem.</span><span class="bs-foot"><time datetime="2026-10-01">1 października 2026</time><span class="arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a class="bs-card" href="blog/kontrola-skarbowa-co-robic/"><span class="bs-img"><img src="assets/blog/kontrola-skarbowa-co-robic.jpg" alt="Segregatory i faktury na biurku w biurze o zmierzchu" width="1600" height="900" loading="lazy" decoding="async"></span><span class="bs-txt"><span class="bs-meta"><b>Podatkowe</b><span>3 min czytania</span></span><strong class="bs-t">Kontrola skarbowa w firmie: pierwsze kroki i prawa kontrolowanego</strong><span class="bs-d">Zawiadomienie z urzędu skarbowego albo kontrolerzy w drzwiach. Co zrobić od razu, jakie masz prawa i ile czasu na reakcję po protokole.</span><span class="bs-foot"><time datetime="2026-09-30">30 września 2026</time><span class="arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a class="bs-card" href="blog/czynny-zal-art-16-kks/"><span class="bs-img"><img src="assets/blog/czynny-zal-art-16-kks.jpg" alt="Pióro, kalkulator i złożony formularz na ciemnym biurku" width="1600" height="900" loading="lazy" decoding="async"></span><span class="bs-txt"><span class="bs-meta"><b>Podatkowe</b><span>4 min czytania</span></span><strong class="bs-t">Czynny żal (art. 16 k.k.s.): kiedy można go złożyć</strong><span class="bs-d">Spóźniona deklaracja, zaniżony podatek, nieodprowadzona zaliczka. Czynny żal pozwala uniknąć kary, ale tylko wtedy, gdy złożysz go na czas.</span><span class="bs-foot"><time datetime="2026-09-30">30 września 2026</time><span class="arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a class="bs-card" href="blog/jazda-po-alkoholu-pierwszy-raz/"><span class="bs-img"><img src="assets/blog/jazda-po-alkoholu-pierwszy-raz.jpg" alt="Kluczyki samochodowe na desce rozdzielczej nocą, w tle światła miasta" width="1600" height="900" loading="lazy" decoding="async"></span><span class="bs-txt"><span class="bs-meta"><b>Karne</b><span>4 min czytania</span></span><strong class="bs-t">Jazda po alkoholu po raz pierwszy: przebieg sprawy i konsekwencje</strong><span class="bs-d">Stan po użyciu czy nietrzeźwość, wykroczenie czy przestępstwo. Wyjaśniamy, od czego zależą konsekwencje i jak przebiega sprawa krok po kroku.</span><span class="bs-foot"><time datetime="2026-09-30">30 września 2026</time><span class="arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a class="bs-card" href="blog/odwolanie-od-decyzji-administracyjnej/"><span class="bs-img"><img src="assets/blog/odwolanie-od-decyzji-administracyjnej.jpg" alt="Pusty korytarz urzędu z wysokimi oknami i zamkniętymi drzwiami" width="1600" height="900" loading="lazy" decoding="async"></span><span class="bs-txt"><span class="bs-meta"><b>Administracyjne</b><span>3 min czytania</span></span><strong class="bs-t">Odwołanie od decyzji administracyjnej: termin i treść</strong><span class="bs-d">Decyzja z urzędu jest niekorzystna? Masz 14 dni. Wyjaśniamy, gdzie złożyć odwołanie, co w nim napisać i co zrobi organ drugiej instancji.</span><span class="bs-foot"><time datetime="2026-09-30">30 września 2026</time><span class="arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a class="bs-card" href="blog/pozew-o-rozwod/"><span class="bs-img"><img src="assets/blog/pozew-o-rozwod.jpg" alt="Dwie obrączki leżące osobno na drewnianym stole obok zamkniętej teczki" width="1600" height="900" loading="lazy" decoding="async"></span><span class="bs-txt"><span class="bs-meta"><b>Rodzinne</b><span>3 min czytania</span></span><strong class="bs-t">Pozew o rozwód: jak go przygotować i złożyć</strong><span class="bs-d">Który sąd, ile kosztuje, co napisać i jakie dokumenty dołączyć. Pozew o rozwód krok po kroku, bez prawniczego żargonu.</span><span class="bs-foot"><time datetime="2026-09-30">30 września 2026</time><span class="arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a class="bs-card" href="blog/alimenty-na-dziecko/"><span class="bs-img"><img src="assets/blog/alimenty-na-dziecko.jpg" alt="Dziecięce buty i plecak szkolny na podłodze przy oknie" width="1600" height="900" loading="lazy" decoding="async"></span><span class="bs-txt"><span class="bs-meta"><b>Rodzinne</b><span>3 min czytania</span></span><strong class="bs-t">Alimenty na dziecko: od czego zależy wysokość</strong><span class="bs-d">Nie ma tabeli alimentów. Sąd patrzy na potrzeby dziecka i możliwości rodzica. Wyjaśniamy, jak to policzyć i jak przygotować sprawę.</span><span class="bs-foot"><time datetime="2026-09-30">30 września 2026</time><span class="arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a class="bs-card" href="blog/skarga-do-wsa/"><span class="bs-img"><img src="assets/blog/skarga-do-wsa.jpg" alt="Kamienne kolumny i szerokie schody gmachu sądu o zmierzchu" width="1600" height="900" loading="lazy" decoding="async"></span><span class="bs-txt"><span class="bs-meta"><b>Administracyjne</b><span>3 min czytania</span></span><strong class="bs-t">Skarga do WSA: terminy, koszty, przebieg</strong><span class="bs-d">Organ drugiej instancji utrzymał decyzję? Masz 30 dni na skargę do WSA. Termin, koszty, treść skargi i to, co może zrobić sąd.</span><span class="bs-foot"><time datetime="2026-09-30">30 września 2026</time><span class="arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a class="bs-card bs-card--all" href="blog/"><span class="bs-all-in"><span class="bs-all-n">13</span><span class="bs-all-t">poradników na blogu<small>Karne, skarbowe, administracyjne, rodzinne i cywilne. Terminy i procedury krok po kroku.</small></span><span class="bs-all-go">Wszystkie artykuły <span class="arr">→</span></span></span></a></li>
+<!-- BLOG-SLIDER:END -->
+      </ul>
+      <div class="bs-bar" aria-hidden="true"><i></i></div>
+      <div class="bs-mob"><a class="btn" href="blog/">Wszystkie artykuły <span class="arr">→</span></a></div>
+    </div>
+  </section>
+
 </main>
 
 
@@ -871,6 +966,27 @@ a.person:hover .call .arr{transform:translateX(4px)}
     }
     document.getElementById('formbox').innerHTML='<div class="sent"><b>Wzór formularza.</b> W wersji na lawyerai.pl zapytanie trafi do kancelarii, a klient dostanie automatyczne potwierdzenie SMS.</div>';
   });
+})();
+</script>
+<script>
+/* Slider z bloga: strzałki, pasek postępu, przeciąganie myszą */
+(function(){
+  var t=document.getElementById('bs-track');if(!t)return;
+  var sec=t.closest('.bs'),prev=sec.querySelector('[data-dir="-1"]'),next=sec.querySelector('[data-dir="1"]'),bar=sec.querySelector('.bs-bar i');
+  function step(){var li=t.querySelector('li');if(!li)return t.clientWidth;var gap=parseFloat(getComputedStyle(t).columnGap)||0;var per=Math.max(1,Math.floor((t.clientWidth+gap)/(li.offsetWidth+gap)));return per*(li.offsetWidth+gap)}
+  function upd(){var max=t.scrollWidth-t.clientWidth,x=t.scrollLeft;prev.disabled=x<=4;next.disabled=x>=max-4;
+    var w=Math.min(1,t.clientWidth/t.scrollWidth);bar.style.width=(w*100)+'%';bar.style.transform='translateX('+(max>0?(x/max)*(1/w-1)*100:0)+'%)';
+    sec.querySelector('.bs-bar').style.visibility=max>4?'visible':'hidden'}
+  [prev,next].forEach(function(b){b.addEventListener('click',function(){t.scrollBy({left:step()*+b.dataset.dir})})});
+  t.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+  /* przeciąganie myszą (na dotyku działa natywny swipe) */
+  var down=false,sx=0,sl=0,moved=false;
+  t.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse'||e.button!==0)return;down=true;moved=false;sx=e.clientX;sl=t.scrollLeft});
+  addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(!moved&&Math.abs(dx)>6){moved=true;t.classList.add('is-drag')}if(moved)t.scrollLeft=sl-dx});
+  addEventListener('pointerup',function(){if(!down)return;down=false;if(moved){var li=t.querySelector('li'),gap=parseFloat(getComputedStyle(t).columnGap)||0,u=li.offsetWidth+gap,target=Math.round(t.scrollLeft/u)*u;
+    t.classList.remove('is-drag');t.scrollTo({left:target});setTimeout(function(){moved=false},0)}});
+  t.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation()}},true);
+  t.addEventListener('dragstart',function(e){e.preventDefault()});
 })();
 </script>
 </body>
