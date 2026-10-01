@@ -32,8 +32,8 @@ CSS_NEW = r"""
 .case{position:relative;max-width:440px;width:100%;justify-self:end;padding-top:34px}
 .case-tab{position:absolute;left:0;top:0;height:34px;width:44%;background:#1b201e;border:1px solid rgba(255,255,255,.14);border-bottom:0;display:flex;align-items:center;padding:0 16px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7)}
 .case-body{background:#121614;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.8);padding:26px 24px 22px;position:relative;overflow:hidden}
-.case-body::after{content:"";position:absolute;right:-70px;bottom:-70px;width:220px;height:220px;border-radius:50%;background:rgba(173,255,35,.16);filter:blur(40px)}
-.case-n{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:96px;line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(173,255,35,.8);letter-spacing:-.04em}
+.case-body::after{content:"";position:absolute;right:-70px;bottom:-70px;width:220px;height:220px;border-radius:50%;background:transparent;filter:blur(40px)}
+.case-n{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:96px;line-height:.8;color:transparent;-webkit-text-stroke:1px var(--green);letter-spacing:-.04em}
 .case-name{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:22px;margin-top:14px;color:#fff;line-height:1.15}
 .case-rows{list-style:none;margin:18px 0 0;padding:0;border-top:1px solid rgba(255,255,255,.12);position:relative;z-index:1}
 .case-rows li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:13px;color:rgba(255,255,255,.75);animation:in .5s both}
@@ -108,7 +108,7 @@ a.topic:hover .more .arr{transform:translateX(4px)}
 
 /* kontakt */
 .addr{background:#121614;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.8);max-width:440px;width:100%;justify-self:end;padding:28px;display:grid;gap:18px;position:relative;overflow:hidden}
-.addr::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:rgba(173,255,35,.16);filter:blur(40px)}
+.addr::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:transparent;filter:blur(40px)}
 .addr .pin{width:52px;height:52px;background:var(--green);display:grid;place-items:center;color:var(--ink)}
 .addr .pin svg{width:26px;height:26px}
 .addr b{font-family:var(--display);font-stretch:112%;font-size:26px;line-height:1.15;color:#fff}
@@ -131,7 +131,7 @@ a.topic:hover .more .arr{transform:translateX(4px)}
 .firm{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(28px,5vw,72px);align-items:start}
 .firm .channels{margin-top:0}
 .firm .channels div{align-items:center}
-.copy{font:600 13px var(--body);background:transparent;color:var(--green);border:1px solid rgba(173,255,35,.5);padding:8px 12px;min-height:40px;cursor:pointer;white-space:nowrap}
+.copy{font:600 13px var(--body);background:transparent;color:var(--green);border:1px solid var(--green);padding:8px 12px;min-height:40px;cursor:pointer;white-space:nowrap}
 .copy:hover{background:var(--green);color:var(--ink)}
 
 /* stopka: nawigacja */
@@ -662,7 +662,7 @@ CSS_LISTY = r"""
 .strip span{aspect-ratio:1;display:grid;place-items:center;font-family:var(--mono);font-size:11px;border:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.85);position:relative}
 .strip span.wk{background:rgba(255,255,255,.06);color:rgba(255,255,255,.4)}
 .strip span.d0{background:#fff;color:var(--ink);border-color:#fff}
-.strip span.on{border-color:rgba(173,255,35,.5)}
+.strip span.on{border-color:var(--green)}
 .strip span.last{background:var(--green);color:var(--ink);border-color:var(--green);font-weight:700}
 .strip-l{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:rgba(255,255,255,.6)}
 .strip-l i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px;border:1px solid rgba(255,255,255,.3)}
