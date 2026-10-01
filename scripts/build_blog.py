@@ -217,7 +217,10 @@ open(os.path.join(ROOT, "blog", "index.html"), "w", encoding="utf-8").write(out)
 
 # ---------- sitemap.xml i robots.txt ----------
 today = datetime.date.today().isoformat()
-urls = [(SITE + "/", today), (SITE + "/co-sie-stalo/", today), (SITE + "/obszar-dzialania/", today), (SITE + "/konsultacje-online/", today)]
+urls = [(SITE + "/", today), (SITE + "/co-sie-stalo/", today), (SITE + "/obszar-dzialania/", today), (SITE + "/konsultacje-online/", today), (SITE + "/o-kancelarii/", today), (SITE + "/kontakt/", today)]
+import sys as _s; _s.dont_write_bytecode = True; _s.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from podstrony_dane import OBSZARY as _OB
+urls += [(f"{SITE}/obszar-dzialania/{o['slug']}/", today) for o in _OB]
 pub = [p for p in posts if p["status"] == "opublikowany"]
 if pub: urls.append((SITE + "/blog/", max(p["date_modified"] for p in pub)))
 urls += [(f"{SITE}/blog/{p['slug']}/", p["date_modified"]) for p in pub]
