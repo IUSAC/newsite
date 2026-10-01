@@ -4,8 +4,8 @@
 - blog/index.html            lista artykułów
 - blog/<slug>/index.html      artykuł
 - sitemap.xml, robots.txt     dla Google
-- index.html (strona główna)  slider „Najnowsze poradniki” między znacznikami BLOG-SLIDER
-Nagłówek, stopka, style i skrypty są brane z obszar-dzialania/index.html, więc blog wygląda jak reszta strony.
+- slider „Najnowsze poradniki” między znacznikami BLOG-SLIDER na stronach z listy SLIDER_PAGES
+Nagłówek, stopka, style i skrypty są brane z scripts/szablon-blog.html, więc blog wygląda jak reszta strony.
 Artykuły ze statusem "szkic" mają noindex, oznaczenie „Szkic” i nie trafiają do sitemap.xml.
 Uruchom: python3 scripts/build_blog.py
 """
@@ -31,7 +31,7 @@ def slugify(t):
     return re.sub(r"[^a-z0-9]+", "-", t).strip("-")
 
 # ---------- szkielet strony z podstrony „Obszar działania” ----------
-base = open(os.path.join(ROOT, "obszar-dzialania", "index.html"), encoding="utf-8").read()
+base = open(os.path.join(ROOT, "scripts", "szablon-blog.html"), encoding="utf-8").read()  # zamrożony szablon (dawna strona Obszar działania)
 HEAD, rest = base.split("</head>", 1)
 BODY_TOP = rest.split("<main id=\"start\">", 1)[0]
 BODY_END = rest.split("</main>", 1)[1]
@@ -232,29 +232,33 @@ open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8").write(f"User-agent
 # ---------- slider „Najnowsze poradniki” na stronie głównej (nad stopką) ----------
 # Wstawiany między znaczniki BLOG-SLIDER w index.html; codzienny automat odświeża go razem z blogiem.
 SLIDER_MAX = 8
-def slide(p):
-    return (f'        <li><a class="bs-card" href="blog/{p["slug"]}/">'
-            f'<span class="bs-img"><img src="{p["cover"]}" alt="{esc(p["cover_alt"])}" width="1600" height="900" loading="lazy" decoding="async"></span>'
+SLIDER_PAGES = [("index.html", ""), ("co-sie-stalo/index.html", "../"), ("obszar-dzialania/index.html", "../"), ("konsultacje-online/index.html", "../")]
+def slide(p, pre=""):
+    return (f'        <li><a class="bs-card" href="{pre}blog/{p["slug"]}/">'
+            f'<span class="bs-img"><img src="{pre}{p["cover"]}" alt="{esc(p["cover_alt"])}" width="1600" height="900" loading="lazy" decoding="async"></span>'
             f'<span class="bs-txt"><span class="bs-meta"><b>{SHORT[p["category"]]}</b><span>{p["minutes"]} min czytania</span></span>'
             f'<strong class="bs-t">{esc(p["title"])}</strong><span class="bs-d">{esc(p["excerpt"])}</span>'
             f'<span class="bs-foot"><time datetime="{p["date_published"]}">{pl_date(p["date_published"])}</time><span class="arr" aria-hidden="true">→</span></span></span></a></li>\n')
 def n_word(n):
     return "poradnik" if n == 1 else ("poradniki" if n % 10 in (2, 3, 4) and n % 100 not in (12, 13, 14) else "poradników")
-if pub:
-    slides = "".join(slide(p) for p in pub[:SLIDER_MAX])
-    slides += (f'        <li><a class="bs-card bs-card--all" href="blog/"><span class="bs-all-in"><span class="bs-all-n">{len(pub)}</span>'
-               f'<span class="bs-all-t">{n_word(len(pub))} na blogu<small>Karne, skarbowe, administracyjne, rodzinne i cywilne. Terminy i procedury krok po kroku.</small></span>'
-               f'<span class="bs-all-go">Wszystkie artykuły <span class="arr">→</span></span></span></a></li>\n')
-else:
-    slides = ""
-ip = os.path.join(ROOT, "index.html")
-home = open(ip, encoding="utf-8").read()
-new_home, n = re.subn(r"(<!-- BLOG-SLIDER:START -->\n).*?(<!-- BLOG-SLIDER:END -->)", lambda m: m.group(1) + slides + m.group(2), home, flags=re.S)
-if n:
-    if not slides:  # brak wpisów → cała sekcja ukryta (UX: bez pustych stanów)
-        new_home = new_home.replace('<section class="s bs" id="z-bloga"', '<section class="s bs" id="z-bloga" hidden', 1)
-    else:
-        new_home = new_home.replace('<section class="s bs" id="z-bloga" hidden', '<section class="s bs" id="z-bloga"', 1)
-    if new_home != home: open(ip, "w", encoding="utf-8").write(new_home)
+def slides_for(pre):
+    if not pub: return ""
+    out = "".join(slide(p, pre) for p in pub[:SLIDER_MAX])
+    out += (f'        <li><a class="bs-card bs-card--all" href="{pre}blog/"><span class="bs-all-in"><span class="bs-all-n">{len(pub)}</span>'
+            f'<span class="bs-all-t">{n_word(len(pub))} na blogu<small>Karne, skarbowe, administracyjne, rodzinne i cywilne. Terminy i procedury krok po kroku.</small></span>'
+            f'<span class="bs-all-go">Wszystkie artykuły <span class="arr">→</span></span></span></a></li>\n')
+    return out
+for rel, pre in SLIDER_PAGES:
+    ip = os.path.join(ROOT, rel)
+    if not os.path.exists(ip): continue
+    home = open(ip, encoding="utf-8").read()
+    slides = slides_for(pre)
+    new_home, n = re.subn(r"(<!-- BLOG-SLIDER:START -->\n).*?(<!-- BLOG-SLIDER:END -->)", lambda m: m.group(1) + slides + m.group(2), home, flags=re.S)
+    if n:
+        if not slides:  # brak wpisów → cała sekcja ukryta (UX: bez pustych stanów)
+            new_home = new_home.replace('<section class="s bs" id="z-bloga"', '<section class="s bs" id="z-bloga" hidden', 1)
+        else:
+            new_home = new_home.replace('<section class="s bs" id="z-bloga" hidden', '<section class="s bs" id="z-bloga"', 1)
+        if new_home != home: open(ip, "w", encoding="utf-8").write(new_home)
 
 print(f"Zbudowano ({TODAY}): {len(posts)} artykułów ({len(pub)} opublikowanych), zaplanowane na później: {len(future)}, sitemap: {len(urls)} adresów")

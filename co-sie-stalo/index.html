@@ -4,8 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b0d0c">
-<title>Co się stało? – PKW Adwokaci</title>
-<meta name="description" content="Wybierz swoją sytuację: sprawy karne, podatkowe, administracyjne i rodzinne. Zobaczysz, ile masz czasu, i wyślesz pismo do analizy.">
+<title>Co się stało? Terminy i pierwsze kroki – PKW Adwokaci</title>
+<meta name="description" content="Wybierz swoją sytuację: sprawy karne, podatkowe, administracyjne, rodzinne i cywilne. Zobacz termin, policz ostatni dzień w kalkulatorze i wyślij pismo do analizy.">
+<link rel="canonical" href="https://lawyerai.pl/co-sie-stalo/">
+<meta property="og:title" content="Co się stało? Terminy i pierwsze kroki – PKW Adwokaci">
+<meta property="og:description" content="Wybierz swoją sytuację: sprawy karne, podatkowe, administracyjne, rodzinne i cywilne. Zobacz termin, policz ostatni dzień w kalkulatorze i wyślij pismo do analizy.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lawyerai.pl/co-sie-stalo/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -495,24 +500,576 @@ a.person:hover .call .arr{transform:translateX(4px)}
 .od-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 @media (max-width:1000px){.oa-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.oa-grid{grid-template-columns:1fr;border-left:0}.oa{border-right:0;padding:22px 0}.why{grid-template-columns:1fr}.od-hero{padding-block:96px 48px}}
-</style>
-<style>.sit[hidden]{display:none!important}
-.filters button{white-space:nowrap}
+/* ===== Konsultacje online ===== */
+.ko-hero{background:var(--night);color:var(--on-night);position:relative;overflow:hidden;padding-block:clamp(96px,11vw,150px) clamp(56px,7vw,96px)}
+.ko-hero::before{content:"";position:absolute;inset:0;background:url(../assets/hero-v4-poster.jpg) right center/cover no-repeat;opacity:.28;filter:grayscale(1)}
+.ko-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,13,12,.96) 0%,rgba(11,13,12,.82) 45%,rgba(11,13,12,.55) 100%),repeating-linear-gradient(90deg,transparent 0 79px,rgba(255,255,255,.04) 79px 80px)}
+.ko-hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,5vw,80px);align-items:center}
+.ko-hero .wrap>*{min-width:0}
+.ko-hero .label{color:rgba(255,255,255,.7)}
+main .s-head{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+main .s-head h2{font-size:clamp(34px,4.6vw,68px)}
+.ko-hero h1{font-size:clamp(46px,7vw,108px);margin-top:18px;text-transform:lowercase}
+.ko-hero h1 span{color:var(--green);display:block}
+.ko-hero .lead{margin-top:22px;font-size:clamp(17px,1.5vw,21px);color:rgba(255,255,255,.82);max-width:46ch}
+.ko-hero .hero-cta{margin-top:30px}
+.ko-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;padding:0;list-style:none}
+.ko-chips li{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.22);padding:8px 12px;display:inline-flex;gap:8px;align-items:center}
+.ko-chips li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}
+
+/* makieta rozmowy */
+.call{position:relative;background:#121614;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.8);max-width:460px;justify-self:end;width:100%}
+.call-top{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.1);font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.call-top .live{display:inline-flex;align-items:center;gap:8px;color:#fff}
+.call-top .live i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(173,255,35,.6);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(173,255,35,0)}100%{box-shadow:0 0 0 0 rgba(173,255,35,0)}}
+.call-screen{position:relative;aspect-ratio:4/3;background:radial-gradient(90% 80% at 50% 110%,rgba(173,255,35,.18),transparent 60%),linear-gradient(180deg,#1a1f1d,#0e1110);display:grid;place-items:center}
+.call-mark{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(40px,4.4vw,60px);letter-spacing:-.02em;display:flex;align-items:center;gap:12px;color:#fff}
+.call-mark b{width:4px;height:.9em;background:var(--green);display:inline-block}
+.wave{position:absolute;left:50%;bottom:22%;transform:translateX(-50%);display:flex;gap:4px;align-items:center;height:28px}
+.wave i{width:3px;height:30%;background:var(--green);animation:wv 1.1s ease-in-out infinite}
+.wave i:nth-child(2){animation-delay:.1s}.wave i:nth-child(3){animation-delay:.25s}.wave i:nth-child(4){animation-delay:.4s}.wave i:nth-child(5){animation-delay:.15s}.wave i:nth-child(6){animation-delay:.3s}.wave i:nth-child(7){animation-delay:.05s}
+@keyframes wv{50%{height:100%}}
+.call-me{position:absolute;right:12px;bottom:12px;width:28%;aspect-ratio:4/3;border:1px solid rgba(255,255,255,.2);background:#0b0d0c;display:grid;place-items:center;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.call-doc{position:absolute;left:-28px;bottom:58px;background:var(--paper);color:var(--ink);padding:12px 14px;display:grid;grid-template-columns:28px minmax(0,1fr);gap:4px 12px;align-items:center;box-shadow:0 18px 40px -12px rgba(0,0,0,.7);min-width:210px;animation:float 5s ease-in-out infinite}
+.call-doc svg{grid-row:span 2;width:28px;height:28px;color:var(--green-ink)}
+.call-doc b{font-size:13px}
+.call-doc span{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--green-ink)}
+@keyframes float{50%{transform:translateY(-8px)}}
+.call-bar{display:flex;justify-content:center;gap:12px;padding:14px}
+.call-bar i{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.22);display:grid;place-items:center;color:rgba(255,255,255,.85)}
+.call-bar i svg{width:18px;height:18px}
+.call-bar i.on{background:var(--green);border-color:var(--green);color:var(--ink)}
+
+/* pasek: zasięg i poufność */
+.ko-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--line)}
+.ko-facts>div{padding:30px 28px 30px 0;display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 16px;align-items:start}
+.ko-facts>div+div{padding-left:28px;border-left:1px solid var(--line)}
+.ko-facts svg{grid-row:span 2;width:44px;height:44px;padding:10px;background:var(--green);color:var(--ink)}
+.ko-facts b{font-family:var(--display);font-stretch:112%;font-size:19px;line-height:1.2}
+.ko-facts span{color:var(--ink-2);font-size:15px}
+
+/* formy rozmowy */
+.modes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.mode{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 24px 24px;display:grid;grid-template-rows:auto auto auto 1fr auto;gap:14px;position:relative;background:var(--paper);transition:background .25s;min-width:0}
+.mode::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--green);transition:width .35s}
+.mode:hover{background:var(--paper-2)}.mode:hover::before{width:100%}
+.mode-ic{width:52px;height:52px;border:1px solid var(--ink);display:grid;place-items:center;transition:background .25s,border-color .25s}
+.mode-ic svg{width:24px;height:24px}
+.mode:hover .mode-ic{background:var(--green);border-color:var(--green)}
+.mode h3{font-size:24px;font-stretch:112%}
+.mode p{color:var(--ink-2);font-size:15px}
+.mode .fit{font-size:14px;border-top:1px solid var(--line);padding-top:12px;color:var(--ink)}
+.mode .fit em{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--green-ink);display:block;margin-bottom:4px}
+.mode .go{display:inline-flex;align-items:center;justify-content:space-between;gap:10px;min-height:44px;padding:10px 14px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:14px;transition:background .2s,color .2s}
+.mode .go:hover{background:var(--green);color:var(--ink)}
+.mode .go .arr{transition:transform .2s}.mode .go:hover .arr{transform:translateX(4px)}
+
+/* przebieg – oś czasu */
+.tl{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,6vw,96px);align-items:start}
+.tl-side{position:sticky;top:110px;display:grid;gap:18px}
+.tl-count{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(110px,13vw,190px);line-height:.82;letter-spacing:-.04em;color:var(--green);font-variant-numeric:tabular-nums}
+.tl-count small{font-size:.28em;color:rgba(255,255,255,.4);letter-spacing:0;margin-left:8px}
+.tl-name{font-family:var(--display);font-stretch:112%;font-size:clamp(22px,2.2vw,30px);font-weight:700}
+.tl-prog{height:3px;background:rgba(255,255,255,.15);position:relative}
+.tl-prog i{position:absolute;left:0;top:0;bottom:0;width:20%;background:var(--green);transition:width .5s cubic-bezier(.2,.7,.1,1)}
+.tl-list{list-style:none;margin:0;padding:0;position:relative}
+.tl-list::before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:1px;background:rgba(255,255,255,.2)}
+.tl-step{position:relative;display:grid;grid-template-columns:40px minmax(0,1fr);gap:22px;padding:0 0 48px;opacity:.42;transition:opacity .5s}
+.tl-step:last-child{padding-bottom:0}
+.tl-step.is-on{opacity:1}
+.tl-dot{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:var(--night);display:grid;place-items:center;font-family:var(--mono);font-size:12px;color:#fff;position:relative;z-index:1;transition:background .4s,border-color .4s,color .4s}
+.tl-step.is-on .tl-dot{background:var(--green);border-color:var(--green);color:var(--ink)}
+.tl-step h3{font-size:clamp(22px,2.2vw,28px);font-stretch:112%;padding-top:6px}
+.tl-step>div>p{color:rgba(255,255,255,.72);margin-top:8px;font-size:16px;max-width:52ch}
+.who{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin-top:18px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.14)}
+.who div{background:var(--night-2);padding:14px 16px;display:grid;gap:4px;font-size:14px;color:rgba(255,255,255,.82)}
+.who em{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.who div+div em{color:var(--green)}
+
+/* dokumenty – przełącznik */
+.docs{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(28px,5vw,72px);align-items:start}
+.seg{display:inline-grid;grid-template-columns:1fr 1fr;border:1px solid var(--ink);margin-bottom:28px}
+.seg button{font:600 14px var(--body);background:transparent;color:var(--ink);border:0;padding:12px 20px;min-height:44px;cursor:pointer;display:inline-flex;gap:10px;align-items:center;justify-content:center;white-space:nowrap}
+.seg button svg{width:18px;height:18px}
+.seg button[aria-selected="true"]{background:var(--ink);color:#fff}
+.seg button[aria-selected="true"] svg{color:var(--green)}
+.route{margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));position:relative;counter-reset:rt}
+.route::before{content:"";position:absolute;left:26px;right:26px;top:26px;height:2px;background:repeating-linear-gradient(90deg,var(--green-ink) 0 8px,transparent 8px 14px);background-size:28px 2px;animation:dash 1.2s linear infinite}
+@keyframes dash{to{background-position:28px 0}}
+.route li{list-style:none;position:relative;padding-right:20px;display:grid;gap:10px;align-content:start;animation:in .5s both}
+.route li:nth-child(2){animation-delay:.08s}.route li:nth-child(3){animation-delay:.16s}
+@keyframes in{from{opacity:0;transform:translateY(10px)}}
+.route .rn{width:54px;height:54px;border-radius:50%;background:var(--paper);border:2px solid var(--ink);display:grid;place-items:center;position:relative;z-index:1}
+.route .rn svg{width:22px;height:22px}
+.route li:last-child .rn{background:var(--green);border-color:var(--green)}
+.route b{font-family:var(--display);font-stretch:112%;font-size:19px;line-height:1.2}
+.route span{color:var(--ink-2);font-size:15px}
+.route-note{margin-top:28px;font-size:14px;color:var(--ink-2);border-left:3px solid var(--green);padding:4px 0 4px 14px}
+.route-note b{color:var(--ink)}
+.tip{background:var(--night);color:var(--on-night);padding:28px;display:grid;gap:14px;position:relative;overflow:hidden}
+.tip::after{content:"";position:absolute;right:-60px;bottom:-60px;width:200px;height:200px;border-radius:50%;background:rgba(173,255,35,.2);filter:blur(40px)}
+.tip .label{color:rgba(255,255,255,.6)}
+.tip h3{font-size:24px;font-stretch:112%}
+.tip p{color:rgba(255,255,255,.78);font-size:15px;position:relative;z-index:1}
+.tip ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;position:relative;z-index:1}
+.tip li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;font-size:15px;color:rgba(255,255,255,.88)}
+.tip li::before{content:"✓";color:var(--green);font-weight:700}
+
+/* lista przygotowania */
+.prep{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(28px,5vw,72px);align-items:start}
+.prep-meter{display:grid;gap:12px;margin-top:28px;max-width:360px}
+.prep-meter .m-top{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.prep-meter .m-top b{font-family:var(--display);font-stretch:112%;font-size:34px;color:var(--ink);letter-spacing:-.02em;text-transform:none}
+.prep-meter .bar{height:6px;background:var(--line)}
+.prep-meter .bar i{display:block;height:100%;width:0;background:var(--green);transition:width .4s cubic-bezier(.2,.7,.1,1)}
+.prep-done{display:none;margin-top:8px}
+.prep.all .prep-done{display:inline-flex}
+.checks{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.checks li{border-bottom:1px solid var(--line)}
+.checks label{display:grid;grid-template-columns:28px minmax(0,1fr);gap:16px;align-items:start;padding:18px 0;cursor:pointer;min-height:48px}
+.checks label{position:relative}
+.checks input{position:absolute;left:0;top:18px;width:28px;height:28px;min-height:0;margin:0;opacity:0;pointer-events:none}
+.checks .box{width:28px;height:28px;border:1.5px solid var(--ink);display:grid;place-items:center;transition:background .2s,border-color .2s;background:var(--paper)}
+.checks .box svg{width:16px;height:16px;opacity:0;transform:scale(.5);transition:opacity .2s,transform .25s}
+.checks input:checked+.box{background:var(--green);border-color:var(--green)}
+.checks input:checked+.box svg{opacity:1;transform:none}
+.checks input:focus-visible+.box{outline:2px solid var(--green-ink);outline-offset:3px}
+.checks b{display:block;font-size:17px;transition:color .2s}
+.checks small{display:block;color:var(--ink-2);font-size:14px;margin-top:2px}
+.checks input:checked~span b{color:var(--ink-2);text-decoration:line-through;text-decoration-color:var(--green-ink)}
+
+/* CTA końcowe */
+.ko-cta{background:var(--night);color:var(--on-night);padding-block:clamp(72px,10vw,130px);position:relative;overflow:hidden}
+.ko-cta::before{content:"";position:absolute;left:50%;top:100%;width:900px;height:500px;transform:translate(-50%,-50%);border-radius:50%;background:rgba(173,255,35,.16);filter:blur(80px)}
+.ko-cta .wrap{position:relative;display:grid;gap:28px;justify-items:start}
+.ko-cta h2 span{color:var(--green)}
+.ko-cta p{color:rgba(255,255,255,.75);font-size:18px;max-width:52ch}
+.ko-cta p.ethics{color:rgba(255,255,255,.5);margin-top:0;font-size:11px}
+
+
+/* ===== Podstrony (build_podstrony.py) ===== */
+.ko-hero h1.long{font-size:clamp(40px,5.4vw,84px)}
+/* teczka akt w nagłówku */
+.case{position:relative;max-width:440px;width:100%;justify-self:end;padding-top:34px}
+.case-tab{position:absolute;left:0;top:0;height:34px;width:44%;background:#1b201e;border:1px solid rgba(255,255,255,.14);border-bottom:0;display:flex;align-items:center;padding:0 16px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.case-body{background:#121614;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.8);padding:26px 24px 22px;position:relative;overflow:hidden}
+.case-body::after{content:"";position:absolute;right:-70px;bottom:-70px;width:220px;height:220px;border-radius:50%;background:rgba(173,255,35,.16);filter:blur(40px)}
+.case-n{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:96px;line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(173,255,35,.8);letter-spacing:-.04em}
+.case-name{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:22px;margin-top:14px;color:#fff;line-height:1.15}
+.case-rows{list-style:none;margin:18px 0 0;padding:0;border-top:1px solid rgba(255,255,255,.12);position:relative;z-index:1}
+.case-rows li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:13px;color:rgba(255,255,255,.75);animation:in .5s both}
+.case-rows li:nth-child(2){animation-delay:.1s}.case-rows li:nth-child(3){animation-delay:.2s}.case-rows li:nth-child(4){animation-delay:.3s}
+.case-rows b{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.04em;color:var(--green);white-space:nowrap}
+.stamp{position:absolute;right:18px;top:52px;width:86px;height:86px;border-radius:50%;border:1.5px solid var(--green);display:grid;place-items:center;text-align:center;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);transform:rotate(-12deg);line-height:1.4;z-index:2}
+@keyframes in{from{opacity:0;transform:translateY(10px)}}
+
+/* kafelki tematów */
+.topics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.topics.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.topic{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 24px;display:grid;gap:10px;align-content:start;position:relative;background:var(--paper);transition:background .25s;text-decoration:none;color:inherit;min-width:0}
+.topic::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--green);transition:width .35s}
+.topic:hover{background:var(--paper-2)}.topic:hover::before{width:100%}
+.topic .tn{font-family:var(--mono);font-size:12px;color:var(--green-ink)}
+.topic h3{font-size:21px;font-stretch:112%}
+.topic p{color:var(--ink-2);font-size:15px}
+a.topic .more{font-size:14px;font-weight:600;display:inline-flex;gap:8px;margin-top:4px}
+a.topic .more .arr{transition:transform .2s;color:var(--green-ink)}
+a.topic:hover .more .arr{transform:translateX(4px)}
+
+/* terminy / przepisy (ciemny pas) */
+.terms{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.14)}
+.terms.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.terms.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.term{background:var(--night);padding:28px 24px;display:grid;gap:12px;align-content:start;position:relative;transition:background .3s}
+.term:hover{background:var(--night-2)}
+.term .tv{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.term .tv b{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(48px,5vw,72px);line-height:.9;letter-spacing:-.03em;color:var(--green)}
+.term .tv span{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:20px;color:#fff}
+.term p{color:rgba(255,255,255,.78);font-size:15px}
+.term .law{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.14);padding-top:12px;margin-top:auto}
+.terms-note{margin-top:22px;font-size:14px;color:rgba(255,255,255,.72);border-left:3px solid var(--green);padding:4px 0 4px 14px;max-width:70ch}
+
+/* jak pracujemy (jasne) */
+.steps4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));list-style:none;margin:0;padding:0;position:relative}
+.steps4::before{content:"";position:absolute;left:0;right:0;top:26px;height:2px;background:repeating-linear-gradient(90deg,var(--green-ink) 0 8px,transparent 8px 14px)}
+.steps4 li{position:relative;padding-right:24px;display:grid;gap:10px;align-content:start}
+.steps4 .rn{width:54px;height:54px;border-radius:50%;background:var(--paper);border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--mono);font-size:13px;position:relative;z-index:1}
+.steps4 li:last-child .rn{background:var(--green);border-color:var(--green)}
+.steps4 b{font-family:var(--display);font-stretch:112%;font-size:19px}
+.steps4 span{color:var(--ink-2);font-size:15px}
+
+/* poradniki */
+.reads{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.read{display:grid;gap:12px;text-decoration:none;color:inherit;align-content:start}
+.read .im{aspect-ratio:16/9;background:var(--night) center/cover no-repeat;filter:grayscale(1);transition:filter .4s;position:relative;overflow:hidden}
+.read .im::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--green);transition:width .35s}
+.read:hover .im{filter:grayscale(.2)}.read:hover .im::after{width:100%}
+.read .tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--green-ink)}
+.read h3{font-size:19px;font-stretch:100%;line-height:1.25}
+.read .more{font-size:14px;font-weight:600;display:inline-flex;gap:8px}
+.read .more .arr{transition:transform .2s}.read:hover .more .arr{transform:translateX(4px)}
+
+/* inne obszary */
+.others{display:flex;flex-wrap:wrap;gap:8px}
+.others a{font:500 14px var(--body);border:1px solid var(--line);padding:10px 16px;min-height:44px;display:inline-flex;align-items:center;text-decoration:none;color:var(--ink);white-space:nowrap;transition:border-color .2s,background .2s}
+.others a:hover{border-color:var(--ink)}
+.others a[aria-current="page"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* o kancelarii */
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.14);max-width:460px;width:100%;justify-self:end}
+.stat{background:rgba(18,22,20,.92);padding:24px 22px;display:grid;gap:6px}
+.stat b{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(44px,4.6vw,64px);line-height:.9;letter-spacing:-.03em;color:var(--green)}
+.stat span{font-size:14px;color:rgba(255,255,255,.75)}
+.princ{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid rgba(255,255,255,.2)}
+.princ div{padding:28px 24px 28px 0;display:grid;gap:10px;align-content:start}
+.princ svg{width:44px;height:44px;padding:10px;background:var(--green);color:var(--ink)}
+.princ h3{font-size:21px;font-stretch:112%}
+.princ p{color:rgba(255,255,255,.72);font-size:15px}
+.statement.big{max-width:30ch}
+
+/* kontakt */
+.addr{background:#121614;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.8);max-width:440px;width:100%;justify-self:end;padding:28px;display:grid;gap:18px;position:relative;overflow:hidden}
+.addr::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:rgba(173,255,35,.16);filter:blur(40px)}
+.addr .pin{width:52px;height:52px;background:var(--green);display:grid;place-items:center;color:var(--ink)}
+.addr .pin svg{width:26px;height:26px}
+.addr b{font-family:var(--display);font-stretch:112%;font-size:26px;line-height:1.15;color:#fff}
+.addr p{color:rgba(255,255,255,.75);font-size:15px}
+.addr .lines{display:grid;border-top:1px solid rgba(255,255,255,.12)}
+.addr .lines a{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12);text-decoration:none;color:#fff;font-size:15px;min-height:44px;align-items:center}
+.addr .lines a span{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.map{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:stretch}
+.map-frame{position:relative;min-height:420px;background:var(--paper-2);border:1px solid var(--line)}
+.map-frame::before{content:"Mapa: ul. Kołłątaja 11, Opole";position:absolute;inset:0;display:grid;place-items:center;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.map-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05)}
+.how{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.how li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.how svg{width:44px;height:44px;padding:10px;border:1px solid var(--ink)}
+.how b{display:block;font-size:17px}
+.how span{color:var(--ink-2);font-size:15px}
+.map-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.btn.line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.btn.line:hover{background:var(--ink);color:#fff}
+.firm{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(28px,5vw,72px);align-items:start}
+.firm .channels{margin-top:0}
+.firm .channels div{align-items:center}
+.copy{font:600 13px var(--body);background:transparent;color:var(--green);border:1px solid rgba(173,255,35,.5);padding:8px 12px;min-height:40px;cursor:pointer;white-space:nowrap}
+.copy:hover{background:var(--green);color:var(--ink)}
+
+/* stopka: nawigacja */
+.fnav{display:flex;flex-wrap:wrap;gap:8px 24px;padding-top:28px;font-size:14px}
+.fnav a{color:rgba(255,255,255,.8);text-decoration:none;min-height:40px;display:inline-flex;align-items:center}
+.fnav a:hover{color:var(--green)}
+
+/* filtry: jeden rząd przewijany w bok na telefonie */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filters button{font:500 14px var(--body);background:transparent;border:1px solid var(--line);padding:10px 16px;min-height:44px;cursor:pointer;color:var(--ink);white-space:nowrap;transition:border-color .2s}
+.filters button:hover{border-color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.filters button .c{font-family:var(--mono);font-size:11px;opacity:.6;margin-left:6px}
+/* karty sytuacji */
+.sx-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.sx{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 24px 22px;display:flex;flex-direction:column;gap:12px;position:relative;background:var(--paper);transition:background .25s;min-width:0}
+.sx[hidden]{display:none}
+.sx-other{background:var(--night);color:var(--on-night)}
+.sx-other:hover{background:var(--night-2)}
+.sx.sx-other>p{color:rgba(255,255,255,.75)}
+.sx-other .sx-top b{color:var(--green)}.sx-other .sx-top span{color:rgba(255,255,255,.5)}
+.sx-other .sx-act .p{background:var(--green);color:var(--ink)}.sx-other .sx-act .p:hover{background:#fff}
+.sx-other .sx-act .s2{color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+.sx::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--green);transition:width .35s}
+.sx:hover{background:var(--paper-2)}.sx:hover::before{width:100%}
+.sx-top{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase}
+.sx-top b{font-weight:500;color:var(--green-ink)}
+.sx-top span{color:var(--ink-2);text-transform:none;letter-spacing:.02em}
+.sx h3{font-size:21px;font-stretch:112%;line-height:1.15}
+.sx>p{color:var(--ink-2);font-size:15px}
+.sx-dl{display:flex;align-items:baseline;gap:10px;border-top:1px solid var(--line);padding-top:14px;margin-top:auto}
+.sx-dl b{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:40px;line-height:.9;letter-spacing:-.03em;color:var(--ink)}
+.sx-dl span{font-size:14px;color:var(--ink-2);line-height:1.3}
+.sx-dl span i{font-style:normal;font-weight:700;color:var(--ink);display:block}
+.sx-act{display:flex;flex-wrap:wrap;gap:8px}
+.sx-act a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 14px;font-weight:600;font-size:14px;text-decoration:none}
+.sx-act .p{background:var(--ink);color:#fff;transition:background .2s,color .2s}
+.sx-act .p:hover{background:var(--green);color:var(--ink)}
+.sx-act .s2{color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.sx-act .s2:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+/* list z sądu w nagłówku */
+.letter{position:relative;max-width:440px;width:100%;justify-self:end}
+.letter-card{background:var(--paper);color:var(--ink);padding:24px 24px 22px;box-shadow:0 40px 80px -30px rgba(0,0,0,.85);transform:rotate(-1.5deg);position:relative}
+.letter-card::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(90deg,var(--ink) 0 18px,transparent 18px 26px)}
+.letter-h{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin-top:6px}
+.letter-h b{font-weight:500;color:var(--ink)}
+.letter-t{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:24px;line-height:1.1;margin-top:14px}
+.letter-lines{display:grid;gap:7px;margin-top:14px}
+.letter-lines i{height:6px;background:var(--line);display:block}
+.letter-lines i:nth-child(2){width:86%}.letter-lines i:nth-child(3){width:64%}
+.days{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;margin-top:20px}
+.days span{aspect-ratio:1;display:grid;place-items:center;font-family:var(--mono);font-size:12px;border:1px solid var(--line);background:var(--paper);animation:dayfill 4.8s infinite}
+.days span:first-child{background:var(--ink);color:#fff;border-color:var(--ink);animation:none}
+.days span:last-child{border-color:var(--green-ink)}
+.days span:nth-child(2){animation-delay:.3s}.days span:nth-child(3){animation-delay:.6s}.days span:nth-child(4){animation-delay:.9s}.days span:nth-child(5){animation-delay:1.2s}.days span:nth-child(6){animation-delay:1.5s}.days span:nth-child(7){animation-delay:1.8s}.days span:nth-child(8){animation-delay:2.1s}
+@keyframes dayfill{0%,6%{background:var(--paper)}12%,80%{background:var(--green)}100%{background:var(--paper)}}
+.days-l{display:flex;justify-content:space-between;margin-top:8px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.letter-badge{position:absolute;right:-12px;bottom:-18px;background:var(--green);color:var(--ink);padding:12px 16px;font-weight:700;font-size:14px;box-shadow:0 14px 30px -12px rgba(0,0,0,.6);transform:rotate(2deg)}
+/* kalkulator terminu */
+.calc{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.calc-form{display:grid;gap:18px}
+.calc-form label{display:grid;gap:8px;font-size:13px;color:rgba(255,255,255,.72)}
+.calc-form input,.calc-form select{min-height:52px;font-size:16px}
+.calc-out{background:var(--night-2);border:1px solid rgba(255,255,255,.14);padding:28px;display:grid;gap:16px}
+.calc-out .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.calc-date{font-family:var(--display);font-stretch:112%;font-weight:800;font-size:clamp(30px,3.4vw,46px);line-height:1.05;letter-spacing:-.02em;color:var(--green)}
+.calc-left{font-size:16px;color:#fff}
+.calc-left b{color:var(--green)}
+.calc-shift{font-size:14px;color:rgba(255,255,255,.72);border-left:3px solid var(--green);padding:2px 0 2px 12px}
+.calc-shift:empty{display:none}
+.strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(34px,1fr));gap:4px}
+.strip span{aspect-ratio:1;display:grid;place-items:center;font-family:var(--mono);font-size:11px;border:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.85);position:relative}
+.strip span.wk{background:rgba(255,255,255,.06);color:rgba(255,255,255,.4)}
+.strip span.d0{background:#fff;color:var(--ink);border-color:#fff}
+.strip span.on{border-color:rgba(173,255,35,.5)}
+.strip span.last{background:var(--green);color:var(--ink);border-color:var(--green);font-weight:700}
+.strip-l{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:rgba(255,255,255,.6)}
+.strip-l i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px;border:1px solid rgba(255,255,255,.3)}
+.strip-l .k1{background:#fff}.strip-l .k2{background:rgba(255,255,255,.06)}.strip-l .k3{background:var(--green);border-color:var(--green)}
+.calc-note{font-size:13px;color:rgba(255,255,255,.6);max-width:70ch}
+.calc-rules{margin-top:22px;font-size:14px;color:rgba(255,255,255,.72);border-top:1px solid rgba(255,255,255,.14);padding-top:18px;display:grid;gap:8px;max-width:80ch}
+/* spis obszarów w nagłówku */
+.index{max-width:440px;width:100%;justify-self:end;background:#121614;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.index-h{display:flex;justify-content:space-between;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.12);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.index ol{list-style:none;margin:0;padding:6px 0}
+.index a{display:grid;grid-template-columns:32px minmax(0,1fr) auto;gap:10px;align-items:center;padding:9px 18px;min-height:40px;color:#fff;text-decoration:none;font-size:14px;transition:background .2s}
+.index a span{font-family:var(--mono);font-size:11px;color:var(--green)}
+.index a i{font-style:normal;color:rgba(255,255,255,.35);transition:transform .2s,color .2s}
+.index a:hover{background:rgba(255,255,255,.05)}.index a:hover i{color:var(--green);transform:translateX(4px)}
+/* karty obszarów */
+.ar-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.ar{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 24px 24px;display:flex;flex-direction:column;gap:12px;position:relative;background:var(--paper);text-decoration:none;color:inherit;transition:background .25s;scroll-margin-top:80px;min-width:0}
+.ar[hidden]{display:none}
+.ar::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--green);transition:width .35s}
+.ar:hover,.ar:target{background:var(--paper-2)}.ar:hover::before,.ar:target::before{width:100%}
+.ar-n{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--green-ink)}
+.ar-n span{color:var(--ink-2);font-size:11px;letter-spacing:.04em;text-transform:uppercase}
+.ar h3{font-size:23px;font-stretch:112%;line-height:1.12}
+.ar>p{color:var(--ink-2);font-size:15px}
+.ar-tags{display:flex;flex-wrap:wrap;gap:6px}
+.ar-tags li{list-style:none;font-size:12px;border:1px solid var(--line);padding:4px 9px;color:var(--ink-2)}
+.ar-tags{margin:0;padding:0}
+.ar-term{display:flex;align-items:baseline;gap:8px;border-top:1px solid var(--line);padding-top:12px;margin-top:auto;font-size:13px;color:var(--ink-2)}
+.ar-term b{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:28px;line-height:1;color:var(--ink)}
+.ar-term b.sm{font-size:18px;font-stretch:112%;font-weight:700}
+.ar-go{font-weight:600;font-size:14px;display:inline-flex;gap:8px;align-items:center;min-height:32px}
+.ar-go .arr{transition:transform .2s;color:var(--green-ink)}
+.ar:hover .ar-go .arr{transform:translateX(4px)}
+a.term{text-decoration:none;color:inherit}
+a.term .go{font-size:13px;font-weight:600;color:#fff;display:inline-flex;gap:6px}
+a.term:hover .go{color:var(--green)}
+.places{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--ink)}
+.places div{padding:28px 28px 28px 0;display:grid;gap:10px;align-content:start}
+.places div+div{padding-left:28px;border-left:1px solid var(--line)}
+.places svg{width:44px;height:44px;padding:10px;border:1px solid var(--ink)}
+.places h3{font-size:21px;font-stretch:112%}
+.places p{color:var(--ink-2);font-size:15px}
+/* ===== Slider z bloga (nad stopką) – treść generuje scripts/build_blog.py ===== */
+.bs{background:var(--paper-2);border-bottom:0!important;overflow:hidden}
+.bs-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:clamp(24px,3vw,40px)}
+.bs-head h2{font-size:clamp(30px,4vw,56px);margin-top:14px}
+.bs-head h2 span{color:var(--green-ink)}
+.bs-ctrl{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.bs-nav{width:48px;height:48px;display:grid;place-items:center;background:var(--paper);color:var(--ink);border:1px solid var(--ink);cursor:pointer;transition:background .2s,color .2s,opacity .2s}
+.bs-nav svg{width:20px;height:20px}
+.bs-nav:hover:not(:disabled){background:var(--ink);color:var(--green)}
+.bs-nav:disabled{opacity:.28;cursor:default}
+.bs-all{margin-left:12px}
+.bs-track{list-style:none;margin:0;padding:4px 0 6px;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 3 * 20px) / 4);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none;cursor:grab}
+.bs-track::-webkit-scrollbar{display:none}
+.bs-track.is-drag{scroll-snap-type:none;scroll-behavior:auto;cursor:grabbing}
+.bs-track.is-drag a{pointer-events:none}
+.bs-track>li{scroll-snap-align:start;display:flex;min-width:0}
+.bs-card{position:relative;display:grid;grid-template-rows:auto 1fr;width:100%;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);transition:border-color .25s,transform .3s cubic-bezier(.2,.7,.1,1),box-shadow .3s;-webkit-user-drag:none}
+.bs-card::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:3px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .35s;z-index:1}
+.bs-card:hover,.bs-card:focus-visible{border-color:var(--ink);transform:translateY(-4px);box-shadow:0 18px 34px -22px rgba(11,13,12,.5)}
+.bs-card:hover::before,.bs-card:focus-visible::before{transform:scaleX(1)}
+.bs-img{display:block;aspect-ratio:16/10;overflow:hidden;background:var(--night)}
+.bs-img img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s ease;-webkit-user-drag:none;user-select:none}
+.bs-card:hover .bs-img img{transform:scale(1.05)}
+.bs-txt{display:grid;grid-template-rows:auto auto 1fr auto;gap:10px;padding:18px 20px 20px}
+.bs-meta{display:flex;flex-wrap:wrap;gap:4px 12px;font:500 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.bs-meta b{font-weight:500;color:var(--green-ink)}
+.bs-t{align-self:start;font-family:var(--display);font-stretch:108%;font-weight:600;font-size:19px;line-height:1.2;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.bs-d{align-self:start;color:var(--ink-2);font-size:14.5px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.bs-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:12px;border-top:1px solid var(--line);font:500 12px var(--mono);color:var(--ink-2)}
+.bs-foot .arr{font-family:var(--body);font-size:18px;color:var(--ink);transition:transform .25s,color .25s}
+.bs-card:hover .bs-foot .arr{transform:translateX(5px);color:var(--green-ink)}
+.bs-card--all{background:var(--night);color:var(--on-night);border-color:var(--night);grid-template-rows:1fr;align-content:stretch;overflow:hidden;isolation:isolate}
+.bs-card--all::after{content:"";position:absolute;z-index:-1;width:80%;aspect-ratio:1;right:-30%;bottom:-30%;border-radius:50%;background:rgba(173,255,35,.22);filter:blur(50px);transition:transform .6s}
+.bs-card--all:hover{border-color:var(--night)}
+.bs-card--all:hover::after{transform:scale(1.3)}
+.bs-all-in{display:flex;flex-direction:column;justify-content:space-between;gap:24px;padding:24px 22px;min-height:100%}
+.bs-all-n{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(72px,7vw,104px);line-height:.85;letter-spacing:-.04em;color:var(--green)}
+.bs-all-t{font-family:var(--display);font-stretch:108%;font-weight:600;font-size:22px;line-height:1.15}
+.bs-all-t small{display:block;margin-top:8px;font:400 14px/1.5 var(--body);color:rgba(255,255,255,.7)}
+.bs-all-go{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;background:var(--green);color:var(--ink);padding:12px 16px;font-weight:600;font-size:14px}
+.bs-all-go .arr{transition:transform .25s}
+.bs-card--all:hover .bs-all-go .arr{transform:translateX(4px)}
+.bs-bar{position:relative;height:2px;background:var(--line);margin-top:clamp(20px,2.4vw,32px)}
+.bs-bar i{position:absolute;left:0;top:-1px;height:4px;width:25%;background:var(--ink);transition:transform .15s linear,width .2s}
+.bs-mob{display:none}
+@media (max-width:1100px){.bs-track{grid-auto-columns:calc((100% - 2 * 20px) / 3)}}
+@media (max-width:860px){.bs-track{grid-auto-columns:calc((100% - 20px) / 2.25)}.bs-all{display:none}.bs-mob{display:flex}}
+@media (max-width:560px){
+  .bs-head{margin-bottom:20px}
+  .bs-head h2{font-size:30px}
+  .bs-ctrl{display:none}
+  .bs-track{grid-auto-columns:82%;gap:12px;margin-inline:-20px;padding-inline:20px;scroll-padding-inline:20px;cursor:auto}
+  .bs-txt{padding:16px 16px 18px;gap:8px}
+  .bs-t{font-size:18px}
+  .bs-all-in{padding:20px 18px}
+  .bs-bar{margin-top:18px}
+  .bs-mob{display:flex}
+}
+.bs-mob{margin-top:20px}
+.bs-mob .btn{width:100%;justify-content:center;min-height:48px}
+@media (min-width:561px) and (max-width:860px){.bs-mob .btn{width:auto}}
+@media (prefers-reduced-motion:reduce){.bs-track{scroll-behavior:auto}}
+@media (max-width:1100px){
+  .modes{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:820px){main .s-head{grid-template-columns:1fr}}
+@media (max-width:900px){
+  .ko-hero .wrap{grid-template-columns:1fr}
+  .call{justify-self:start;max-width:420px}
+  .call-doc{left:auto;right:12px;bottom:auto;top:62px}
+  .ko-facts{grid-template-columns:1fr}
+  .ko-facts>div,.ko-facts>div+div{padding:20px 0;border-left:0}
+  .ko-facts>div+div{border-top:1px solid var(--line)}
+  .tl{grid-template-columns:1fr}
+  .tl-side{display:none}
+  .tl-step{opacity:1}
+  .docs,.prep{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .ko-hero{padding-block:72px 44px}
+  .ko-hero h1{font-size:46px}
+  .ko-hero .lead{font-size:17px}
+  .ko-hero .hero-cta .btn.ghost{display:inline-flex}
+  .ko-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-20px;padding-inline:20px;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
+  .ko-chips::-webkit-scrollbar{display:none}
+  .ko-chips li{flex:0 0 auto}
+  .call{display:none}
+  .ko-facts b{font-size:17px}
+  .modes{grid-template-columns:1fr;border:0;gap:10px}
+  .mode{border:1px solid var(--line);padding:20px 18px;grid-template-columns:44px minmax(0,1fr);grid-template-rows:none;column-gap:14px;row-gap:8px}
+  .mode-ic{width:44px;height:44px;grid-row:span 2}
+  .mode-ic svg{width:20px;height:20px}
+  .mode h3{font-size:20px;align-self:center}
+  .mode p{grid-column:2}
+  .mode .fit{grid-column:1/-1}
+  .mode .go{grid-column:1/-1}
+  .tl-step{grid-template-columns:36px minmax(0,1fr);gap:14px;padding-bottom:36px}
+  .tl-list::before{left:17px}
+  .tl-dot{width:36px;height:36px}
+  .tl-step h3{font-size:21px;padding-top:4px}
+  .tl-step>div>p{font-size:15px}
+  .who{grid-template-columns:1fr}
+  .seg{display:grid;width:100%}
+  .seg button{padding:12px 10px}
+  .route{grid-template-columns:1fr;gap:0}
+  .route::before{left:26px;right:auto;top:26px;bottom:26px;width:2px;height:auto;background:repeating-linear-gradient(180deg,var(--green-ink) 0 8px,transparent 8px 14px);animation:none}
+  .route li{grid-template-columns:54px minmax(0,1fr);column-gap:16px;row-gap:2px;padding:0 0 22px}
+  .route .rn{grid-row:span 2}
+  .route b{font-size:17px;padding-top:6px}
+  .tip{padding:22px 18px}
+  .checks b{font-size:16px}
+  .ko-cta .od-cta{width:100%}
+  .ko-cta .od-cta .btn{flex:1 1 100%;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){.tl-step{opacity:1}}
+
+@media (max-width:1100px){
+  .topics.c4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .terms,.terms.c3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .princ{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:900px){
+  .case,.stats,.addr{justify-self:start}
+  .topics{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .reads{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps4{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}
+  .steps4::before{display:none}
+  .map,.firm{grid-template-columns:1fr}
+}
 @media (max-width:640px){
-  .filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;gap:8px;margin:0 calc(-1*var(--gutter)) 20px;padding:2px var(--gutter);-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent)}
+  .others{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-20px;padding-inline:20px;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
+  .others::-webkit-scrollbar{display:none}
+  .others a{flex:0 0 auto}
+}
+@media (max-width:560px){
+  .ko-hero h1.long{font-size:34px}
+  .ko-hero h1.xlong{font-size:30px}
+  .case{display:none}
+  .stats{max-width:none}
+  .stat{padding:18px 16px}
+  .stat b{font-size:40px}
+  .addr{padding:22px 18px;max-width:none}
+  .topics,.topics.c4{grid-template-columns:1fr;border:0;gap:8px}
+  .topic{border:1px solid var(--line);padding:18px 16px;gap:6px}
+  .topic h3{font-size:18px}
+  .terms,.terms.c3,.terms.c2{grid-template-columns:1fr}
+  .term{padding:20px 18px;grid-template-columns:minmax(0,1fr);gap:8px}
+  .term .tv b{font-size:48px}
+  .steps4{grid-template-columns:1fr;row-gap:0}
+  .steps4 li{grid-template-columns:54px minmax(0,1fr);column-gap:16px;row-gap:2px;padding:0 0 22px}
+  .steps4 .rn{grid-row:span 2}
+  .steps4 b{padding-top:6px;font-size:17px}
+  .reads{grid-template-columns:1fr;gap:28px}
+  .princ{grid-template-columns:1fr}
+  .princ div{grid-template-columns:44px minmax(0,1fr);column-gap:16px;row-gap:4px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+  .princ svg{grid-row:span 2}
+  .princ h3{font-size:18px;align-self:center}
+  .map-frame{min-height:300px}
+  .map-cta .btn{flex:1 1 100%;justify-content:center}
+  .firm .channels div{flex-direction:row;flex-wrap:wrap;justify-content:space-between}
+  .fnav{gap:4px 20px}
+}
+
+@media (max-width:1100px){.sx-grid,.ar-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){
+  .letter,.index{justify-self:start}
+  .calc{grid-template-columns:1fr}
+  .places{grid-template-columns:1fr}
+  .places div,.places div+div{padding:20px 0;border-left:0}
+  .places div+div{border-top:1px solid var(--line)}
+}
+@media (max-width:640px){
+  .filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0 -20px 20px;padding:2px 20px;-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent)}
   .filters.is-end{-webkit-mask-image:none;mask-image:none}
   .filters::-webkit-scrollbar{display:none}
-  .filters button{flex:0 0 auto;min-height:40px;padding:8px 14px;font-size:14px;background:transparent}
-}</style>
+  .filters button{flex:0 0 auto}
+}
+@media (max-width:560px){
+  .letter{display:none}
+  .index{display:none}
+  .sx-grid,.ar-grid{grid-template-columns:1fr;border:0;gap:10px}
+  .sx,.ar{border:1px solid var(--line);padding:20px 18px}
+  .sx h3,.ar h3{font-size:19px}
+  .sx-dl b{font-size:34px}
+  .sx-act a{flex:1 1 auto;justify-content:center}
+  .calc-out{padding:20px 18px}
+  .strip{grid-template-columns:repeat(7,minmax(0,1fr))}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "PKW Adwokaci", "item": "https://lawyerai.pl/"}, {"@type": "ListItem", "position": 2, "name": "Co się stało?", "item": "https://lawyerai.pl/co-sie-stalo/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Od kiedy liczy się termin?", "acceptedAnswer": {"@type": "Answer", "text": "Zwykle od doręczenia pisma. Dnia doręczenia nie wliczasz, a gdy ostatni dzień wypada w sobotę lub święto, termin kończy się w najbliższym dniu roboczym."}}, {"@type": "Question", "name": "Termin minął. Czy coś jeszcze można zrobić?", "acceptedAnswer": {"@type": "Answer", "text": "Czasem tak. Można wnieść o przywrócenie terminu w ciągu 7 dni od ustania przyczyny, jednocześnie składając spóźnione pismo (art. 58 k.p.a., art. 126 § 1 k.p.k.)."}}]}]}</script>
 </head>
 <body>
 <header class="top">
   <div class="wrap nav">
     <a class="logo" href="../">PKW<b class="bar" aria-hidden="true"></b>ADWOKACI</a>
     <nav class="menu" id="menu" aria-label="Główne">
-      <a href="./" aria-current="page">Moja sytuacja</a>
+      <a href="../co-sie-stalo/" aria-current="page">Moja sytuacja</a>
       <a href="../#wspolpraca">Współpraca</a>
-      <a href="../#zespol">Zespół</a>
+      <a href="../o-kancelarii/#zespol">Zespół</a>
       <a href="../blog/">Blog</a>
       <a href="../#kontakt">Kontakt</a>
     </nav>
@@ -521,64 +1078,215 @@ a.person:hover .call .arr{transform:translateX(4px)}
   </div>
 </header>
 <main id="start">
-  <section class="od-hero">
+  <section class="ko-hero">
     <div class="wrap">
-      <span class="label"><span class="dot"></span>Moja sytuacja</span>
-      <h1>co się <span>stało?</span></h1>
-      <p>Wybierz swoją sytuację. Zobaczysz, ile masz czasu, i od razu wyślesz pismo do analizy.</p>
+      <div>
+        <span class="label"><span class="dot"></span>Moja sytuacja</span>
+        <h1>co się <span>stało?</span></h1>
+        <p class="lead">Wybierz swoją sytuację. Zobaczysz, ile masz czasu i&nbsp;co możesz zrobić, a&nbsp;pismo od razu wyślesz do analizy.</p>
+        <div class="hero-cta">
+          <a class="btn green" href="#sytuacje">Wybierz sytuację <span class="arr">→</span></a>
+          <a class="btn ghost" href="#termin">Policz termin</a>
+        </div>
+        <ul class="ko-chips" aria-label="Dziedziny"><li>Karne</li><li>Podatkowe</li><li>Administracyjne</li><li>Rodzinne</li><li>Cywilne</li></ul>
+      </div>
+      <div class="letter" aria-hidden="true">
+        <div class="letter-card">
+          <div class="letter-h"><b>Pismo z sądu</b><span>Doręczono: dziś</span></div>
+          <div class="letter-t">Wyrok nakazowy</div>
+          <div class="letter-lines"><i></i><i></i><i></i></div>
+          <div class="days"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span></div>
+          <div class="days-l"><span>Doręczenie</span><span>Ostatni dzień</span></div>
+        </div>
+        <div class="letter-badge">7 dni na sprzeciw</div>
+      </div>
     </div>
   </section>
-  <section class="s tint" id="sytuacje">
+  <div class="wrap">
+    <div class="ko-facts">
+      <div><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 7v5l3 2"/></svg><b>Termin od doręczenia</b><span>Liczy się od dnia, w&nbsp;którym odebrałeś pismo. Dnia odbioru nie wliczasz.</span></div>
+      <div><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M6 2.8h8l4 4v14.4H6z"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M14 2.8v4h4M9 12h6M9 15.5h6"/></svg><b>Zdjęcie wystarczy</b><span>Do pierwszej analizy wystarczy zdjęcie pisma i&nbsp;koperty zrobione telefonem.</span></div>
+      <div><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 3l7 3v5.5c0 4.4-3 8.2-7 9.5-4-1.3-7-5.1-7-9.5V6z"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="m8.8 12 2.2 2.2 4.2-4.4"/></svg><b>Tajemnica adwokacka</b><span>Obejmuje wszystko, co nam przekażesz, także przed podpisaniem umowy.</span></div>
+    </div>
+  </div>
+  <section class="s" id="sytuacje">
     <div class="wrap">
-      <div class="filters" role="group" aria-label="Filtruj według dziedziny">
-        <button type="button" data-f="all" aria-pressed="true">Wszystkie</button>
-        <button type="button" data-f="karne" aria-pressed="false">Karne</button>
-        <button type="button" data-f="podatkowe" aria-pressed="false">Podatkowe</button>
-        <button type="button" data-f="admin" aria-pressed="false">Administracyjne</button>
-        <button type="button" data-f="rodzinne" aria-pressed="false">Rodzinne</button>
+      <div class="s-head">
+        <div><span class="label"><span class="dot"></span>01 · Sytuacje</span><h2 style="margin-top:18px">Wybierz, co się stało</h2></div>
+        <p>Przy każdej sytuacji widzisz termin i&nbsp;przepis. „Wyślij pismo” otwiera formularz z&nbsp;wybraną sprawą.</p>
       </div>
-      <div class="grid-sit" id="sits">
-        <a class="sit" href="../?obszar=0#kontakt" data-a="karne" data-area="0"><div class="top"><span class="label">Karne</span><span class="law">art. 178a k.k.</span></div><h3>Jazda po alkoholu, zatrzymane prawo jazdy</h3><p>Zakaz prowadzenia, konfiskata auta, warunkowe umorzenie.</p><span class="deadline"><b>7</b> dni <em>na zażalenie na zatrzymanie prawa jazdy</em></span></a>
-        <a class="sit" href="../?obszar=1#kontakt" data-a="karne" data-area="1"><div class="top"><span class="label">Karne</span><span class="law">art. 506 k.p.k.</span></div><h3>Dostałem wyrok nakazowy bez rozprawy</h3><p>Wyrok staje się prawomocny, jeśli nikt się nie sprzeciwi.</p><span class="deadline"><b>7</b> dni <em>na sprzeciw</em></span></a>
-        <a class="sit" href="../?obszar=2#kontakt" data-a="podatkowe" data-area="2"><div class="top"><span class="label">Podatkowe</span><span class="law">Ordynacja podatkowa</span></div><h3>Urząd skarbowy wszczął kontrolę</h3><p>Kontrola podatkowa lub celno-skarbowa, wezwania, niezgodności w JPK.</p><span class="deadline"><b>1.</b> pismo <em>już wtedy warto mieć pełnomocnika</em></span></a>
-        <a class="sit" href="../?obszar=3#kontakt" data-a="podatkowe" data-area="3"><div class="top"><span class="label">Podatkowe</span><span class="law">art. 16 k.k.s.</span></div><h3>Zarzuty karne skarbowe, czynny żal</h3><p>Faktury, VAT, nierzetelne księgi. Czynny żal działa przed wszczęciem sprawy.</p><span class="deadline"><b>—</b> <em>przed wszczęciem postępowania</em></span></a>
-        <a class="sit" href="../?obszar=4#kontakt" data-a="admin" data-area="4"><div class="top"><span class="label">Administracyjne</span><span class="law">art. 129 k.p.a.</span></div><h3>Odmowa pozwolenia, nakaz rozbiórki</h3><p>Decyzje budowlane, warunki zabudowy, samowola budowlana.</p><span class="deadline"><b>14</b> dni <em>na odwołanie</em></span></a>
-        <a class="sit" href="../?obszar=4#kontakt" data-a="admin" data-area="4"><div class="top"><span class="label">Administracyjne</span><span class="law">art. 53 p.p.s.a.</span></div><h3>Chcę zaskarżyć decyzję do WSA</h3><p>Pobyt cudzoziemców, prawo jazdy, koncesje, kary administracyjne.</p><span class="deadline"><b>30</b> dni <em>na skargę do WSA</em></span></a>
-        <a class="sit" href="../?obszar=5#kontakt" data-a="rodzinne" data-area="5"><div class="top"><span class="label">Rodzinne</span><span class="law">art. 56 k.r.o.</span></div><h3>Rozwód i podział majątku</h3><p>Z orzekaniem o winie i bez, mieszkanie, kredyt, firma.</p><span class="deadline"><b>1</b> konsultacja <em>by poznać koszt i czas trwania</em></span></a>
-        <a class="sit" href="../?obszar=6#kontakt" data-a="rodzinne" data-area="6"><div class="top"><span class="label">Rodzinne</span><span class="law">art. 133 k.r.o.</span></div><h3>Alimenty i kontakty z dziećmi</h3><p>Ustalenie, podwyższenie, obniżenie, zabezpieczenie na czas sprawy.</p><span class="deadline"><b>1</b> konsultacja <em>by ocenić realną kwotę</em></span></a>
+      <div class="filters" role="group" aria-label="Filtruj według dziedziny"><button type="button" data-k="all" aria-pressed="true">Wszystkie<span class="c">11</span></button><button type="button" data-k="karne" aria-pressed="false">Karne<span class="c">3</span></button><button type="button" data-k="podatkowe" aria-pressed="false">Podatkowe<span class="c">2</span></button><button type="button" data-k="admin" aria-pressed="false">Administracyjne<span class="c">2</span></button><button type="button" data-k="rodzinne" aria-pressed="false">Rodzinne<span class="c">2</span></button><button type="button" data-k="cywilne" aria-pressed="false">Cywilne<span class="c">2</span></button></div>
+      <div class="sx-grid" id="sits"><article class="sx" data-f="karne"><div class="sx-top"><b>Karne</b><span>art. 178a k.k.</span></div><h3>Jazda po alkoholu, zatrzymane prawo jazdy</h3><p>Zakaz prowadzenia pojazdów, konfiskata auta, warunkowe umorzenie.</p><div class="sx-dl"><b>7</b><span><i>dni</i>na zażalenie na zatrzymanie prawa jazdy</span></div><div class="sx-act"><a class="p" href="../?obszar=0#kontakt">Wyślij pismo <span class="arr">→</span></a><a class="s2" href="../blog/jazda-po-alkoholu-pierwszy-raz/">Poradnik <span class="arr">→</span></a></div></article><article class="sx" data-f="karne"><div class="sx-top"><b>Karne</b><span>k.p.k.</span></div><h3>Dostałem wezwanie na policję</h3><p>Jako podejrzany lub świadek. Możesz mieć obrońcę już przed przesłuchaniem.</p><div class="sx-dl"><b>1.</b><span><i>przesłuchanie</i>przed nim warto porozmawiać z adwokatem</span></div><div class="sx-act"><a class="p" href="../?obszar=1#kontakt">Wyślij pismo <span class="arr">→</span></a><a class="s2" href="../blog/wezwanie-na-policje-jako-podejrzany/">Poradnik <span class="arr">→</span></a></div></article><article class="sx" data-f="karne"><div class="sx-top"><b>Karne</b><span>art. 506 § 1 k.p.k.</span></div><h3>Dostałem wyrok nakazowy bez rozprawy</h3><p>Wyrok staje się prawomocny, jeśli nikt nie wniesie sprzeciwu.</p><div class="sx-dl"><b>7</b><span><i>dni</i>na sprzeciw, od doręczenia</span></div><div class="sx-act"><a class="p" href="../?obszar=1#kontakt">Wyślij pismo <span class="arr">→</span></a><a class="s2" href="../blog/wyrok-nakazowy-co-to-jest/">Poradnik <span class="arr">→</span></a></div></article><article class="sx" data-f="podatkowe"><div class="sx-top"><b>Podatkowe</b><span>Ordynacja podatkowa</span></div><h3>Urząd skarbowy wszczął kontrolę</h3><p>Kontrola podatkowa lub celno-skarbowa, wezwania, niezgodności w JPK.</p><div class="sx-dl"><b>1.</b><span><i>pismo</i>już wtedy warto mieć pełnomocnika</span></div><div class="sx-act"><a class="p" href="../?obszar=2#kontakt">Wyślij pismo <span class="arr">→</span></a><a class="s2" href="../blog/kontrola-skarbowa-co-robic/">Poradnik <span class="arr">→</span></a></div></article><article class="sx" data-f="podatkowe"><div class="sx-top"><b>Podatkowe</b><span>art. 16 k.k.s.</span></div><h3>Zarzuty karne skarbowe, czynny żal</h3><p>Faktury, VAT, nierzetelne księgi. Czynny żal działa przed wszczęciem sprawy.</p><div class="sx-dl"><b>—</b><span>przed wszczęciem postępowania</span></div><div class="sx-act"><a class="p" href="../?obszar=3#kontakt">Wyślij pismo <span class="arr">→</span></a><a class="s2" href="../blog/czynny-zal-art-16-kks/">Poradnik <span class="arr">→</span></a></div></article><article class="sx" data-f="admin"><div class="sx-top"><b>Administracyjne</b><span>art. 129 § 2 k.p.a.</span></div><h3>Odmowa pozwolenia, nakaz rozbiórki</h3><p>Decyzje budowlane, warunki zabudowy, samowola budowlana.</p><div class="sx-dl"><b>14</b><span><i>dni</i>na odwołanie, od doręczenia</span></div><div class="sx-act"><a class="p" href="../?obszar=4#kontakt">Wyślij pismo <span class="arr">→</span></a><a class="s2" href="../blog/odwolanie-od-decyzji-administracyjnej/">Poradnik <span class="arr">→</span></a></div></article><article class="sx" data-f="admin"><div class="sx-top"><b>Administracyjne</b><span>art. 53 § 1 p.p.s.a.</span></div><h3>Chcę zaskarżyć decyzję do WSA</h3><p>Pobyt cudzoziemców, prawo jazdy, koncesje, kary administracyjne.</p><div class="sx-dl"><b>30</b><span><i>dni</i>na skargę do WSA</span></div><div class="sx-act"><a class="p" href="../?obszar=4#kontakt">Wyślij pismo <span class="arr">→</span></a><a class="s2" href="../blog/skarga-do-wsa/">Poradnik <span class="arr">→</span></a></div></article><article class="sx" data-f="rodzinne"><div class="sx-top"><b>Rodzinne</b><span>art. 56 k.r.o.</span></div><h3>Rozwód i podział majątku</h3><p>Z orzekaniem o winie i bez, mieszkanie, kredyt, firma.</p><div class="sx-dl"><b>1</b><span><i>konsultacja</i>by poznać koszt i czas trwania</span></div><div class="sx-act"><a class="p" href="../?obszar=5#kontakt">Wyślij pismo <span class="arr">→</span></a><a class="s2" href="../blog/pozew-o-rozwod/">Poradnik <span class="arr">→</span></a></div></article><article class="sx" data-f="rodzinne"><div class="sx-top"><b>Rodzinne</b><span>art. 133 k.r.o.</span></div><h3>Alimenty i kontakty z dziećmi</h3><p>Ustalenie, podwyższenie, obniżenie, zabezpieczenie na czas sprawy.</p><div class="sx-dl"><b>1</b><span><i>konsultacja</i>by ocenić sytuację i dowody</span></div><div class="sx-act"><a class="p" href="../?obszar=6#kontakt">Wyślij pismo <span class="arr">→</span></a><a class="s2" href="../blog/alimenty-na-dziecko/">Poradnik <span class="arr">→</span></a></div></article><article class="sx" data-f="cywilne"><div class="sx-top"><b>Cywilne</b><span>k.p.c.</span></div><h3>Dostałem nakaz zapłaty z sądu</h3><p>Nakaz się uprawomocni, jeśli nie wniesiesz sprzeciwu w terminie.</p><div class="sx-dl"><b>2</b><span><i>tygodnie</i>na sprzeciw w postępowaniu upominawczym</span></div><div class="sx-act"><a class="p" href="../?obszar=7#kontakt">Wyślij pismo <span class="arr">→</span></a><a class="s2" href="../blog/sprzeciw-od-nakazu-zaplaty/">Poradnik <span class="arr">→</span></a></div></article><article class="sx" data-f="cywilne"><div class="sx-top"><b>Cywilne</b><span>art. 767 § 4 k.p.c.</span></div><h3>Komornik zajął konto lub wynagrodzenie</h3><p>Skarga na czynność komornika, sprawdzenie tytułu wykonawczego.</p><div class="sx-dl"><b>1</b><span><i>tydzień</i>na skargę na czynność komornika</span></div><div class="sx-act"><a class="p" href="../?obszar=7#kontakt">Wyślij pismo <span class="arr">→</span></a><a class="s2" href="../obszar-dzialania/prawo-egzekucyjne-i-windykacja-naleznosc/">Obszar prawa <span class="arr">→</span></a></div></article><article class="sx sx-other"><div class="sx-top"><b>Inna sprawa</b><span>wszystkie dziedziny</span></div><h3>Twojej sytuacji nie ma na liście?</h3><p>Opisz ją w&nbsp;kilku zdaniach albo zadzwoń. Powiemy, czy i&nbsp;jak możemy pomóc.</p><div class="sx-act" style="margin-top:auto"><a class="p" href="../?obszar=7#kontakt">Opisz sprawę <span class="arr">→</span></a><a class="s2" href="tel:+48774143669">Zadzwoń <span class="arr">→</span></a></div></article></div>
+    </div>
+  </section>
+  <section class="s dark" id="termin">
+    <div class="wrap">
+      <div class="s-head">
+        <div><span class="label"><span class="dot"></span>02 · Kalkulator</span><h2 style="margin-top:18px">Policz swój termin</h2></div>
+        <p>Podaj datę odbioru pisma i&nbsp;rodzaj sprawy. Zobaczysz ostatni dzień terminu w&nbsp;kalendarzu, z&nbsp;uwzględnieniem sobót i&nbsp;świąt.</p>
       </div>
-      <div class="od-cta" style="margin-top:40px"><a class="btn green" href="../#kontakt">Pokaż nam problem <span class="arr">→</span></a><a class="btn" href="tel:+48774143669">Zadzwoń: 77 414 36 69</a></div>
+      <div class="calc">
+        <form class="calc-form" id="calc" onsubmit="return false">
+          <label for="c-date">Data odbioru pisma<input id="c-date" type="date" required></label>
+          <label for="c-type">Rodzaj pisma lub środka<select id="c-type"><option value="wn" data-d="7" data-l="art. 506 § 1 k.p.k.">Sprzeciw od wyroku nakazowego (7 dni)</option><option value="zk" data-d="7" data-l="art. 460 k.p.k.">Zażalenie w sprawie karnej (7 dni)</option><option value="ak" data-d="14" data-l="art. 445 § 1 k.p.k.">Apelacja w sprawie karnej (14 dni)</option><option value="od" data-d="14" data-l="art. 129 § 2 k.p.a.">Odwołanie od decyzji (14 dni)</option><option value="zp" data-d="7" data-l="art. 141 § 2 k.p.a.">Zażalenie na postanowienie urzędu (7 dni)</option><option value="ws" data-d="30" data-l="art. 53 § 1 p.p.s.a.">Skarga do WSA (30 dni)</option></select></label>
+          <p class="calc-note">Wynik jest orientacyjny. Nie uwzględnia doręczenia zastępczego (awizo) ani przepisów szczególnych. Termin w&nbsp;Twojej sprawie potwierdzi adwokat.</p>
+        </form>
+        <div class="calc-out" aria-live="polite">
+          <span class="lbl">Ostatni dzień terminu</span>
+          <div class="calc-date" id="c-out">—</div>
+          <div class="calc-left" id="c-left"></div>
+          <div class="calc-shift" id="c-shift"></div>
+          <div class="strip" id="c-strip" aria-hidden="true"></div>
+          <div class="strip-l" aria-hidden="true"><span><i class="k1"></i>odbiór</span><span><i class="k2"></i>sobota, niedziela, święto</span><span><i class="k3"></i>ostatni dzień</span></div>
+          <span class="lbl" id="c-law"></span>
+        </div>
+      </div>
+      <div class="calc-rules">
+        <p>Dnia odbioru pisma nie wlicza się do terminu (art. 123 § 1 k.p.k., art. 57 § 1 k.p.a., art. 83 § 1 p.p.s.a. w&nbsp;zw. z&nbsp;art. 111 § 2 k.c.).</p>
+        <p>Gdy ostatni dzień wypada w&nbsp;sobotę lub dzień ustawowo wolny od pracy, termin kończy się w&nbsp;najbliższym dniu roboczym (art. 123 § 3 k.p.k., art. 57 § 4 k.p.a., art. 83 § 2 p.p.s.a.).</p>
+        <p>W sprawach karnych pismo nadane w&nbsp;placówce pocztowej operatora w&nbsp;Unii Europejskiej zachowuje termin (art. 124 k.p.k.).</p>
+      </div>
+    </div>
+  </section>
+  <section class="s" id="co-teraz">
+    <div class="wrap">
+      <div class="s-head">
+        <div><span class="label"><span class="dot"></span>03 · Pierwsze kroki</span><h2 style="margin-top:18px">Co zrobić teraz</h2></div>
+        <p>Trzy rzeczy, które zajmą kilka minut, a&nbsp;pozwolą adwokatowi szybko ocenić sprawę.</p>
+      </div>
+      <div class="docs">
+        <ol class="route">
+          <li><span class="rn"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 7v5l3 2"/></svg></span><b>Sprawdź datę odbioru</b><span>Na kopercie, potwierdzeniu odbioru albo w&nbsp;aplikacji, w&nbsp;której odebrałeś pismo.</span></li>
+          <li><span class="rn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M6 2.8h8l4 4v14.4H6z"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M14 2.8v4h4M9 12h6M9 15.5h6"/></svg></span><b>Zrób zdjęcie pisma</b><span>Każdą stronę w&nbsp;całości, ostro, w&nbsp;dobrym świetle. Także kopertę.</span></li>
+          <li><span class="rn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg></span><b>Wyślij lub zadzwoń</b><span>Przez formularz, WhatsApp lub telefon. Pilne sprawy rozpatrujemy w&nbsp;pierwszej kolejności.</span></li>
+        </ol>
+        <aside class="tip">
+          <span class="label"><span class="dot"></span>Wskazówka</span>
+          <h3>Nie czekaj do ostatniego dnia</h3>
+          <p>Gdy termin jest krótki, zadzwoń od razu. Pismo przygotujemy, a&nbsp;Ty wyślesz je w&nbsp;terminie.</p>
+          <a class="btn green" href="tel:+48774143669" style="justify-self:start;position:relative;z-index:1">Zadzwoń: 77 414 36 69 <span class="arr">→</span></a>
+        </aside>
+      </div>
+    </div>
+  </section>
+  <section class="s" id="pytania">
+    <div class="wrap split">
+      <div><span class="label"><span class="dot"></span>Pytania</span><h2 style="margin-top:18px">Częste pytania</h2></div>
+      <div class="faq"><details><summary>Od kiedy liczy się termin?</summary><p>Zwykle od doręczenia pisma. Dnia doręczenia nie wliczasz, a gdy ostatni dzień wypada w sobotę lub święto, termin kończy się w najbliższym dniu roboczym.</p></details><details><summary>Nie odebrałem pisma mimo awizo. Co z terminem?</summary><p>Pismo może zostać uznane za doręczone mimo to. W sprawach administracyjnych doręczenie uważa się za dokonane z upływem 14 dni przechowania pisma (art. 44 § 4 k.p.a.). W sprawach karnych, po dwukrotnym zawiadomieniu, pismo uznaje się za doręczone (art. 133 § 2 k.p.k.); w praktyce przyjmuje się upływ 14. dnia. Termin mógł więc już zacząć biec.</p></details><details><summary>Termin minął. Czy coś jeszcze można zrobić?</summary><p>Czasem tak. Można wnieść o przywrócenie terminu w ciągu 7 dni od ustania przyczyny, jednocześnie składając spóźnione pismo i wykazując, że uchybienie nastąpiło bez Twojej winy (art. 58 k.p.a., art. 126 § 1 k.p.k.).</p></details><details><summary>Czy wystarczy zdjęcie pisma?</summary><p>Do pierwszej analizy tak. Oryginał zachowaj; będzie potrzebny, jeśli powierzysz nam sprawę.</p></details><details><summary>Ile kosztuje analiza pisma?</summary><p>Koszt konsultacji podajemy przed rozmową, na piśmie. Zadzwoń albo napisz, a otrzymasz wycenę dla swojej sprawy.</p></details></div>
+    </div>
+  </section>
+  <section class="s" style="padding-block:clamp(48px,6vw,80px)">
+    <div class="wrap">
+      <span class="label"><span class="dot"></span>Obszary prawa</span>
+      <h3 style="margin-top:16px;font-size:clamp(22px,2.4vw,30px);font-stretch:112%">Szukasz informacji o&nbsp;konkretnej dziedzinie?</h3>
+      <div class="others" style="margin-top:20px"><a href="../obszar-dzialania/prawo-cywilne/">Prawo cywilne</a><a href="../obszar-dzialania/prawo-karne/">Prawo karne</a><a href="../obszar-dzialania/prawo-administracyjne/">Prawo administracyjne</a><a href="../obszar-dzialania/prawo-rodzinne/">Prawo rodzinne</a><a href="../obszar-dzialania/prawo-rolne-i-przetworstwa-rolnego/">Prawo rolne</a><a href="../obszar-dzialania/prawo-egzekucyjne-i-windykacja-naleznosc/">Windykacja i egzekucja</a><a href="../obszar-dzialania/prawo-obrotu-nieruchomosciami/">Nieruchomości</a><a href="../obszar-dzialania/prawo-zamowien-publicznych-i-pomocy-publicznej/">Zamówienia publiczne</a><a href="../obszar-dzialania/prawo-gospodarcze-i-handlowe/">Prawo gospodarcze</a></div>
+    </div>
+  </section>
+  <!-- Slider z bloga: karty wstawia automatycznie scripts/build_blog.py (nie edytuj ręcznie między znacznikami) -->
+  <section class="s bs" id="z-bloga" aria-labelledby="bs-h">
+    <div class="wrap">
+      <div class="bs-head">
+        <div>
+          <span class="label"><span class="dot"></span>Blog · prawo w praktyce</span>
+          <h2 id="bs-h">Najnowsze <span>poradniki</span></h2>
+        </div>
+        <div class="bs-ctrl">
+          <button class="bs-nav" type="button" data-dir="-1" aria-controls="bs-track" aria-label="Poprzednie artykuły"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="bs-nav" type="button" data-dir="1" aria-controls="bs-track" aria-label="Następne artykuły"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M9 5l7 7-7 7"/></svg></button>
+          <a class="btn bs-all" href="../blog/">Wszystkie artykuły <span class="arr">→</span></a>
+        </div>
+      </div>
+      <ul class="bs-track" id="bs-track" aria-label="Artykuły z bloga">
+<!-- BLOG-SLIDER:START -->
+        <li><a class="bs-card" href="../blog/wezwanie-na-policje-jako-podejrzany/"><span class="bs-img"><img src="../assets/blog/wezwanie-na-policje-jako-podejrzany.jpg" alt="Złożone pismo na ciemnym stole w smugach światła padającego przez żaluzje" width="1600" height="900" loading="lazy" decoding="async"></span><span class="bs-txt"><span class="bs-meta"><b>Karne</b><span>5 min czytania</span></span><strong class="bs-t">Wezwanie na policję jako podejrzany: jak się przygotować</strong><span class="bs-d">Czy musisz stawić się na wezwanie, co zdarzy się na komendzie i jakie masz prawa jako podejrzany. Lista kroków przed przesłuchaniem.</span><span class="bs-foot"><time datetime="2026-10-01">1 października 2026</time><span class="arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a class="bs-card" href="../blog/kontrola-skarbowa-co-robic/"><span class="bs-img"><img src="../assets/blog/kontrola-skarbowa-co-robic.jpg" alt="Segregatory i faktury na biurku w biurze o zmierzchu" width="1600" height="900" loading="lazy" decoding="async"></span><span class="bs-txt"><span class="bs-meta"><b>Podatkowe</b><span>3 min czytania</span></span><strong class="bs-t">Kontrola skarbowa w firmie: pierwsze kroki i prawa kontrolowanego</strong><span class="bs-d">Zawiadomienie z urzędu skarbowego albo kontrolerzy w drzwiach. Co zrobić od razu, jakie masz prawa i ile czasu na reakcję po protokole.</span><span class="bs-foot"><time datetime="2026-09-30">30 września 2026</time><span class="arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a class="bs-card" href="../blog/czynny-zal-art-16-kks/"><span class="bs-img"><img src="../assets/blog/czynny-zal-art-16-kks.jpg" alt="Pióro, kalkulator i złożony formularz na ciemnym biurku" width="1600" height="900" loading="lazy" decoding="async"></span><span class="bs-txt"><span class="bs-meta"><b>Podatkowe</b><span>4 min czytania</span></span><strong class="bs-t">Czynny żal (art. 16 k.k.s.): kiedy można go złożyć</strong><span class="bs-d">Spóźniona deklaracja, zaniżony podatek, nieodprowadzona zaliczka. Czynny żal pozwala uniknąć kary, ale tylko wtedy, gdy złożysz go na czas.</span><span class="bs-foot"><time datetime="2026-09-30">30 września 2026</time><span class="arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a class="bs-card" href="../blog/jazda-po-alkoholu-pierwszy-raz/"><span class="bs-img"><img src="../assets/blog/jazda-po-alkoholu-pierwszy-raz.jpg" alt="Kluczyki samochodowe na desce rozdzielczej nocą, w tle światła miasta" width="1600" height="900" loading="lazy" decoding="async"></span><span class="bs-txt"><span class="bs-meta"><b>Karne</b><span>4 min czytania</span></span><strong class="bs-t">Jazda po alkoholu po raz pierwszy: przebieg sprawy i konsekwencje</strong><span class="bs-d">Stan po użyciu czy nietrzeźwość, wykroczenie czy przestępstwo. Wyjaśniamy, od czego zależą konsekwencje i jak przebiega sprawa krok po kroku.</span><span class="bs-foot"><time datetime="2026-09-30">30 września 2026</time><span class="arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a class="bs-card" href="../blog/odwolanie-od-decyzji-administracyjnej/"><span class="bs-img"><img src="../assets/blog/odwolanie-od-decyzji-administracyjnej.jpg" alt="Pusty korytarz urzędu z wysokimi oknami i zamkniętymi drzwiami" width="1600" height="900" loading="lazy" decoding="async"></span><span class="bs-txt"><span class="bs-meta"><b>Administracyjne</b><span>3 min czytania</span></span><strong class="bs-t">Odwołanie od decyzji administracyjnej: termin i treść</strong><span class="bs-d">Decyzja z urzędu jest niekorzystna? Masz 14 dni. Wyjaśniamy, gdzie złożyć odwołanie, co w nim napisać i co zrobi organ drugiej instancji.</span><span class="bs-foot"><time datetime="2026-09-30">30 września 2026</time><span class="arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a class="bs-card" href="../blog/pozew-o-rozwod/"><span class="bs-img"><img src="../assets/blog/pozew-o-rozwod.jpg" alt="Dwie obrączki leżące osobno na drewnianym stole obok zamkniętej teczki" width="1600" height="900" loading="lazy" decoding="async"></span><span class="bs-txt"><span class="bs-meta"><b>Rodzinne</b><span>3 min czytania</span></span><strong class="bs-t">Pozew o rozwód: jak go przygotować i złożyć</strong><span class="bs-d">Który sąd, ile kosztuje, co napisać i jakie dokumenty dołączyć. Pozew o rozwód krok po kroku, bez prawniczego żargonu.</span><span class="bs-foot"><time datetime="2026-09-30">30 września 2026</time><span class="arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a class="bs-card" href="../blog/alimenty-na-dziecko/"><span class="bs-img"><img src="../assets/blog/alimenty-na-dziecko.jpg" alt="Dziecięce buty i plecak szkolny na podłodze przy oknie" width="1600" height="900" loading="lazy" decoding="async"></span><span class="bs-txt"><span class="bs-meta"><b>Rodzinne</b><span>3 min czytania</span></span><strong class="bs-t">Alimenty na dziecko: od czego zależy wysokość</strong><span class="bs-d">Nie ma tabeli alimentów. Sąd patrzy na potrzeby dziecka i możliwości rodzica. Wyjaśniamy, jak to policzyć i jak przygotować sprawę.</span><span class="bs-foot"><time datetime="2026-09-30">30 września 2026</time><span class="arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a class="bs-card" href="../blog/skarga-do-wsa/"><span class="bs-img"><img src="../assets/blog/skarga-do-wsa.jpg" alt="Kamienne kolumny i szerokie schody gmachu sądu o zmierzchu" width="1600" height="900" loading="lazy" decoding="async"></span><span class="bs-txt"><span class="bs-meta"><b>Administracyjne</b><span>3 min czytania</span></span><strong class="bs-t">Skarga do WSA: terminy, koszty, przebieg</strong><span class="bs-d">Organ drugiej instancji utrzymał decyzję? Masz 30 dni na skargę do WSA. Termin, koszty, treść skargi i to, co może zrobić sąd.</span><span class="bs-foot"><time datetime="2026-09-30">30 września 2026</time><span class="arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a class="bs-card bs-card--all" href="../blog/"><span class="bs-all-in"><span class="bs-all-n">13</span><span class="bs-all-t">poradników na blogu<small>Karne, skarbowe, administracyjne, rodzinne i cywilne. Terminy i procedury krok po kroku.</small></span><span class="bs-all-go">Wszystkie artykuły <span class="arr">→</span></span></span></a></li>
+<!-- BLOG-SLIDER:END -->
+      </ul>
+      <div class="bs-bar" aria-hidden="true"><i></i></div>
+      <div class="bs-mob"><a class="btn" href="../blog/">Wszystkie artykuły <span class="arr">→</span></a></div>
+    </div>
+  </section>
+  <section class="ko-cta">
+    <div class="wrap">
+      <span class="label" style="color:rgba(255,255,255,.6)"><span class="dot"></span>Kontakt</span>
+      <h2>Pokaż nam <span>problem</span></h2>
+      <p>Napisz kilka zdań o&nbsp;sprawie i&nbsp;dołącz zdjęcie pisma. Odezwiemy się, żeby ustalić termin i&nbsp;formę rozmowy.</p>
+      <div class="od-cta" style="margin-top:0">
+        <a class="btn green" href="../#kontakt">Wypełnij formularz <span class="arr">→</span></a>
+        <a class="btn ghost" href="tel:+48774143669">Zadzwoń: 77 414 36 69</a>
+        <a class="btn ghost" href="../konsultacje-online/">Konsultacja online</a>
+      </div>
+      <p class="ethics">Informacje na tej stronie mają charakter informacyjny i&nbsp;nie stanowią porady prawnej. Treść zgodna z&nbsp;§ 23 Kodeksu Etyki Adwokackiej.</p>
     </div>
   </section>
 </main>
 <footer>
-  <div class="wrap"><div class="big-mark"><svg viewBox="0 0 1000 132" role="img" aria-label="PKW Adwokaci"><text x="0" y="118" font-size="150" textLength="1000" lengthAdjust="spacingAndGlyphs">PKW<tspan> | </tspan>ADWOKACI</text></svg></div></div>
+  <div class="wrap"><div class="big-mark"><svg viewBox="0 0 1000 132" role="img" aria-label="PKW Adwokaci"><text x="0" y="118" font-size="150" textLength="1000" lengthAdjust="spacingAndGlyphs">PKW<tspan> | </tspan>ADWOKACI</text></svg></div>
+    <nav class="fnav" aria-label="Stopka">
+      <a href="../obszar-dzialania/">Obszar działania</a><a href="../o-kancelarii/">O kancelarii</a><a href="../konsultacje-online/">Konsultacje online</a><a href="../co-sie-stalo/" aria-current="page">Moja sytuacja</a><a href="../blog/">Blog</a><a href="../kontakt/">Kontakt</a>
+    </nav>
+  </div>
   <div class="wrap">
     <span>© 2026 Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów · ul. Ks. H. Kołłątaja 11 lok. 27 (II piętro), 45 - 064 Opole</span>
     <span>Polityka prywatności · Informacje zgodne z § 23 Kodeksu Etyki Adwokackiej</span>
   </div>
 </footer>
-
 <nav class="mbar" aria-label="Szybki kontakt">
   <a class="mb-call" href="tel:+48774143669"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg><span>Zadzwoń</span></a>
   <a class="mb-mail" href="mailto:biuro@pkwadwokaci.pl"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 5.5h18v13H3z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="m3.5 6 8.5 7 8.5-7"/></svg>E-mail</a>
   <a class="mb-map" href="https://www.google.com/maps/search/?api=1&query=Pola%C5%84ski%20Konofalski%20i%20Wsp%C3%B3lnicy%2C%20ul.%20Ko%C5%82%C5%82%C4%85taja%2011%2C%2045-064%20Opole" target="_blank" rel="noopener" data-apple="https://maps.apple.com/?q=PKW%20Adwokaci&amp;address=ul.%20Ko%C5%82%C5%82%C4%85taja%2011%2C%2045-064%20Opole"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span>Mapa</span></a>
 </nav>
-<script>(function(){var m=document.querySelector('.mbar .mb-map');if(m&&/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)&&('ontouchend' in document)){m.href=m.dataset.apple}})();</script>
-<script>
-(function(){var bg=document.getElementById('burger'),mn=document.getElementById('menu');if(!bg)return;
-bg.addEventListener('click',function(){var o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)});
-mn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('open');bg.setAttribute('aria-expanded','false')})});
-if(location.hash){var t=document.querySelector(location.hash+' details');if(t)t.open=true}
-})();
-</script>
-<script>
-(function(){var btns=document.querySelectorAll('.filters button'),cards=document.querySelectorAll('#sits .sit');
-function set(f){btns.forEach(function(x){x.setAttribute('aria-pressed',x.dataset.f===f?'true':'false')});cards.forEach(function(c){c.hidden=!(f==='all'||c.dataset.a===f)})}
-btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.f);history.replaceState(null,'',b.dataset.f==='all'?location.pathname:'#'+b.dataset.f)})});
-var h=location.hash.slice(1);if(h&&document.querySelector('.filters button[data-f="'+h+'"]'))set(h);
-var fb=document.querySelector('.filters');function edge(){fb.classList.toggle('is-end',fb.scrollLeft+fb.clientWidth>=fb.scrollWidth-4)}fb.addEventListener('scroll',edge,{passive:true});addEventListener('resize',edge);edge();
-btns.forEach(function(b){b.addEventListener('click',function(){b.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'})})});
+<script>(function(){var m=document.querySelector('.mbar .mb-map');if(m&&/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)&&('ontouchend' in document)){m.href=m.dataset.apple};document.querySelectorAll('a[data-apple]:not(.mb-map)').forEach(function(a){if(/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)&&('ontouchend' in document))a.href=a.dataset.apple})})();
+(function(){var bg=document.getElementById('burger'),mn=document.getElementById('menu');if(!bg)return;bg.addEventListener('click',function(){var o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)});mn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('open');bg.setAttribute('aria-expanded','false')})})})();
+(function(){var o=document.querySelector('.others a[aria-current]');if(o&&o.parentNode.scrollWidth>o.parentNode.clientWidth)o.parentNode.scrollLeft=o.offsetLeft-20})();
+(function(){var fb=document.querySelector('.filters');if(!fb)return;var btns=fb.querySelectorAll('button'),cards=document.querySelectorAll('[data-f]');
+function set(f){btns.forEach(function(x){x.setAttribute('aria-pressed',x.dataset.k===f?'true':'false')});cards.forEach(function(c){c.hidden=!(f==='all'||(' '+c.dataset.f+' ').indexOf(' '+f+' ')>-1)})}
+btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.k);history.replaceState(null,'',b.dataset.k==='all'?location.pathname:'#'+b.dataset.k);b.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'})})});
+var h=location.hash.slice(1);if(h&&fb.querySelector('button[data-k="'+h+'"]')){set(h);var s=document.getElementById('sytuacje');if(s)setTimeout(function(){s.scrollIntoView()},50)}
+function edge(){fb.classList.toggle('is-end',fb.scrollLeft+fb.clientWidth>=fb.scrollWidth-4)}fb.addEventListener('scroll',edge,{passive:true});addEventListener('resize',edge);edge();})();
+(function(){var f=document.getElementById('calc');if(!f)return;var di=document.getElementById('c-date'),ty=document.getElementById('c-type'),out=document.getElementById('c-out'),left=document.getElementById('c-left'),sh=document.getElementById('c-shift'),st=document.getElementById('c-strip'),law=document.getElementById('c-law');
+function easter(y){var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return new Date(y,mo-1,da)}
+function add(d,n){var x=new Date(d);x.setDate(x.getDate()+n);return x}
+function key(d){return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
+var cache={};function hol(y){if(cache[y])return cache[y];var s={};['1-1','1-6','5-1','5-3','8-15','11-1','11-11','12-25','12-26'].forEach(function(m){s[y+'-'+m]=1});if(y>=2025)s[y+'-12-24']=1;var e=easter(y);[0,1,49,60].forEach(function(n){s[key(add(e,n))]=1});return cache[y]=s}
+function free(d){var w=d.getDay();return w===0||w===6||!!hol(d.getFullYear())[key(d)]}
+var fmt=new Intl.DateTimeFormat('pl-PL',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+function pl(n){return n===1?'dzień':'dni'}
+function run(){if(!di.value){out.textContent='—';left.textContent='';sh.textContent='';st.innerHTML='';return}
+ var p=di.value.split('-'),d0=new Date(+p[0],p[1]-1,+p[2]),o=ty.options[ty.selectedIndex],n=+o.dataset.d,end=add(d0,n),orig=new Date(end),moved=0;
+ while(free(end)){end=add(end,1);moved++}
+ out.textContent=fmt.format(end);law.textContent=o.dataset.l;
+ var t=new Date();t=new Date(t.getFullYear(),t.getMonth(),t.getDate());var diff=Math.round((end-t)/864e5);
+ left.innerHTML=diff>0?'Zostało <b>'+diff+' '+pl(diff)+'</b>, licząc od dziś.':(diff===0?'<b>Termin upływa dziś.</b> Zadzwoń: 77 414 36 69.':'Termin upłynął '+(-diff)+' '+pl(-diff)+' temu. Zobacz pytanie o przywrócenie terminu poniżej.');
+ sh.textContent=moved?'Wyliczony dzień ('+new Intl.DateTimeFormat('pl-PL',{weekday:'long',day:'numeric',month:'long'}).format(orig)+') jest wolny od pracy, więc termin przesuwa się na najbliższy dzień roboczy.':'';
+ var h='';for(var i=0,x=d0;x<=end;i++,x=add(x,1)){var c=i===0?'d0':(+x===+end?'last':(free(x)?'wk':'on'));h+='<span class="'+c+'" title="'+fmt.format(x)+'">'+x.getDate()+'</span>'}st.innerHTML=h}
+var t=new Date();di.value=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
+di.addEventListener('input',run);ty.addEventListener('change',run);run()})();
+/* Slider z bloga: strzałki, pasek postępu, przeciąganie myszą */
+(function(){
+  var t=document.getElementById('bs-track');if(!t)return;
+  var sec=t.closest('.bs'),prev=sec.querySelector('[data-dir="-1"]'),next=sec.querySelector('[data-dir="1"]'),bar=sec.querySelector('.bs-bar i');
+  function step(){var li=t.querySelector('li');if(!li)return t.clientWidth;var gap=parseFloat(getComputedStyle(t).columnGap)||0;var per=Math.max(1,Math.floor((t.clientWidth+gap)/(li.offsetWidth+gap)));return per*(li.offsetWidth+gap)}
+  function upd(){var max=t.scrollWidth-t.clientWidth,x=t.scrollLeft;prev.disabled=x<=4;next.disabled=x>=max-4;
+    var w=Math.min(1,t.clientWidth/t.scrollWidth);bar.style.width=(w*100)+'%';bar.style.transform='translateX('+(max>0?(x/max)*(1/w-1)*100:0)+'%)';
+    sec.querySelector('.bs-bar').style.visibility=max>4?'visible':'hidden'}
+  [prev,next].forEach(function(b){b.addEventListener('click',function(){t.scrollBy({left:step()*+b.dataset.dir})})});
+  t.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+  /* przeciąganie myszą (na dotyku działa natywny swipe) */
+  var down=false,sx=0,sl=0,moved=false;
+  t.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse'||e.button!==0)return;down=true;moved=false;sx=e.clientX;sl=t.scrollLeft});
+  addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(!moved&&Math.abs(dx)>6){moved=true;t.classList.add('is-drag')}if(moved)t.scrollLeft=sl-dx});
+  addEventListener('pointerup',function(){if(!down)return;down=false;if(moved){var li=t.querySelector('li'),gap=parseFloat(getComputedStyle(t).columnGap)||0,u=li.offsetWidth+gap,target=Math.round(t.scrollLeft/u)*u;
+    t.classList.remove('is-drag');t.scrollTo({left:target});setTimeout(function(){moved=false},0)}});
+  t.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation()}},true);
+  t.addEventListener('dragstart',function(e){e.preventDefault()});
 })();
 </script>
 </body>

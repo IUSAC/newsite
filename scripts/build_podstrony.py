@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Buduje podstrony: /obszar-dzialania/<slug>/ (9), /o-kancelarii/, /kontakt/.
+"""Buduje podstrony: /co-sie-stalo/, /obszar-dzialania/ (+9 stron obszarów), /o-kancelarii/, /kontakt/.
+Po zbudowaniu uruchamia build_blog.py, który wypełnia slider z bloga (znaczniki BLOG-SLIDER).
 
-Styl i układ jak /konsultacje-online/: style bazowe z co-sie-stalo/index.html
-+ style podstrony z konsultacje-online/index.html + style poniżej.
+Styl i układ jak /konsultacje-online/: zamrożone style scripts/szablon-*.css + style poniżej.
 Treści: scripts/podstrony_dane.py.  Uruchom: python3 scripts/build_podstrony.py
 """
 import os, re, json, html, sys
 sys.dont_write_bytecode = True
 sys.path.insert(0, os.path.dirname(__file__))
-from podstrony_dane import OBSZARY, ZESPOL
+from podstrony_dane import OBSZARY, ZESPOL, SYTUACJE, FILTRY, KALKULATOR, DLA, TERMINY_ZBIORCZE
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://lawyerai.pl"
@@ -17,10 +17,13 @@ E = html.escape
 
 def rd(p): return open(os.path.join(ROOT, p), encoding="utf-8").read()
 
-CSS_BASE = re.search(r"<style>(.*?)</style>", rd("co-sie-stalo/index.html"), re.S).group(1)
-CSS_KO = re.search(r"<style>\s*(/\* ===== Konsultacje online.*?)</style>", rd("konsultacje-online/index.html"), re.S).group(1)
-CSS_KO = CSS_KO.split("@media (max-width:1100px)")[0]  # bez reguł @media strony online (dodane niżej, na końcu)
-KO_MEDIA = re.search(r"(@media \(max-width:1100px\).*)", re.search(r"<style>\s*/\* ===== Konsultacje online.*?</style>", rd("konsultacje-online/index.html"), re.S).group(0), re.S).group(1).replace("</style>", "")
+# Zamrożone style (nie czytamy ich z generowanych stron, żeby się nie nawarstwiały)
+CSS_BASE = rd("scripts/szablon-baza.css")
+_KO = rd("scripts/szablon-online.css")
+CSS_KO = _KO.split("@media (max-width:1100px)")[0]  # reguły @media strony online idą na koniec arkusza
+KO_MEDIA = _KO[_KO.index("@media (max-width:1100px)"):]
+CSS_SLIDER = rd("scripts/szablon-slider.css")
+JS_SLIDER = rd("scripts/szablon-slider.js")
 
 CSS_NEW = r"""
 /* ===== Podstrony (build_podstrony.py) ===== */
@@ -214,8 +217,9 @@ def blog_meta(slug):
     return m
 
 # ---------- wspólny szkielet ----------
-def page(pre, path, title, desc, body, ld, current=None, extra_js=""):
-    css = CSS_BASE + CSS_KO.replace("../assets/", pre + "assets/") + CSS_NEW + KO_MEDIA + CSS_NEW_MEDIA
+def page(pre, path, title, desc, body, ld, current=None, extra_js="", slider=False):
+    css = CSS_BASE + CSS_KO.replace("../assets/", pre + "assets/") + CSS_NEW + CSS_LISTY + (CSS_SLIDER if slider else "") + KO_MEDIA + CSS_NEW_MEDIA + CSS_LISTY_MEDIA
+    if slider: extra_js += "\n" + JS_SLIDER
     def cur(name): return ' aria-current="page"' if current == name else ""
     kontakt_href = "./" if current == "kontakt" else pre + "#kontakt"
     return f"""<!doctype html>
@@ -242,7 +246,7 @@ def page(pre, path, title, desc, body, ld, current=None, extra_js=""):
   <div class="wrap nav">
     <a class="logo" href="{pre}">PKW<b class="bar" aria-hidden="true"></b>ADWOKACI</a>
     <nav class="menu" id="menu" aria-label="Główne">
-      <a href="{pre}co-sie-stalo/">Moja sytuacja</a>
+      <a href="{pre}co-sie-stalo/"{cur("co-sie-stalo")}>Moja sytuacja</a>
       <a href="{pre}#wspolpraca">Współpraca</a>
       <a href="{pre}o-kancelarii/#zespol"{cur("o-kancelarii")}>Zespół</a>
       <a href="{pre}blog/">Blog</a>
@@ -258,7 +262,7 @@ def page(pre, path, title, desc, body, ld, current=None, extra_js=""):
 <footer>
   <div class="wrap"><div class="big-mark"><svg viewBox="0 0 1000 132" role="img" aria-label="PKW Adwokaci"><text x="0" y="118" font-size="150" textLength="1000" lengthAdjust="spacingAndGlyphs">PKW<tspan> | </tspan>ADWOKACI</text></svg></div>
     <nav class="fnav" aria-label="Stopka">
-      <a href="{pre}obszar-dzialania/">Obszar działania</a><a href="{pre}o-kancelarii/">O kancelarii</a><a href="{pre}konsultacje-online/">Konsultacje online</a><a href="{pre}co-sie-stalo/">Moja sytuacja</a><a href="{pre}blog/">Blog</a><a href="{pre}kontakt/">Kontakt</a>
+      <a href="{pre}obszar-dzialania/">Obszar działania</a><a href="{pre}o-kancelarii/">O kancelarii</a><a href="{pre}konsultacje-online/">Konsultacje online</a><a href="{pre}co-sie-stalo/"{cur("co-sie-stalo")}>Moja sytuacja</a><a href="{pre}blog/">Blog</a><a href="{pre}kontakt/">Kontakt</a>
     </nav>
   </div>
   <div class="wrap">
@@ -588,15 +592,434 @@ def build_contact():
         {"@type": "ContactPage", "name": "Kontakt", "url": SITE + "/" + path, "about": dict(PROVIDER, taxID="7543080691")}]}
     return path, page(pre, path, "Kontakt – PKW Adwokaci, Opole", "Kontakt z kancelarią PKW Adwokaci w Opolu: telefon 77 414 36 69, WhatsApp 608 301 225, e-mail, adres ul. Kołłątaja 11, dojazd i dane do faktur.", body, ld, current="kontakt", extra_js=js)
 
+
+# ===================== /co-sie-stalo/ i /obszar-dzialania/ =====================
+CSS_LISTY = r"""
+/* filtry: jeden rząd przewijany w bok na telefonie */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filters button{font:500 14px var(--body);background:transparent;border:1px solid var(--line);padding:10px 16px;min-height:44px;cursor:pointer;color:var(--ink);white-space:nowrap;transition:border-color .2s}
+.filters button:hover{border-color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.filters button .c{font-family:var(--mono);font-size:11px;opacity:.6;margin-left:6px}
+/* karty sytuacji */
+.sx-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.sx{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 24px 22px;display:flex;flex-direction:column;gap:12px;position:relative;background:var(--paper);transition:background .25s;min-width:0}
+.sx[hidden]{display:none}
+.sx-other{background:var(--night);color:var(--on-night)}
+.sx-other:hover{background:var(--night-2)}
+.sx.sx-other>p{color:rgba(255,255,255,.75)}
+.sx-other .sx-top b{color:var(--green)}.sx-other .sx-top span{color:rgba(255,255,255,.5)}
+.sx-other .sx-act .p{background:var(--green);color:var(--ink)}.sx-other .sx-act .p:hover{background:#fff}
+.sx-other .sx-act .s2{color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+.sx::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--green);transition:width .35s}
+.sx:hover{background:var(--paper-2)}.sx:hover::before{width:100%}
+.sx-top{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase}
+.sx-top b{font-weight:500;color:var(--green-ink)}
+.sx-top span{color:var(--ink-2);text-transform:none;letter-spacing:.02em}
+.sx h3{font-size:21px;font-stretch:112%;line-height:1.15}
+.sx>p{color:var(--ink-2);font-size:15px}
+.sx-dl{display:flex;align-items:baseline;gap:10px;border-top:1px solid var(--line);padding-top:14px;margin-top:auto}
+.sx-dl b{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:40px;line-height:.9;letter-spacing:-.03em;color:var(--ink)}
+.sx-dl span{font-size:14px;color:var(--ink-2);line-height:1.3}
+.sx-dl span i{font-style:normal;font-weight:700;color:var(--ink);display:block}
+.sx-act{display:flex;flex-wrap:wrap;gap:8px}
+.sx-act a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 14px;font-weight:600;font-size:14px;text-decoration:none}
+.sx-act .p{background:var(--ink);color:#fff;transition:background .2s,color .2s}
+.sx-act .p:hover{background:var(--green);color:var(--ink)}
+.sx-act .s2{color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.sx-act .s2:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+/* list z sądu w nagłówku */
+.letter{position:relative;max-width:440px;width:100%;justify-self:end}
+.letter-card{background:var(--paper);color:var(--ink);padding:24px 24px 22px;box-shadow:0 40px 80px -30px rgba(0,0,0,.85);transform:rotate(-1.5deg);position:relative}
+.letter-card::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(90deg,var(--ink) 0 18px,transparent 18px 26px)}
+.letter-h{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin-top:6px}
+.letter-h b{font-weight:500;color:var(--ink)}
+.letter-t{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:24px;line-height:1.1;margin-top:14px}
+.letter-lines{display:grid;gap:7px;margin-top:14px}
+.letter-lines i{height:6px;background:var(--line);display:block}
+.letter-lines i:nth-child(2){width:86%}.letter-lines i:nth-child(3){width:64%}
+.days{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;margin-top:20px}
+.days span{aspect-ratio:1;display:grid;place-items:center;font-family:var(--mono);font-size:12px;border:1px solid var(--line);background:var(--paper);animation:dayfill 4.8s infinite}
+.days span:first-child{background:var(--ink);color:#fff;border-color:var(--ink);animation:none}
+.days span:last-child{border-color:var(--green-ink)}
+.days span:nth-child(2){animation-delay:.3s}.days span:nth-child(3){animation-delay:.6s}.days span:nth-child(4){animation-delay:.9s}.days span:nth-child(5){animation-delay:1.2s}.days span:nth-child(6){animation-delay:1.5s}.days span:nth-child(7){animation-delay:1.8s}.days span:nth-child(8){animation-delay:2.1s}
+@keyframes dayfill{0%,6%{background:var(--paper)}12%,80%{background:var(--green)}100%{background:var(--paper)}}
+.days-l{display:flex;justify-content:space-between;margin-top:8px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.letter-badge{position:absolute;right:-12px;bottom:-18px;background:var(--green);color:var(--ink);padding:12px 16px;font-weight:700;font-size:14px;box-shadow:0 14px 30px -12px rgba(0,0,0,.6);transform:rotate(2deg)}
+/* kalkulator terminu */
+.calc{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.calc-form{display:grid;gap:18px}
+.calc-form label{display:grid;gap:8px;font-size:13px;color:rgba(255,255,255,.72)}
+.calc-form input,.calc-form select{min-height:52px;font-size:16px}
+.calc-out{background:var(--night-2);border:1px solid rgba(255,255,255,.14);padding:28px;display:grid;gap:16px}
+.calc-out .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.calc-date{font-family:var(--display);font-stretch:112%;font-weight:800;font-size:clamp(30px,3.4vw,46px);line-height:1.05;letter-spacing:-.02em;color:var(--green)}
+.calc-left{font-size:16px;color:#fff}
+.calc-left b{color:var(--green)}
+.calc-shift{font-size:14px;color:rgba(255,255,255,.72);border-left:3px solid var(--green);padding:2px 0 2px 12px}
+.calc-shift:empty{display:none}
+.strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(34px,1fr));gap:4px}
+.strip span{aspect-ratio:1;display:grid;place-items:center;font-family:var(--mono);font-size:11px;border:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.85);position:relative}
+.strip span.wk{background:rgba(255,255,255,.06);color:rgba(255,255,255,.4)}
+.strip span.d0{background:#fff;color:var(--ink);border-color:#fff}
+.strip span.on{border-color:rgba(173,255,35,.5)}
+.strip span.last{background:var(--green);color:var(--ink);border-color:var(--green);font-weight:700}
+.strip-l{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:rgba(255,255,255,.6)}
+.strip-l i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px;border:1px solid rgba(255,255,255,.3)}
+.strip-l .k1{background:#fff}.strip-l .k2{background:rgba(255,255,255,.06)}.strip-l .k3{background:var(--green);border-color:var(--green)}
+.calc-note{font-size:13px;color:rgba(255,255,255,.6);max-width:70ch}
+.calc-rules{margin-top:22px;font-size:14px;color:rgba(255,255,255,.72);border-top:1px solid rgba(255,255,255,.14);padding-top:18px;display:grid;gap:8px;max-width:80ch}
+/* spis obszarów w nagłówku */
+.index{max-width:440px;width:100%;justify-self:end;background:#121614;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.index-h{display:flex;justify-content:space-between;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.12);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.index ol{list-style:none;margin:0;padding:6px 0}
+.index a{display:grid;grid-template-columns:32px minmax(0,1fr) auto;gap:10px;align-items:center;padding:9px 18px;min-height:40px;color:#fff;text-decoration:none;font-size:14px;transition:background .2s}
+.index a span{font-family:var(--mono);font-size:11px;color:var(--green)}
+.index a i{font-style:normal;color:rgba(255,255,255,.35);transition:transform .2s,color .2s}
+.index a:hover{background:rgba(255,255,255,.05)}.index a:hover i{color:var(--green);transform:translateX(4px)}
+/* karty obszarów */
+.ar-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.ar{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 24px 24px;display:flex;flex-direction:column;gap:12px;position:relative;background:var(--paper);text-decoration:none;color:inherit;transition:background .25s;scroll-margin-top:80px;min-width:0}
+.ar[hidden]{display:none}
+.ar::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--green);transition:width .35s}
+.ar:hover,.ar:target{background:var(--paper-2)}.ar:hover::before,.ar:target::before{width:100%}
+.ar-n{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--green-ink)}
+.ar-n span{color:var(--ink-2);font-size:11px;letter-spacing:.04em;text-transform:uppercase}
+.ar h3{font-size:23px;font-stretch:112%;line-height:1.12}
+.ar>p{color:var(--ink-2);font-size:15px}
+.ar-tags{display:flex;flex-wrap:wrap;gap:6px}
+.ar-tags li{list-style:none;font-size:12px;border:1px solid var(--line);padding:4px 9px;color:var(--ink-2)}
+.ar-tags{margin:0;padding:0}
+.ar-term{display:flex;align-items:baseline;gap:8px;border-top:1px solid var(--line);padding-top:12px;margin-top:auto;font-size:13px;color:var(--ink-2)}
+.ar-term b{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:28px;line-height:1;color:var(--ink)}
+.ar-term b.sm{font-size:18px;font-stretch:112%;font-weight:700}
+.ar-go{font-weight:600;font-size:14px;display:inline-flex;gap:8px;align-items:center;min-height:32px}
+.ar-go .arr{transition:transform .2s;color:var(--green-ink)}
+.ar:hover .ar-go .arr{transform:translateX(4px)}
+a.term{text-decoration:none;color:inherit}
+a.term .go{font-size:13px;font-weight:600;color:#fff;display:inline-flex;gap:6px}
+a.term:hover .go{color:var(--green)}
+.places{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--ink)}
+.places div{padding:28px 28px 28px 0;display:grid;gap:10px;align-content:start}
+.places div+div{padding-left:28px;border-left:1px solid var(--line)}
+.places svg{width:44px;height:44px;padding:10px;border:1px solid var(--ink)}
+.places h3{font-size:21px;font-stretch:112%}
+.places p{color:var(--ink-2);font-size:15px}
+"""
+
+CSS_LISTY_MEDIA = r"""
+@media (max-width:1100px){.sx-grid,.ar-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){
+  .letter,.index{justify-self:start}
+  .calc{grid-template-columns:1fr}
+  .places{grid-template-columns:1fr}
+  .places div,.places div+div{padding:20px 0;border-left:0}
+  .places div+div{border-top:1px solid var(--line)}
+}
+@media (max-width:640px){
+  .filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0 -20px 20px;padding:2px 20px;-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent)}
+  .filters.is-end{-webkit-mask-image:none;mask-image:none}
+  .filters::-webkit-scrollbar{display:none}
+  .filters button{flex:0 0 auto}
+}
+@media (max-width:560px){
+  .letter{display:none}
+  .index{display:none}
+  .sx-grid,.ar-grid{grid-template-columns:1fr;border:0;gap:10px}
+  .sx,.ar{border:1px solid var(--line);padding:20px 18px}
+  .sx h3,.ar h3{font-size:19px}
+  .sx-dl b{font-size:34px}
+  .sx-act a{flex:1 1 auto;justify-content:center}
+  .calc-out{padding:20px 18px}
+  .strip{grid-template-columns:repeat(7,minmax(0,1fr))}
+}
+"""
+
+def slider_section(pre):
+    return f"""  <!-- Slider z bloga: karty wstawia automatycznie scripts/build_blog.py (nie edytuj ręcznie między znacznikami) -->
+  <section class="s bs" id="z-bloga" aria-labelledby="bs-h">
+    <div class="wrap">
+      <div class="bs-head">
+        <div>
+          <span class="label"><span class="dot"></span>Blog · prawo w praktyce</span>
+          <h2 id="bs-h">Najnowsze <span>poradniki</span></h2>
+        </div>
+        <div class="bs-ctrl">
+          <button class="bs-nav" type="button" data-dir="-1" aria-controls="bs-track" aria-label="Poprzednie artykuły"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="bs-nav" type="button" data-dir="1" aria-controls="bs-track" aria-label="Następne artykuły"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M9 5l7 7-7 7"/></svg></button>
+          <a class="btn bs-all" href="{pre}blog/">Wszystkie artykuły <span class="arr">→</span></a>
+        </div>
+      </div>
+      <ul class="bs-track" id="bs-track" aria-label="Artykuły z bloga">
+<!-- BLOG-SLIDER:START -->
+<!-- BLOG-SLIDER:END -->
+      </ul>
+      <div class="bs-bar" aria-hidden="true"><i></i></div>
+      <div class="bs-mob"><a class="btn" href="{pre}blog/">Wszystkie artykuły <span class="arr">→</span></a></div>
+    </div>
+  </section>"""
+
+FILTER_JS = """(function(){var fb=document.querySelector('.filters');if(!fb)return;var btns=fb.querySelectorAll('button'),cards=document.querySelectorAll('[data-f]');
+function set(f){btns.forEach(function(x){x.setAttribute('aria-pressed',x.dataset.k===f?'true':'false')});cards.forEach(function(c){c.hidden=!(f==='all'||(' '+c.dataset.f+' ').indexOf(' '+f+' ')>-1)})}
+btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.k);history.replaceState(null,'',b.dataset.k==='all'?location.pathname:'#'+b.dataset.k);b.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'})})});
+var h=location.hash.slice(1);if(h&&fb.querySelector('button[data-k="'+h+'"]')){set(h);var s=document.getElementById('sytuacje');if(s)setTimeout(function(){s.scrollIntoView()},50)}
+function edge(){fb.classList.toggle('is-end',fb.scrollLeft+fb.clientWidth>=fb.scrollWidth-4)}fb.addEventListener('scroll',edge,{passive:true});addEventListener('resize',edge);edge();})();"""
+
+def build_situations():
+    pre = "../"; path = "co-sie-stalo/"
+    counts = {k: sum(1 for x in SYTUACJE if x["f"] == k) for k, _ in FILTRY}
+    filt = "".join(f'<button type="button" data-k="{k}" aria-pressed="{"true" if k == "all" else "false"}">{E(n)}<span class="c">{len(SYTUACJE) if k == "all" else counts[k]}</span></button>' for k, n in FILTRY if k == "all" or counts[k])
+    lab = dict(FILTRY)
+    cards = ""
+    for x in SYTUACJE:
+        reads = [(b, blog_meta(b)) for b in x["blog"]]
+        reads = [(b, m) for b, m in reads if m]
+        sec = f'<a class="s2" href="{pre}blog/{reads[0][0]}/">Poradnik <span class="arr">→</span></a>' if reads else f'<a class="s2" href="{pre}obszar-dzialania/{x["ob"]}/">Obszar prawa <span class="arr">→</span></a>'
+        dl = f'<b>{E(x["v"])}</b><span><i>{E(x["u"])}</i>{E(x["em"])}</span>' if x["u"] else f'<b>{E(x["v"])}</b><span>{E(x["em"])}</span>'
+        cards += f'<article class="sx" data-f="{x["f"]}"><div class="sx-top"><b>{E(lab[x["f"]])}</b><span>{E(x["law"])}</span></div><h3>{E(x["t"])}</h3><p>{E(x["d"])}</p><div class="sx-dl">{dl}</div><div class="sx-act"><a class="p" href="{pre}?obszar={x["area"]}#kontakt">Wyślij pismo <span class="arr">→</span></a>{sec}</div></article>'
+    cards += f'<article class="sx sx-other"><div class="sx-top"><b>Inna sprawa</b><span>wszystkie dziedziny</span></div><h3>Twojej sytuacji nie ma na liście?</h3><p>Opisz ją w&nbsp;kilku zdaniach albo zadzwoń. Powiemy, czy i&nbsp;jak możemy pomóc.</p><div class="sx-act" style="margin-top:auto"><a class="p" href="{pre}?obszar=7#kontakt">Opisz sprawę <span class="arr">→</span></a><a class="s2" href="tel:+48774143669">Zadzwoń <span class="arr">→</span></a></div></article>'
+    opts = "".join(f'<option value="{i}" data-d="{d}" data-l="{l}">{E(n)} ({d} dni)</option>' for i, n, d, _, l in KALKULATOR)
+    others = "".join(f'<a href="{pre}obszar-dzialania/{o["slug"]}/">{E(short(o["name"]))}</a>' for o in OBSZARY)
+    body = f"""  <section class="ko-hero">
+    <div class="wrap">
+      <div>
+        <span class="label"><span class="dot"></span>Moja sytuacja</span>
+        <h1>co się <span>stało?</span></h1>
+        <p class="lead">Wybierz swoją sytuację. Zobaczysz, ile masz czasu i&nbsp;co możesz zrobić, a&nbsp;pismo od razu wyślesz do analizy.</p>
+        <div class="hero-cta">
+          <a class="btn green" href="#sytuacje">Wybierz sytuację <span class="arr">→</span></a>
+          <a class="btn ghost" href="#termin">Policz termin</a>
+        </div>
+        <ul class="ko-chips" aria-label="Dziedziny">{"".join(f"<li>{E(n)}</li>" for k, n in FILTRY if k != "all")}</ul>
+      </div>
+      <div class="letter" aria-hidden="true">
+        <div class="letter-card">
+          <div class="letter-h"><b>Pismo z sądu</b><span>Doręczono: dziś</span></div>
+          <div class="letter-t">Wyrok nakazowy</div>
+          <div class="letter-lines"><i></i><i></i><i></i></div>
+          <div class="days"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span></div>
+          <div class="days-l"><span>Doręczenie</span><span>Ostatni dzień</span></div>
+        </div>
+        <div class="letter-badge">7 dni na sprzeciw</div>
+      </div>
+    </div>
+  </section>
+  <div class="wrap">
+    <div class="ko-facts">
+      <div>{svg("clock")}<b>Termin od doręczenia</b><span>Liczy się od dnia, w&nbsp;którym odebrałeś pismo. Dnia odbioru nie wliczasz.</span></div>
+      <div>{svg("doc")}<b>Zdjęcie wystarczy</b><span>Do pierwszej analizy wystarczy zdjęcie pisma i&nbsp;koperty zrobione telefonem.</span></div>
+      <div>{svg("shield")}<b>Tajemnica adwokacka</b><span>Obejmuje wszystko, co nam przekażesz, także przed podpisaniem umowy.</span></div>
+    </div>
+  </div>
+  <section class="s" id="sytuacje">
+    <div class="wrap">
+      <div class="s-head">
+        <div><span class="label"><span class="dot"></span>01 · Sytuacje</span><h2 style="margin-top:18px">Wybierz, co się stało</h2></div>
+        <p>Przy każdej sytuacji widzisz termin i&nbsp;przepis. „Wyślij pismo” otwiera formularz z&nbsp;wybraną sprawą.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filtruj według dziedziny">{filt}</div>
+      <div class="sx-grid" id="sits">{cards}</div>
+    </div>
+  </section>
+  <section class="s dark" id="termin">
+    <div class="wrap">
+      <div class="s-head">
+        <div><span class="label"><span class="dot"></span>02 · Kalkulator</span><h2 style="margin-top:18px">Policz swój termin</h2></div>
+        <p>Podaj datę odbioru pisma i&nbsp;rodzaj sprawy. Zobaczysz ostatni dzień terminu w&nbsp;kalendarzu, z&nbsp;uwzględnieniem sobót i&nbsp;świąt.</p>
+      </div>
+      <div class="calc">
+        <form class="calc-form" id="calc" onsubmit="return false">
+          <label for="c-date">Data odbioru pisma<input id="c-date" type="date" required></label>
+          <label for="c-type">Rodzaj pisma lub środka<select id="c-type">{opts}</select></label>
+          <p class="calc-note">Wynik jest orientacyjny. Nie uwzględnia doręczenia zastępczego (awizo) ani przepisów szczególnych. Termin w&nbsp;Twojej sprawie potwierdzi adwokat.</p>
+        </form>
+        <div class="calc-out" aria-live="polite">
+          <span class="lbl">Ostatni dzień terminu</span>
+          <div class="calc-date" id="c-out">—</div>
+          <div class="calc-left" id="c-left"></div>
+          <div class="calc-shift" id="c-shift"></div>
+          <div class="strip" id="c-strip" aria-hidden="true"></div>
+          <div class="strip-l" aria-hidden="true"><span><i class="k1"></i>odbiór</span><span><i class="k2"></i>sobota, niedziela, święto</span><span><i class="k3"></i>ostatni dzień</span></div>
+          <span class="lbl" id="c-law"></span>
+        </div>
+      </div>
+      <div class="calc-rules">
+        <p>Dnia odbioru pisma nie wlicza się do terminu (art. 123 § 1 k.p.k., art. 57 § 1 k.p.a., art. 83 § 1 p.p.s.a. w&nbsp;zw. z&nbsp;art. 111 § 2 k.c.).</p>
+        <p>Gdy ostatni dzień wypada w&nbsp;sobotę lub dzień ustawowo wolny od pracy, termin kończy się w&nbsp;najbliższym dniu roboczym (art. 123 § 3 k.p.k., art. 57 § 4 k.p.a., art. 83 § 2 p.p.s.a.).</p>
+        <p>W sprawach karnych pismo nadane w&nbsp;placówce pocztowej operatora w&nbsp;Unii Europejskiej zachowuje termin (art. 124 k.p.k.).</p>
+      </div>
+    </div>
+  </section>
+  <section class="s" id="co-teraz">
+    <div class="wrap">
+      <div class="s-head">
+        <div><span class="label"><span class="dot"></span>03 · Pierwsze kroki</span><h2 style="margin-top:18px">Co zrobić teraz</h2></div>
+        <p>Trzy rzeczy, które zajmą kilka minut, a&nbsp;pozwolą adwokatowi szybko ocenić sprawę.</p>
+      </div>
+      <div class="docs">
+        <ol class="route">
+          <li><span class="rn">{svg("clock")}</span><b>Sprawdź datę odbioru</b><span>Na kopercie, potwierdzeniu odbioru albo w&nbsp;aplikacji, w&nbsp;której odebrałeś pismo.</span></li>
+          <li><span class="rn">{svg("doc")}</span><b>Zrób zdjęcie pisma</b><span>Każdą stronę w&nbsp;całości, ostro, w&nbsp;dobrym świetle. Także kopertę.</span></li>
+          <li><span class="rn">{svg("phone")}</span><b>Wyślij lub zadzwoń</b><span>Przez formularz, WhatsApp lub telefon. Pilne sprawy rozpatrujemy w&nbsp;pierwszej kolejności.</span></li>
+        </ol>
+        <aside class="tip">
+          <span class="label"><span class="dot"></span>Wskazówka</span>
+          <h3>Nie czekaj do ostatniego dnia</h3>
+          <p>Gdy termin jest krótki, zadzwoń od razu. Pismo przygotujemy, a&nbsp;Ty wyślesz je w&nbsp;terminie.</p>
+          <a class="btn green" href="tel:+48774143669" style="justify-self:start;position:relative;z-index:1">Zadzwoń: 77 414 36 69 <span class="arr">→</span></a>
+        </aside>
+      </div>
+    </div>
+  </section>
+{faq_html([
+    ("Od kiedy liczy się termin?", "Zwykle od doręczenia pisma. Dnia doręczenia nie wliczasz, a gdy ostatni dzień wypada w sobotę lub święto, termin kończy się w najbliższym dniu roboczym."),
+    ("Nie odebrałem pisma mimo awizo. Co z terminem?", "Pismo może zostać uznane za doręczone mimo to. W sprawach administracyjnych doręczenie uważa się za dokonane z upływem 14 dni przechowania pisma (art. 44 § 4 k.p.a.). W sprawach karnych, po dwukrotnym zawiadomieniu, pismo uznaje się za doręczone (art. 133 § 2 k.p.k.); w praktyce przyjmuje się upływ 14. dnia. Termin mógł więc już zacząć biec."),
+    ("Termin minął. Czy coś jeszcze można zrobić?", "Czasem tak. Można wnieść o przywrócenie terminu w ciągu 7 dni od ustania przyczyny, jednocześnie składając spóźnione pismo i wykazując, że uchybienie nastąpiło bez Twojej winy (art. 58 k.p.a., art. 126 § 1 k.p.k.)."),
+    ("Czy wystarczy zdjęcie pisma?", "Do pierwszej analizy tak. Oryginał zachowaj; będzie potrzebny, jeśli powierzysz nam sprawę."),
+    ("Ile kosztuje analiza pisma?", "Koszt konsultacji podajemy przed rozmową, na piśmie. Zadzwoń albo napisz, a otrzymasz wycenę dla swojej sprawy."),
+])}
+  <section class="s" style="padding-block:clamp(48px,6vw,80px)">
+    <div class="wrap">
+      <span class="label"><span class="dot"></span>Obszary prawa</span>
+      <h3 style="margin-top:16px;font-size:clamp(22px,2.4vw,30px);font-stretch:112%">Szukasz informacji o&nbsp;konkretnej dziedzinie?</h3>
+      <div class="others" style="margin-top:20px">{others}</div>
+    </div>
+  </section>
+{slider_section(pre)}
+{cta(pre, "Pokaż nam <span>problem</span>")}"""
+    js = FILTER_JS + r"""
+(function(){var f=document.getElementById('calc');if(!f)return;var di=document.getElementById('c-date'),ty=document.getElementById('c-type'),out=document.getElementById('c-out'),left=document.getElementById('c-left'),sh=document.getElementById('c-shift'),st=document.getElementById('c-strip'),law=document.getElementById('c-law');
+function easter(y){var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return new Date(y,mo-1,da)}
+function add(d,n){var x=new Date(d);x.setDate(x.getDate()+n);return x}
+function key(d){return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
+var cache={};function hol(y){if(cache[y])return cache[y];var s={};['1-1','1-6','5-1','5-3','8-15','11-1','11-11','12-25','12-26'].forEach(function(m){s[y+'-'+m]=1});if(y>=2025)s[y+'-12-24']=1;var e=easter(y);[0,1,49,60].forEach(function(n){s[key(add(e,n))]=1});return cache[y]=s}
+function free(d){var w=d.getDay();return w===0||w===6||!!hol(d.getFullYear())[key(d)]}
+var fmt=new Intl.DateTimeFormat('pl-PL',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+function pl(n){return n===1?'dzień':'dni'}
+function run(){if(!di.value){out.textContent='—';left.textContent='';sh.textContent='';st.innerHTML='';return}
+ var p=di.value.split('-'),d0=new Date(+p[0],p[1]-1,+p[2]),o=ty.options[ty.selectedIndex],n=+o.dataset.d,end=add(d0,n),orig=new Date(end),moved=0;
+ while(free(end)){end=add(end,1);moved++}
+ out.textContent=fmt.format(end);law.textContent=o.dataset.l;
+ var t=new Date();t=new Date(t.getFullYear(),t.getMonth(),t.getDate());var diff=Math.round((end-t)/864e5);
+ left.innerHTML=diff>0?'Zostało <b>'+diff+' '+pl(diff)+'</b>, licząc od dziś.':(diff===0?'<b>Termin upływa dziś.</b> Zadzwoń: 77 414 36 69.':'Termin upłynął '+(-diff)+' '+pl(-diff)+' temu. Zobacz pytanie o przywrócenie terminu poniżej.');
+ sh.textContent=moved?'Wyliczony dzień ('+new Intl.DateTimeFormat('pl-PL',{weekday:'long',day:'numeric',month:'long'}).format(orig)+') jest wolny od pracy, więc termin przesuwa się na najbliższy dzień roboczy.':'';
+ var h='';for(var i=0,x=d0;x<=end;i++,x=add(x,1)){var c=i===0?'d0':(+x===+end?'last':(free(x)?'wk':'on'));h+='<span class="'+c+'" title="'+fmt.format(x)+'">'+x.getDate()+'</span>'}st.innerHTML=h}
+var t=new Date();di.value=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
+di.addEventListener('input',run);ty.addEventListener('change',run);run()})();"""
+    ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "PKW Adwokaci", "item": SITE + "/"}, {"@type": "ListItem", "position": 2, "name": "Co się stało?", "item": SITE + "/" + path}]},
+        {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in [
+            ("Od kiedy liczy się termin?", "Zwykle od doręczenia pisma. Dnia doręczenia nie wliczasz, a gdy ostatni dzień wypada w sobotę lub święto, termin kończy się w najbliższym dniu roboczym."),
+            ("Termin minął. Czy coś jeszcze można zrobić?", "Czasem tak. Można wnieść o przywrócenie terminu w ciągu 7 dni od ustania przyczyny, jednocześnie składając spóźnione pismo (art. 58 k.p.a., art. 126 § 1 k.p.k.).")]]}]}
+    return path, page(pre, path, "Co się stało? Terminy i pierwsze kroki – PKW Adwokaci", "Wybierz swoją sytuację: sprawy karne, podatkowe, administracyjne, rodzinne i cywilne. Zobacz termin, policz ostatni dzień w kalkulatorze i wyślij pismo do analizy.", body, ld, current="co-sie-stalo", extra_js=js, slider=True)
+
+def build_index():
+    pre = "../"; path = "obszar-dzialania/"
+    idx = "".join(f'<li><a href="{o["slug"]}/"><span>{o["n"]}</span>{E(short(o["name"]))}<i>→</i></a></li>' for o in OBSZARY)
+    cards = ""
+    for o in OBSZARY:
+        t = o["terms"][0]
+        tags = "".join(f"<li>{E(c)}</li>" for c in o["chips"][:3])
+        who = {"o f": "Osoby i firmy", "o": "Osoby prywatne", "f": "Firmy"}[DLA[o["slug"]]]
+        cards += f'<a class="ar" id="{o["slug"]}" href="{o["slug"]}/" data-f="{DLA[o["slug"]]}"><div class="ar-n">{o["n"]}<span>{who}</span></div><h3>{E(o["name"])}</h3><p>{E(o["lead"])}</p><ul class="ar-tags">{tags}</ul><div class="ar-term">{(f"<b>{E(t[0])}</b>{E(t[1])} · {E(t[3])}") if not t[0].startswith("art.") else (f"<b class=sm>{E(t[3])}</b>")}</div><span class="ar-go">Zobacz obszar <span class="arr">→</span></span></a>'
+    bys = {o["slug"]: o for o in OBSZARY}
+    terms = "".join(f'<a class="term" href="{s}/"><div class="tv"><b>{E(bys[s]["terms"][i][0])}</b><span>{E(bys[s]["terms"][i][1])}</span></div><p>{E(bys[s]["terms"][i][2])}</p><span class="law">{E(bys[s]["terms"][i][3])}</span><span class="go">{E(short(bys[s]["name"]))} →</span></a>' for s, i in TERMINY_ZBIORCZE)
+    n_o = sum(1 for v in DLA.values() if "o" in v.split()); n_f = sum(1 for v in DLA.values() if "f" in v.split())
+    body = f"""  <section class="ko-hero">
+    <div class="wrap">
+      <div>
+        <span class="label"><span class="dot"></span>Obszar działania</span>
+        <h1>obszar <span>działania</span></h1>
+        <p class="lead">Dziewięć dziedzin prawa. Prowadzimy sprawy osób prywatnych i&nbsp;firm, w&nbsp;Opolu i&nbsp;w&nbsp;całej Polsce, także online.</p>
+        <div class="hero-cta">
+          <a class="btn green" href="#obszary">Zobacz obszary <span class="arr">→</span></a>
+          <a class="btn ghost" href="{pre}co-sie-stalo/">Co się stało?</a>
+        </div>
+        <ul class="ko-chips" aria-label="Dla kogo"><li>Osoby prywatne</li><li>Firmy</li><li>Cała Polska</li><li>Online</li></ul>
+      </div>
+      <nav class="index" aria-label="Spis obszarów">
+        <div class="index-h"><span>Spis obszarów</span><span>09</span></div>
+        <ol>{idx}</ol>
+      </nav>
+    </div>
+  </section>
+{facts()}
+  <section class="s" id="obszary">
+    <div class="wrap">
+      <div class="s-head">
+        <div><span class="label"><span class="dot"></span>01 · Obszary</span><h2 style="margin-top:18px">W czym pomagamy</h2></div>
+        <p>Każdy obszar ma swoją stronę: zakres spraw, terminy i&nbsp;przepisy, przebieg współpracy i&nbsp;odpowiedzi na częste pytania.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Pokaż obszary dla">
+        <button type="button" data-k="all" aria-pressed="true">Wszystkie<span class="c">{len(OBSZARY)}</span></button>
+        <button type="button" data-k="o" aria-pressed="false">Osoby prywatne<span class="c">{n_o}</span></button>
+        <button type="button" data-k="f" aria-pressed="false">Firmy<span class="c">{n_f}</span></button>
+      </div>
+      <div class="ar-grid">{cards}</div>
+    </div>
+  </section>
+  <section class="s dark" id="terminy">
+    <div class="wrap">
+      <div class="s-head">
+        <div><span class="label"><span class="dot"></span>02 · Terminy</span><h2 style="margin-top:18px">Terminy, które warto znać</h2></div>
+        <p>Wybrane terminy z&nbsp;różnych dziedzin. Szczegóły i&nbsp;pozostałe przepisy znajdziesz na stronach obszarów. Swój termin policzysz w&nbsp;<a href="{pre}co-sie-stalo/#termin" style="color:var(--green)">kalkulatorze</a>.</p>
+      </div>
+      <div class="terms c3">{terms}</div>
+    </div>
+  </section>
+  <section class="s" id="gdzie">
+    <div class="wrap">
+      <div class="s-head">
+        <div><span class="label"><span class="dot"></span>03 · Forma pracy</span><h2 style="margin-top:18px">Gdzie i&nbsp;jak pracujemy</h2></div>
+        <p>Usługi dopasowujemy do sprawy i&nbsp;potrzeb klienta. Doradztwo prowadzimy po polsku, angielsku i&nbsp;niemiecku.</p>
+      </div>
+      <div class="places">
+        <div>{svg("pin")}<h3>W kancelarii</h3><p>Opole, ul. Kołłątaja 11, II piętro. Spotkanie po wcześniejszym umówieniu.</p></div>
+        <div>{svg("court")}<h3>U klienta i&nbsp;w&nbsp;sądzie</h3><p>Obsługa w&nbsp;siedzibie firmy klienta. Na rozprawy jeździmy do sądów w&nbsp;całej Polsce.</p></div>
+        <div>{svg("video")}<h3>Online</h3><p>Konsultacja przez telefon lub wideo, wymiana dokumentów i&nbsp;poprawki pism na odległość. <a href="{pre}konsultacje-online/">Jak to działa →</a></p></div>
+      </div>
+    </div>
+  </section>
+  <section class="s tint" id="wspolpraca" style="background:var(--paper-2)">
+    <div class="wrap">
+      <div class="s-head">
+        <div><span class="label"><span class="dot"></span>04 · Współpraca</span><h2 style="margin-top:18px">Jak pracujemy</h2></div>
+        <p>Zanim podpiszesz umowę, wiesz, ile to kosztuje i&nbsp;co będziemy robić.</p>
+      </div>
+      <ol class="steps4">
+        <li><span class="rn">01</span><b>Kontakt</b><span>Formularz, telefon lub WhatsApp. Możesz od razu wysłać zdjęcie pisma.</span></li>
+        <li><span class="rn">02</span><b>Konsultacja</b><span>W&nbsp;kancelarii lub <a href="{pre}konsultacje-online/">online</a>. Omawiamy sprawę, termin i&nbsp;możliwe kroki.</span></li>
+        <li><span class="rn">03</span><b>Wycena</b><span>Stała kwota lub stawka godzinowa, spisana w&nbsp;umowie.</span></li>
+        <li><span class="rn">04</span><b>Prowadzenie sprawy</b><span>Pisma, rozprawy, kontakt z&nbsp;urzędem. Informujemy o&nbsp;każdym etapie.</span></li>
+      </ol>
+    </div>
+  </section>
+{faq_html([
+    ("Nie wiem, do której dziedziny należy moja sprawa.", "Nie musisz wiedzieć. Opisz sytuację przez telefon lub formularz, a powiemy, czy i jak możemy pomóc. Pomocna może być też strona „Co się stało?”."),
+    ("Czy obsługujecie firmy na stałe?", "Tak, stale albo przy konkretnej sprawie. Zasady i koszt (stała kwota lub stawka godzinowa) zapisujemy w umowie."),
+    ("Czy prowadzicie sprawy poza Opolem?", "Tak. Na rozprawy jeździmy do sądów w całej Polsce, a konsultacje prowadzimy także online."),
+    ("W jakich językach doradzacie?", "Po polsku, angielsku i niemiecku."),
+])}
+{slider_section(pre)}
+{cta(pre)}"""
+    js = FILTER_JS.replace("var s=document.getElementById('sytuacje')", "var s=document.getElementById('obszary')")
+    ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "PKW Adwokaci", "item": SITE + "/"}, {"@type": "ListItem", "position": 2, "name": "Obszar działania", "item": SITE + "/" + path}]},
+        {"@type": "ItemList", "name": "Obszary działania", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": o["name"], "url": f"{SITE}/obszar-dzialania/{o['slug']}/"} for i, o in enumerate(OBSZARY)]},
+        dict(PROVIDER, **{"@type": "LegalService", "knowsLanguage": ["pl", "en", "de"], "areaServed": "PL"})]}
+    return path, page(pre, path, "Obszar działania – PKW Adwokaci, Opole", "Dziewięć dziedzin prawa: karne, cywilne, administracyjne, rodzinne, gospodarcze, nieruchomości, zamówienia publiczne, windykacja i prawo rolne. Dla osób prywatnych i firm, w Opolu i online.", body, ld, extra_js=js, slider=True)
+
 def main():
-    out = [build_area(a) for a in OBSZARY] + [build_about(), build_contact()]
+    out = [build_situations(), build_index()] + [build_area(a) for a in OBSZARY] + [build_about(), build_contact()]
     for path, doc in out:
         d = os.path.join(ROOT, path); os.makedirs(d, exist_ok=True)
         open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(doc)
     print("Zbudowano podstrony:", len(out))
     return [p for p, _ in out]
 
-PATHS = ["obszar-dzialania/%s/" % a["slug"] for a in OBSZARY] + ["o-kancelarii/", "kontakt/"]
+PATHS = ["co-sie-stalo/", "obszar-dzialania/"] + ["obszar-dzialania/%s/" % a["slug"] for a in OBSZARY] + ["o-kancelarii/", "kontakt/"]
 
 if __name__ == "__main__":
     main()
+    import subprocess  # wypełnia slider z bloga i odświeża sitemap
+    subprocess.run([sys.executable, os.path.join(ROOT, "scripts", "build_blog.py")], check=True)

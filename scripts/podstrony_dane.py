@@ -256,3 +256,39 @@ ZESPOL = [
   ("adw. Marcin Konofalski", "Partner", "MK", "team-portrait-2.jpg"),
   ("adw. Jolanta Konofalska", "Adwokat", "JK", "team-portrait-3.jpg"),
 ]
+
+# ---------- /co-sie-stalo/ ----------
+# f: filtr; area: indeks pola „Czego dotyczy sprawa?” w formularzu na stronie głównej (0–7)
+SYTUACJE = [
+  {"f": "karne", "law": "art. 178a k.k.", "t": "Jazda po alkoholu, zatrzymane prawo jazdy", "d": "Zakaz prowadzenia pojazdów, konfiskata auta, warunkowe umorzenie.", "v": "7", "u": "dni", "em": "na zażalenie na zatrzymanie prawa jazdy", "area": 0, "blog": ["jazda-po-alkoholu-pierwszy-raz", "zatrzymanie-prawa-jazdy"], "ob": "prawo-karne"},
+  {"f": "karne", "law": "k.p.k.", "t": "Dostałem wezwanie na policję", "d": "Jako podejrzany lub świadek. Możesz mieć obrońcę już przed przesłuchaniem.", "v": "1.", "u": "przesłuchanie", "em": "przed nim warto porozmawiać z adwokatem", "area": 1, "blog": ["wezwanie-na-policje-jako-podejrzany"], "ob": "prawo-karne"},
+  {"f": "karne", "law": "art. 506 § 1 k.p.k.", "t": "Dostałem wyrok nakazowy bez rozprawy", "d": "Wyrok staje się prawomocny, jeśli nikt nie wniesie sprzeciwu.", "v": "7", "u": "dni", "em": "na sprzeciw, od doręczenia", "area": 1, "blog": ["wyrok-nakazowy-co-to-jest", "sprzeciw-od-wyroku-nakazowego"], "ob": "prawo-karne"},
+  {"f": "podatkowe", "law": "Ordynacja podatkowa", "t": "Urząd skarbowy wszczął kontrolę", "d": "Kontrola podatkowa lub celno-skarbowa, wezwania, niezgodności w JPK.", "v": "1.", "u": "pismo", "em": "już wtedy warto mieć pełnomocnika", "area": 2, "blog": ["kontrola-skarbowa-co-robic"], "ob": "prawo-karne"},
+  {"f": "podatkowe", "law": "art. 16 k.k.s.", "t": "Zarzuty karne skarbowe, czynny żal", "d": "Faktury, VAT, nierzetelne księgi. Czynny żal działa przed wszczęciem sprawy.", "v": "—", "u": "", "em": "przed wszczęciem postępowania", "area": 3, "blog": ["czynny-zal-art-16-kks"], "ob": "prawo-karne"},
+  {"f": "admin", "law": "art. 129 § 2 k.p.a.", "t": "Odmowa pozwolenia, nakaz rozbiórki", "d": "Decyzje budowlane, warunki zabudowy, samowola budowlana.", "v": "14", "u": "dni", "em": "na odwołanie, od doręczenia", "area": 4, "blog": ["odwolanie-od-decyzji-administracyjnej"], "ob": "prawo-administracyjne"},
+  {"f": "admin", "law": "art. 53 § 1 p.p.s.a.", "t": "Chcę zaskarżyć decyzję do WSA", "d": "Pobyt cudzoziemców, prawo jazdy, koncesje, kary administracyjne.", "v": "30", "u": "dni", "em": "na skargę do WSA", "area": 4, "blog": ["skarga-do-wsa"], "ob": "prawo-administracyjne"},
+  {"f": "rodzinne", "law": "art. 56 k.r.o.", "t": "Rozwód i podział majątku", "d": "Z orzekaniem o winie i bez, mieszkanie, kredyt, firma.", "v": "1", "u": "konsultacja", "em": "by poznać koszt i czas trwania", "area": 5, "blog": ["pozew-o-rozwod", "ile-trwa-rozwod"], "ob": "prawo-rodzinne"},
+  {"f": "rodzinne", "law": "art. 133 k.r.o.", "t": "Alimenty i kontakty z dziećmi", "d": "Ustalenie, podwyższenie, obniżenie, zabezpieczenie na czas sprawy.", "v": "1", "u": "konsultacja", "em": "by ocenić sytuację i dowody", "area": 6, "blog": ["alimenty-na-dziecko"], "ob": "prawo-rodzinne"},
+  {"f": "cywilne", "law": "k.p.c.", "t": "Dostałem nakaz zapłaty z sądu", "d": "Nakaz się uprawomocni, jeśli nie wniesiesz sprzeciwu w terminie.", "v": "2", "u": "tygodnie", "em": "na sprzeciw w postępowaniu upominawczym", "area": 7, "blog": ["sprzeciw-od-nakazu-zaplaty"], "ob": "prawo-cywilne"},
+  {"f": "cywilne", "law": "art. 767 § 4 k.p.c.", "t": "Komornik zajął konto lub wynagrodzenie", "d": "Skarga na czynność komornika, sprawdzenie tytułu wykonawczego.", "v": "1", "u": "tydzień", "em": "na skargę na czynność komornika", "area": 7, "blog": [], "ob": "prawo-egzekucyjne-i-windykacja-naleznosc"},
+]
+FILTRY = [("all", "Wszystkie"), ("karne", "Karne"), ("podatkowe", "Podatkowe"), ("admin", "Administracyjne"), ("rodzinne", "Rodzinne"), ("cywilne", "Cywilne")]
+
+# kalkulator terminu: (id, nazwa, dni, ustawa, przepis o terminie)
+KALKULATOR = [
+  ("wn", "Sprzeciw od wyroku nakazowego", 7, "kpk", "art. 506 § 1 k.p.k."),
+  ("zk", "Zażalenie w sprawie karnej", 7, "kpk", "art. 460 k.p.k."),
+  ("ak", "Apelacja w sprawie karnej", 14, "kpk", "art. 445 § 1 k.p.k."),
+  ("od", "Odwołanie od decyzji", 14, "kpa", "art. 129 § 2 k.p.a."),
+  ("zp", "Zażalenie na postanowienie urzędu", 7, "kpa", "art. 141 § 2 k.p.a."),
+  ("ws", "Skarga do WSA", 30, "ppsa", "art. 53 § 1 p.p.s.a."),
+]
+
+# ---------- /obszar-dzialania/ ----------
+DLA = {  # o = osoby prywatne, f = firmy
+  "prawo-cywilne": "o f", "prawo-karne": "o f", "prawo-administracyjne": "o f", "prawo-rodzinne": "o",
+  "prawo-rolne-i-przetworstwa-rolnego": "f", "prawo-egzekucyjne-i-windykacja-naleznosc": "o f",
+  "prawo-obrotu-nieruchomosciami": "o f", "prawo-zamowien-publicznych-i-pomocy-publicznej": "f", "prawo-gospodarcze-i-handlowe": "f",
+}
+# terminy na stronie zbiorczej: (slug obszaru, indeks terminu w OBSZARY[...]["terms"])
+TERMINY_ZBIORCZE = [("prawo-karne", 0), ("prawo-administracyjne", 0), ("prawo-administracyjne", 2), ("prawo-cywilne", 1), ("prawo-gospodarcze-i-handlowe", 0), ("prawo-zamowien-publicznych-i-pomocy-publicznej", 0)]
