@@ -70,6 +70,10 @@ jobs:
             bye" > "$RUNNER_TEMP/lftp.log" 2>&1
           code=$?
           grep -v -i "PASS " "$RUNNER_TEMP/lftp.log" | tail -n 40
+          # Krótki raport z wysyłki widoczny w API (adnotacje): ile plików poszło i czy index.html był wśród nich
+          wyslane=$(grep -c -i "^Transferring file\|^put: \|-> " "$RUNNER_TEMP/lftp.log" || true)
+          glowna=$(grep -i "index.html" "$RUNNER_TEMP/lftp.log" | grep -v -i "pass " | head -n 5 | tr '\n' ' ' | cut -c1-600)
+          echo "::notice title=Wysyłka FTPS::kod=$code; wierszy o plikach=$wyslane; index.html: ${glowna:-brak w logu}"
           if [ $code -ne 0 ]; then
             msg=$(grep -v -i "PASS \|WARNING: Certificate" "$RUNNER_TEMP/lftp.log" | grep -E "^<--- [45]|rror|mirror:|Fatal|Access|denied|put:" | tail -n 15 | sed ':a;N;$!ba;s/%/%25/g;s/\r//g;s/\n/%0A/g')
             echo "::error title=lftp::$msg"
