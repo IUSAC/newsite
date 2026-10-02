@@ -264,9 +264,9 @@ select{color-scheme:dark}
 footer{background:var(--night);color:rgba(255,255,255,.6);font-size:13px;border-top:1px solid rgba(255,255,255,.12)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-block:28px 96px}
 @media (min-width:901px){footer .wrap{padding-block:28px}}
-.big-mark{padding-block:48px 0}
+.big-mark{padding-block:48px 0;width:100%}
 .big-mark svg{display:block;width:100%;height:auto;max-width:100%}
-.big-mark text{font-family:var(--display);font-stretch:125%;font-weight:800;fill:#fff}
+.big-mark text{font-family:var(--display);font-stretch:112%;font-weight:500;letter-spacing:.01em;fill:#fff}
 .big-mark tspan{fill:var(--green)}
 .big-mark .sub{font-family:var(--mono);font-weight:400;font-stretch:100%;fill:rgba(255,255,255,.62)}
 
