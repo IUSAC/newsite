@@ -177,13 +177,14 @@ OBSZARY = [
     "slug": "prawo-obrotu-nieruchomosciami", "n": "07", "name": "Prawo obrotu nieruchomościami", "h1": ("prawo", "nieruchomości"),
     "lead": "Zakup, sprzedaż, najem i dzierżawa: analiza stanu prawnego, projekty umów, negocjacje i spory dotyczące nieruchomości.",
     "desc": "Prawo nieruchomości w Opolu i online: analiza stanu prawnego, umowy sprzedaży, najmu i dzierżawy, negocjacje, spory o nieruchomości.",
-    "chips": ["Stan prawny", "Umowy", "Najem i dzierżawa", "Spory"],
+    "chips": ["Stan prawny", "Umowy", "Najem i dzierżawa", "Spory", "Księga wieczysta"],
     "topics": [
       ("Analiza stanu prawnego", "Księga wieczysta, obciążenia, roszczenia osób trzecich."),
       ("Zakup i sprzedaż", "Umowy przedwstępne, negocjacje, reprezentacja przy transakcji."),
       ("Obciążenia", "Hipoteka, służebność, użytkowanie."),
       ("Najem i dzierżawa", "Projekty i opinie umów, ich wykonanie, roszczenia stron."),
       ("Spory o nieruchomości", "Postępowania sądowe, administracyjne i sądowoadministracyjne."),
+      ("Uzgodnienie treści księgi wieczystej", "Powództwo o uzgodnienie treści księgi wieczystej z rzeczywistym stanem prawnym."),
     ],
     "terms_title": "Warto wiedzieć przed transakcją",
     "terms": [
