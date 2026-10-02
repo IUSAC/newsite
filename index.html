@@ -595,6 +595,8 @@ a.person:hover .call .arr{transform:translateX(4px)}
 /* wyróżnione słowo: jeden zielony #adff23 – na jasnym tle podkreślenie, na ciemnym zielony tekst */
 .hl{color:inherit}
 .dark .hl,.ko-hero .hl,.ko-cta .hl,.od-hero .hl{color:inherit}
+/* Telefon: wyróżnione słowa nagłówków w czarnych modułach na zielono (polecenie właściciela 02.10.2026) */
+@media (max-width:900px){.dark h2 .hl{color:var(--green)}}
 </style>
 </head>
 <body>
@@ -711,7 +713,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
       <div class="c-left">
        <div class="c-intro">
         <span class="label"><span class="dot"></span>Kontakt</span>
-        <h2 style="margin-top:18px">Kontakt z <span class="hl">kancelarią</span></h2>
+        <h2 style="margin-top:18px">Kontakt <span class="hl">z&nbsp;kancelarią</span></h2>
         <p style="margin-top:20px;color:rgba(255,255,255,.72);max-width:44ch">Trzy pola i zdjęcie dokumentu. Oddzwonimy w dni robocze.</p>
        </div>
        <div class="c-data">
