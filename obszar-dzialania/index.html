@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b0d0c">
 <title>Obszar działania – PKW Adwokaci, Opole</title>
-<meta name="description" content="Dziewięć dziedzin prawa: karne, cywilne, administracyjne, rodzinne, gospodarcze, nieruchomości, zamówienia publiczne, windykacja i prawo rolne. Dla osób prywatnych i firm, w Opolu i online.">
+<meta name="description" content="Dziewięć dziedzin prawa: karne, cywilne, administracyjne, rodzinne, gospodarcze, nieruchomości, zamówienia publiczne, windykacja, prawo rolne. Opole i online.">
 <link rel="canonical" href="https://lawyerai.pl/obszar-dzialania/">
 <meta property="og:title" content="Obszar działania – PKW Adwokaci, Opole">
-<meta property="og:description" content="Dziewięć dziedzin prawa: karne, cywilne, administracyjne, rodzinne, gospodarcze, nieruchomości, zamówienia publiczne, windykacja i prawo rolne. Dla osób prywatnych i firm, w Opolu i online.">
+<meta property="og:description" content="Dziewięć dziedzin prawa: karne, cywilne, administracyjne, rodzinne, gospodarcze, nieruchomości, zamówienia publiczne, windykacja, prawo rolne. Opole i online.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lawyerai.pl/obszar-dzialania/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,7 +52,7 @@ p{margin:0}
 /* Header */
 header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px}
-.logo{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:20px;letter-spacing:-.01em;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:20px;letter-spacing:-.01em;text-decoration:none;display:flex;align-items:center;gap:10px;min-height:44px}
 .logo i{width:12px;height:12px;background:var(--green);display:inline-block}
 .logo .bar{width:3px;height:1em;background:var(--green);display:inline-block}
 .menu{display:flex;gap:28px;font-size:14px;font-weight:500}
@@ -720,6 +720,8 @@ a.topic:hover .more .arr{transform:translateX(4px)}
 .others{display:flex;flex-wrap:wrap;gap:8px}
 .others a{font:500 14px var(--body);border:1px solid var(--line);padding:10px 16px;min-height:44px;display:inline-flex;align-items:center;text-decoration:none;color:var(--ink);white-space:nowrap;transition:border-color .2s,background .2s}
 .others a:hover{border-color:var(--ink)}
+.btn.ghost-ink{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.btn.ghost-ink:hover{background:var(--ink);color:#fff}
 .others a[aria-current="page"]{background:var(--ink);color:#fff;border-color:var(--ink)}
 
 /* o kancelarii */
@@ -1224,7 +1226,7 @@ a.term:hover .go{color:var(--green)}
 <nav class="mbar" aria-label="Szybki kontakt">
   <a class="mb-call" href="tel:+48774143669"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg><span>Zadzwoń</span></a>
   <a class="mb-mail" href="mailto:biuro@pkwadwokaci.pl"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 5.5h18v13H3z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="m3.5 6 8.5 7 8.5-7"/></svg>E-mail</a>
-  <a class="mb-map" href="https://www.google.com/maps/search/?api=1&query=Pola%C5%84ski%20Konofalski%20i%20Wsp%C3%B3lnicy%2C%20ul.%20Ko%C5%82%C5%82%C4%85taja%2011%2C%2045-064%20Opole" target="_blank" rel="noopener" data-apple="https://maps.apple.com/?q=PKW%20Adwokaci&amp;address=ul.%20Ko%C5%82%C5%82%C4%85taja%2011%2C%2045-064%20Opole"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span>Mapa</span></a>
+  <a class="mb-wa" href="https://wa.me/48608301225" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 0 1 0 16.4c-1.5 0-2.9-.4-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zm-3.3 4.4c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5 0 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3l-1.9-.9c-.3-.1-.4-.1-.6.1l-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5L9.4 8.5c-.2-.4-.3-.4-.5-.4h-.2z"/></svg><span>WhatsApp</span></a>
 </nav>
 <script>(function(){var m=document.querySelector('.mbar .mb-map');if(m&&/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)&&('ontouchend' in document)){m.href=m.dataset.apple};document.querySelectorAll('a[data-apple]:not(.mb-map)').forEach(function(a){if(/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)&&('ontouchend' in document))a.href=a.dataset.apple})})();
 (function(){var bg=document.getElementById('burger'),mn=document.getElementById('menu');if(!bg)return;bg.addEventListener('click',function(){var o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)});mn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('open');bg.setAttribute('aria-expanded','false')})})})();
@@ -1254,5 +1256,6 @@ function edge(){fb.classList.toggle('is-end',fb.scrollLeft+fb.clientWidth>=fb.sc
   t.addEventListener('dragstart',function(e){e.preventDefault()});
 })();
 </script>
+<script src="../assets/pomiar.js" defer></script>
 </body>
 </html>

@@ -92,6 +92,8 @@ a.topic:hover .more .arr{transform:translateX(4px)}
 .others{display:flex;flex-wrap:wrap;gap:8px}
 .others a{font:500 14px var(--body);border:1px solid var(--line);padding:10px 16px;min-height:44px;display:inline-flex;align-items:center;text-decoration:none;color:var(--ink);white-space:nowrap;transition:border-color .2s,background .2s}
 .others a:hover{border-color:var(--ink)}
+.btn.ghost-ink{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.btn.ghost-ink:hover{background:var(--ink);color:#fff}
 .others a[aria-current="page"]{background:var(--ink);color:#fff;border-color:var(--ink)}
 
 /* o kancelarii */
@@ -273,12 +275,13 @@ def page(pre, path, title, desc, body, ld, current=None, extra_js="", slider=Fal
 <nav class="mbar" aria-label="Szybki kontakt">
   <a class="mb-call" href="tel:+48774143669"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg><span>Zadzwoń</span></a>
   <a class="mb-mail" href="mailto:biuro@pkwadwokaci.pl"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 5.5h18v13H3z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="m3.5 6 8.5 7 8.5-7"/></svg>E-mail</a>
-  <a class="mb-map" href="{MAPS}" target="_blank" rel="noopener" data-apple="{APPLE}"><svg viewBox="0 0 24 24" aria-hidden="true">{ICON["pin"]}</svg><span>Mapa</span></a>
+  <a class="mb-wa" href="https://wa.me/48608301225" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 0 1 0 16.4c-1.5 0-2.9-.4-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zm-3.3 4.4c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5 0 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3l-1.9-.9c-.3-.1-.4-.1-.6.1l-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5L9.4 8.5c-.2-.4-.3-.4-.5-.4h-.2z"/></svg><span>WhatsApp</span></a>
 </nav>
 <script>(function(){{var m=document.querySelector('.mbar .mb-map');if(m&&/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)&&('ontouchend' in document)){{m.href=m.dataset.apple}};document.querySelectorAll('a[data-apple]:not(.mb-map)').forEach(function(a){{if(/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)&&('ontouchend' in document))a.href=a.dataset.apple}})}})();
 (function(){{var bg=document.getElementById('burger'),mn=document.getElementById('menu');if(!bg)return;bg.addEventListener('click',function(){{var o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)}});mn.querySelectorAll('a').forEach(function(a){{a.addEventListener('click',function(){{mn.classList.remove('open');bg.setAttribute('aria-expanded','false')}})}})}})();
 (function(){{var o=document.querySelector('.others a[aria-current]');if(o&&o.parentNode.scrollWidth>o.parentNode.clientWidth)o.parentNode.scrollLeft=o.offsetLeft-20}})();
 {extra_js}</script>
+<script src="{pre}assets/pomiar.js" defer></script>
 </body>
 </html>
 """
@@ -416,7 +419,7 @@ def build_area(a):
     <div class="wrap">
       <span class="label"><span class="dot"></span>{nsec} · Inne obszary</span>
       <div class="others" style="margin-top:20px">{others}</div>
-      <p style="margin-top:20px"><a href="../" style="font-weight:600">Wszystkie obszary działania →</a></p>
+      <p style="margin-top:20px"><a href="../" class="btn ghost-ink">Wszystkie obszary działania <span class="arr">→</span></a></p>
     </div>
   </section>
 {cta(pre)}"""
@@ -427,7 +430,11 @@ def build_area(a):
             {"@type": "ListItem", "position": 3, "name": a["name"], "item": SITE + "/" + path}]},
         {"@type": "Service", "name": a["name"], "serviceType": a["name"], "areaServed": "PL", "description": a["lead"], "provider": PROVIDER},
         {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": t}} for q, t in a["faq"]]}]}
-    return path, page(pre, path, f"{a['name']} – adwokat Opole | PKW Adwokaci", a["desc"], body, ld)
+    # tytuł do ok. 65 znaków: przy długich nazwach obszarów bez końcówki „| PKW Adwokaci”
+    t = f"{a['name']} – adwokat Opole | PKW Adwokaci"
+    if len(t) > 65:
+        t = f"{a['name']} – adwokat Opole"
+    return path, page(pre, path, t, a["desc"], body, ld)
 
 # ---------- o kancelarii ----------
 def build_about():
@@ -573,7 +580,6 @@ def build_contact():
         <div><span>Nazwa</span><span>Polański Konofalski i&nbsp;Wspólnicy Spółka Partnerska Adwokatów</span></div>
         <div><span>Adres</span><span>ul. Ks. H. Kołłątaja 11 lok. 27 (II piętro), 45 - 064 Opole</span></div>
         <div><span>NIP</span><span>754-308-06-91</span></div>
-        <div><span>REGON</span><span>1611572964</span></div>
         <div><span>Numer konta</span><span>IBAN {iban} <button class="copy" type="button" data-copy="PL03114020170000410213066060">Kopiuj</button></span></div>
         <div><span>BIC</span><span>BREXPLPWMUL</span></div>
       </div>
@@ -1007,7 +1013,7 @@ def build_index():
         {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "PKW Adwokaci", "item": SITE + "/"}, {"@type": "ListItem", "position": 2, "name": "Obszar działania", "item": SITE + "/" + path}]},
         {"@type": "ItemList", "name": "Obszary działania", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": o["name"], "url": f"{SITE}/obszar-dzialania/{o['slug']}/"} for i, o in enumerate(OBSZARY)]},
         dict(PROVIDER, **{"@type": "LegalService", "knowsLanguage": ["pl", "en", "de"], "areaServed": "PL"})]}
-    return path, page(pre, path, "Obszar działania – PKW Adwokaci, Opole", "Dziewięć dziedzin prawa: karne, cywilne, administracyjne, rodzinne, gospodarcze, nieruchomości, zamówienia publiczne, windykacja i prawo rolne. Dla osób prywatnych i firm, w Opolu i online.", body, ld, extra_js=js, slider=True)
+    return path, page(pre, path, "Obszar działania – PKW Adwokaci, Opole", "Dziewięć dziedzin prawa: karne, cywilne, administracyjne, rodzinne, gospodarcze, nieruchomości, zamówienia publiczne, windykacja, prawo rolne. Opole i online.", body, ld, extra_js=js, slider=True)
 
 def main():
     out = [build_situations(), build_index()] + [build_area(a) for a in OBSZARY] + [build_about(), build_contact()]

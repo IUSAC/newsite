@@ -23,10 +23,16 @@ jobs:
       - name: Pobierz kod strony
         uses: actions/checkout@v4
 
-      - name: Zainstaluj ffmpeg
+      - name: Sprawdź, czy są materiały do pobrania
+        id: materialy
+        run: echo "ile=$(python3 scripts/fetch_assets.py --pending)" >> "$GITHUB_OUTPUT"
+
+      - name: Zainstaluj ffmpeg (tylko gdy są materiały do pobrania; oszczędza ok. 20 min)
+        if: steps.materialy.outputs.ile != '0'
         run: command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
 
       - name: Pobierz i przygotuj materiały
+        if: steps.materialy.outputs.ile != '0'
         run: python3 scripts/fetch_assets.py
 
       - name: Zapisz nowe pliki w repozytorium

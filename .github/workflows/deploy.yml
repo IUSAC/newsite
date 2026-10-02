@@ -27,12 +27,21 @@ jobs:
       - name: Zbuduj blog (wpisy zaplanowane na dziś i wcześniej)
         run: TZ=Europe/Warsaw python3 scripts/build_blog.py
 
-      - name: Zainstaluj ffmpeg
+      - name: Sprawdź, czy są materiały do pobrania
+        id: materialy
+        run: echo "ile=$(python3 scripts/fetch_assets.py --pending)" >> "$GITHUB_OUTPUT"
+
+      - name: Zainstaluj ffmpeg (tylko gdy są materiały do pobrania; oszczędza ok. 20 min)
+        if: steps.materialy.outputs.ile != '0'
         run: command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
 
       - name: Pobierz brakujące materiały z Higgsfield
+        if: steps.materialy.outputs.ile != '0'
         continue-on-error: true
         run: python3 scripts/fetch_assets.py
+
+      - name: Sprawdź stronę przed publikacją (linki, meta, tytuły)
+        run: python3 scripts/check_site.py
 
       - name: Zainstaluj lftp
         run: sudo apt-get update && sudo apt-get install -y lftp

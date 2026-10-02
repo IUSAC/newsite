@@ -48,9 +48,23 @@ def process(item, src):
     return out
 
 
+def pending(manifest):
+    """Pozycje z adresem url, których pliku jeszcze nie ma (albo mają force)."""
+    out = []
+    for item in manifest.get("assets", []):
+        target = os.path.join(ROOT, item["file"])
+        if item.get("url") and (not os.path.exists(target) or item.get("force")):
+            out.append(item["file"])
+    return out
+
+
 def main():
     with open(os.path.join(ROOT, "assets.json"), encoding="utf-8") as f:
         manifest = json.load(f)
+    if "--pending" in sys.argv:
+        # tylko liczba brakujących plików (automat instaluje ffmpeg wyłącznie, gdy > 0)
+        print(len(pending(manifest)))
+        return
     changed, failed = [], []
     for item in manifest.get("assets", []):
         target = os.path.join(ROOT, item["file"])
