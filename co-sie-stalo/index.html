@@ -1081,6 +1081,9 @@ a.term:hover .go{color:var(--green)}
   .calc-out{padding:20px 18px}
   .strip{grid-template-columns:repeat(7,minmax(0,1fr))}
 }
+
+/* bardzo wąskie telefony (do 380 px): długie wyrazy w nagłówkach nie rozpychają strony */
+@media (max-width:380px){h1,h2,h3{overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto}main h2,main .s-head h2{font-size:28px}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "PKW Adwokaci", "item": "https://lawyerai.pl/"}, {"@type": "ListItem", "position": 2, "name": "Co się stało?", "item": "https://lawyerai.pl/co-sie-stalo/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Od kiedy liczy się termin?", "acceptedAnswer": {"@type": "Answer", "text": "Zwykle od doręczenia pisma. Dnia doręczenia nie wliczasz, a gdy ostatni dzień wypada w sobotę lub święto, termin kończy się w najbliższym dniu roboczym."}}, {"@type": "Question", "name": "Termin minął. Czy coś jeszcze można zrobić?", "acceptedAnswer": {"@type": "Answer", "text": "Czasem tak. Można wnieść o przywrócenie terminu w ciągu 7 dni od ustania przyczyny, jednocześnie składając spóźnione pismo (art. 58 k.p.a., art. 126 § 1 k.p.k.)."}}]}]}</script>
 </head>

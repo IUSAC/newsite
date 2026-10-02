@@ -740,6 +740,9 @@ CSS_LISTY_MEDIA = r"""
   .calc-out{padding:20px 18px}
   .strip{grid-template-columns:repeat(7,minmax(0,1fr))}
 }
+
+/* bardzo wąskie telefony (do 380 px): długie wyrazy w nagłówkach nie rozpychają strony */
+@media (max-width:380px){h1,h2,h3{overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto}main h2,main .s-head h2{font-size:28px}}
 """
 
 def slider_section(pre):

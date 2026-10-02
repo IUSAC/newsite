@@ -511,6 +511,9 @@ input[type=date]{-webkit-appearance:none;appearance:none;min-width:0;max-width:1
 input[type=date]::-webkit-date-and-time-value{text-align:left}
 a,button,summary,label{-webkit-tap-highlight-color:rgba(173,255,35,.25)}
 .channels a{text-decoration:none}
+
+/* bardzo wąskie telefony (do 380 px): długie wyrazy w nagłówkach nie rozpychają strony */
+@media (max-width:380px){h1,h2,h3{overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto}main h2,main .s-head h2{font-size:28px}}
 </style>
 <title>Wezwanie na policję jako podejrzany – jak się przygotować</title>
 <meta name="description" content="Wezwanie na policję jako podejrzany: czy trzeba iść, co się dzieje na przesłuchaniu, jakie masz prawa, jak przygotować się krok po kroku. Przepisy k.p.k.">
