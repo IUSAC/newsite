@@ -4,3 +4,8 @@
     Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
 </IfModule>
+# Serwer (LiteSpeed na Seohost) nie zapamiętuje gotowych stron – po publikacji od razu widać nową wersję.
+<IfModule LiteSpeed>
+  CacheDisable public /
+  CacheDisable private /
+</IfModule>
