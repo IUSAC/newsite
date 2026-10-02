@@ -440,8 +440,8 @@ def build_area(a):
 def build_about():
     pre = "../"; path = "o-kancelarii/"
     team = ""
-    for name, role, ini, img in ZESPOL:
-        team += f'<a class="person" href="tel:+48774143669" aria-label="Zadzwoń: {E(name)}, tel. 77 414 36 69"><div class="portrait has-photo" style="background-image:url({pre}assets/{img})"><span class="ini">{ini}</span><span class="pl">adwokat · Opole</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>{E(name)}</h3><span>{E(role)}</span><span class="sample-note">Zdjęcie poglądowe</span></div></div><span class="call" aria-hidden="true">Zadzwoń <span class="arr">→</span></span></a>'
+    for name, role, ini, img, pl in ZESPOL:
+        team += f'<a class="person" href="tel:+48774143669" aria-label="Zadzwoń: {E(name)}, tel. 77 414 36 69"><div class="portrait has-photo" style="background-image:url({pre}assets/{img})"><span class="ini">{ini}</span><span class="pl">{E(pl)}</span><span class="sample">Zdjęcie poglądowe</span></div><div class="meta"><div><h3>{E(name)}</h3><span>{E(role)}</span><span class="sample-note">Zdjęcie poglądowe</span></div></div><span class="call" aria-hidden="true">Zadzwoń <span class="arr">→</span></span></a>'
     areas = "".join(f'<a class="topic" href="{pre}obszar-dzialania/{o["slug"]}/"><span class="tn">{o["n"]}</span><h3>{E(o["name"])}</h3><p>{E(o["lead"].split(". ")[0].rstrip("."))}.</p><span class="more">Zobacz <span class="arr">→</span></span></a>' for o in OBSZARY)
     body = f"""  <section class="ko-hero">
     <div class="wrap">
@@ -474,8 +474,8 @@ def build_about():
   <section class="s tint" id="zespol" style="background:var(--paper-2)">
     <div class="wrap">
       <div class="s-head">
-        <div><span class="label"><span class="dot"></span>02 · Adwokaci</span><h2 style="margin-top:18px"><span class="hl">Zespół</span></h2></div>
-        <p>Kliknij kartę, żeby zadzwonić do kancelarii.</p>
+        <div><span class="label"><span class="dot"></span>02 · Ludzie kancelarii</span><h2 style="margin-top:18px"><span class="hl">Zespół</span></h2></div>
+        <p>Adwokaci, radca prawny i&nbsp;asystentki. Kliknij kartę, żeby zadzwonić do kancelarii.</p>
       </div>
       <div class="team">{team}</div>
     </div>
@@ -506,7 +506,7 @@ def build_about():
 {cta(pre)}"""
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "PKW Adwokaci", "item": SITE + "/"}, {"@type": "ListItem", "position": 2, "name": "O kancelarii", "item": SITE + "/" + path}]},
-        {"@type": "AboutPage", "name": "O kancelarii", "url": SITE + "/" + path, "about": dict(PROVIDER, foundingDate="2014", knowsLanguage=["pl", "en", "de"], employee=[{"@type": "Person", "name": n.replace("adw. ", ""), "jobTitle": r} for n, r, _, _ in ZESPOL])}]}
+        {"@type": "AboutPage", "name": "O kancelarii", "url": SITE + "/" + path, "about": dict(PROVIDER, foundingDate="2014", knowsLanguage=["pl", "en", "de"], employee=[{"@type": "Person", "name": n.replace("adw. ", "").replace("r.pr. ", ""), "jobTitle": r} for n, r, _, _, _ in ZESPOL])}]}
     return path, page(pre, path, "O kancelarii – PKW Adwokaci, Opole", "Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów: kancelaria z Opola od 2014 roku. Zespół, zasady współpracy i obszary prawa.", body, ld, current="o-kancelarii")
 
 # ---------- kontakt ----------

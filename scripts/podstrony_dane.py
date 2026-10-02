@@ -254,10 +254,13 @@ OBSZARY = [
   },
 ]
 
-ZESPOL = [
-  ("adw. Bartosz Polański", "Partner", "BP", "team-portrait-1.jpg"),
-  ("adw. Marcin Konofalski", "Partner", "MK", "team-portrait-2.jpg"),
-  ("adw. Jolanta Konofalska", "Adwokat", "JK", "team-portrait-3.jpg"),
+ZESPOL = [  # (nazwa, rola, inicjały, zdjęcie, podpis na zdjęciu)
+  ("adw. Bartosz Polański", "Partner", "BP", "team-portrait-1.jpg", "adwokat · Opole"),
+  ("adw. Marcin Konofalski", "Partner", "MK", "team-portrait-2.jpg", "adwokat · Opole"),
+  ("adw. Liliana Trzaskoś", "Adwokat", "LT", "team-portrait-4.jpg", "adwokat · Opole"),
+  ("r.pr. Jolanta Konofalska", "Radca prawny", "JK", "team-portrait-3.jpg", "radca prawny · Opole"),
+  ("Julia Mysłek", "Asystent", "JM", "team-portrait-5.jpg", "asystent · Opole"),
+  ("Karolina Ochocka", "Asystent", "KO", "team-portrait-6.jpg", "asystent · Opole"),
 ]
 
 # ---------- /co-sie-stalo/ ----------

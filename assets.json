@@ -96,7 +96,7 @@
       "type": "image",
       "width": 900,
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260929_223410_8d5e1a09-1f42-448a-9c2f-f87f405474b8.png",
-      "note": "Zespół: portret poglądowy (AI), czarno-biały – adw. Jolanta Konofalska"
+      "note": "Zespół: portret poglądowy (AI), czarno-biały – r.pr. Jolanta Konofalska"
     },
     {
       "file": "assets/wyrok-7dni.jpg",
@@ -230,6 +230,27 @@
       "width": 1600,
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20260930_175511_34ad592f-19b9-4471-b24f-6662847672e1.png",
       "note": "Blog: okładka wpisu wezwanie-na-policje-jako-podejrzany (16:9)"
+    },
+    {
+      "file": "assets/team-portrait-4.jpg",
+      "type": "image",
+      "width": 900,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20261002_145758_5b494923-e338-477f-abef-17b2bcc36bfa.png",
+      "note": "Zespół: portret poglądowy (AI), czarno-biały – adw. Liliana Trzaskoś"
+    },
+    {
+      "file": "assets/team-portrait-5.jpg",
+      "type": "image",
+      "width": 900,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20261002_145757_eac1d01d-f6c4-405b-aafd-6a459cca73ac.png",
+      "note": "Zespół: portret poglądowy (AI), czarno-biały – Julia Mysłek"
+    },
+    {
+      "file": "assets/team-portrait-6.jpg",
+      "type": "image",
+      "width": 900,
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_37U4UX6BjOOzazpXncDOB70XpIs/hf_20261002_145758_f897f8c7-f31b-463b-a48d-a86bf456e076.png",
+      "note": "Zespół: portret poglądowy (AI), czarno-biały – Karolina Ochocka"
     }
   ],
   "_kolor": "Zielony akcent strony = #ADFF23 (jak lark.de). Grafiki i filmy mają zieleń przesuniętą ffmpeg hue=h=-73; ponowne pobranie z Higgsfield (force) przywróci starą zieleń."
