@@ -230,6 +230,7 @@ def page(pre, path, title, desc, body, ld, current=None, extra_js="", slider=Fal
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b0d0c">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
 <title>{E(title)}</title>
 <meta name="description" content="{E(desc)}">
 <link rel="canonical" href="{SITE}/{path}">

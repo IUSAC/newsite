@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b0d0c">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
 <title>Adwokat Opole – sprawy karne, rodzinne, podatkowe | PKW Adwokaci</title>
 <meta name="description" content="Adwokat Opole – Polański Konofalski i Wspólnicy. Sprawy karne, skarbowe, administracyjne, rodzinne i cywilne. Pismo z sądu? Sprawdź termin i kroki. Online w całej Polsce.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +46,7 @@ p{margin:0}
 :focus-visible{outline:2px solid var(--green);outline-offset:3px}
 
 /* Header */
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px}
 .logo{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:20px;letter-spacing:-.01em;text-decoration:none;display:flex;align-items:center;gap:10px;min-height:44px}
 .logo i{width:12px;height:12px;background:var(--green);display:inline-block}
@@ -508,7 +509,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
 .ab-card::after{content:"";position:absolute;left:0;bottom:0;height:4px;width:0;background:var(--green);transition:width .35s}
 .ab-n{font-family:var(--mono);font-size:12px;color:var(--green-ink)}
 .ab-law{position:absolute;right:20px;top:22px;font-family:var(--mono);font-size:11px;color:var(--ink-2)}
-.ab-card strong small{display:block;font-family:var(--body);font-stretch:100%;font-size:15px;font-weight:600;letter-spacing:0;line-height:1.25;margin-top:4px;color:var(--ink-2);hyphens:auto}
+.ab-card strong small{display:block;font-family:var(--body);font-stretch:100%;font-size:15px;font-weight:600;letter-spacing:0;line-height:1.25;margin-top:4px;color:var(--ink-2);-webkit-hyphens:auto;hyphens:auto}
 .ab-card strong{font-family:var(--display);font-stretch:112%;font-size:24px;line-height:1.1;letter-spacing:-.01em}
 .ab-d{color:var(--ink-2);font-size:15px;line-height:1.45}
 .ab-arr{position:absolute;left:20px;bottom:18px;width:24px;height:24px;color:var(--ink);transition:transform .3s}
@@ -601,6 +602,13 @@ a.person:hover .call .arr{transform:translateX(4px)}
 .dark .hl,.ko-hero .hl,.ko-cta .hl,.od-hero .hl{color:inherit}
 /* Telefon i komputer: wyróżnione słowa nagłówków w czarnych modułach na zielono (polecenie właściciela 02.10.2026) */
 .dark h2 .hl{color:var(--green)}
+
+/* Safari / iOS: stała wielkość tekstu przy obrocie telefonu, rozmycie nagłówka, pola daty, łamanie wyrazów */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+input[type=date]{-webkit-appearance:none;appearance:none;min-width:0;max-width:100%;display:block}
+input[type=date]::-webkit-date-and-time-value{text-align:left}
+a,button,summary,label{-webkit-tap-highlight-color:rgba(173,255,35,.25)}
+.channels a{text-decoration:none}
 </style>
 </head>
 <body>
@@ -725,9 +733,9 @@ a.person:hover .call .arr{transform:translateX(4px)}
        </div>
        <div class="c-data">
         <div class="channels">
-          <div><span>Telefon</span><span>+48 77 414 36 69<br>+48 608 301 225</span></div>
-          <div><span>WhatsApp</span><span>+48 608 301 225</span></div>
-          <div><span>E-mail</span><span>biuro@pkwadwokaci.pl</span></div>
+          <div><span>Telefon</span><span><a href="tel:+48774143669">+48 77 414 36 69</a><br><a href="tel:+48608301225">+48 608 301 225</a></span></div>
+          <div><span>WhatsApp</span><span><a href="https://wa.me/48608301225" target="_blank" rel="noopener">+48 608 301 225</a></span></div>
+          <div><span>E-mail</span><span><a href="mailto:biuro@pkwadwokaci.pl">biuro@pkwadwokaci.pl</a></span></div>
           <div><span>Adres</span><span>ul. Ks. H. Kołłątaja 11 lok. 27 (II piętro)<br>45 - 064 Opole</span></div>
         </div>
         <div class="label" style="margin-top:36px"><span class="dot"></span>Dane kancelarii</div>

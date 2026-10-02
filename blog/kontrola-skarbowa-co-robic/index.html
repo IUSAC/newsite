@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b0d0c">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -43,7 +44,7 @@ p{margin:0}
 :focus-visible{outline:2px solid var(--green);outline-offset:3px}
 
 /* Header */
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px}
 .logo{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:20px;letter-spacing:-.01em;text-decoration:none;display:flex;align-items:center;gap:10px;min-height:44px}
 .logo i{width:12px;height:12px;background:var(--green);display:inline-block}
@@ -503,6 +504,13 @@ a.person:hover .call .arr{transform:translateX(4px)}
 .oa-go .arr{transition:transform .2s}.oa-go:hover .arr{transform:translateX(4px)}
 @media (max-width:1000px){.oa-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.oa-grid{grid-template-columns:1fr;border-left:0}.oa{border-right:0;padding:22px 0}.why{grid-template-columns:1fr}.od-hero{padding-block:96px 48px}}
+
+/* Safari / iOS: stała wielkość tekstu przy obrocie telefonu, rozmycie nagłówka, pola daty, łamanie wyrazów */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+input[type=date]{-webkit-appearance:none;appearance:none;min-width:0;max-width:100%;display:block}
+input[type=date]::-webkit-date-and-time-value{text-align:left}
+a,button,summary,label{-webkit-tap-highlight-color:rgba(173,255,35,.25)}
+.channels a{text-decoration:none}
 </style>
 <title>Kontrola skarbowa – co robić? Pierwsze kroki | PKW Adwokaci</title>
 <meta name="description" content="Kontrola skarbowa w firmie: czym różni się kontrola podatkowa od celno-skarbowej, co zrobić po zawiadomieniu, jakie masz prawa i terminy po protokole.">
