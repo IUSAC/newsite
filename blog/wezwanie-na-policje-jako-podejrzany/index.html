@@ -278,6 +278,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
 .big-mark text{font-family:var(--display);font-stretch:112%;font-weight:500;letter-spacing:.01em;fill:#fff}
 .big-mark tspan{fill:var(--green)}
 .big-mark .sub{font-family:var(--mono);font-weight:400;font-stretch:100%;fill:rgba(255,255,255,.62)}
+.big-mark{container-type:inline-size}
+.bm-sub{display:flex;justify-content:space-between;align-items:baseline;margin-left:47.9%;width:52.1%;margin-top:6px;font-family:var(--mono);font-weight:400;font-size:clamp(6px,1.1vw,13px);font-size:2cqw;line-height:1.2;color:rgba(255,255,255,.62);white-space:nowrap;text-transform:uppercase}
+.bm-sub span,.bm-sub i{display:block;font-style:normal}
+.bm-sub i{width:.35em}
+
 
 /* Mobile action bar */
 .mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;grid-template-columns:repeat(3,1fr);background:var(--ink);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -285,8 +290,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
 .mbar a svg{width:22px;height:22px;display:block}
 .mbar a.mb-call{background:var(--ink);color:var(--green);border:0;box-shadow:inset 0 0 0 1.5px var(--green);margin:6px 0 6px 6px}
 .mbar a.mb-mail svg{color:#fff}
-.mbar a.mb-wa{border:0}
-.mbar a.mb-wa svg{color:#fff}
+.mbar a.mb-map{border:0}
+.mbar a.mb-map svg{color:#fff}
 .mbar a:active{filter:brightness(.9)}
 @media (max-width:900px){.mbar{display:grid}}
 
@@ -760,7 +765,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
 </article>
 </main>
 <footer>
-  <div class="wrap"><div class="big-mark"><svg viewBox="0 0 1000 150" role="img" aria-label="Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów"><text x="0" y="104" font-size="128" textLength="1000" lengthAdjust="spacingAndGlyphs">POLAŃSKI<tspan> | </tspan>KONOFALSKI</text><text class="sub" x="1000" y="142" text-anchor="end" font-size="20" letter-spacing="3.5">I WSPÓLNICY SPÓŁKA PARTNERSKA ADWOKATÓW</text></svg><script>/* podtytuł logo na szerokość nazwiska KONOFALSKI */(function(){var m=document.currentScript.parentNode,t=m.querySelector('text'),s=m.querySelector('.sub');if(!t||!s)return;function fit(){try{var i=t.textContent.indexOf('KONOFALSKI');if(i<0)return;var a=t.getStartPositionOfChar(i).x,b=t.getEndPositionOfChar(t.getNumberOfChars()-1).x;s.removeAttribute('letter-spacing');s.setAttribute('text-anchor','start');s.setAttribute('x',a.toFixed(1));s.setAttribute('textLength',(b-a).toFixed(1));s.setAttribute('lengthAdjust','spacing')}catch(e){}}fit();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit)})();</script></div></div>
+  <div class="wrap"><div class="big-mark"><svg viewBox="0 0 1000 118" role="img" aria-label="Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów"><text x="0" y="104" font-size="128" textLength="1000" lengthAdjust="spacingAndGlyphs">POLAŃSKI<tspan> | </tspan>KONOFALSKI</text></svg><div class="bm-sub" aria-hidden="true"><span>I</span><i></i><span>W</span><span>S</span><span>P</span><span>Ó</span><span>L</span><span>N</span><span>I</span><span>C</span><span>Y</span><i></i><span>S</span><span>P</span><span>Ó</span><span>Ł</span><span>K</span><span>A</span><i></i><span>P</span><span>A</span><span>R</span><span>T</span><span>N</span><span>E</span><span>R</span><span>S</span><span>K</span><span>A</span><i></i><span>A</span><span>D</span><span>W</span><span>O</span><span>K</span><span>A</span><span>T</span><span>Ó</span><span>W</span></div><script>/* podtytuł logo na szerokość nazwiska KONOFALSKI */(function(){var m=document.currentScript.parentNode,t=m.querySelector('text'),s=m.querySelector('.bm-sub');if(!t||!s)return;function fit(){try{var i=t.textContent.indexOf('KONOFALSKI');if(i<0)return;var a=t.getStartPositionOfChar(i).x,b=t.getEndPositionOfChar(t.getNumberOfChars()-1).x;if(b-a<300)return;s.style.marginLeft=(a/10).toFixed(2)+'%';s.style.width=((b-a)/10).toFixed(2)+'%'}catch(e){}}fit();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);addEventListener('load',fit)})();</script></div></div>
   <div class="wrap">
     <span>© 2026 Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów · ul. Ks. H. Kołłątaja 11 lok. 27 (II piętro), 45 - 064 Opole</span>
     <span>Polityka prywatności · Informacje zgodne z § 23 Kodeksu Etyki Adwokackiej</span>
@@ -770,7 +775,7 @@ a.person:hover .call .arr{transform:translateX(4px)}
 <nav class="mbar" aria-label="Szybki kontakt">
   <a class="mb-call" href="tel:+48774143669"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg><span>Zadzwoń</span></a>
   <a class="mb-mail" href="mailto:biuro@pkwadwokaci.pl"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 5.5h18v13H3z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="m3.5 6 8.5 7 8.5-7"/></svg>E-mail</a>
-  <a class="mb-wa" href="https://wa.me/48608301225" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 0 1 0 16.4c-1.5 0-2.9-.4-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zm-3.3 4.4c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5 0 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3l-1.9-.9c-.3-.1-.4-.1-.6.1l-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5L9.4 8.5c-.2-.4-.3-.4-.5-.4h-.2z"/></svg><span>WhatsApp</span></a>
+  <a class="mb-map" href="https://www.google.com/maps/search/?api=1&query=Pola%C5%84ski%20Konofalski%20i%20Wsp%C3%B3lnicy%2C%20ul.%20Ko%C5%82%C5%82%C4%85taja%2011%2C%2045-064%20Opole" target="_blank" rel="noopener" data-apple="https://maps.apple.com/?q=PKW%20Adwokaci&amp;address=ul.%20Ko%C5%82%C5%82%C4%85taja%2011%2C%2045-064%20Opole"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span>Mapa</span></a>
 </nav>
 <script>(function(){var m=document.querySelector('.mbar .mb-map');if(m&&/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)&&('ontouchend' in document)){m.href=m.dataset.apple}})();</script>
 <script>

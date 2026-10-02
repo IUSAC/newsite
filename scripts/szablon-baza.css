@@ -270,6 +270,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
 .big-mark text{font-family:var(--display);font-stretch:112%;font-weight:500;letter-spacing:.01em;fill:#fff}
 .big-mark tspan{fill:var(--green)}
 .big-mark .sub{font-family:var(--mono);font-weight:400;font-stretch:100%;fill:rgba(255,255,255,.62)}
+.big-mark{container-type:inline-size}
+.bm-sub{display:flex;justify-content:space-between;align-items:baseline;margin-left:47.9%;width:52.1%;margin-top:6px;font-family:var(--mono);font-weight:400;font-size:clamp(6px,1.1vw,13px);font-size:2cqw;line-height:1.2;color:rgba(255,255,255,.62);white-space:nowrap;text-transform:uppercase}
+.bm-sub span,.bm-sub i{display:block;font-style:normal}
+.bm-sub i{width:.35em}
+
 
 /* Mobile action bar */
 .mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;grid-template-columns:repeat(3,1fr);background:var(--ink);padding-bottom:env(safe-area-inset-bottom,0px)}
