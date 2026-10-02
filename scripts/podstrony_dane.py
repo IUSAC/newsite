@@ -226,10 +226,11 @@ OBSZARY = [
   },
   {
     "slug": "prawo-gospodarcze-i-handlowe", "n": "09", "name": "Prawo gospodarcze i handlowe", "h1": ("prawo", "gospodarcze"),
-    "lead": "Spółki i przedsiębiorcy: zakładanie i likwidacja spółek, umowy wspólników, organy spółek, KRS, restrukturyzacja i upadłość.",
+    "lead": "Spółki i przedsiębiorcy: bieżąca obsługa prawna firm, zakładanie i likwidacja spółek, umowy wspólników, organy spółek, KRS, restrukturyzacja i upadłość.",
     "desc": "Prawo gospodarcze i handlowe w Opolu i online: spółki, umowy wspólników, KRS, zgromadzenia, likwidacja, upadłość i restrukturyzacja.",
-    "chips": ["Spółki", "KRS", "Wspólnicy", "Upadłość"],
+    "chips": ["Obsługa firm", "Spółki", "KRS", "Wspólnicy", "Upadłość"],
     "topics": [
+      ("Bieżąca obsługa prawna firm", "Kompleksowa bieżąca obsługa prawna podmiotów gospodarczych: umowy, opinie, reprezentacja."),
       ("Zakładanie spółek", "Spółki, oddziały i przedstawicielstwa."),
       ("Umowy wspólników", "Umowy między wspólnikami i akcjonariuszami."),
       ("Spory wspólników", "Spory między wspólnikami i akcjonariuszami."),
