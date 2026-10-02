@@ -94,9 +94,9 @@ OBSZARY = [
   },
   {
     "slug": "prawo-rodzinne", "n": "04", "name": "Prawo rodzinne", "h1": ("prawo", "rodzinne"),
-    "lead": "Rozwód i separacja, alimenty, kontakty z dziećmi, władza rodzicielska, ojcostwo i przysposobienie. Rzeczowo i poufnie.",
+    "lead": "Rozwód i separacja, alimenty, kontakty z dziećmi, władza rodzicielska, ojcostwo i przysposobienie, sprawy nieletnich. Rzeczowo i poufnie.",
     "desc": "Prawo rodzinne w Opolu i online: rozwód, alimenty, kontakty z dziećmi, władza rodzicielska, podział majątku. Podstawy prawne i przebieg współpracy.",
-    "chips": ["Rozwód", "Alimenty", "Kontakty", "Władza rodzicielska"],
+    "chips": ["Rozwód", "Alimenty", "Kontakty", "Władza rodzicielska", "Nieletni"],
     "topics": [
       ("Rozwód i separacja", "Z orzekaniem o winie i bez, unieważnienie małżeństwa."),
       ("Alimenty", "Ustalenie, zabezpieczenie na czas sprawy, podwyższenie i obniżenie."),
@@ -105,6 +105,7 @@ OBSZARY = [
       ("Ojcostwo", "Ustalenie i zaprzeczenie ojcostwa."),
       ("Przysposobienie, opieka, kuratela", "Sprawy opiekuńcze przed sądem rodzinnym."),
       ("Podział majątku", "Podział majątku wspólnego i zniesienie współwłasności."),
+      ("Demoralizacja nieletnich, czyny karalne", "Reprezentowanie rodziców i opiekunów w postępowaniu sądowym, obrona nieletnich w sprawach przed sądem."),
     ],
     "terms_title": "Przepisy, od których zaczyna się sprawa",
     "terms": [
