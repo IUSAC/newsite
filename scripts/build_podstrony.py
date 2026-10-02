@@ -262,7 +262,7 @@ def page(pre, path, title, desc, body, ld, current=None, extra_js="", slider=Fal
 {body}
 </main>
 <footer>
-  <div class="wrap"><div class="big-mark"><svg viewBox="0 0 1000 132" role="img" aria-label="PKW Adwokaci"><text x="0" y="118" font-size="150" textLength="1000" lengthAdjust="spacingAndGlyphs">PKW<tspan> | </tspan>ADWOKACI</text></svg></div>
+  <div class="wrap"><div class="big-mark"><svg viewBox="0 0 1000 150" role="img" aria-label="Polański Konofalski i Wspólnicy Spółka Partnerska Adwokatów"><text x="0" y="104" font-size="128" textLength="1000" lengthAdjust="spacingAndGlyphs">POLAŃSKI<tspan> | </tspan>KONOFALSKI</text><text class="sub" x="1000" y="142" text-anchor="end" font-size="20" letter-spacing="3.5">I WSPÓLNICY SPÓŁKA PARTNERSKA ADWOKATÓW</text></svg></div>
     <nav class="fnav" aria-label="Stopka">
       <a href="{pre}obszar-dzialania/">Obszar działania</a><a href="{pre}o-kancelarii/">O kancelarii</a><a href="{pre}konsultacje-online/">Konsultacje online</a><a href="{pre}co-sie-stalo/"{cur("co-sie-stalo")}>Moja sytuacja</a><a href="{pre}blog/">Blog</a><a href="{pre}kontakt/">Kontakt</a>
     </nav>
