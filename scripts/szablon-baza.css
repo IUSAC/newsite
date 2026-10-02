@@ -272,8 +272,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
 .big-mark .sub{font-family:var(--mono);font-weight:400;font-stretch:100%;fill:rgba(255,255,255,.62)}
 .big-mark{container-type:inline-size}
 .bm-sub{display:flex;justify-content:space-between;align-items:baseline;margin-left:47.9%;width:52.1%;margin-top:6px;font-family:var(--mono);font-weight:400;font-size:clamp(6px,1.1vw,13px);font-size:2cqw;line-height:1.2;color:rgba(255,255,255,.62);white-space:nowrap;text-transform:uppercase}
-.bm-sub span,.bm-sub i{display:block;font-style:normal}
-.bm-sub i{width:.35em}
+.bm-sub span,.bm-sub i{display:block;font-style:normal;flex:0 0 auto}
+.bm-sub i{width:.5em}
 
 
 /* Mobile action bar */
